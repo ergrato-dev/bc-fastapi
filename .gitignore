@@ -1,0 +1,243 @@
+# ============================================
+# 🐍 PYTHON
+# ============================================
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# ============================================
+# 📦 GESTORES DE PAQUETES (uv, poetry)
+# ============================================
+
+# uv
+.uv/
+
+# Poetry
+# poetry.lock  # Descomentar si no quieres versionar el lock
+
+# ============================================
+# 🌐 ENTORNOS VIRTUALES
+# ============================================
+
+.venv/
+venv/
+ENV/
+env/
+.env.local
+.python-version
+
+# ============================================
+# 🔐 VARIABLES DE ENTORNO Y SECRETOS
+# ============================================
+
+.env
+.env.*
+!.env.example
+!.env.template
+*.pem
+*.key
+secrets/
+*.secret
+
+# ============================================
+# 🗄️ BASES DE DATOS
+# ============================================
+
+# SQLite
+*.db
+*.sqlite
+*.sqlite3
+
+# Alembic
+alembic/versions/__pycache__/
+
+# ============================================
+# 🧪 TESTING
+# ============================================
+
+# pytest
+.pytest_cache/
+pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+.tox/
+.nox/
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+
+# ============================================
+# 📝 IDEs Y EDITORES
+# ============================================
+
+# VS Code
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+!.vscode/*.code-snippets
+*.code-workspace
+
+# PyCharm
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# Vim
+*.swp
+*.swo
+*~
+
+# Emacs
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+*.elc
+
+# ============================================
+# 🐳 DOCKER
+# ============================================
+
+# Docker volumes locales
+docker-data/
+postgres-data/
+
+# ============================================
+# 📊 LOGS Y CACHÉ
+# ============================================
+
+# Logs
+logs/
+*.log
+log/
+
+# Cache
+.cache/
+*.cache
+
+# ============================================
+# 🖥️ SISTEMA OPERATIVO
+# ============================================
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+*.stackdump
+[Dd]esktop.ini
+$RECYCLE.BIN/
+
+# Linux
+*~
+
+# ============================================
+# 📚 DOCUMENTACIÓN
+# ============================================
+
+# Sphinx
+docs/_build/
+
+# MkDocs
+site/
+
+# ============================================
+# 🎓 BOOTCAMP ESPECÍFICO
+# ============================================
+
+# Archivos temporales de estudiantes
+temp/
+tmp/
+scratch/
+notas-personales/
+
+# Soluciones de proyectos (solo para instructores)
+# Las carpetas solution/ en proyectos NO se suben al repo
+bootcamp/**/3-proyecto/**/solution/
+**/3-proyecto/solution/
+
+# Notebooks checkpoints
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# ============================================
+# 🔧 MISCELÁNEOS
+# ============================================
+
+# Archivos de respaldo
+*.bak
+*.backup
+*.old
+
+# Archivos comprimidos
+*.zip
+*.tar.gz
+*.rar
+
+# Node (si se usa para herramientas)
+node_modules/
+package-lock.json
+
+# Mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Ruff
+.ruff_cache/
+
+# Pyright
+pyrightconfig.json
+
+# profiling
+*.prof

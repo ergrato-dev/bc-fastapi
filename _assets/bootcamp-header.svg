@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 200">
+  <!-- Background -->
+  <rect width="800" height="200" fill="#1a1a2e"/>
+  
+  <!-- Decorative elements -->
+  <rect x="0" y="0" width="8" height="200" fill="#009688"/>
+  <rect x="792" y="0" width="8" height="200" fill="#009688"/>
+  
+  <!-- Top accent line -->
+  <rect x="50" y="20" width="700" height="2" fill="#009688" opacity="0.5"/>
+  
+  <!-- Bottom accent line -->
+  <rect x="50" y="178" width="700" height="2" fill="#009688" opacity="0.5"/>
+  
+  <!-- FastAPI Logo Symbol (simplified) -->
+  <g transform="translate(80, 60)">
+    <!-- Hexagon shape -->
+    <polygon points="40,0 80,23 80,69 40,92 0,69 0,23" fill="#009688"/>
+    <!-- Inner lightning bolt -->
+    <path d="M45,15 L30,50 L42,50 L35,77 L55,42 L43,42 Z" fill="#1a1a2e"/>
+  </g>
+  
+  <!-- Main Title -->
+  <text x="180" y="85" font-family="Inter, Roboto, -apple-system, sans-serif" font-size="42" font-weight="700" fill="#ffffff">
+    Bootcamp FastAPI
+  </text>
+  
+  <!-- Subtitle -->
+  <text x="180" y="120" font-family="Inter, Roboto, -apple-system, sans-serif" font-size="24" font-weight="400" fill="#009688">
+    Zero to Hero
+  </text>
+  
+  <!-- Tagline -->
+  <text x="180" y="155" font-family="Inter, Roboto, -apple-system, sans-serif" font-size="14" font-weight="300" fill="#888888">
+    De cero a desarrollador backend en 16 semanas
+  </text>
+  
+  <!-- Right side decorative code snippet -->
+  <g transform="translate(580, 50)" opacity="0.6">
+    <text font-family="monospace" font-size="11" fill="#009688">
+      <tspan x="0" y="0">@app.get("/api")</tspan>
+      <tspan x="0" y="18" fill="#888888">async def main():</tspan>
+      <tspan x="0" y="36" fill="#888888">    return {"msg":</tspan>
+      <tspan x="0" y="54" fill="#009688">      "Hello World"}</tspan>
+    </text>
+  </g>
+  
+  <!-- Python version badge -->
+  <g transform="translate(580, 130)">
+    <rect width="90" height="24" rx="4" fill="#306998"/>
+    <text x="45" y="16" font-family="Inter, Roboto, sans-serif" font-size="11" font-weight="600" fill="#ffffff" text-anchor="middle">
+      Python 3.12+
+    </text>
+  </g>
+  
+  <!-- Docker badge -->
+  <g transform="translate(680, 130)">
+    <rect width="70" height="24" rx="4" fill="#2496ED"/>
+    <text x="35" y="16" font-family="Inter, Roboto, sans-serif" font-size="11" font-weight="600" fill="#ffffff" text-anchor="middle">
+      Docker
+    </text>
+  </g>
+  
+  <!-- Corner accents -->
+  <path d="M50,30 L50,20 L60,20" stroke="#009688" stroke-width="2" fill="none"/>
+  <path d="M750,30 L750,20 L740,20" stroke="#009688" stroke-width="2" fill="none"/>
+  <path d="M50,170 L50,180 L60,180" stroke="#009688" stroke-width="2" fill="none"/>
+  <path d="M750,170 L750,180 L740,180" stroke="#009688" stroke-width="2" fill="none"/>
+</svg>

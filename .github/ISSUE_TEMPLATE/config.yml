@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 💬 GitHub Discussions
+    url: https://github.com/epti-dev/bc-fastapi/discussions
+    about: Para preguntas generales, ideas o discusiones usa Discussions
+  - name: 📚 Documentación FastAPI
+    url: https://fastapi.tiangolo.com/
+    about: Consulta la documentación oficial de FastAPI
+  - name: 📖 Documentación Pydantic
+    url: https://docs.pydantic.dev/
+    about: Consulta la documentación oficial de Pydantic
