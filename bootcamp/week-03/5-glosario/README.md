@@ -1,4 +1,4 @@
-# 📖 Glosario - Semana 03
+cd cd# 📖 Glosario - Semana 03
 
 ## A
 

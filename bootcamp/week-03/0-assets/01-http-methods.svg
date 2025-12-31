@@ -81,33 +81,33 @@
   <!-- Status Codes -->
   <text class="subtitle" x="400" y="420" text-anchor="middle">Códigos de Estado Comunes</text>
   
-  <g transform="translate(80, 440)">
-    <rect fill="#10b981" width="60" height="24" rx="4"/>
-    <text class="method-text" x="30" y="17" text-anchor="middle" font-size="12">200</text>
-    <text class="code-text" x="70" y="17">OK</text>
+  <g transform="translate(40, 445)">
+    <rect fill="#10b981" width="50" height="24" rx="4"/>
+    <text class="method-text" x="25" y="17" text-anchor="middle" font-size="12">200</text>
+    <text class="code-text" x="60" y="17">OK</text>
   </g>
   
-  <g transform="translate(200, 440)">
-    <rect fill="#10b981" width="60" height="24" rx="4"/>
-    <text class="method-text" x="30" y="17" text-anchor="middle" font-size="12">201</text>
-    <text class="code-text" x="70" y="17">Created</text>
+  <g transform="translate(150, 445)">
+    <rect fill="#10b981" width="50" height="24" rx="4"/>
+    <text class="method-text" x="25" y="17" text-anchor="middle" font-size="12">201</text>
+    <text class="code-text" x="60" y="17">Created</text>
   </g>
   
-  <g transform="translate(330, 440)">
-    <rect fill="#10b981" width="60" height="24" rx="4"/>
-    <text class="method-text" x="30" y="17" text-anchor="middle" font-size="12">204</text>
-    <text class="code-text" x="70" y="17">No Content</text>
+  <g transform="translate(280, 445)">
+    <rect fill="#10b981" width="50" height="24" rx="4"/>
+    <text class="method-text" x="25" y="17" text-anchor="middle" font-size="12">204</text>
+    <text class="code-text" x="60" y="17">No Content</text>
   </g>
   
-  <g transform="translate(470, 440)">
-    <rect fill="#ef4444" width="60" height="24" rx="4"/>
-    <text class="method-text" x="30" y="17" text-anchor="middle" font-size="12">404</text>
-    <text class="code-text" x="70" y="17">Not Found</text>
+  <g transform="translate(440, 445)">
+    <rect fill="#ef4444" width="50" height="24" rx="4"/>
+    <text class="method-text" x="25" y="17" text-anchor="middle" font-size="12">404</text>
+    <text class="code-text" x="60" y="17">Not Found</text>
   </g>
   
-  <g transform="translate(600, 440)">
-    <rect fill="#ef4444" width="60" height="24" rx="4"/>
-    <text class="method-text" x="30" y="17" text-anchor="middle" font-size="12">422</text>
-    <text class="code-text" x="70" y="17">Validation Error</text>
+  <g transform="translate(590, 445)">
+    <rect fill="#ef4444" width="50" height="24" rx="4"/>
+    <text class="method-text" x="25" y="17" text-anchor="middle" font-size="12">422</text>
+    <text class="code-text" x="60" y="17">Validation Error</text>
   </g>
 </svg>
