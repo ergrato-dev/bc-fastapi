@@ -1,0 +1,111 @@
+<svg viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgGrad3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a2e"/>
+      <stop offset="100%" style="stop-color:#16213e"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="800" height="450" fill="url(#bgGrad3)"/>
+  
+  <!-- Title -->
+  <text x="400" y="35" text-anchor="middle" fill="#e94560" font-family="Arial, sans-serif" font-size="20" font-weight="bold">Integración Pydantic + FastAPI</text>
+  
+  <!-- Client Box -->
+  <rect x="30" y="70" width="140" height="80" rx="10" fill="#2d3748" stroke="#4299e1" stroke-width="2"/>
+  <text x="100" y="100" text-anchor="middle" fill="#4299e1" font-family="Arial, sans-serif" font-size="14" font-weight="bold">🌐 Cliente</text>
+  <text x="100" y="120" text-anchor="middle" fill="#a0aec0" font-family="Arial, sans-serif" font-size="10">JSON Request</text>
+  <text x="100" y="135" text-anchor="middle" fill="#68d391" font-family="monospace" font-size="9">POST /users</text>
+  
+  <!-- Arrow to FastAPI -->
+  <path d="M 170 110 L 220 110" stroke="#4a5568" stroke-width="2" fill="none" marker-end="url(#arrowMain)"/>
+  <defs>
+    <marker id="arrowMain" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#4a5568"/>
+    </marker>
+  </defs>
+  
+  <!-- FastAPI Box -->
+  <rect x="230" y="55" width="340" height="110" rx="10" fill="#22543d" stroke="#48bb78" stroke-width="2"/>
+  <text x="400" y="80" text-anchor="middle" fill="#48bb78" font-family="Arial, sans-serif" font-size="14" font-weight="bold">⚡ FastAPI Endpoint</text>
+  
+  <!-- Code inside FastAPI -->
+  <rect x="245" y="90" width="310" height="60" rx="5" fill="#1a202c"/>
+  <text x="255" y="108" fill="#9f7aea" font-family="monospace" font-size="10">@app.post("/users")</text>
+  <text x="255" y="123" fill="#e2e8f0" font-family="monospace" font-size="10">async def create_user(</text>
+  <text x="270" y="138" fill="#f6ad55" font-family="monospace" font-size="10">user: UserCreate</text>
+  <text x="380" y="138" fill="#a0aec0" font-family="monospace" font-size="10"># ← Pydantic valida</text>
+  
+  <!-- Arrow to Pydantic -->
+  <path d="M 400 165 L 400 200" stroke="#4a5568" stroke-width="2" fill="none" marker-end="url(#arrowMain)"/>
+  
+  <!-- Pydantic Validation Box -->
+  <rect x="230" y="210" width="340" height="130" rx="10" fill="#553c9a" stroke="#9f7aea" stroke-width="2"/>
+  <text x="400" y="235" text-anchor="middle" fill="#d6bcfa" font-family="Arial, sans-serif" font-size="14" font-weight="bold">🔍 Pydantic Validation</text>
+  
+  <!-- Schema inside -->
+  <rect x="245" y="250" width="150" height="80" rx="5" fill="#1a202c"/>
+  <text x="255" y="268" fill="#68d391" font-family="monospace" font-size="9">class UserCreate:</text>
+  <text x="265" y="283" fill="#e2e8f0" font-family="monospace" font-size="9">name: str</text>
+  <text x="265" y="298" fill="#e2e8f0" font-family="monospace" font-size="9">email: EmailStr</text>
+  <text x="265" y="313" fill="#e2e8f0" font-family="monospace" font-size="9">password: str</text>
+  
+  <!-- Validators -->
+  <rect x="410" y="250" width="150" height="80" rx="5" fill="#1a202c"/>
+  <text x="420" y="268" fill="#f687b3" font-family="monospace" font-size="9">Validators:</text>
+  <text x="420" y="286" fill="#a0aec0" font-family="monospace" font-size="9">✓ Type coercion</text>
+  <text x="420" y="302" fill="#a0aec0" font-family="monospace" font-size="9">✓ Field constraints</text>
+  <text x="420" y="318" fill="#a0aec0" font-family="monospace" font-size="9">✓ Custom validators</text>
+  
+  <!-- Response Model Box -->
+  <rect x="600" y="70" width="170" height="100" rx="10" fill="#744210" stroke="#d69e2e" stroke-width="2"/>
+  <text x="685" y="95" text-anchor="middle" fill="#faf089" font-family="Arial, sans-serif" font-size="12" font-weight="bold">response_model</text>
+  
+  <rect x="615" y="105" width="140" height="55" rx="5" fill="#1a202c"/>
+  <text x="625" y="123" fill="#68d391" font-family="monospace" font-size="9">class UserResponse:</text>
+  <text x="635" y="138" fill="#e2e8f0" font-family="monospace" font-size="9">id: int</text>
+  <text x="635" y="153" fill="#e2e8f0" font-family="monospace" font-size="9">name: str</text>
+  <text x="625" y="163" fill="#fc8181" font-family="monospace" font-size="8"># No password!</text>
+  
+  <!-- Arrow from FastAPI to Response -->
+  <path d="M 570 110 L 600 110" stroke="#4a5568" stroke-width="2" fill="none" marker-end="url(#arrowMain)"/>
+  
+  <!-- Error Response -->
+  <rect x="600" y="210" width="170" height="100" rx="10" fill="#742a2a" stroke="#fc8181" stroke-width="2"/>
+  <text x="685" y="235" text-anchor="middle" fill="#fed7d7" font-family="Arial, sans-serif" font-size="12" font-weight="bold">422 Error</text>
+  
+  <rect x="615" y="250" width="140" height="50" rx="5" fill="#1a202c"/>
+  <text x="625" y="268" fill="#fc8181" font-family="monospace" font-size="8">{"detail": [</text>
+  <text x="635" y="280" fill="#fc8181" font-family="monospace" font-size="8">{"loc": ["body","email"],</text>
+  <text x="636" y="292" fill="#fc8181" font-family="monospace" font-size="8">"msg": "invalid"}]}</text>
+  
+  <!-- Arrow from Pydantic to Error -->
+  <path d="M 570 275 L 600 275" stroke="#fc8181" stroke-width="2" stroke-dasharray="5,5" fill="none" marker-end="url(#arrowRed2)"/>
+  <defs>
+    <marker id="arrowRed2" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#fc8181"/>
+    </marker>
+  </defs>
+  
+  <!-- OpenAPI Docs -->
+  <rect x="30" y="210" width="170" height="100" rx="10" fill="#2c5282" stroke="#63b3ed" stroke-width="2"/>
+  <text x="115" y="235" text-anchor="middle" fill="#bee3f8" font-family="Arial, sans-serif" font-size="12" font-weight="bold">📖 OpenAPI Docs</text>
+  <text x="115" y="260" text-anchor="middle" fill="#90cdf4" font-family="Arial, sans-serif" font-size="10">/docs (Swagger UI)</text>
+  <text x="115" y="280" text-anchor="middle" fill="#90cdf4" font-family="Arial, sans-serif" font-size="10">/redoc (ReDoc)</text>
+  <text x="115" y="300" text-anchor="middle" fill="#63b3ed" font-family="Arial, sans-serif" font-size="9">Auto-generated!</text>
+  
+  <!-- Arrow from Pydantic to OpenAPI -->
+  <path d="M 230 275 L 200 275" stroke="#4a5568" stroke-width="2" fill="none" marker-end="url(#arrowMain)"/>
+  
+  <!-- Flow Legend -->
+  <rect x="30" y="350" width="740" height="85" rx="10" fill="#1a202c" stroke="#4a5568" stroke-width="1"/>
+  <text x="400" y="375" text-anchor="middle" fill="#e2e8f0" font-family="Arial, sans-serif" font-size="12" font-weight="bold">Flujo de Request → Response</text>
+  
+  <text x="50" y="400" fill="#4299e1" font-family="Arial, sans-serif" font-size="10">1. Cliente envía JSON</text>
+  <text x="50" y="420" fill="#9f7aea" font-family="Arial, sans-serif" font-size="10">2. Pydantic valida con schemas</text>
+  <text x="280" y="400" fill="#48bb78" font-family="Arial, sans-serif" font-size="10">3. Si válido → ejecuta endpoint</text>
+  <text x="280" y="420" fill="#fc8181" font-family="Arial, sans-serif" font-size="10">3. Si inválido → 422 automático</text>
+  <text x="530" y="400" fill="#d69e2e" font-family="Arial, sans-serif" font-size="10">4. response_model filtra output</text>
+  <text x="530" y="420" fill="#63b3ed" font-family="Arial, sans-serif" font-size="10">5. OpenAPI docs auto-generados</text>
+</svg>

@@ -1,0 +1,11 @@
+[project]
+name = "ejercicio-03-validadores"
+version = "0.1.0"
+description = "Ejercicio: Validadores Personalizados"
+requires-python = ">=3.13"
+dependencies = [
+    "pydantic>=2.10",
+]
+
+[tool.uv]
+dev-dependencies = []

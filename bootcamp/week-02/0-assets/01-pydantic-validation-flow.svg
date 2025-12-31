@@ -1,0 +1,98 @@
+<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a2e"/>
+      <stop offset="100%" style="stop-color:#16213e"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="800" height="400" fill="url(#bgGrad)"/>
+  
+  <!-- Title -->
+  <text x="400" y="35" text-anchor="middle" fill="#e94560" font-family="Arial, sans-serif" font-size="20" font-weight="bold">Flujo de Validación Pydantic</text>
+  
+  <!-- Input Box -->
+  <rect x="50" y="70" width="120" height="60" rx="8" fill="#2d3748" stroke="#4a5568" stroke-width="2"/>
+  <text x="110" y="95" text-anchor="middle" fill="#a0aec0" font-family="Arial, sans-serif" font-size="11">Input Data</text>
+  <text x="110" y="115" text-anchor="middle" fill="#68d391" font-family="monospace" font-size="10">{"name": "alice"}</text>
+  
+  <!-- Arrow 1 -->
+  <path d="M 170 100 L 210 100" stroke="#4a5568" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#4a5568"/>
+    </marker>
+  </defs>
+  
+  <!-- Before Validators -->
+  <rect x="220" y="60" width="140" height="80" rx="8" fill="#553c9a" stroke="#805ad5" stroke-width="2"/>
+  <text x="290" y="85" text-anchor="middle" fill="#e9d8fd" font-family="Arial, sans-serif" font-size="12" font-weight="bold">mode='before'</text>
+  <text x="290" y="105" text-anchor="middle" fill="#d6bcfa" font-family="Arial, sans-serif" font-size="10">@field_validator</text>
+  <text x="290" y="125" text-anchor="middle" fill="#b794f4" font-family="monospace" font-size="9">Raw input</text>
+  
+  <!-- Arrow 2 -->
+  <path d="M 360 100 L 400 100" stroke="#4a5568" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  
+  <!-- Type Coercion -->
+  <rect x="410" y="60" width="140" height="80" rx="8" fill="#2c5282" stroke="#4299e1" stroke-width="2"/>
+  <text x="480" y="85" text-anchor="middle" fill="#bee3f8" font-family="Arial, sans-serif" font-size="12" font-weight="bold">Type Coercion</text>
+  <text x="480" y="105" text-anchor="middle" fill="#90cdf4" font-family="Arial, sans-serif" font-size="10">Pydantic Core</text>
+  <text x="480" y="125" text-anchor="middle" fill="#63b3ed" font-family="monospace" font-size="9">"42" → 42</text>
+  
+  <!-- Arrow 3 -->
+  <path d="M 550 100 L 590 100" stroke="#4a5568" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  
+  <!-- After Validators -->
+  <rect x="600" y="60" width="140" height="80" rx="8" fill="#276749" stroke="#48bb78" stroke-width="2"/>
+  <text x="670" y="85" text-anchor="middle" fill="#c6f6d5" font-family="Arial, sans-serif" font-size="12" font-weight="bold">mode='after'</text>
+  <text x="670" y="105" text-anchor="middle" fill="#9ae6b4" font-family="Arial, sans-serif" font-size="10">@field_validator</text>
+  <text x="670" y="125" text-anchor="middle" fill="#68d391" font-family="monospace" font-size="9">Typed value</text>
+  
+  <!-- Model Validator Before -->
+  <rect x="50" y="180" width="180" height="70" rx="8" fill="#744210" stroke="#d69e2e" stroke-width="2"/>
+  <text x="140" y="205" text-anchor="middle" fill="#fefcbf" font-family="Arial, sans-serif" font-size="12" font-weight="bold">@model_validator</text>
+  <text x="140" y="225" text-anchor="middle" fill="#faf089" font-family="Arial, sans-serif" font-size="10">mode='before'</text>
+  <text x="140" y="242" text-anchor="middle" fill="#ecc94b" font-family="monospace" font-size="9">Transform dict</text>
+  
+  <!-- Arrow down from input -->
+  <path d="M 110 130 L 110 160 L 140 180" stroke="#4a5568" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  
+  <!-- Model Validator After -->
+  <rect x="570" y="180" width="180" height="70" rx="8" fill="#702459" stroke="#d53f8c" stroke-width="2"/>
+  <text x="660" y="205" text-anchor="middle" fill="#fed7e2" font-family="Arial, sans-serif" font-size="12" font-weight="bold">@model_validator</text>
+  <text x="660" y="225" text-anchor="middle" fill="#fbb6ce" font-family="Arial, sans-serif" font-size="10">mode='after'</text>
+  <text x="660" y="242" text-anchor="middle" fill="#f687b3" font-family="monospace" font-size="9">Cross-field validation</text>
+  
+  <!-- Arrow to model validator after -->
+  <path d="M 670 140 L 670 160 L 660 180" stroke="#4a5568" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  
+  <!-- Output Box -->
+  <rect x="290" y="300" width="220" height="70" rx="8" fill="#22543d" stroke="#38a169" stroke-width="2"/>
+  <text x="400" y="325" text-anchor="middle" fill="#c6f6d5" font-family="Arial, sans-serif" font-size="12" font-weight="bold">✓ Valid Model Instance</text>
+  <text x="400" y="350" text-anchor="middle" fill="#68d391" font-family="monospace" font-size="10">User(name="Alice", age=42)</text>
+  
+  <!-- Arrows to output -->
+  <path d="M 140 250 L 140 335 L 290 335" stroke="#48bb78" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  <path d="M 660 250 L 660 335 L 510 335" stroke="#48bb78" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  
+  <!-- Error Box -->
+  <rect x="600" y="300" width="150" height="70" rx="8" fill="#742a2a" stroke="#fc8181" stroke-width="2"/>
+  <text x="675" y="325" text-anchor="middle" fill="#fed7d7" font-family="Arial, sans-serif" font-size="12" font-weight="bold">✗ ValidationError</text>
+  <text x="675" y="350" text-anchor="middle" fill="#fc8181" font-family="monospace" font-size="9">422 Unprocessable</text>
+  
+  <!-- Error arrow -->
+  <path d="M 480 140 L 480 270 L 600 320" stroke="#fc8181" stroke-width="2" stroke-dasharray="5,5" fill="none" marker-end="url(#arrowRed)"/>
+  <defs>
+    <marker id="arrowRed" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#fc8181"/>
+    </marker>
+  </defs>
+  
+  <!-- Legend -->
+  <rect x="50" y="300" width="180" height="70" rx="8" fill="#1a1a2e" stroke="#4a5568" stroke-width="1"/>
+  <text x="60" y="320" fill="#a0aec0" font-family="Arial, sans-serif" font-size="10" font-weight="bold">Orden de ejecución:</text>
+  <text x="60" y="338" fill="#805ad5" font-family="Arial, sans-serif" font-size="9">1. model_validator(before)</text>
+  <text x="60" y="352" fill="#4299e1" font-family="Arial, sans-serif" font-size="9">2. field_validator → coercion</text>
+  <text x="60" y="366" fill="#d53f8c" font-family="Arial, sans-serif" font-size="9">3. model_validator(after)</text>
+</svg>

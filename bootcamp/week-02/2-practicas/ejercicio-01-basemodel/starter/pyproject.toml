@@ -1,0 +1,11 @@
+[project]
+name = "ejercicio-01-basemodel"
+version = "0.1.0"
+description = "Ejercicio: BaseModel Básico"
+requires-python = ">=3.13"
+dependencies = [
+    "pydantic>=2.10",
+]
+
+[tool.uv]
+dev-dependencies = []

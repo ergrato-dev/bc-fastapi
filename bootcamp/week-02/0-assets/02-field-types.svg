@@ -1,0 +1,137 @@
+<svg viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a2e"/>
+      <stop offset="100%" style="stop-color:#16213e"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="800" height="500" fill="url(#bgGrad2)"/>
+  
+  <!-- Title -->
+  <text x="400" y="35" text-anchor="middle" fill="#e94560" font-family="Arial, sans-serif" font-size="20" font-weight="bold">Tipos de Campo en Pydantic v2</text>
+  
+  <!-- String Types -->
+  <rect x="30" y="60" width="235" height="180" rx="10" fill="#2d3748" stroke="#4299e1" stroke-width="2"/>
+  <text x="147" y="85" text-anchor="middle" fill="#4299e1" font-family="Arial, sans-serif" font-size="14" font-weight="bold">📝 String Types</text>
+  
+  <text x="45" y="110" fill="#e2e8f0" font-family="monospace" font-size="11">str</text>
+  <text x="130" y="110" fill="#a0aec0" font-family="Arial, sans-serif" font-size="10">Texto básico</text>
+  
+  <text x="45" y="130" fill="#68d391" font-family="monospace" font-size="11">EmailStr</text>
+  <text x="130" y="130" fill="#a0aec0" font-family="Arial, sans-serif" font-size="10">user@example.com</text>
+  
+  <text x="45" y="150" fill="#68d391" font-family="monospace" font-size="11">HttpUrl</text>
+  <text x="130" y="150" fill="#a0aec0" font-family="Arial, sans-serif" font-size="10">https://...</text>
+  
+  <text x="45" y="170" fill="#68d391" font-family="monospace" font-size="11">SecretStr</text>
+  <text x="130" y="170" fill="#a0aec0" font-family="Arial, sans-serif" font-size="10">Datos sensibles</text>
+  
+  <text x="45" y="195" fill="#faf089" font-family="monospace" font-size="10">StringConstraints</text>
+  <text x="45" y="215" fill="#a0aec0" font-family="Arial, sans-serif" font-size="9">min_length, max_length</text>
+  <text x="45" y="230" fill="#a0aec0" font-family="Arial, sans-serif" font-size="9">pattern, to_lower</text>
+  
+  <!-- Numeric Types -->
+  <rect x="282" y="60" width="235" height="180" rx="10" fill="#2d3748" stroke="#48bb78" stroke-width="2"/>
+  <text x="400" y="85" text-anchor="middle" fill="#48bb78" font-family="Arial, sans-serif" font-size="14" font-weight="bold">🔢 Numeric Types</text>
+  
+  <text x="297" y="110" fill="#e2e8f0" font-family="monospace" font-size="11">int</text>
+  <text x="370" y="110" fill="#a0aec0" font-family="Arial, sans-serif" font-size="10">Entero</text>
+  
+  <text x="297" y="130" fill="#e2e8f0" font-family="monospace" font-size="11">float</text>
+  <text x="370" y="130" fill="#a0aec0" font-family="Arial, sans-serif" font-size="10">Decimal</text>
+  
+  <text x="297" y="150" fill="#68d391" font-family="monospace" font-size="11">PositiveInt</text>
+  <text x="400" y="150" fill="#a0aec0" font-family="Arial, sans-serif" font-size="10">> 0</text>
+  
+  <text x="297" y="170" fill="#68d391" font-family="monospace" font-size="11">NonNegativeInt</text>
+  <text x="425" y="170" fill="#a0aec0" font-family="Arial, sans-serif" font-size="10">>= 0</text>
+  
+  <text x="297" y="195" fill="#faf089" font-family="monospace" font-size="10">Field() constraints</text>
+  <text x="297" y="215" fill="#a0aec0" font-family="Arial, sans-serif" font-size="9">gt, ge, lt, le</text>
+  <text x="297" y="230" fill="#a0aec0" font-family="Arial, sans-serif" font-size="9">multiple_of</text>
+  
+  <!-- Date/Time Types -->
+  <rect x="534" y="60" width="235" height="180" rx="10" fill="#2d3748" stroke="#ed8936" stroke-width="2"/>
+  <text x="652" y="85" text-anchor="middle" fill="#ed8936" font-family="Arial, sans-serif" font-size="14" font-weight="bold">📅 Date/Time Types</text>
+  
+  <text x="549" y="110" fill="#e2e8f0" font-family="monospace" font-size="11">datetime</text>
+  <text x="640" y="110" fill="#a0aec0" font-family="Arial, sans-serif" font-size="10">Fecha y hora</text>
+  
+  <text x="549" y="130" fill="#e2e8f0" font-family="monospace" font-size="11">date</text>
+  <text x="640" y="130" fill="#a0aec0" font-family="Arial, sans-serif" font-size="10">Solo fecha</text>
+  
+  <text x="549" y="150" fill="#e2e8f0" font-family="monospace" font-size="11">time</text>
+  <text x="640" y="150" fill="#a0aec0" font-family="Arial, sans-serif" font-size="10">Solo hora</text>
+  
+  <text x="549" y="170" fill="#68d391" font-family="monospace" font-size="11">PastDate</text>
+  <text x="640" y="170" fill="#a0aec0" font-family="Arial, sans-serif" font-size="10">En el pasado</text>
+  
+  <text x="549" y="190" fill="#68d391" font-family="monospace" font-size="11">FutureDate</text>
+  <text x="655" y="190" fill="#a0aec0" font-family="Arial, sans-serif" font-size="10">En el futuro</text>
+  
+  <text x="549" y="215" fill="#faf089" font-family="monospace" font-size="10">timedelta</text>
+  <text x="640" y="215" fill="#a0aec0" font-family="Arial, sans-serif" font-size="9">Duración</text>
+  
+  <!-- Collection Types -->
+  <rect x="30" y="260" width="235" height="160" rx="10" fill="#2d3748" stroke="#9f7aea" stroke-width="2"/>
+  <text x="147" y="285" text-anchor="middle" fill="#9f7aea" font-family="Arial, sans-serif" font-size="14" font-weight="bold">📦 Collections</text>
+  
+  <text x="45" y="310" fill="#e2e8f0" font-family="monospace" font-size="11">list[T]</text>
+  <text x="120" y="310" fill="#a0aec0" font-family="Arial, sans-serif" font-size="10">Lista tipada</text>
+  
+  <text x="45" y="330" fill="#e2e8f0" font-family="monospace" font-size="11">set[T]</text>
+  <text x="120" y="330" fill="#a0aec0" font-family="Arial, sans-serif" font-size="10">Set (únicos)</text>
+  
+  <text x="45" y="350" fill="#e2e8f0" font-family="monospace" font-size="11">dict[K, V]</text>
+  <text x="135" y="350" fill="#a0aec0" font-family="Arial, sans-serif" font-size="10">Diccionario</text>
+  
+  <text x="45" y="370" fill="#e2e8f0" font-family="monospace" font-size="11">tuple[T, ...]</text>
+  <text x="140" y="370" fill="#a0aec0" font-family="Arial, sans-serif" font-size="10">Tupla</text>
+  
+  <text x="45" y="400" fill="#faf089" font-family="monospace" font-size="10">min_length, max_length</text>
+  
+  <!-- Special Types -->
+  <rect x="282" y="260" width="235" height="160" rx="10" fill="#2d3748" stroke="#f687b3" stroke-width="2"/>
+  <text x="400" y="285" text-anchor="middle" fill="#f687b3" font-family="Arial, sans-serif" font-size="14" font-weight="bold">⭐ Special Types</text>
+  
+  <text x="297" y="310" fill="#68d391" font-family="monospace" font-size="11">UUID</text>
+  <text x="370" y="310" fill="#a0aec0" font-family="Arial, sans-serif" font-size="10">Identificador único</text>
+  
+  <text x="297" y="330" fill="#68d391" font-family="monospace" font-size="11">Literal["a","b"]</text>
+  <text x="420" y="330" fill="#a0aec0" font-family="Arial, sans-serif" font-size="10">Valores fijos</text>
+  
+  <text x="297" y="350" fill="#68d391" font-family="monospace" font-size="11">Enum</text>
+  <text x="370" y="350" fill="#a0aec0" font-family="Arial, sans-serif" font-size="10">Enumeración</text>
+  
+  <text x="297" y="370" fill="#68d391" font-family="monospace" font-size="11">bool</text>
+  <text x="370" y="370" fill="#a0aec0" font-family="Arial, sans-serif" font-size="10">True / False</text>
+  
+  <text x="297" y="400" fill="#faf089" font-family="monospace" font-size="10">T | None = None</text>
+  <text x="420" y="400" fill="#a0aec0" font-family="Arial, sans-serif" font-size="9">Opcional</text>
+  
+  <!-- Annotated Types -->
+  <rect x="534" y="260" width="235" height="160" rx="10" fill="#2d3748" stroke="#fc8181" stroke-width="2"/>
+  <text x="652" y="285" text-anchor="middle" fill="#fc8181" font-family="Arial, sans-serif" font-size="14" font-weight="bold">🔧 Annotated</text>
+  
+  <text x="549" y="315" fill="#e2e8f0" font-family="Arial, sans-serif" font-size="10">Tipos reutilizables:</text>
+  
+  <rect x="549" y="325" width="205" height="80" rx="5" fill="#1a202c"/>
+  <text x="559" y="345" fill="#68d391" font-family="monospace" font-size="9">Username = Annotated[</text>
+  <text x="569" y="360" fill="#68d391" font-family="monospace" font-size="9">str,</text>
+  <text x="569" y="375" fill="#68d391" font-family="monospace" font-size="9">StringConstraints(</text>
+  <text x="579" y="390" fill="#68d391" font-family="monospace" font-size="9">min_length=3</text>
+  <text x="559" y="400" fill="#68d391" font-family="monospace" font-size="9">)]</text>
+  
+  <!-- Footer Legend -->
+  <rect x="30" y="440" width="740" height="45" rx="8" fill="#1a202c" stroke="#4a5568" stroke-width="1"/>
+  <text x="50" y="460" fill="#a0aec0" font-family="Arial, sans-serif" font-size="11" font-weight="bold">Leyenda:</text>
+  <rect x="130" y="450" width="12" height="12" fill="#e2e8f0"/>
+  <text x="148" y="461" fill="#a0aec0" font-family="Arial, sans-serif" font-size="10">Python stdlib</text>
+  <rect x="250" y="450" width="12" height="12" fill="#68d391"/>
+  <text x="268" y="461" fill="#a0aec0" font-family="Arial, sans-serif" font-size="10">Pydantic types</text>
+  <rect x="380" y="450" width="12" height="12" fill="#faf089"/>
+  <text x="398" y="461" fill="#a0aec0" font-family="Arial, sans-serif" font-size="10">Constraints</text>
+  <text x="520" y="461" fill="#a0aec0" font-family="Arial, sans-serif" font-size="10">📖 docs.pydantic.dev/latest/concepts/types/</text>
+</svg>

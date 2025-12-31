@@ -1,0 +1,11 @@
+[project]
+name = "ejercicio-02-field"
+version = "0.1.0"
+description = "Ejercicio: Field y Restricciones"
+requires-python = ">=3.13"
+dependencies = [
+    "pydantic[email]>=2.10",
+]
+
+[tool.uv]
+dev-dependencies = []
