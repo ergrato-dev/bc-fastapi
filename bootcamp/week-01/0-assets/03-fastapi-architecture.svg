@@ -1,0 +1,129 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 550">
+  <defs>
+    <style>
+      .bg { fill: #1a1a2e; }
+      .title { fill: #ffffff; font-family: 'Segoe UI', sans-serif; font-size: 22px; font-weight: 600; }
+      .subtitle { fill: #9e9e9e; font-family: 'Segoe UI', sans-serif; font-size: 13px; }
+      .label { fill: #e0e0e0; font-family: 'Segoe UI', sans-serif; font-size: 14px; font-weight: 600; }
+      .label-sm { fill: #b0b0b0; font-family: 'Segoe UI', sans-serif; font-size: 11px; }
+      .code { fill: #4fc3f7; font-family: 'Consolas', monospace; font-size: 11px; }
+      .box-client { fill: #2a2a3e; stroke: #5c6bc0; stroke-width: 2; }
+      .box-fastapi { fill: #1a3a3a; stroke: #009688; stroke-width: 2; }
+      .box-starlette { fill: #2a2a3e; stroke: #ff7043; stroke-width: 2; }
+      .box-pydantic { fill: #2a2a3e; stroke: #e91e63; stroke-width: 2; }
+      .box-uvicorn { fill: #2a2a3e; stroke: #ab47bc; stroke-width: 2; }
+      .box-db { fill: #2a2a3e; stroke: #78909c; stroke-width: 2; }
+      .arrow { stroke: #009688; stroke-width: 2; fill: none; }
+      .arrow-response { stroke: #4caf50; stroke-width: 2; fill: none; stroke-dasharray: 5,3; }
+      .feature-box { fill: #2a3a3a; stroke: #009688; stroke-width: 1; }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#009688"/>
+    </marker>
+    <marker id="arrowhead-response" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#4caf50"/>
+    </marker>
+  </defs>
+  
+  <!-- Background -->
+  <rect class="bg" width="800" height="550"/>
+  
+  <!-- Title -->
+  <text class="title" x="400" y="35" text-anchor="middle">Arquitectura de FastAPI</text>
+  <text class="subtitle" x="400" y="55" text-anchor="middle">Stack tecnológico y flujo de una request</text>
+  
+  <!-- Client -->
+  <rect class="box-client" x="50" y="180" width="100" height="80" rx="10"/>
+  <text class="label" x="100" y="215" text-anchor="middle">🌐 Cliente</text>
+  <text class="label-sm" x="100" y="235" text-anchor="middle">Browser/App</text>
+  
+  <!-- Arrow Client to Uvicorn -->
+  <path class="arrow" d="M 150 220 L 200 220" marker-end="url(#arrowhead)"/>
+  <text class="label-sm" x="175" y="210" text-anchor="middle">HTTP</text>
+  
+  <!-- Uvicorn -->
+  <rect class="box-uvicorn" x="200" y="160" width="120" height="120" rx="10"/>
+  <text class="label" x="260" y="195" text-anchor="middle">⚡ Uvicorn</text>
+  <text class="label-sm" x="260" y="215" text-anchor="middle">ASGI Server</text>
+  <text class="code" x="260" y="235" text-anchor="middle">async</text>
+  <text class="label-sm" x="260" y="255" text-anchor="middle">High Performance</text>
+  
+  <!-- Arrow Uvicorn to Starlette -->
+  <path class="arrow" d="M 320 220 L 360 220" marker-end="url(#arrowhead)"/>
+  
+  <!-- Starlette -->
+  <rect class="box-starlette" x="360" y="140" width="140" height="160" rx="10"/>
+  <text class="label" x="430" y="175" text-anchor="middle">🌟 Starlette</text>
+  <text class="label-sm" x="430" y="195" text-anchor="middle">ASGI Framework</text>
+  <rect fill="#3a3a4a" x="375" y="210" width="110" height="20" rx="4"/>
+  <text class="label-sm" x="430" y="225" text-anchor="middle">Routing</text>
+  <rect fill="#3a3a4a" x="375" y="235" width="110" height="20" rx="4"/>
+  <text class="label-sm" x="430" y="250" text-anchor="middle">Middleware</text>
+  <rect fill="#3a3a4a" x="375" y="260" width="110" height="20" rx="4"/>
+  <text class="label-sm" x="430" y="275" text-anchor="middle">WebSockets</text>
+  
+  <!-- Arrow Starlette to FastAPI -->
+  <path class="arrow" d="M 500 220 L 540 220" marker-end="url(#arrowhead)"/>
+  
+  <!-- FastAPI (Main) -->
+  <rect class="box-fastapi" x="540" y="100" width="160" height="240" rx="10"/>
+  <text fill="#009688" x="620" y="130" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="18" font-weight="700">🚀 FastAPI</text>
+  <text class="label-sm" x="620" y="150" text-anchor="middle">Web Framework</text>
+  
+  <!-- FastAPI Features -->
+  <rect class="feature-box" x="555" y="165" width="130" height="25" rx="4"/>
+  <text class="label-sm" x="620" y="182" text-anchor="middle">📄 OpenAPI/Swagger</text>
+  
+  <rect class="feature-box" x="555" y="195" width="130" height="25" rx="4"/>
+  <text class="label-sm" x="620" y="212" text-anchor="middle">🔒 OAuth2 / JWT</text>
+  
+  <rect class="feature-box" x="555" y="225" width="130" height="25" rx="4"/>
+  <text class="label-sm" x="620" y="242" text-anchor="middle">💉 Dependency Injection</text>
+  
+  <rect class="feature-box" x="555" y="255" width="130" height="25" rx="4"/>
+  <text class="label-sm" x="620" y="272" text-anchor="middle">📝 Auto Documentation</text>
+  
+  <rect class="feature-box" x="555" y="285" width="130" height="25" rx="4"/>
+  <text class="label-sm" x="620" y="302" text-anchor="middle">⚡ Async Support</text>
+  
+  <!-- Pydantic -->
+  <rect class="box-pydantic" x="540" y="370" width="160" height="80" rx="10"/>
+  <text class="label" x="620" y="400" text-anchor="middle">✅ Pydantic</text>
+  <text class="label-sm" x="620" y="420" text-anchor="middle">Data Validation</text>
+  <text class="code" x="620" y="440" text-anchor="middle">Type Hints → JSON</text>
+  
+  <!-- Arrow FastAPI to Pydantic -->
+  <path class="arrow" d="M 620 340 L 620 370" marker-end="url(#arrowhead)"/>
+  <text class="label-sm" x="650" y="355" text-anchor="middle">Validates</text>
+  
+  <!-- Database -->
+  <rect class="box-db" x="730" y="180" width="60" height="80" rx="10"/>
+  <text class="label" x="760" y="215" text-anchor="middle">🗄️</text>
+  <text class="label-sm" x="760" y="235" text-anchor="middle">DB</text>
+  
+  <!-- Arrow FastAPI to DB -->
+  <path class="arrow" d="M 700 220 L 730 220" marker-end="url(#arrowhead)"/>
+  
+  <!-- Response arrow (dashed, going back) -->
+  <path class="arrow-response" d="M 540 320 L 100 320 L 100 260" marker-end="url(#arrowhead-response)"/>
+  <text fill="#4caf50" x="320" y="310" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="11">← JSON Response</text>
+  
+  <!-- Legend at bottom -->
+  <rect fill="#2a2a3e" x="50" y="480" width="700" height="55" rx="8" stroke="#3a3a4a" stroke-width="1"/>
+  <text class="label" x="400" y="500" text-anchor="middle">Stack Tecnológico</text>
+  
+  <rect fill="#ab47bc" x="80" y="510" width="12" height="12" rx="2"/>
+  <text class="label-sm" x="97" y="521">Uvicorn (Server)</text>
+  
+  <rect fill="#ff7043" x="200" y="510" width="12" height="12" rx="2"/>
+  <text class="label-sm" x="217" y="521">Starlette (ASGI)</text>
+  
+  <rect fill="#009688" x="330" y="510" width="12" height="12" rx="2"/>
+  <text class="label-sm" x="347" y="521">FastAPI (Framework)</text>
+  
+  <rect fill="#e91e63" x="480" y="510" width="12" height="12" rx="2"/>
+  <text class="label-sm" x="497" y="521">Pydantic (Validation)</text>
+  
+  <rect fill="#5c6bc0" x="620" y="510" width="12" height="12" rx="2"/>
+  <text class="label-sm" x="637" y="521">OpenAPI (Docs)</text>
+</svg>

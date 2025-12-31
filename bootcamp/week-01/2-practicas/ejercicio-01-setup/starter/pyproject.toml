@@ -1,0 +1,41 @@
+# ============================================
+# PYPROJECT.TOML - Configuración del proyecto
+# ============================================
+# Este archivo define las dependencias y metadata
+# del proyecto Python. uv lo usa para gestionar
+# los paquetes.
+
+# --------------------------------------------
+# PASO 1: Metadata del proyecto
+# --------------------------------------------
+# Descomenta el siguiente bloque:
+
+# [project]
+# name = "mi-primera-api"
+# version = "0.1.0"
+# description = "Mi primera API con FastAPI"
+# readme = "README.md"
+# requires-python = ">=3.13"
+
+
+# --------------------------------------------
+# PASO 2: Dependencias
+# --------------------------------------------
+# FastAPI incluye uvicorn[standard] para el servidor
+# Descomenta el siguiente bloque:
+
+# dependencies = [
+#     "fastapi[standard]>=0.115.0",
+# ]
+
+
+# ============================================
+# NOTAS
+# ============================================
+#
+# Para agregar más dependencias después:
+#   docker compose exec api uv add <paquete>
+#
+# Ejemplo:
+#   docker compose exec api uv add httpx
+#   docker compose exec api uv add --dev pytest

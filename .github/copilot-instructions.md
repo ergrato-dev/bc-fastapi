@@ -10,8 +10,8 @@ Este es un **Bootcamp de FastAPI Zero to Hero** estructurado para llevar a estud
 - **Dedicación semanal**: 6 horas
 - **Total de horas**: ~96 horas
 - **Nivel de salida**: Desarrollador Backend Junior (FastAPI)
-- **Enfoque**: FastAPI moderno con Python 3.12+
-- **Stack**: FastAPI, SQLAlchemy, Pydantic, SQLite/PostgreSQL, Docker
+- **Enfoque**: FastAPI moderno con Python 3.13+
+- **Stack**: FastAPI 0.115+, SQLAlchemy 2.x, Pydantic 2.10+, SQLite/PostgreSQL 17+, Docker 27+
 
 ---
 
@@ -85,7 +85,7 @@ bootcamp/week-XX/
 ├── 0-assets/                 # Imágenes, diagramas y recursos visuales
 ├── 1-teoria/                 # Material teórico (archivos .md)
 ├── 2-practicas/              # Ejercicios guiados paso a paso
-├── 3-proyecto/               # Proyecto semanal integrador
+├── 3-proyecto/               # Proyecto semanal integrador con carpeta solution (oculta para el repo)
 ├── 4-recursos/               # Recursos adicionales
 │   ├── ebooks-free/          # Libros electrónicos gratuitos
 │   ├── videografia/          # Videos y tutoriales recomendados
@@ -298,6 +298,7 @@ def fetch_data(url):
 - **Clases**: PascalCase
 - **Archivos**: snake_case.py
 - **Endpoints**: kebab-case en URLs (`/user-profile`)
+- **Idioma**: Inglés para código, español para documentación
 
 ### Estructura de Proyecto FastAPI
 
@@ -411,6 +412,31 @@ Debe incluir:
 - ❌ **NO usar ASCII art** para diagramas o visualizaciones
 - ✅ Usar PNG/JPG solo para screenshots o fotografías
 - ✅ Optimizar imágenes antes de incluirlas
+
+### Criterio para Assets SVG por Semana
+
+Los assets SVG en `0-assets/` de cada semana tienen un propósito educativo específico:
+
+- ✅ **Apoyo visual para comprensión de conceptos teóricos**
+- ✅ **Diagramas de arquitectura** (flujo de datos, capas, etc.)
+- ✅ **Visualización de procesos** (request/response, auth flow, etc.)
+- ✅ **Headers de semana** para identificación visual
+
+**Reglas de vinculación:**
+
+1. Todo SVG debe estar **vinculado en al menos un archivo** de teoría o práctica
+2. Usar sintaxis markdown: `![Descripción](../0-assets/nombre.svg)`
+3. Incluir texto alternativo descriptivo para accesibilidad
+4. Nombrar archivos descriptivamente: `async-flow.svg`, `http-methods.svg`
+
+```markdown
+<!-- Ejemplo de vinculación correcta en teoría -->
+## Flujo Request/Response
+
+![Diagrama del flujo HTTP request/response](../0-assets/http-flow.svg)
+
+Como se observa en el diagrama, el cliente envía...
+```
 
 ### Tema Visual
 
@@ -556,13 +582,14 @@ Cuando trabajes en este proyecto:
 
 ### Generación de Código
 
-1. **Usa siempre sintaxis Python moderna (3.12+)**
+1. **Usa siempre sintaxis Python moderna (3.13+)**
 
    - Type hints obligatorios
    - Match statements cuando aplique
    - f-strings para formateo
    - Walrus operator cuando simplifique
    - Union types con `|` en lugar de `Union[]`
+   - Genéricos nativos (`list[str]` en lugar de `List[str]`)
 
 2. **Entorno de Desarrollo con Docker**
 
@@ -611,19 +638,21 @@ Cuando trabajes en este proyecto:
    - En Dockerfile:
 
      ```dockerfile
-     FROM python:3.12-slim
+     FROM python:3.13-slim
      
-     # Instalar uv
-     RUN pip install uv
+     ENV PYTHONDONTWRITEBYTECODE=1 \
+         PYTHONUNBUFFERED=1 \
+         UV_SYSTEM_PYTHON=1
+     
+     RUN pip install --no-cache-dir uv
      
      WORKDIR /app
-     COPY pyproject.toml uv.lock ./
-     
-     # Instalar dependencias
-     RUN uv sync --frozen
+     COPY pyproject.toml uv.lock* ./
+     RUN uv sync --frozen --no-dev
      
      COPY . .
-     CMD ["uv", "run", "fastapi", "dev", "src/main.py", "--host", "0.0.0.0"]
+     EXPOSE 8000
+     CMD ["uv", "run", "fastapi", "dev", "src/main.py", "--host", "0.0.0.0", "--port", "8000"]
      ```
 
    - Comandos uv (dentro del contenedor):

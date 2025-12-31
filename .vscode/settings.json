@@ -1,4 +1,29 @@
 {
+    // ============================================
+    // OPTIMIZACIÓN DE RECURSOS
+    // ============================================
+    
+    // Solo una pestaña activa (preview mode)
+    "workbench.editor.enablePreview": true,
+    "workbench.editor.enablePreviewFromQuickOpen": true,
+    "workbench.editor.enablePreviewFromCodeNavigation": true,
+    "workbench.editor.closeOnFileDelete": true,
+    "workbench.editor.limit.enabled": true,
+    "workbench.editor.limit.value": 2,
+    "workbench.editor.limit.perEditorGroup": true,
+    
+    // Cerrar editores no usados
+    "workbench.editor.closeEmptyGroups": true,
+    "workbench.editor.revealIfOpen": true,
+    
+    // Reducir uso de memoria
+    "files.maxMemoryForLargeFilesMB": 256,
+    "search.maxResults": 1000,
+    
+    // ============================================
+    // TEMA VISUAL (Peacock - FastAPI Green)
+    // ============================================
+    
     "workbench.colorCustomizations": {
         "activityBar.activeBackground": "#00c9b6",
         "activityBar.background": "#00c9b6",

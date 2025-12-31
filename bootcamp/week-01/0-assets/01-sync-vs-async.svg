@@ -1,0 +1,118 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400">
+  <defs>
+    <style>
+      .bg { fill: #1a1a2e; }
+      .title { fill: #ffffff; font-family: 'Segoe UI', sans-serif; font-size: 20px; font-weight: 600; }
+      .label { fill: #e0e0e0; font-family: 'Segoe UI', sans-serif; font-size: 14px; }
+      .sublabel { fill: #9e9e9e; font-family: 'Segoe UI', sans-serif; font-size: 12px; }
+      .time { fill: #009688; font-family: 'Segoe UI', sans-serif; font-size: 12px; font-weight: 600; }
+      .task-sync { fill: #e91e63; }
+      .task-async { fill: #009688; }
+      .wait-sync { fill: #4a4a5a; }
+      .wait-async { fill: #2a4a4a; }
+      .arrow { stroke: #9e9e9e; stroke-width: 2; fill: none; }
+      .divider { stroke: #3a3a4a; stroke-width: 1; stroke-dasharray: 5,5; }
+      .box { fill: #2a2a3e; stroke: #3a3a4a; stroke-width: 1; rx: 8; }
+    </style>
+  </defs>
+  
+  <!-- Background -->
+  <rect class="bg" width="800" height="400"/>
+  
+  <!-- Title -->
+  <text class="title" x="400" y="35" text-anchor="middle">Síncrono vs Asíncrono</text>
+  
+  <!-- Divider -->
+  <line class="divider" x1="400" y1="50" x2="400" y2="380"/>
+  
+  <!-- SYNC Section -->
+  <rect class="box" x="30" y="55" width="340" height="320"/>
+  <text class="label" x="200" y="80" text-anchor="middle" font-weight="600">❌ SÍNCRONO (Bloqueante)</text>
+  
+  <!-- Sync Timeline -->
+  <text class="sublabel" x="50" y="110">Tarea A</text>
+  <text class="sublabel" x="50" y="160">Tarea B</text>
+  <text class="sublabel" x="50" y="210">Tarea C</text>
+  
+  <!-- Time axis sync -->
+  <line class="arrow" x1="120" y1="250" x2="350" y2="250" marker-end="url(#arrowhead)"/>
+  <text class="sublabel" x="235" y="270" text-anchor="middle">Tiempo →</text>
+  
+  <!-- Sync tasks (sequential) -->
+  <!-- Task A: 0-2s -->
+  <rect class="task-sync" x="120" y="100" width="70" height="25" rx="4"/>
+  <text class="label" x="155" y="117" text-anchor="middle" font-size="11">Ejecuta</text>
+  <rect class="wait-sync" x="190" y="100" width="35" height="25" rx="4"/>
+  <text class="sublabel" x="207" y="117" text-anchor="middle" font-size="10">I/O</text>
+  
+  <!-- Task B: 2-4s (waits for A) -->
+  <rect class="wait-sync" x="120" y="150" width="105" height="25" rx="4" opacity="0.3"/>
+  <rect class="task-sync" x="225" y="150" width="70" height="25" rx="4"/>
+  <text class="label" x="260" y="167" text-anchor="middle" font-size="11">Ejecuta</text>
+  <rect class="wait-sync" x="295" y="150" width="35" height="25" rx="4"/>
+  <text class="sublabel" x="312" y="167" text-anchor="middle" font-size="10">I/O</text>
+  
+  <!-- Task C: 4-6s (waits for B) -->
+  <rect class="wait-sync" x="120" y="200" width="210" height="25" rx="4" opacity="0.3"/>
+  <rect class="task-sync" x="330" y="200" width="30" height="25" rx="4"/>
+  
+  <!-- Sync time markers -->
+  <text class="time" x="120" y="240">0s</text>
+  <text class="time" x="225" y="240">2s</text>
+  <text class="time" x="330" y="240">4s</text>
+  
+  <!-- Sync total time -->
+  <rect fill="#e91e63" x="50" y="290" width="120" height="30" rx="6" opacity="0.2"/>
+  <rect fill="#e91e63" x="50" y="290" width="3" height="30" rx="1"/>
+  <text class="label" x="65" y="310">Total: ~6 segundos</text>
+  <text class="sublabel" x="65" y="335">Cada tarea espera a la anterior</text>
+  
+  <!-- ASYNC Section -->
+  <rect class="box" x="430" y="55" width="340" height="320"/>
+  <text class="label" x="600" y="80" text-anchor="middle" font-weight="600">✅ ASÍNCRONO (No Bloqueante)</text>
+  
+  <!-- Async Timeline -->
+  <text class="sublabel" x="450" y="110">Tarea A</text>
+  <text class="sublabel" x="450" y="160">Tarea B</text>
+  <text class="sublabel" x="450" y="210">Tarea C</text>
+  
+  <!-- Time axis async -->
+  <line class="arrow" x1="520" y1="250" x2="750" y2="250"/>
+  <text class="sublabel" x="635" y="270" text-anchor="middle">Tiempo →</text>
+  
+  <!-- Async tasks (concurrent) -->
+  <!-- Task A -->
+  <rect class="task-async" x="520" y="100" width="70" height="25" rx="4"/>
+  <text class="label" x="555" y="117" text-anchor="middle" font-size="11">Ejecuta</text>
+  <rect class="wait-async" x="590" y="100" width="60" height="25" rx="4"/>
+  <text class="sublabel" x="620" y="117" text-anchor="middle" font-size="10">await</text>
+  <rect class="task-async" x="650" y="100" width="30" height="25" rx="4"/>
+  
+  <!-- Task B (starts immediately) -->
+  <rect class="task-async" x="520" y="150" width="70" height="25" rx="4"/>
+  <text class="label" x="555" y="167" text-anchor="middle" font-size="11">Ejecuta</text>
+  <rect class="wait-async" x="590" y="150" width="60" height="25" rx="4"/>
+  <text class="sublabel" x="620" y="167" text-anchor="middle" font-size="10">await</text>
+  <rect class="task-async" x="650" y="150" width="30" height="25" rx="4"/>
+  
+  <!-- Task C (starts immediately) -->
+  <rect class="task-async" x="520" y="200" width="70" height="25" rx="4"/>
+  <text class="label" x="555" y="217" text-anchor="middle" font-size="11">Ejecuta</text>
+  <rect class="wait-async" x="590" y="200" width="60" height="25" rx="4"/>
+  <text class="sublabel" x="620" y="217" text-anchor="middle" font-size="10">await</text>
+  <rect class="task-async" x="650" y="200" width="30" height="25" rx="4"/>
+  
+  <!-- Async time markers -->
+  <text class="time" x="520" y="240">0s</text>
+  <text class="time" x="680" y="240">2s</text>
+  
+  <!-- Async total time -->
+  <rect fill="#009688" x="450" y="290" width="120" height="30" rx="6" opacity="0.2"/>
+  <rect fill="#009688" x="450" y="290" width="3" height="30" rx="1"/>
+  <text class="label" x="465" y="310">Total: ~2 segundos</text>
+  <text class="sublabel" x="465" y="335">Las tareas se ejecutan en paralelo</text>
+  
+  <!-- 3x faster badge -->
+  <rect fill="#009688" x="600" y="295" width="80" height="24" rx="12"/>
+  <text fill="#ffffff" x="640" y="312" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="12" font-weight="600">3x MÁS RÁPIDO</text>
+</svg>

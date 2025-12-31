@@ -88,16 +88,17 @@ bootcamp/week-XX/
 
 | Technology | Version | Usage |
 |------------|---------|-------|
-| Python | 3.12+ | Main language |
-| FastAPI | 0.115+ | Web framework |
-| Pydantic | 2.x | Data validation |
-| SQLAlchemy | 2.x | ORM (sync and async) |
-| Alembic | 1.x | DB migrations |
-| SQLite | - | Development and testing |
-| PostgreSQL | 16+ | Production |
-| pytest | 8+ | Testing |
-| Docker | 24+ | Containerization |
-| uv | latest | Package management |
+| Python | **3.13+** | Main language |
+| FastAPI | **0.115+** | Web framework |
+| Pydantic | **2.10+** | Data validation |
+| SQLAlchemy | **2.0+** | ORM (sync and async) |
+| Alembic | **1.14+** | DB migrations |
+| SQLite | **3.47+** | Development and testing |
+| PostgreSQL | **17+** | Production |
+| pytest | **8.3+** | Testing |
+| Docker | **27+** | Containerization |
+| Docker Compose | **2.31+** | Orchestration |
+| uv | **0.5+** | Package management |
 
 **Development environment**: Docker + docker compose (❌ DO NOT install Python locally)
 

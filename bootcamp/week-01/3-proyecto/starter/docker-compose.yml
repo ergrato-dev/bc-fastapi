@@ -1,0 +1,14 @@
+# ============================================
+# DOCKER COMPOSE - Proyecto API de Saludo
+# ============================================
+
+services:
+  api:
+    build: .
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app
+    environment:
+      - PYTHONDONTWRITEBYTECODE=1
+      - PYTHONUNBUFFERED=1

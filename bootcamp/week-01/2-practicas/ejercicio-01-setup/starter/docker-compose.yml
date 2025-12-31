@@ -1,0 +1,49 @@
+# ============================================
+# DOCKER COMPOSE - Orquestación de servicios
+# ============================================
+# Docker Compose define y ejecuta aplicaciones
+# multi-contenedor. En este caso, solo tenemos
+# un servicio: nuestra API FastAPI.
+
+# --------------------------------------------
+# PASO 1: Definir servicios
+# --------------------------------------------
+# Descomenta todo el bloque siguiente:
+
+# services:
+#   api:
+#     # Construir desde el Dockerfile en el directorio actual
+#     build: .
+#     
+#     # Mapear puerto 8000 del host al 8000 del contenedor
+#     ports:
+#       - "8000:8000"
+#     
+#     # Montar el código local para hot-reload
+#     volumes:
+#       - .:/app
+#     
+#     # Variables de entorno
+#     environment:
+#       - PYTHONDONTWRITEBYTECODE=1
+#       - PYTHONUNBUFFERED=1
+
+
+# ============================================
+# COMANDOS ÚTILES
+# ============================================
+# 
+# Construir y ejecutar:
+#   docker compose up --build
+#
+# Ejecutar en background:
+#   docker compose up -d
+#
+# Ver logs:
+#   docker compose logs -f api
+#
+# Detener:
+#   docker compose down
+#
+# Ejecutar comando dentro del contenedor:
+#   docker compose exec api bash
