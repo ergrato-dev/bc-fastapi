@@ -1,0 +1,113 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <defs>
+    <style>
+      .bg { fill: #1a1a2e; }
+      .title { fill: #ffffff; font-family: Inter, sans-serif; font-size: 24px; font-weight: bold; }
+      .subtitle { fill: #8892b0; font-family: Inter, sans-serif; font-size: 14px; }
+      .method-box { rx: 8; ry: 8; }
+      .get { fill: #10b981; }
+      .post { fill: #f59e0b; }
+      .put { fill: #3b82f6; }
+      .patch { fill: #8b5cf6; }
+      .delete { fill: #ef4444; }
+      .method-text { fill: #ffffff; font-family: Inter, sans-serif; font-size: 16px; font-weight: bold; }
+      .desc-text { fill: #e2e8f0; font-family: Inter, sans-serif; font-size: 13px; }
+      .code-text { fill: #94a3b8; font-family: monospace; font-size: 12px; }
+      .icon { fill: #ffffff; }
+      .divider { stroke: #334155; stroke-width: 1; }
+    </style>
+  </defs>
+  
+  <!-- Background -->
+  <rect class="bg" width="800" height="500"/>
+  
+  <!-- Title -->
+  <text class="title" x="400" y="40" text-anchor="middle">Métodos HTTP en REST APIs</text>
+  <text class="subtitle" x="400" y="62" text-anchor="middle">Operaciones CRUD y sus métodos correspondientes</text>
+  
+  <!-- GET -->
+  <g transform="translate(40, 90)">
+    <rect class="method-box get" width="100" height="36" x="0" y="0"/>
+    <text class="method-text" x="50" y="24" text-anchor="middle">GET</text>
+    <text class="desc-text" x="120" y="16">Obtener recursos</text>
+    <text class="code-text" x="120" y="32">Idempotente • Sin body • Read</text>
+    <text class="code-text" x="500" y="16">GET /items</text>
+    <text class="code-text" x="500" y="32">GET /items/123</text>
+  </g>
+  
+  <!-- POST -->
+  <g transform="translate(40, 150)">
+    <rect class="method-box post" width="100" height="36" x="0" y="0"/>
+    <text class="method-text" x="50" y="24" text-anchor="middle">POST</text>
+    <text class="desc-text" x="120" y="16">Crear nuevo recurso</text>
+    <text class="code-text" x="120" y="32">No idempotente • Con body • Create</text>
+    <text class="code-text" x="500" y="16">POST /items</text>
+    <text class="code-text" x="500" y="32">Body: {"name": "Item 1"}</text>
+  </g>
+  
+  <!-- PUT -->
+  <g transform="translate(40, 210)">
+    <rect class="method-box put" width="100" height="36" x="0" y="0"/>
+    <text class="method-text" x="50" y="24" text-anchor="middle">PUT</text>
+    <text class="desc-text" x="120" y="16">Reemplazar recurso completo</text>
+    <text class="code-text" x="120" y="32">Idempotente • Con body • Replace</text>
+    <text class="code-text" x="500" y="16">PUT /items/123</text>
+    <text class="code-text" x="500" y="32">Body: {"name": "Updated"}</text>
+  </g>
+  
+  <!-- PATCH -->
+  <g transform="translate(40, 270)">
+    <rect class="method-box patch" width="100" height="36" x="0" y="0"/>
+    <text class="method-text" x="50" y="24" text-anchor="middle">PATCH</text>
+    <text class="desc-text" x="120" y="16">Actualización parcial</text>
+    <text class="code-text" x="120" y="32">Idempotente* • Con body • Update</text>
+    <text class="code-text" x="500" y="16">PATCH /items/123</text>
+    <text class="code-text" x="500" y="32">Body: {"price": 29.99}</text>
+  </g>
+  
+  <!-- DELETE -->
+  <g transform="translate(40, 330)">
+    <rect class="method-box delete" width="100" height="36" x="0" y="0"/>
+    <text class="method-text" x="50" y="24" text-anchor="middle">DELETE</text>
+    <text class="desc-text" x="120" y="16">Eliminar recurso</text>
+    <text class="code-text" x="120" y="32">Idempotente • Sin body • Delete</text>
+    <text class="code-text" x="500" y="16">DELETE /items/123</text>
+    <text class="code-text" x="500" y="32">Response: 204 No Content</text>
+  </g>
+  
+  <!-- Divider -->
+  <line class="divider" x1="40" y1="390" x2="760" y2="390"/>
+  
+  <!-- Status Codes -->
+  <text class="subtitle" x="400" y="420" text-anchor="middle">Códigos de Estado Comunes</text>
+  
+  <g transform="translate(80, 440)">
+    <rect fill="#10b981" width="60" height="24" rx="4"/>
+    <text class="method-text" x="30" y="17" text-anchor="middle" font-size="12">200</text>
+    <text class="code-text" x="70" y="17">OK</text>
+  </g>
+  
+  <g transform="translate(200, 440)">
+    <rect fill="#10b981" width="60" height="24" rx="4"/>
+    <text class="method-text" x="30" y="17" text-anchor="middle" font-size="12">201</text>
+    <text class="code-text" x="70" y="17">Created</text>
+  </g>
+  
+  <g transform="translate(330, 440)">
+    <rect fill="#10b981" width="60" height="24" rx="4"/>
+    <text class="method-text" x="30" y="17" text-anchor="middle" font-size="12">204</text>
+    <text class="code-text" x="70" y="17">No Content</text>
+  </g>
+  
+  <g transform="translate(470, 440)">
+    <rect fill="#ef4444" width="60" height="24" rx="4"/>
+    <text class="method-text" x="30" y="17" text-anchor="middle" font-size="12">404</text>
+    <text class="code-text" x="70" y="17">Not Found</text>
+  </g>
+  
+  <g transform="translate(600, 440)">
+    <rect fill="#ef4444" width="60" height="24" rx="4"/>
+    <text class="method-text" x="30" y="17" text-anchor="middle" font-size="12">422</text>
+    <text class="code-text" x="70" y="17">Validation Error</text>
+  </g>
+</svg>

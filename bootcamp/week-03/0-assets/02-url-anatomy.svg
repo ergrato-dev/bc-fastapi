@@ -1,0 +1,115 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 400">
+  <defs>
+    <style>
+      .bg { fill: #1a1a2e; }
+      .title { fill: #ffffff; font-family: Inter, sans-serif; font-size: 22px; font-weight: bold; }
+      .subtitle { fill: #8892b0; font-family: Inter, sans-serif; font-size: 14px; }
+      .url-box { fill: #16213e; stroke: #334155; stroke-width: 2; rx: 8; }
+      .url-text { fill: #e2e8f0; font-family: monospace; font-size: 16px; }
+      .protocol { fill: #10b981; }
+      .domain { fill: #f59e0b; }
+      .path { fill: #3b82f6; }
+      .path-param { fill: #ec4899; }
+      .query { fill: #8b5cf6; }
+      .label { fill: #ffffff; font-family: Inter, sans-serif; font-size: 12px; font-weight: bold; }
+      .desc { fill: #94a3b8; font-family: Inter, sans-serif; font-size: 11px; }
+      .bracket { fill: #64748b; font-family: monospace; font-size: 14px; }
+      .arrow { stroke: #64748b; stroke-width: 1; fill: none; }
+      .box { rx: 6; ry: 6; }
+    </style>
+  </defs>
+  
+  <!-- Background -->
+  <rect class="bg" width="900" height="400"/>
+  
+  <!-- Title -->
+  <text class="title" x="450" y="35" text-anchor="middle">Anatomía de una URL</text>
+  <text class="subtitle" x="450" y="55" text-anchor="middle">Componentes de una URL en APIs REST</text>
+  
+  <!-- URL Box -->
+  <rect class="url-box" x="40" y="80" width="820" height="50"/>
+  
+  <!-- URL Parts -->
+  <text class="url-text" x="60" y="112">
+    <tspan class="protocol">https://</tspan><tspan class="domain">api.example.com</tspan><tspan class="path">/products/</tspan><tspan class="path-param">{id}</tspan><tspan class="query">?category=electronics&amp;limit=10</tspan>
+  </text>
+  
+  <!-- Arrows and Labels -->
+  
+  <!-- Protocol -->
+  <g transform="translate(60, 140)">
+    <path class="arrow" d="M30,0 L30,20"/>
+    <rect class="box protocol" x="0" y="25" width="80" height="50"/>
+    <text class="label" x="40" y="48" text-anchor="middle">Protocolo</text>
+    <text class="desc" x="40" y="64" text-anchor="middle">https://</text>
+  </g>
+  
+  <!-- Domain -->
+  <g transform="translate(165, 140)">
+    <path class="arrow" d="M60,0 L60,20"/>
+    <rect class="box domain" x="0" y="25" width="130" height="50"/>
+    <text class="label" x="65" y="48" text-anchor="middle">Dominio</text>
+    <text class="desc" x="65" y="64" text-anchor="middle">api.example.com</text>
+  </g>
+  
+  <!-- Base Path -->
+  <g transform="translate(320, 140)">
+    <path class="arrow" d="M50,0 L50,20"/>
+    <rect class="box path" x="0" y="25" width="100" height="50"/>
+    <text class="label" x="50" y="48" text-anchor="middle">Path Base</text>
+    <text class="desc" x="50" y="64" text-anchor="middle">/products/</text>
+  </g>
+  
+  <!-- Path Parameter -->
+  <g transform="translate(440, 140)">
+    <path class="arrow" d="M40,0 L40,20"/>
+    <rect class="box path-param" x="0" y="25" width="100" height="50"/>
+    <text class="label" x="50" y="48" text-anchor="middle">Path Param</text>
+    <text class="desc" x="50" y="64" text-anchor="middle">{id}</text>
+  </g>
+  
+  <!-- Query String -->
+  <g transform="translate(570, 140)">
+    <path class="arrow" d="M100,0 L100,20"/>
+    <rect class="box query" x="0" y="25" width="250" height="50"/>
+    <text class="label" x="125" y="48" text-anchor="middle">Query String</text>
+    <text class="desc" x="125" y="64" text-anchor="middle">?category=electronics&amp;limit=10</text>
+  </g>
+  
+  <!-- FastAPI Examples -->
+  <text class="subtitle" x="450" y="250" text-anchor="middle">Ejemplos en FastAPI</text>
+  
+  <!-- Path Param Example -->
+  <g transform="translate(60, 270)">
+    <rect fill="#16213e" width="350" height="80" rx="6"/>
+    <text fill="#ec4899" x="15" y="25" font-family="monospace" font-size="12">Path Parameter</text>
+    <text fill="#e2e8f0" x="15" y="48" font-family="monospace" font-size="12">@app.get("/products/{product_id}")</text>
+    <text fill="#e2e8f0" x="15" y="68" font-family="monospace" font-size="12">def get(product_id: int):</text>
+  </g>
+  
+  <!-- Query Param Example -->
+  <g transform="translate(450, 270)">
+    <rect fill="#16213e" width="380" height="80" rx="6"/>
+    <text fill="#8b5cf6" x="15" y="25" font-family="monospace" font-size="12">Query Parameters</text>
+    <text fill="#e2e8f0" x="15" y="48" font-family="monospace" font-size="12">@app.get("/products")</text>
+    <text fill="#e2e8f0" x="15" y="68" font-family="monospace" font-size="12">def list(category: str, limit: int = 10):</text>
+  </g>
+  
+  <!-- Legend -->
+  <g transform="translate(60, 370)">
+    <rect class="protocol" width="12" height="12" rx="2"/>
+    <text class="desc" x="18" y="10">Protocolo</text>
+    
+    <rect class="domain" x="100" width="12" height="12" rx="2"/>
+    <text class="desc" x="118" y="10">Dominio</text>
+    
+    <rect class="path" x="180" width="12" height="12" rx="2"/>
+    <text class="desc" x="198" y="10">Path</text>
+    
+    <rect class="path-param" x="240" width="12" height="12" rx="2"/>
+    <text class="desc" x="258" y="10">Path Param</text>
+    
+    <rect class="query" x="340" width="12" height="12" rx="2"/>
+    <text class="desc" x="358" y="10">Query String</text>
+  </g>
+</svg>
