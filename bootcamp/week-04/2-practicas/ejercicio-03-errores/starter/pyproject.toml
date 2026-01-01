@@ -1,0 +1,15 @@
+[project]
+name = "ejercicio-03-errores"
+version = "1.0.0"
+description = "Ejercicio de Manejo de Errores"
+requires-python = ">=3.13"
+dependencies = [
+    "fastapi[standard]>=0.115.0",
+    "pydantic[email]>=2.10.0",
+]
+
+[tool.uv]
+dev-dependencies = [
+    "pytest>=8.3.0",
+    "httpx>=0.28.0",
+]

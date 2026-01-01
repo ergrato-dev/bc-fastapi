@@ -1,0 +1,100 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#10b981"/>
+    </marker>
+    <marker id="arrow-red" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#ef4444"/>
+    </marker>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="800" height="520" fill="#0f172a"/>
+  
+  <!-- Title -->
+  <text x="400" y="35" text-anchor="middle" fill="#f8fafc" font-family="system-ui, sans-serif" font-size="24" font-weight="bold">Error Handling en FastAPI</text>
+  
+  <!-- Request Flow -->
+  <rect x="30" y="70" width="100" height="45" rx="8" fill="#1e293b" stroke="#3b82f6" stroke-width="2"/>
+  <text x="80" y="98" text-anchor="middle" fill="#3b82f6" font-family="system-ui, sans-serif" font-size="12" font-weight="600">Request</text>
+  
+  <line x1="130" y1="92" x2="170" y2="92" stroke="#10b981" stroke-width="2" marker-end="url(#arrow)"/>
+  
+  <!-- FastAPI -->
+  <rect x="180" y="60" width="140" height="65" rx="8" fill="#1e293b" stroke="#10b981" stroke-width="2"/>
+  <text x="250" y="85" text-anchor="middle" fill="#10b981" font-family="system-ui, sans-serif" font-size="13" font-weight="600">FastAPI</text>
+  <text x="250" y="105" text-anchor="middle" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="10">Endpoint Handler</text>
+  
+  <!-- Branch: Success -->
+  <line x1="320" y1="80" x2="400" y2="80" stroke="#10b981" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="360" y="70" text-anchor="middle" fill="#10b981" font-family="system-ui, sans-serif" font-size="10">Success</text>
+  
+  <rect x="410" y="60" width="100" height="40" rx="6" fill="#10b981" fill-opacity="0.2" stroke="#10b981" stroke-width="1"/>
+  <text x="460" y="85" text-anchor="middle" fill="#10b981" font-family="system-ui, sans-serif" font-size="11">200 Response</text>
+  
+  <!-- Branch: Error -->
+  <line x1="320" y1="105" x2="400" y2="150" stroke="#ef4444" stroke-width="2" marker-end="url(#arrow-red)"/>
+  <text x="370" y="120" fill="#ef4444" font-family="system-ui, sans-serif" font-size="10">Error!</text>
+  
+  <!-- Error Handling Section -->
+  <rect x="30" y="155" width="740" height="330" rx="12" fill="#1e293b" stroke="#8b5cf6" stroke-width="2"/>
+  <text x="400" y="185" text-anchor="middle" fill="#8b5cf6" font-family="system-ui, sans-serif" font-size="16" font-weight="bold">Estrategias de Manejo de Errores</text>
+  
+  <!-- Option 1: HTTPException -->
+  <rect x="50" y="210" width="210" height="120" rx="8" fill="#0f172a" stroke="#f59e0b" stroke-width="1"/>
+  <text x="155" y="235" text-anchor="middle" fill="#f59e0b" font-family="system-ui, sans-serif" font-size="13" font-weight="bold">1. HTTPException</text>
+  <text x="65" y="260" fill="#94a3b8" font-family="monospace" font-size="9">raise HTTPException(</text>
+  <text x="65" y="278" fill="#94a3b8" font-family="monospace" font-size="9">  status_code=404,</text>
+  <text x="65" y="296" fill="#94a3b8" font-family="monospace" font-size="9">  detail="Not found"</text>
+  <text x="65" y="314" fill="#94a3b8" font-family="monospace" font-size="9">)</text>
+  
+  <!-- Option 2: Custom Exception -->
+  <rect x="295" y="210" width="210" height="120" rx="8" fill="#0f172a" stroke="#3b82f6" stroke-width="1"/>
+  <text x="400" y="235" text-anchor="middle" fill="#3b82f6" font-family="system-ui, sans-serif" font-size="13" font-weight="bold">2. Custom Exception</text>
+  <text x="310" y="260" fill="#94a3b8" font-family="monospace" font-size="9">class NotFoundError(</text>
+  <text x="310" y="278" fill="#94a3b8" font-family="monospace" font-size="9">  Exception):</text>
+  <text x="310" y="296" fill="#94a3b8" font-family="monospace" font-size="9">  def __init__(self,</text>
+  <text x="310" y="314" fill="#94a3b8" font-family="monospace" font-size="9">    resource_id)...</text>
+  
+  <!-- Option 3: Exception Handler -->
+  <rect x="540" y="210" width="210" height="120" rx="8" fill="#0f172a" stroke="#10b981" stroke-width="1"/>
+  <text x="645" y="235" text-anchor="middle" fill="#10b981" font-family="system-ui, sans-serif" font-size="13" font-weight="bold">3. Exception Handler</text>
+  <text x="555" y="260" fill="#94a3b8" font-family="monospace" font-size="9">@app.exception_handler(</text>
+  <text x="555" y="278" fill="#94a3b8" font-family="monospace" font-size="9">  NotFoundError)</text>
+  <text x="555" y="296" fill="#94a3b8" font-family="monospace" font-size="9">async def handler(</text>
+  <text x="555" y="314" fill="#94a3b8" font-family="monospace" font-size="9">  req, exc):</text>
+  
+  <!-- Arrows connecting options -->
+  <line x1="260" y1="270" x2="295" y2="270" stroke="#64748b" stroke-width="1" stroke-dasharray="4"/>
+  <line x1="505" y1="270" x2="540" y2="270" stroke="#64748b" stroke-width="1" stroke-dasharray="4"/>
+  
+  <!-- Error Response Format -->
+  <rect x="50" y="350" width="320" height="120" rx="8" fill="#0f172a" stroke="#ef4444" stroke-width="1"/>
+  <text x="210" y="375" text-anchor="middle" fill="#ef4444" font-family="system-ui, sans-serif" font-size="13" font-weight="bold">Formato de Error Consistente</text>
+  <text x="65" y="400" fill="#64748b" font-family="monospace" font-size="10">{</text>
+  <text x="75" y="418" fill="#10b981" font-family="monospace" font-size="10">"error"</text>
+  <text x="130" y="418" fill="#64748b" font-family="monospace" font-size="10">: {</text>
+  <text x="85" y="436" fill="#3b82f6" font-family="monospace" font-size="10">"code"</text>
+  <text x="130" y="436" fill="#f8fafc" font-family="monospace" font-size="10">: "NOT_FOUND",</text>
+  <text x="85" y="454" fill="#3b82f6" font-family="monospace" font-size="10">"message"</text>
+  <text x="155" y="454" fill="#f8fafc" font-family="monospace" font-size="10">: "Resource..."</text>
+  
+  <!-- Best Practices -->
+  <rect x="400" y="350" width="360" height="120" rx="8" fill="#0f172a" stroke="#8b5cf6" stroke-width="1"/>
+  <text x="580" y="375" text-anchor="middle" fill="#8b5cf6" font-family="system-ui, sans-serif" font-size="13" font-weight="bold">Mejores Prácticas</text>
+  
+  <text x="415" y="400" fill="#10b981" font-family="system-ui, sans-serif" font-size="11">✓</text>
+  <text x="430" y="400" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="11">Errores consistentes (mismo formato)</text>
+  
+  <text x="415" y="422" fill="#10b981" font-family="system-ui, sans-serif" font-size="11">✓</text>
+  <text x="430" y="422" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="11">Códigos de error descriptivos</text>
+  
+  <text x="415" y="444" fill="#10b981" font-family="system-ui, sans-serif" font-size="11">✓</text>
+  <text x="430" y="444" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="11">Logging de errores (no exponer)</text>
+  
+  <text x="415" y="466" fill="#10b981" font-family="system-ui, sans-serif" font-size="11">✓</text>
+  <text x="430" y="466" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="11">Status codes HTTP correctos</text>
+  
+  <!-- Footer -->
+  <text x="400" y="505" text-anchor="middle" fill="#475569" font-family="system-ui, sans-serif" font-size="11">Semana 04 - Responses y Manejo de Errores</text>
+</svg>

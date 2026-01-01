@@ -1,0 +1,15 @@
+[project]
+name = "ejercicio-01-response-models"
+version = "1.0.0"
+description = "Ejercicio de Response Models"
+requires-python = ">=3.13"
+dependencies = [
+    "fastapi[standard]>=0.115.0",
+    "pydantic[email]>=2.10.0",
+]
+
+[tool.uv]
+dev-dependencies = [
+    "pytest>=8.3.0",
+    "httpx>=0.28.0",
+]

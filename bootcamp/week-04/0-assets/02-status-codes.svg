@@ -1,0 +1,103 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 550">
+  <!-- Background -->
+  <rect width="800" height="550" fill="#0f172a"/>
+  
+  <!-- Title -->
+  <text x="400" y="40" text-anchor="middle" fill="#f8fafc" font-family="system-ui, sans-serif" font-size="24" font-weight="bold">HTTP Status Codes</text>
+  <text x="400" y="65" text-anchor="middle" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="14">Códigos de respuesta HTTP más usados en APIs REST</text>
+  
+  <!-- 2xx Success Section -->
+  <rect x="30" y="90" width="230" height="200" rx="12" fill="#1e293b" stroke="#10b981" stroke-width="2"/>
+  <rect x="30" y="90" width="230" height="35" rx="12" fill="#10b981"/>
+  <rect x="30" y="113" width="230" height="12" fill="#10b981"/>
+  <text x="145" y="115" text-anchor="middle" fill="#0f172a" font-family="system-ui, sans-serif" font-size="16" font-weight="bold">2xx SUCCESS</text>
+  
+  <text x="50" y="155" fill="#10b981" font-family="system-ui, sans-serif" font-size="14" font-weight="bold">200</text>
+  <text x="90" y="155" fill="#f8fafc" font-family="system-ui, sans-serif" font-size="13">OK</text>
+  <text x="50" y="172" fill="#64748b" font-family="system-ui, sans-serif" font-size="10">GET, PUT, PATCH exitoso</text>
+  
+  <text x="50" y="200" fill="#10b981" font-family="system-ui, sans-serif" font-size="14" font-weight="bold">201</text>
+  <text x="90" y="200" fill="#f8fafc" font-family="system-ui, sans-serif" font-size="13">Created</text>
+  <text x="50" y="217" fill="#64748b" font-family="system-ui, sans-serif" font-size="10">POST exitoso, recurso creado</text>
+  
+  <text x="50" y="245" fill="#10b981" font-family="system-ui, sans-serif" font-size="14" font-weight="bold">204</text>
+  <text x="90" y="245" fill="#f8fafc" font-family="system-ui, sans-serif" font-size="13">No Content</text>
+  <text x="50" y="262" fill="#64748b" font-family="system-ui, sans-serif" font-size="10">DELETE exitoso, sin body</text>
+  
+  <!-- 4xx Client Errors Section -->
+  <rect x="285" y="90" width="230" height="330" rx="12" fill="#1e293b" stroke="#f59e0b" stroke-width="2"/>
+  <rect x="285" y="90" width="230" height="35" rx="12" fill="#f59e0b"/>
+  <rect x="285" y="113" width="230" height="12" fill="#f59e0b"/>
+  <text x="400" y="115" text-anchor="middle" fill="#0f172a" font-family="system-ui, sans-serif" font-size="16" font-weight="bold">4xx CLIENT ERROR</text>
+  
+  <text x="305" y="155" fill="#f59e0b" font-family="system-ui, sans-serif" font-size="14" font-weight="bold">400</text>
+  <text x="345" y="155" fill="#f8fafc" font-family="system-ui, sans-serif" font-size="13">Bad Request</text>
+  <text x="305" y="172" fill="#64748b" font-family="system-ui, sans-serif" font-size="10">Request malformado</text>
+  
+  <text x="305" y="200" fill="#f59e0b" font-family="system-ui, sans-serif" font-size="14" font-weight="bold">401</text>
+  <text x="345" y="200" fill="#f8fafc" font-family="system-ui, sans-serif" font-size="13">Unauthorized</text>
+  <text x="305" y="217" fill="#64748b" font-family="system-ui, sans-serif" font-size="10">Sin autenticación válida</text>
+  
+  <text x="305" y="245" fill="#f59e0b" font-family="system-ui, sans-serif" font-size="14" font-weight="bold">403</text>
+  <text x="345" y="245" fill="#f8fafc" font-family="system-ui, sans-serif" font-size="13">Forbidden</text>
+  <text x="305" y="262" fill="#64748b" font-family="system-ui, sans-serif" font-size="10">Sin permisos suficientes</text>
+  
+  <text x="305" y="290" fill="#f59e0b" font-family="system-ui, sans-serif" font-size="14" font-weight="bold">404</text>
+  <text x="345" y="290" fill="#f8fafc" font-family="system-ui, sans-serif" font-size="13">Not Found</text>
+  <text x="305" y="307" fill="#64748b" font-family="system-ui, sans-serif" font-size="10">Recurso no existe</text>
+  
+  <text x="305" y="335" fill="#f59e0b" font-family="system-ui, sans-serif" font-size="14" font-weight="bold">409</text>
+  <text x="345" y="335" fill="#f8fafc" font-family="system-ui, sans-serif" font-size="13">Conflict</text>
+  <text x="305" y="352" fill="#64748b" font-family="system-ui, sans-serif" font-size="10">Recurso duplicado</text>
+  
+  <text x="305" y="380" fill="#f59e0b" font-family="system-ui, sans-serif" font-size="14" font-weight="bold">422</text>
+  <text x="345" y="380" fill="#f8fafc" font-family="system-ui, sans-serif" font-size="13">Unprocessable</text>
+  <text x="305" y="397" fill="#64748b" font-family="system-ui, sans-serif" font-size="10">Error de validación Pydantic</text>
+  
+  <!-- 5xx Server Errors Section -->
+  <rect x="540" y="90" width="230" height="155" rx="12" fill="#1e293b" stroke="#ef4444" stroke-width="2"/>
+  <rect x="540" y="90" width="230" height="35" rx="12" fill="#ef4444"/>
+  <rect x="540" y="113" width="230" height="12" fill="#ef4444"/>
+  <text x="655" y="115" text-anchor="middle" fill="#f8fafc" font-family="system-ui, sans-serif" font-size="16" font-weight="bold">5xx SERVER ERROR</text>
+  
+  <text x="560" y="155" fill="#ef4444" font-family="system-ui, sans-serif" font-size="14" font-weight="bold">500</text>
+  <text x="600" y="155" fill="#f8fafc" font-family="system-ui, sans-serif" font-size="13">Internal Error</text>
+  <text x="560" y="172" fill="#64748b" font-family="system-ui, sans-serif" font-size="10">Error no controlado</text>
+  
+  <text x="560" y="200" fill="#ef4444" font-family="system-ui, sans-serif" font-size="14" font-weight="bold">503</text>
+  <text x="600" y="200" fill="#f8fafc" font-family="system-ui, sans-serif" font-size="13">Unavailable</text>
+  <text x="560" y="217" fill="#64748b" font-family="system-ui, sans-serif" font-size="10">Servicio no disponible</text>
+  
+  <!-- CRUD Mapping -->
+  <rect x="30" y="310" width="230" height="170" rx="12" fill="#1e293b" stroke="#3b82f6" stroke-width="2"/>
+  <text x="145" y="340" text-anchor="middle" fill="#3b82f6" font-family="system-ui, sans-serif" font-size="14" font-weight="bold">CRUD → Status Codes</text>
+  
+  <text x="50" y="375" fill="#10b981" font-family="system-ui, sans-serif" font-size="12" font-weight="bold">POST</text>
+  <text x="110" y="375" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="12">→ 201 Created</text>
+  
+  <text x="50" y="400" fill="#3b82f6" font-family="system-ui, sans-serif" font-size="12" font-weight="bold">GET</text>
+  <text x="110" y="400" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="12">→ 200 OK</text>
+  
+  <text x="50" y="425" fill="#f59e0b" font-family="system-ui, sans-serif" font-size="12" font-weight="bold">PUT/PATCH</text>
+  <text x="110" y="425" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="12">→ 200 OK</text>
+  
+  <text x="50" y="450" fill="#ef4444" font-family="system-ui, sans-serif" font-size="12" font-weight="bold">DELETE</text>
+  <text x="110" y="450" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="12">→ 204 No Content</text>
+  
+  <!-- FastAPI Example -->
+  <rect x="540" y="265" width="230" height="215" rx="12" fill="#1e293b" stroke="#8b5cf6" stroke-width="2"/>
+  <text x="655" y="295" text-anchor="middle" fill="#8b5cf6" font-family="system-ui, sans-serif" font-size="14" font-weight="bold">FastAPI Example</text>
+  
+  <text x="555" y="325" fill="#94a3b8" font-family="monospace" font-size="10">@app.post(</text>
+  <text x="555" y="342" fill="#94a3b8" font-family="monospace" font-size="10">  "/items",</text>
+  <text x="555" y="359" fill="#10b981" font-family="monospace" font-size="10">  status_code=201</text>
+  <text x="555" y="376" fill="#94a3b8" font-family="monospace" font-size="10">)</text>
+  <text x="555" y="400" fill="#3b82f6" font-family="monospace" font-size="10">async def</text>
+  <text x="615" y="400" fill="#f8fafc" font-family="monospace" font-size="10">create():</text>
+  <text x="555" y="424" fill="#f59e0b" font-family="monospace" font-size="10">  raise HTTPException(</text>
+  <text x="555" y="441" fill="#f59e0b" font-family="monospace" font-size="10">    status_code=404</text>
+  <text x="555" y="458" fill="#f59e0b" font-family="monospace" font-size="10">  )</text>
+  
+  <!-- Footer -->
+  <text x="400" y="520" text-anchor="middle" fill="#475569" font-family="system-ui, sans-serif" font-size="11">Semana 04 - Responses y Manejo de Errores</text>
+</svg>
