@@ -54,6 +54,18 @@ Al finalizar el bootcamp, los estudiantes serán capaces de:
 - Manejo de errores y excepciones personalizadas
 - Middleware y dependencias
 - Background tasks y eventos
+- **Evolución arquitectónica: MVC → Hexagonal**
+
+##### 🏗️ Progresión Arquitectónica (Semanas 5-10)
+
+| Semana | Arquitectura | Componentes Nuevos |
+|--------|--------------|-------------------|
+| 05 | Monolítico simple | SQLAlchemy básico, todo en endpoints |
+| 06 | + Service Layer | Services para lógica de negocio |
+| 07 | + Repository Pattern | Repositories para acceso a datos |
+| 08 | MVC/Capas completo | Routers → Services → Repositories |
+| 09 | + Ports & Adapters | Interfaces, inversión de dependencias |
+| 10 | Hexagonal completo | Domain, Application, Infrastructure |
 
 #### **Avanzado (Semanas 11-14)** - 24 horas
 

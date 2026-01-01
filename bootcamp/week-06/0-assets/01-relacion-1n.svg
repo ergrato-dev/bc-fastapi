@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 300">
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#009688"/>
+    </marker>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="600" height="300" fill="#1e1e1e"/>
+  
+  <!-- Title -->
+  <text x="300" y="30" fill="#ffffff" font-family="Inter, sans-serif" font-size="18" font-weight="bold" text-anchor="middle">Relación Uno a Muchos (1:N)</text>
+  
+  <!-- Author Table -->
+  <rect x="50" y="70" width="180" height="140" rx="8" fill="#2d2d2d" stroke="#009688" stroke-width="2"/>
+  <rect x="50" y="70" width="180" height="35" rx="8" fill="#009688"/>
+  <text x="140" y="94" fill="#ffffff" font-family="Inter, sans-serif" font-size="14" font-weight="bold" text-anchor="middle">Author</text>
+  
+  <!-- Author Fields -->
+  <text x="65" y="125" fill="#4fc3f7" font-family="monospace" font-size="12">id: int</text>
+  <text x="175" y="125" fill="#ffb74d" font-family="monospace" font-size="10">PK</text>
+  <text x="65" y="145" fill="#4fc3f7" font-family="monospace" font-size="12">name: str</text>
+  <text x="65" y="165" fill="#4fc3f7" font-family="monospace" font-size="12">email: str</text>
+  <text x="65" y="190" fill="#81c784" font-family="monospace" font-size="12">posts: list[Post]</text>
+  
+  <!-- Post Table -->
+  <rect x="370" y="70" width="180" height="160" rx="8" fill="#2d2d2d" stroke="#009688" stroke-width="2"/>
+  <rect x="370" y="70" width="180" height="35" rx="8" fill="#009688"/>
+  <text x="460" y="94" fill="#ffffff" font-family="Inter, sans-serif" font-size="14" font-weight="bold" text-anchor="middle">Post</text>
+  
+  <!-- Post Fields -->
+  <text x="385" y="125" fill="#4fc3f7" font-family="monospace" font-size="12">id: int</text>
+  <text x="495" y="125" fill="#ffb74d" font-family="monospace" font-size="10">PK</text>
+  <text x="385" y="145" fill="#4fc3f7" font-family="monospace" font-size="12">title: str</text>
+  <text x="385" y="165" fill="#4fc3f7" font-family="monospace" font-size="12">content: str</text>
+  <text x="385" y="185" fill="#ef5350" font-family="monospace" font-size="12">author_id: int</text>
+  <text x="510" y="185" fill="#ffb74d" font-family="monospace" font-size="10">FK</text>
+  <text x="385" y="210" fill="#81c784" font-family="monospace" font-size="12">author: Author</text>
+  
+  <!-- Relationship Line -->
+  <line x1="230" y1="140" x2="370" y2="185" stroke="#009688" stroke-width="2" marker-end="url(#arrowhead)"/>
+  
+  <!-- Cardinality -->
+  <text x="245" y="130" fill="#ffffff" font-family="Inter, sans-serif" font-size="14" font-weight="bold">1</text>
+  <text x="355" y="195" fill="#ffffff" font-family="Inter, sans-serif" font-size="14" font-weight="bold">N</text>
+  
+  <!-- Legend -->
+  <rect x="50" y="250" width="500" height="35" rx="4" fill="#252525"/>
+  <circle cx="75" cy="267" r="6" fill="#ffb74d"/>
+  <text x="88" y="272" fill="#b0b0b0" font-family="Inter, sans-serif" font-size="10">PK/FK</text>
+  <circle cx="145" cy="267" r="6" fill="#81c784"/>
+  <text x="158" y="272" fill="#b0b0b0" font-family="Inter, sans-serif" font-size="10">relationship()</text>
+  <circle cx="250" cy="267" r="6" fill="#ef5350"/>
+  <text x="263" y="272" fill="#b0b0b0" font-family="Inter, sans-serif" font-size="10">ForeignKey</text>
+  <text x="340" y="272" fill="#b0b0b0" font-family="Inter, sans-serif" font-size="10">back_populates conecta ambos</text>
+</svg>
