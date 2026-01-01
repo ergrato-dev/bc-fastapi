@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <defs>
+    <style>
+      .bg { fill: #1a1a2e; }
+      .title { fill: #ffffff; font-family: system-ui, sans-serif; font-size: 24px; font-weight: bold; }
+      .subtitle { fill: #a0a0a0; font-family: system-ui, sans-serif; font-size: 14px; }
+      .label { fill: #ffffff; font-family: system-ui, sans-serif; font-size: 12px; font-weight: 500; }
+      .label-sm { fill: #b0b0b0; font-family: system-ui, sans-serif; font-size: 10px; }
+      .code { fill: #00bcd4; font-family: monospace; font-size: 10px; }
+      .port { fill: #ff9800; }
+      .email { fill: #4caf50; }
+      .sms { fill: #2196f3; }
+      .push { fill: #9c27b0; }
+      .webhook { fill: #ff5722; }
+      .console { fill: #607d8b; }
+      .box-stroke { stroke: #4a4a6a; stroke-width: 2; fill: none; }
+      .arrow { stroke: #ffffff; stroke-width: 2; fill: none; marker-end: url(#arrowhead); }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#ffffff"/>
+    </marker>
+  </defs>
+  
+  <!-- Background -->
+  <rect class="bg" width="800" height="500"/>
+  
+  <!-- Title -->
+  <text x="400" y="35" text-anchor="middle" class="title">Multiple Adapters, One Port</text>
+  <text x="400" y="55" text-anchor="middle" class="subtitle">Same interface, different implementations</text>
+  
+  <!-- Central Port -->
+  <rect x="300" y="140" width="200" height="100" rx="8" class="port"/>
+  <text x="400" y="175" text-anchor="middle" class="label">NotificationSender</text>
+  <text x="400" y="195" text-anchor="middle" class="label-sm">Protocol (Port)</text>
+  <text x="400" y="220" text-anchor="middle" class="code">async def send(notification) -&gt; bool</text>
+  
+  <!-- Arrows from port to adapters -->
+  <path d="M300 190 L180 130" class="arrow"/>
+  <path d="M500 190 L620 130" class="arrow"/>
+  <path d="M300 220 L130 350" class="arrow"/>
+  <path d="M400 240 L400 310" class="arrow"/>
+  <path d="M500 220 L670 350" class="arrow"/>
+  
+  <!-- Email Adapter -->
+  <rect x="80" y="70" width="140" height="90" rx="6" class="email"/>
+  <text x="150" y="95" text-anchor="middle" class="label">📧 EmailSender</text>
+  <text x="150" y="115" text-anchor="middle" class="label-sm">SMTP / SendGrid</text>
+  <text x="150" y="140" text-anchor="middle" class="code">smtplib.SMTP()</text>
+  
+  <!-- SMS Adapter -->
+  <rect x="580" y="70" width="140" height="90" rx="6" class="sms"/>
+  <text x="650" y="95" text-anchor="middle" class="label">📱 SMSSender</text>
+  <text x="650" y="115" text-anchor="middle" class="label-sm">Twilio / Nexmo</text>
+  <text x="650" y="140" text-anchor="middle" class="code">twilio.Client()</text>
+  
+  <!-- Push Adapter -->
+  <rect x="40" y="310" width="140" height="90" rx="6" class="push"/>
+  <text x="110" y="335" text-anchor="middle" class="label">🔔 PushSender</text>
+  <text x="110" y="355" text-anchor="middle" class="label-sm">Firebase / APNs</text>
+  <text x="110" y="380" text-anchor="middle" class="code">firebase.send()</text>
+  
+  <!-- Console Adapter -->
+  <rect x="330" y="320" width="140" height="90" rx="6" class="console"/>
+  <text x="400" y="345" text-anchor="middle" class="label">🖥️ ConsoleSender</text>
+  <text x="400" y="365" text-anchor="middle" class="label-sm">Development</text>
+  <text x="400" y="390" text-anchor="middle" class="code">print(message)</text>
+  
+  <!-- Webhook Adapter -->
+  <rect x="620" y="310" width="140" height="90" rx="6" class="webhook"/>
+  <text x="690" y="335" text-anchor="middle" class="label">🔗 WebhookSender</text>
+  <text x="690" y="355" text-anchor="middle" class="label-sm">HTTP POST</text>
+  <text x="690" y="380" text-anchor="middle" class="code">httpx.post(url)</text>
+  
+  <!-- Benefits Box -->
+  <rect x="200" y="430" width="400" height="55" rx="6" class="box-stroke"/>
+  <text x="400" y="455" text-anchor="middle" class="label">✅ Swap adapters without changing business logic</text>
+  <text x="400" y="475" text-anchor="middle" class="label-sm">Use ConsoleSender for dev, EmailSender for production</text>
+</svg>

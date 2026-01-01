@@ -1,0 +1,9 @@
+"""Port: NotificationRepository."""
+from typing import Protocol
+from ..entities import Notification, NotificationStatus
+
+
+class NotificationRepository(Protocol):
+    async def save(self, notification: Notification) -> Notification: ...
+    async def get_by_id(self, notification_id: int) -> Notification | None: ...
+    async def get_by_status(self, status: NotificationStatus, limit: int = 100) -> list[Notification]: ...

@@ -1,0 +1,119 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520">
+  <defs>
+    <style>
+      .bg { fill: #1a1a2e; }
+      .title { fill: #ffffff; font-family: system-ui, sans-serif; font-size: 24px; font-weight: bold; }
+      .subtitle { fill: #a0a0a0; font-family: system-ui, sans-serif; font-size: 14px; }
+      .label { fill: #ffffff; font-family: system-ui, sans-serif; font-size: 12px; font-weight: 500; }
+      .label-sm { fill: #b0b0b0; font-family: system-ui, sans-serif; font-size: 10px; }
+      .code { fill: #00bcd4; font-family: monospace; font-size: 11px; }
+      .keyword { fill: #ff9800; font-family: monospace; font-size: 11px; }
+      .string { fill: #8bc34a; font-family: monospace; font-size: 11px; }
+      .comment { fill: #607d8b; font-family: monospace; font-size: 10px; font-style: italic; }
+      .protocol { fill: #ff9800; }
+      .class-box { fill: #2d2d44; }
+      .implements { fill: #7c4dff; }
+      .check { fill: #4caf50; }
+      .box-stroke { stroke: #4a4a6a; stroke-width: 2; fill: none; }
+      .protocol-stroke { stroke: #ff9800; stroke-width: 2; fill: none; stroke-dasharray: 5,5; }
+      .arrow { stroke: #4caf50; stroke-width: 2; fill: none; marker-end: url(#arrowhead); stroke-dasharray: 5,5; }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#4caf50"/>
+    </marker>
+  </defs>
+  
+  <!-- Background -->
+  <rect class="bg" width="800" height="520"/>
+  
+  <!-- Title -->
+  <text x="400" y="35" text-anchor="middle" class="title">Python Protocols (Structural Subtyping)</text>
+  <text x="400" y="55" text-anchor="middle" class="subtitle">typing.Protocol - Duck typing with type hints</text>
+  
+  <!-- Protocol Definition Box -->
+  <rect x="40" y="80" width="350" height="200" rx="8" class="box-stroke"/>
+  <rect x="40" y="80" width="350" height="28" rx="8" class="protocol"/>
+  <text x="215" y="98" text-anchor="middle" class="label">Protocol Definition (Port)</text>
+  
+  <!-- Protocol Code -->
+  <text x="55" y="128" class="keyword">from</text>
+  <text x="90" y="128" class="code">typing</text>
+  <text x="130" y="128" class="keyword">import</text>
+  <text x="172" y="128" class="code">Protocol</text>
+  
+  <text x="55" y="155" class="keyword">class</text>
+  <text x="93" y="155" class="code">NotificationSender</text>
+  <text x="210" y="155" class="code">(Protocol):</text>
+  
+  <text x="70" y="180" class="comment"># No implementation needed</text>
+  
+  <text x="70" y="205" class="keyword">async def</text>
+  <text x="135" y="205" class="code">send(</text>
+  <text x="70" y="220" class="code">    self,</text>
+  <text x="70" y="235" class="code">    notification: Notification</text>
+  <text x="70" y="250" class="code">) -&gt; bool: ...</text>
+  
+  <!-- Implementation Box 1 -->
+  <rect x="410" y="80" width="350" height="150" rx="8" class="box-stroke"/>
+  <rect x="410" y="80" width="350" height="28" rx="8" class="implements"/>
+  <text x="585" y="98" text-anchor="middle" class="label">Implementation 1 (Adapter)</text>
+  
+  <!-- Class Code 1 -->
+  <text x="425" y="128" class="keyword">class</text>
+  <text x="463" y="128" class="code">EmailSender:</text>
+  <text x="545" y="128" class="comment"># No inheritance!</text>
+  
+  <text x="440" y="155" class="keyword">async def</text>
+  <text x="505" y="155" class="code">send(</text>
+  <text x="440" y="170" class="code">    self,</text>
+  <text x="440" y="185" class="code">    notification: Notification</text>
+  <text x="440" y="200" class="code">) -&gt; bool:</text>
+  <text x="455" y="215" class="comment"># SMTP implementation</text>
+  
+  <!-- Implementation Box 2 -->
+  <rect x="410" y="250" width="350" height="150" rx="8" class="box-stroke"/>
+  <rect x="410" y="250" width="350" height="28" rx="8" class="implements"/>
+  <text x="585" y="268" text-anchor="middle" class="label">Implementation 2 (Adapter)</text>
+  
+  <!-- Class Code 2 -->
+  <text x="425" y="298" class="keyword">class</text>
+  <text x="463" y="298" class="code">SMSSender:</text>
+  <text x="535" y="298" class="comment"># No inheritance!</text>
+  
+  <text x="440" y="325" class="keyword">async def</text>
+  <text x="505" y="325" class="code">send(</text>
+  <text x="440" y="340" class="code">    self,</text>
+  <text x="440" y="355" class="code">    notification: Notification</text>
+  <text x="440" y="370" class="code">) -&gt; bool:</text>
+  <text x="455" y="385" class="comment"># Twilio implementation</text>
+  
+  <!-- Arrow from implementations to protocol -->
+  <path d="M410 150 L395 150" class="arrow"/>
+  <path d="M410 320 L395 270" class="arrow"/>
+  
+  <!-- Check marks -->
+  <text x="370" y="155" class="check">✓</text>
+  <text x="370" y="275" class="check">✓</text>
+  
+  <!-- Key Concept Box -->
+  <rect x="40" y="300" width="350" height="100" rx="8" class="box-stroke"/>
+  <rect x="40" y="300" width="350" height="28" rx="8" class="check"/>
+  <text x="215" y="318" text-anchor="middle" class="label">🔑 Key Concept: Structural Subtyping</text>
+  
+  <text x="55" y="348" class="label-sm">✓ No explicit inheritance required</text>
+  <text x="55" y="368" class="label-sm">✓ Just match the method signatures</text>
+  <text x="55" y="388" class="label-sm">✓ "If it has send() → it's a Sender"</text>
+  
+  <!-- Usage Example -->
+  <rect x="40" y="415" width="720" height="90" rx="8" class="box-stroke"/>
+  <text x="55" y="440" class="comment"># Type checker validates this automatically:</text>
+  <text x="55" y="460" class="keyword">def</text>
+  <text x="85" y="460" class="code">notify(sender: NotificationSender):</text>
+  <text x="305" y="460" class="comment"># Accepts any class with matching send()</text>
+  <text x="70" y="480" class="code">await sender.send(notification)</text>
+  
+  <text x="55" y="495" class="code">notify(EmailSender())</text>
+  <text x="225" y="495" class="check">✓ OK</text>
+  <text x="280" y="495" class="code">notify(SMSSender())</text>
+  <text x="435" y="495" class="check">✓ OK</text>
+</svg>

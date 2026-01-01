@@ -1,0 +1,122 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <defs>
+    <style>
+      .bg { fill: #1a1a2e; }
+      .title { fill: #ffffff; font-family: system-ui, sans-serif; font-size: 24px; font-weight: bold; }
+      .subtitle { fill: #a0a0a0; font-family: system-ui, sans-serif; font-size: 14px; }
+      .label { fill: #ffffff; font-family: system-ui, sans-serif; font-size: 12px; font-weight: 500; }
+      .label-sm { fill: #b0b0b0; font-family: system-ui, sans-serif; font-size: 10px; }
+      .domain { fill: #009688; }
+      .domain-stroke { stroke: #009688; stroke-width: 2; fill: none; }
+      .application { fill: #00796b; }
+      .infrastructure { fill: #2d2d44; }
+      .infra-stroke { stroke: #4a4a6a; stroke-width: 2; fill: none; }
+      .port { fill: #ff9800; }
+      .adapter { fill: #7c4dff; }
+      .arrow { stroke: #00bcd4; stroke-width: 2; fill: none; marker-end: url(#arrowhead); }
+      .arrow-in { stroke: #4caf50; stroke-width: 2; fill: none; marker-end: url(#arrowhead-green); }
+      .arrow-out { stroke: #ff5722; stroke-width: 2; fill: none; marker-end: url(#arrowhead-orange); }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#00bcd4"/>
+    </marker>
+    <marker id="arrowhead-green" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#4caf50"/>
+    </marker>
+    <marker id="arrowhead-orange" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#ff5722"/>
+    </marker>
+  </defs>
+  
+  <!-- Background -->
+  <rect class="bg" width="800" height="500"/>
+  
+  <!-- Title -->
+  <text x="400" y="35" text-anchor="middle" class="title">Ports &amp; Adapters Pattern</text>
+  <text x="400" y="55" text-anchor="middle" class="subtitle">Hexagonal Architecture</text>
+  
+  <!-- Infrastructure Layer (outer) -->
+  <rect x="80" y="80" width="640" height="380" rx="10" class="infra-stroke"/>
+  <text x="120" y="105" class="label-sm">INFRASTRUCTURE LAYER</text>
+  
+  <!-- Application Layer (middle) -->
+  <rect x="180" y="140" width="440" height="260" rx="8" class="domain-stroke" stroke-dasharray="5,5"/>
+  <text x="220" y="165" class="label-sm">APPLICATION LAYER</text>
+  
+  <!-- Domain (center) -->
+  <rect x="300" y="200" width="200" height="140" rx="6" class="domain"/>
+  <text x="400" y="240" text-anchor="middle" class="label">DOMAIN</text>
+  <text x="400" y="260" text-anchor="middle" class="label-sm">Entities</text>
+  <text x="400" y="280" text-anchor="middle" class="label-sm">Business Logic</text>
+  <text x="400" y="300" text-anchor="middle" class="label-sm">Ports (Protocols)</text>
+  
+  <!-- Left Side: Driving (Primary) -->
+  <!-- Port -->
+  <rect x="200" y="240" width="80" height="60" rx="4" class="port"/>
+  <text x="240" y="265" text-anchor="middle" class="label">Driving</text>
+  <text x="240" y="282" text-anchor="middle" class="label-sm">Port</text>
+  
+  <!-- Adapter -->
+  <rect x="100" y="230" width="80" height="80" rx="4" class="adapter"/>
+  <text x="140" y="260" text-anchor="middle" class="label">REST</text>
+  <text x="140" y="278" text-anchor="middle" class="label-sm">Adapter</text>
+  <text x="140" y="295" text-anchor="middle" class="label-sm">(FastAPI)</text>
+  
+  <!-- Arrow: Adapter -> Port -->
+  <path d="M180 270 L195 270" class="arrow-in"/>
+  
+  <!-- External: Client -->
+  <rect x="100" y="130" width="80" height="50" rx="4" class="infrastructure"/>
+  <text x="140" y="155" text-anchor="middle" class="label-sm">HTTP</text>
+  <text x="140" y="170" text-anchor="middle" class="label-sm">Client</text>
+  <path d="M140 180 L140 225" class="arrow-in"/>
+  
+  <!-- Right Side: Driven (Secondary) -->
+  <!-- Port -->
+  <rect x="520" y="200" width="80" height="60" rx="4" class="port"/>
+  <text x="560" y="225" text-anchor="middle" class="label">Driven</text>
+  <text x="560" y="242" text-anchor="middle" class="label-sm">Port</text>
+  
+  <!-- Port 2 -->
+  <rect x="520" y="280" width="80" height="60" rx="4" class="port"/>
+  <text x="560" y="305" text-anchor="middle" class="label">Driven</text>
+  <text x="560" y="322" text-anchor="middle" class="label-sm">Port</text>
+  
+  <!-- Adapter: Database -->
+  <rect x="620" y="190" width="80" height="80" rx="4" class="adapter"/>
+  <text x="660" y="220" text-anchor="middle" class="label">DB</text>
+  <text x="660" y="238" text-anchor="middle" class="label-sm">Adapter</text>
+  <text x="660" y="255" text-anchor="middle" class="label-sm">(SQLAlchemy)</text>
+  
+  <!-- Adapter: Email -->
+  <rect x="620" y="280" width="80" height="70" rx="4" class="adapter"/>
+  <text x="660" y="305" text-anchor="middle" class="label">Email</text>
+  <text x="660" y="323" text-anchor="middle" class="label-sm">Adapter</text>
+  <text x="660" y="340" text-anchor="middle" class="label-sm">(SMTP)</text>
+  
+  <!-- Arrows: Port -> Adapter -->
+  <path d="M505 270 L500 270" class="arrow-out"/>
+  <path d="M600 230 L615 230" class="arrow-out"/>
+  <path d="M600 310 L615 315" class="arrow-out"/>
+  
+  <!-- External Services -->
+  <rect x="620" y="370" width="80" height="50" rx="4" class="infrastructure"/>
+  <text x="660" y="393" text-anchor="middle" class="label-sm">PostgreSQL</text>
+  <text x="660" y="408" text-anchor="middle" class="label-sm">SMTP Server</text>
+  
+  <!-- Legend -->
+  <rect x="100" y="430" width="15" height="15" class="domain"/>
+  <text x="120" y="442" class="label-sm">Domain</text>
+  
+  <rect x="200" y="430" width="15" height="15" class="port"/>
+  <text x="220" y="442" class="label-sm">Port (Protocol)</text>
+  
+  <rect x="330" y="430" width="15" height="15" class="adapter"/>
+  <text x="350" y="442" class="label-sm">Adapter</text>
+  
+  <line x1="450" y1="437" x2="480" y2="437" class="arrow-in"/>
+  <text x="490" y="442" class="label-sm">Inbound</text>
+  
+  <line x1="550" y1="437" x2="580" y2="437" class="arrow-out"/>
+  <text x="590" y="442" class="label-sm">Outbound</text>
+</svg>

@@ -1,0 +1,117 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520">
+  <defs>
+    <style>
+      .bg { fill: #1a1a2e; }
+      .title { fill: #ffffff; font-family: system-ui, sans-serif; font-size: 24px; font-weight: bold; }
+      .subtitle { fill: #a0a0a0; font-family: system-ui, sans-serif; font-size: 14px; }
+      .label { fill: #ffffff; font-family: system-ui, sans-serif; font-size: 12px; font-weight: 500; }
+      .label-sm { fill: #b0b0b0; font-family: system-ui, sans-serif; font-size: 10px; }
+      .code { fill: #00bcd4; font-family: monospace; font-size: 10px; }
+      .keyword { fill: #ff9800; font-family: monospace; font-size: 10px; }
+      .string { fill: #8bc34a; font-family: monospace; font-size: 10px; }
+      .comment { fill: #607d8b; font-family: monospace; font-size: 9px; }
+      .production { fill: #f44336; }
+      .test { fill: #4caf50; }
+      .service { fill: #009688; }
+      .fake { fill: #7c4dff; }
+      .port { fill: #ff9800; }
+      .box-stroke { stroke: #4a4a6a; stroke-width: 2; fill: none; }
+      .arrow { stroke: #ffffff; stroke-width: 2; fill: none; marker-end: url(#arrowhead); }
+      .arrow-inject { stroke: #4caf50; stroke-width: 2; fill: none; marker-end: url(#arrowhead-green); stroke-dasharray: 5,5; }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#ffffff"/>
+    </marker>
+    <marker id="arrowhead-green" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#4caf50"/>
+    </marker>
+  </defs>
+  
+  <!-- Background -->
+  <rect class="bg" width="800" height="520"/>
+  
+  <!-- Title -->
+  <text x="400" y="35" text-anchor="middle" class="title">Testing with Ports &amp; Fake Adapters</text>
+  <text x="400" y="55" text-anchor="middle" class="subtitle">Replace real adapters with fakes for isolated unit tests</text>
+  
+  <!-- Production Side -->
+  <rect x="40" y="80" width="350" height="200" rx="8" class="box-stroke"/>
+  <rect x="40" y="80" width="350" height="28" rx="8" class="production"/>
+  <text x="215" y="98" text-anchor="middle" class="label">🚀 Production</text>
+  
+  <!-- Service -->
+  <rect x="130" y="125" width="160" height="50" rx="6" class="service"/>
+  <text x="210" y="148" text-anchor="middle" class="label">NotificationService</text>
+  <text x="210" y="165" text-anchor="middle" class="code">depends on Port</text>
+  
+  <!-- Port -->
+  <rect x="130" y="185" width="160" height="35" rx="4" class="port"/>
+  <text x="210" y="207" text-anchor="middle" class="label-sm">NotificationSender (Port)</text>
+  
+  <!-- Real Adapter -->
+  <rect x="130" y="230" width="160" height="40" rx="6" class="production"/>
+  <text x="210" y="255" text-anchor="middle" class="label-sm">EmailSender (Real)</text>
+  
+  <path d="M210 175 L210 182" class="arrow"/>
+  <path d="M210 220 L210 227" class="arrow"/>
+  
+  <!-- Test Side -->
+  <rect x="410" y="80" width="350" height="200" rx="8" class="box-stroke"/>
+  <rect x="410" y="80" width="350" height="28" rx="8" class="test"/>
+  <text x="585" y="98" text-anchor="middle" class="label">🧪 Testing</text>
+  
+  <!-- Service -->
+  <rect x="500" y="125" width="160" height="50" rx="6" class="service"/>
+  <text x="580" y="148" text-anchor="middle" class="label">NotificationService</text>
+  <text x="580" y="165" text-anchor="middle" class="code">same code!</text>
+  
+  <!-- Port -->
+  <rect x="500" y="185" width="160" height="35" rx="4" class="port"/>
+  <text x="580" y="207" text-anchor="middle" class="label-sm">NotificationSender (Port)</text>
+  
+  <!-- Fake Adapter -->
+  <rect x="500" y="230" width="160" height="40" rx="6" class="fake"/>
+  <text x="580" y="255" text-anchor="middle" class="label-sm">FakeSender (Test Double)</text>
+  
+  <path d="M580 175 L580 182" class="arrow"/>
+  <path d="M580 220 L580 227" class="arrow-inject"/>
+  <text x="680" y="230" class="label-sm" fill="#4caf50">inject</text>
+  
+  <!-- Code Example Box -->
+  <rect x="40" y="300" width="720" height="200" rx="8" class="box-stroke"/>
+  <text x="55" y="325" class="label">Test Example with Fake Adapter:</text>
+  
+  <!-- Fake Class -->
+  <text x="55" y="350" class="keyword">class</text>
+  <text x="90" y="350" class="code">FakeNotificationSender:</text>
+  <text x="55" y="368" class="code">    def __init__(self):</text>
+  <text x="55" y="383" class="code">        self.calls = []</text>
+  <text x="200" y="383" class="comment"># Track all calls</text>
+  
+  <text x="55" y="403" class="code">    async def send(self, notification):</text>
+  <text x="55" y="418" class="code">        self.calls.append(notification)</text>
+  <text x="55" y="433" class="code">        return True</text>
+  <text x="150" y="433" class="comment"># Always succeeds</text>
+  
+  <!-- Test -->
+  <text x="400" y="350" class="keyword">async def</text>
+  <text x="455" y="350" class="code">test_sends_notification():</text>
+  <text x="400" y="368" class="code">    fake = FakeNotificationSender()</text>
+  <text x="400" y="386" class="code">    service = NotificationService(sender=fake)</text>
+  
+  <text x="400" y="410" class="code">    await service.send_notification(...)</text>
+  
+  <text x="400" y="435" class="comment"># Verify the fake was called</text>
+  <text x="400" y="453" class="keyword">    assert</text>
+  <text x="445" y="453" class="code">fake.was_called()</text>
+  <text x="555" y="453" class="test">✓</text>
+  <text x="400" y="471" class="keyword">    assert</text>
+  <text x="445" y="471" class="code">len(fake.calls) == 1</text>
+  <text x="575" y="471" class="test">✓</text>
+  
+  <!-- Benefits -->
+  <text x="60" y="488" class="label-sm" fill="#4caf50">✓ No real email sent</text>
+  <text x="220" y="488" class="label-sm" fill="#4caf50">✓ Fast execution</text>
+  <text x="360" y="488" class="label-sm" fill="#4caf50">✓ Isolated test</text>
+  <text x="500" y="488" class="label-sm" fill="#4caf50">✓ Verifiable behavior</text>
+</svg>
