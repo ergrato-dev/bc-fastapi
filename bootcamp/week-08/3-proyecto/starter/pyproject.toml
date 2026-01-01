@@ -1,0 +1,19 @@
+[project]
+name = "ecommerce-api"
+version = "0.1.0"
+description = "E-Commerce API - Proyecto Semana 08"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "fastapi>=0.115.0",
+    "uvicorn>=0.32.0",
+    "sqlalchemy>=2.0.0",
+    "pydantic>=2.10.0",
+    "pydantic-settings>=2.6.0",
+]
+
+[tool.uv]
+dev-dependencies = [
+    "pytest>=8.3.0",
+    "httpx>=0.28.0",
+]

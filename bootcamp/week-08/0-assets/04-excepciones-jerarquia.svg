@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <defs>
+    <marker id="arrRed" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#EF5350"/>
+    </marker>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="800" height="500" fill="#1a1a2e"/>
+  
+  <!-- Title -->
+  <text x="400" y="35" font-family="Inter, sans-serif" font-size="20" font-weight="bold" fill="#ffffff" text-anchor="middle">Jerarquía de Excepciones</text>
+  
+  <!-- Base Exception -->
+  <rect x="300" y="60" width="200" height="70" rx="10" fill="#37474F"/>
+  <text x="400" y="85" font-family="Inter, sans-serif" font-size="13" font-weight="bold" fill="#ECEFF1" text-anchor="middle">AppException</text>
+  <text x="400" y="105" font-family="monospace" font-size="10" fill="#B0BEC5" text-anchor="middle">message, status_code</text>
+  <text x="400" y="120" font-family="monospace" font-size="10" fill="#B0BEC5" text-anchor="middle">error_code</text>
+  
+  <!-- Lines to children -->
+  <line x1="400" y1="130" x2="400" y2="150" stroke="#78909C" stroke-width="2"/>
+  <line x1="150" y1="150" x2="650" y2="150" stroke="#78909C" stroke-width="2"/>
+  <line x1="150" y1="150" x2="150" y2="170" stroke="#78909C" stroke-width="2"/>
+  <line x1="400" y1="150" x2="400" y2="170" stroke="#78909C" stroke-width="2"/>
+  <line x1="650" y1="150" x2="650" y2="170" stroke="#78909C" stroke-width="2"/>
+  
+  <!-- NotFoundError -->
+  <rect x="50" y="175" width="200" height="60" rx="8" fill="#1565C0"/>
+  <text x="150" y="200" font-family="Inter, sans-serif" font-size="12" font-weight="bold" fill="#E3F2FD" text-anchor="middle">NotFoundError</text>
+  <text x="150" y="220" font-family="Inter, sans-serif" font-size="10" fill="#BBDEFB" text-anchor="middle">HTTP 404</text>
+  
+  <!-- ConflictError -->
+  <rect x="300" y="175" width="200" height="60" rx="8" fill="#F57C00"/>
+  <text x="400" y="200" font-family="Inter, sans-serif" font-size="12" font-weight="bold" fill="#FFF3E0" text-anchor="middle">ConflictError</text>
+  <text x="400" y="220" font-family="Inter, sans-serif" font-size="10" fill="#FFE0B2" text-anchor="middle">HTTP 409</text>
+  
+  <!-- ValidationError -->
+  <rect x="550" y="175" width="200" height="60" rx="8" fill="#7B1FA2"/>
+  <text x="650" y="200" font-family="Inter, sans-serif" font-size="12" font-weight="bold" fill="#F3E5F5" text-anchor="middle">ValidationError</text>
+  <text x="650" y="220" font-family="Inter, sans-serif" font-size="10" fill="#E1BEE7" text-anchor="middle">HTTP 422</text>
+  
+  <!-- Lines to specific errors -->
+  <line x1="150" y1="235" x2="150" y2="255" stroke="#78909C" stroke-width="1.5"/>
+  <line x1="50" y1="255" x2="250" y2="255" stroke="#78909C" stroke-width="1.5"/>
+  
+  <line x1="400" y1="235" x2="400" y2="255" stroke="#78909C" stroke-width="1.5"/>
+  <line x1="300" y1="255" x2="500" y2="255" stroke="#78909C" stroke-width="1.5"/>
+  
+  <line x1="650" y1="235" x2="650" y2="255" stroke="#78909C" stroke-width="1.5"/>
+  <line x1="550" y1="255" x2="750" y2="255" stroke="#78909C" stroke-width="1.5"/>
+  
+  <!-- Specific NotFound errors -->
+  <rect x="20" y="270" width="120" height="50" rx="6" fill="#0D47A1"/>
+  <text x="80" y="292" font-family="Inter, sans-serif" font-size="10" fill="#E3F2FD" text-anchor="middle">UserNotFound</text>
+  <text x="80" y="308" font-family="Inter, sans-serif" font-size="9" fill="#90CAF9" text-anchor="middle">Error</text>
+  
+  <rect x="160" y="270" width="120" height="50" rx="6" fill="#0D47A1"/>
+  <text x="220" y="292" font-family="Inter, sans-serif" font-size="10" fill="#E3F2FD" text-anchor="middle">ProductNotFound</text>
+  <text x="220" y="308" font-family="Inter, sans-serif" font-size="9" fill="#90CAF9" text-anchor="middle">Error</text>
+  
+  <!-- Specific Conflict errors -->
+  <rect x="280" y="270" width="110" height="50" rx="6" fill="#E65100"/>
+  <text x="335" y="292" font-family="Inter, sans-serif" font-size="10" fill="#FFF3E0" text-anchor="middle">UserAlready</text>
+  <text x="335" y="308" font-family="Inter, sans-serif" font-size="9" fill="#FFE0B2" text-anchor="middle">ExistsError</text>
+  
+  <rect x="410" y="270" width="110" height="50" rx="6" fill="#E65100"/>
+  <text x="465" y="292" font-family="Inter, sans-serif" font-size="10" fill="#FFF3E0" text-anchor="middle">CategoryHas</text>
+  <text x="465" y="308" font-family="Inter, sans-serif" font-size="9" fill="#FFE0B2" text-anchor="middle">ProductsError</text>
+  
+  <!-- Specific Validation errors -->
+  <rect x="540" y="270" width="100" height="50" rx="6" fill="#6A1B9A"/>
+  <text x="590" y="292" font-family="Inter, sans-serif" font-size="10" fill="#F3E5F5" text-anchor="middle">Insufficient</text>
+  <text x="590" y="308" font-family="Inter, sans-serif" font-size="9" fill="#E1BEE7" text-anchor="middle">StockError</text>
+  
+  <rect x="660" y="270" width="100" height="50" rx="6" fill="#6A1B9A"/>
+  <text x="710" y="292" font-family="Inter, sans-serif" font-size="10" fill="#F3E5F5" text-anchor="middle">OrderCannot</text>
+  <text x="710" y="308" font-family="Inter, sans-serif" font-size="9" fill="#E1BEE7" text-anchor="middle">BeCancelled</text>
+  
+  <!-- Exception Handler -->
+  <rect x="200" y="370" width="400" height="90" rx="10" fill="#C62828"/>
+  <text x="400" y="395" font-family="Inter, sans-serif" font-size="14" font-weight="bold" fill="#FFEBEE" text-anchor="middle">Exception Handler Global</text>
+  <line x1="220" y1="405" x2="580" y2="405" stroke="#FFCDD2" stroke-width="1"/>
+  <text x="400" y="425" font-family="monospace" font-size="11" fill="#FFCDD2" text-anchor="middle">@app.exception_handler(AppException)</text>
+  <text x="400" y="445" font-family="Inter, sans-serif" font-size="10" fill="#FFEBEE" text-anchor="middle">Captura TODAS las excepciones de la app</text>
+  
+  <!-- Arrow -->
+  <path d="M400 330 L400 365" stroke="#EF5350" stroke-width="2" stroke-dasharray="4,2" marker-end="url(#arrRed)"/>
+  <text x="415" y="350" font-family="Inter, sans-serif" font-size="9" fill="#EF5350">raises</text>
+  
+  <!-- Footer -->
+  <text x="400" y="485" font-family="Inter, sans-serif" font-size="10" fill="#666" text-anchor="middle">Semana 08 - Bootcamp FastAPI</text>
+</svg>

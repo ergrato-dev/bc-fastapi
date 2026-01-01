@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+  <defs>
+    <marker id="arr" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#81C784"/>
+    </marker>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="800" height="450" fill="#1a1a2e"/>
+  
+  <!-- Title -->
+  <text x="400" y="35" font-family="Inter, sans-serif" font-size="20" font-weight="bold" fill="#ffffff" text-anchor="middle">DTOs y Conversiones</text>
+  
+  <!-- Input DTO -->
+  <rect x="50" y="70" width="200" height="150" rx="10" fill="#1565C0"/>
+  <text x="150" y="95" font-family="Inter, sans-serif" font-size="14" font-weight="bold" fill="#E3F2FD" text-anchor="middle">Input DTO</text>
+  <text x="150" y="115" font-family="Inter, sans-serif" font-size="11" fill="#BBDEFB" text-anchor="middle">UserCreate</text>
+  <line x1="65" y1="125" x2="235" y2="125" stroke="#BBDEFB" stroke-width="1"/>
+  <text x="70" y="145" font-family="monospace" font-size="10" fill="#E3F2FD">email: EmailStr</text>
+  <text x="70" y="162" font-family="monospace" font-size="10" fill="#E3F2FD">password: str</text>
+  <text x="70" y="179" font-family="monospace" font-size="10" fill="#E3F2FD">full_name: str</text>
+  <text x="70" y="200" font-family="Inter, sans-serif" font-size="9" fill="#90CAF9">Validación automática</text>
+  
+  <!-- Arrow -->
+  <path d="M250 145 L290 145" stroke="#81C784" stroke-width="2" marker-end="url(#arr)"/>
+  
+  <!-- Mapper -->
+  <rect x="295" y="100" width="210" height="90" rx="10" fill="#2E7D32"/>
+  <text x="400" y="125" font-family="Inter, sans-serif" font-size="14" font-weight="bold" fill="#E8F5E9" text-anchor="middle">Mapper</text>
+  <text x="400" y="145" font-family="Inter, sans-serif" font-size="11" fill="#C8E6C9" text-anchor="middle">UserMapper</text>
+  <line x1="310" y1="155" x2="490" y2="155" stroke="#C8E6C9" stroke-width="1"/>
+  <text x="400" y="175" font-family="monospace" font-size="10" fill="#E8F5E9" text-anchor="middle">to_entity(dto) → User</text>
+  
+  <!-- Arrow -->
+  <path d="M505 145 L545 145" stroke="#81C784" stroke-width="2" marker-end="url(#arr)"/>
+  
+  <!-- Entity -->
+  <rect x="550" y="70" width="200" height="150" rx="10" fill="#EF6C00"/>
+  <text x="650" y="95" font-family="Inter, sans-serif" font-size="14" font-weight="bold" fill="#FFF3E0" text-anchor="middle">Entity</text>
+  <text x="650" y="115" font-family="Inter, sans-serif" font-size="11" fill="#FFE0B2" text-anchor="middle">User (SQLAlchemy)</text>
+  <line x1="565" y1="125" x2="735" y2="125" stroke="#FFE0B2" stroke-width="1"/>
+  <text x="560" y="145" font-family="monospace" font-size="10" fill="#FFF3E0">id: int</text>
+  <text x="560" y="162" font-family="monospace" font-size="10" fill="#FFF3E0">email: str</text>
+  <text x="560" y="179" font-family="monospace" font-size="10" fill="#FFF3E0">password_hash: str</text>
+  <text x="560" y="196" font-family="monospace" font-size="10" fill="#FFF3E0">created_at: datetime</text>
+  
+  <!-- Second row - Response -->
+  <rect x="550" y="260" width="200" height="150" rx="10" fill="#EF6C00"/>
+  <text x="650" y="285" font-family="Inter, sans-serif" font-size="14" font-weight="bold" fill="#FFF3E0" text-anchor="middle">Entity</text>
+  <text x="650" y="305" font-family="Inter, sans-serif" font-size="11" fill="#FFE0B2" text-anchor="middle">User (from DB)</text>
+  <line x1="565" y1="315" x2="735" y2="315" stroke="#FFE0B2" stroke-width="1"/>
+  <text x="560" y="335" font-family="monospace" font-size="10" fill="#FFF3E0">id: 1</text>
+  <text x="560" y="352" font-family="monospace" font-size="10" fill="#FFF3E0">email: "a@b.com"</text>
+  <text x="560" y="369" font-family="monospace" font-size="10" fill="#FFF3E0">password_hash: "xxx"</text>
+  <text x="560" y="386" font-family="monospace" font-size="10" fill="#FFF3E0">is_active: true</text>
+  
+  <!-- Arrow back -->
+  <path d="M545 335 L505 335" stroke="#81C784" stroke-width="2" marker-end="url(#arr)"/>
+  
+  <!-- Mapper 2 -->
+  <rect x="295" y="290" width="210" height="90" rx="10" fill="#2E7D32"/>
+  <text x="400" y="315" font-family="Inter, sans-serif" font-size="14" font-weight="bold" fill="#E8F5E9" text-anchor="middle">Mapper</text>
+  <text x="400" y="335" font-family="Inter, sans-serif" font-size="11" fill="#C8E6C9" text-anchor="middle">UserMapper</text>
+  <line x1="310" y1="345" x2="490" y2="345" stroke="#C8E6C9" stroke-width="1"/>
+  <text x="400" y="365" font-family="monospace" font-size="10" fill="#E8F5E9" text-anchor="middle">to_response(entity) → DTO</text>
+  
+  <!-- Arrow -->
+  <path d="M290 335 L250 335" stroke="#81C784" stroke-width="2" marker-end="url(#arr)"/>
+  
+  <!-- Output DTO -->
+  <rect x="50" y="260" width="200" height="150" rx="10" fill="#7B1FA2"/>
+  <text x="150" y="285" font-family="Inter, sans-serif" font-size="14" font-weight="bold" fill="#F3E5F5" text-anchor="middle">Output DTO</text>
+  <text x="150" y="305" font-family="Inter, sans-serif" font-size="11" fill="#E1BEE7" text-anchor="middle">UserResponse</text>
+  <line x1="65" y1="315" x2="235" y2="315" stroke="#E1BEE7" stroke-width="1"/>
+  <text x="70" y="335" font-family="monospace" font-size="10" fill="#F3E5F5">id: int</text>
+  <text x="70" y="352" font-family="monospace" font-size="10" fill="#F3E5F5">email: str</text>
+  <text x="70" y="369" font-family="monospace" font-size="10" fill="#F3E5F5">full_name: str</text>
+  <text x="70" y="386" font-family="monospace" font-size="10" fill="#F3E5F5">is_active: bool</text>
+  <text x="70" y="400" font-family="Inter, sans-serif" font-size="9" fill="#CE93D8">Sin password_hash!</text>
+  
+  <!-- Annotations -->
+  <rect x="295" y="200" width="210" height="40" rx="5" fill="#263238"/>
+  <text x="400" y="218" font-family="Inter, sans-serif" font-size="9" fill="#78909C" text-anchor="middle">El Mapper centraliza la lógica</text>
+  <text x="400" y="232" font-family="Inter, sans-serif" font-size="9" fill="#78909C" text-anchor="middle">de conversión DTO ↔ Entity</text>
+  
+  <!-- Footer -->
+  <text x="400" y="435" font-family="Inter, sans-serif" font-size="10" fill="#666" text-anchor="middle">Semana 08 - Bootcamp FastAPI</text>
+</svg>
