@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400">
+  <defs>
+    <style>
+      .bg { fill: #1a1a2e; }
+      .title { fill: #00d4aa; font-family: system-ui, sans-serif; font-size: 24px; font-weight: bold; }
+      .subtitle { fill: #8892b0; font-family: system-ui, sans-serif; font-size: 14px; }
+      .box { fill: #16213e; stroke: #00d4aa; stroke-width: 2; rx: 8; }
+      .box-alt { fill: #16213e; stroke: #e94560; stroke-width: 2; rx: 8; }
+      .box-db { fill: #16213e; stroke: #ffd700; stroke-width: 2; rx: 8; }
+      .label { fill: #ffffff; font-family: system-ui, sans-serif; font-size: 14px; font-weight: 600; }
+      .code { fill: #00d4aa; font-family: monospace; font-size: 12px; }
+      .arrow { stroke: #8892b0; stroke-width: 2; fill: none; marker-end: url(#arrowhead); }
+      .mapping { stroke: #00d4aa; stroke-width: 2; stroke-dasharray: 5,5; }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#8892b0"/>
+    </marker>
+  </defs>
+  
+  <rect class="bg" width="800" height="400"/>
+  
+  <!-- Title -->
+  <text class="title" x="400" y="40" text-anchor="middle">ORM - Object-Relational Mapping</text>
+  <text class="subtitle" x="400" y="65" text-anchor="middle">Mapeo entre Objetos Python y Tablas SQL</text>
+  
+  <!-- Python Objects Side -->
+  <text class="label" x="150" y="100" text-anchor="middle" fill="#00d4aa">Python Objects</text>
+  
+  <rect class="box" x="50" y="120" width="200" height="120"/>
+  <text class="code" x="70" y="145">class User:</text>
+  <text class="code" x="90" y="165">id: int</text>
+  <text class="code" x="90" y="185">name: str</text>
+  <text class="code" x="90" y="205">email: str</text>
+  <text class="code" x="90" y="225">age: int</text>
+  
+  <!-- ORM Middle -->
+  <rect class="box-alt" x="300" y="140" width="200" height="80"/>
+  <text class="label" x="400" y="175" text-anchor="middle">SQLAlchemy ORM</text>
+  <text class="subtitle" x="400" y="200" text-anchor="middle">Traduce automáticamente</text>
+  
+  <!-- Database Side -->
+  <text class="label" x="650" y="100" text-anchor="middle" fill="#ffd700">Database Table</text>
+  
+  <rect class="box-db" x="550" y="120" width="200" height="120"/>
+  <text class="code" x="570" y="145" fill="#ffd700">TABLE users</text>
+  <text class="code" x="590" y="165" fill="#ffd700">id INTEGER PK</text>
+  <text class="code" x="590" y="185" fill="#ffd700">name VARCHAR</text>
+  <text class="code" x="590" y="205" fill="#ffd700">email VARCHAR</text>
+  <text class="code" x="590" y="225" fill="#ffd700">age INTEGER</text>
+  
+  <!-- Arrows -->
+  <path class="arrow" d="M 250 180 L 295 180"/>
+  <path class="arrow" d="M 505 180 L 545 180"/>
+  
+  <!-- Mapping lines -->
+  <line class="mapping" x1="250" y1="165" x2="550" y2="165"/>
+  <line class="mapping" x1="250" y1="185" x2="550" y2="185"/>
+  <line class="mapping" x1="250" y1="205" x2="550" y2="205"/>
+  <line class="mapping" x1="250" y1="225" x2="550" y2="225"/>
+  
+  <!-- Benefits -->
+  <text class="label" x="100" y="290" fill="#00d4aa">✓ Código Python puro</text>
+  <text class="label" x="100" y="315" fill="#00d4aa">✓ Type hints</text>
+  <text class="label" x="100" y="340" fill="#00d4aa">✓ Autocompletado IDE</text>
+  
+  <text class="label" x="350" y="290" fill="#e94560">↔ Traduce queries</text>
+  <text class="label" x="350" y="315" fill="#e94560">↔ Maneja conexiones</text>
+  <text class="label" x="350" y="340" fill="#e94560">↔ Previene SQL injection</text>
+  
+  <text class="label" x="600" y="290" fill="#ffd700">✓ SQL generado</text>
+  <text class="label" x="600" y="315" fill="#ffd700">✓ Portable entre DBs</text>
+  <text class="label" x="600" y="340" fill="#ffd700">✓ Optimizado</text>
+</svg>

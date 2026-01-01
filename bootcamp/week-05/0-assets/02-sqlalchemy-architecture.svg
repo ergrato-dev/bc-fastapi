@@ -1,0 +1,116 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <defs>
+    <style>
+      .bg { fill: #1a1a2e; }
+      .title { fill: #00d4aa; font-family: system-ui, sans-serif; font-size: 24px; font-weight: bold; }
+      .subtitle { fill: #8892b0; font-family: system-ui, sans-serif; font-size: 14px; }
+      .box { fill: #16213e; stroke: #00d4aa; stroke-width: 2; rx: 8; }
+      .box-engine { fill: #16213e; stroke: #e94560; stroke-width: 2; rx: 8; }
+      .box-session { fill: #16213e; stroke: #ffd700; stroke-width: 2; rx: 8; }
+      .box-model { fill: #16213e; stroke: #9d4edd; stroke-width: 2; rx: 8; }
+      .label { fill: #ffffff; font-family: system-ui, sans-serif; font-size: 14px; font-weight: 600; }
+      .label-sm { fill: #8892b0; font-family: system-ui, sans-serif; font-size: 11px; }
+      .code { fill: #00d4aa; font-family: monospace; font-size: 11px; }
+      .arrow { stroke: #8892b0; stroke-width: 2; fill: none; marker-end: url(#arrowhead); }
+      .arrow-create { stroke: #00d4aa; stroke-width: 2; fill: none; marker-end: url(#arrowhead-green); }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#8892b0"/>
+    </marker>
+    <marker id="arrowhead-green" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#00d4aa"/>
+    </marker>
+  </defs>
+  
+  <rect class="bg" width="800" height="500"/>
+  
+  <!-- Title -->
+  <text class="title" x="400" y="35" text-anchor="middle">Arquitectura SQLAlchemy</text>
+  <text class="subtitle" x="400" y="55" text-anchor="middle">Componentes principales y su relación</text>
+  
+  <!-- Engine -->
+  <rect class="box-engine" x="50" y="80" width="180" height="100"/>
+  <text class="label" x="140" y="105" text-anchor="middle" fill="#e94560">Engine</text>
+  <text class="label-sm" x="140" y="125" text-anchor="middle">Conexión a la DB</text>
+  <text class="code" x="60" y="150">create_engine(</text>
+  <text class="code" x="65" y="165">"sqlite:///app.db")</text>
+  
+  <!-- Connection Pool -->
+  <rect class="box" x="50" y="200" width="180" height="70"/>
+  <text class="label" x="140" y="225" text-anchor="middle">Connection Pool</text>
+  <text class="label-sm" x="140" y="245" text-anchor="middle">Reutiliza conexiones</text>
+  
+  <!-- Database -->
+  <rect class="box" x="50" y="290" width="180" height="60"/>
+  <text class="label" x="140" y="320" text-anchor="middle" fill="#ffd700">🗄️ Database</text>
+  <text class="label-sm" x="140" y="340" text-anchor="middle">SQLite / PostgreSQL</text>
+  
+  <!-- Arrows Engine to DB -->
+  <path class="arrow" d="M 140 180 L 140 195"/>
+  <path class="arrow" d="M 140 270 L 140 285"/>
+  
+  <!-- SessionLocal -->
+  <rect class="box-session" x="310" y="80" width="180" height="100"/>
+  <text class="label" x="400" y="105" text-anchor="middle" fill="#ffd700">sessionmaker</text>
+  <text class="label-sm" x="400" y="125" text-anchor="middle">Factory de sesiones</text>
+  <text class="code" x="320" y="150">SessionLocal =</text>
+  <text class="code" x="325" y="165">sessionmaker(bind=engine)</text>
+  
+  <!-- Session -->
+  <rect class="box-session" x="310" y="200" width="180" height="90"/>
+  <text class="label" x="400" y="225" text-anchor="middle" fill="#ffd700">Session</text>
+  <text class="label-sm" x="400" y="245" text-anchor="middle">Unidad de trabajo</text>
+  <text class="code" x="320" y="265">add(), commit()</text>
+  <text class="code" x="320" y="280">query(), delete()</text>
+  
+  <!-- Arrow Engine to SessionLocal -->
+  <path class="arrow" d="M 230 130 L 305 130"/>
+  
+  <!-- Arrow SessionLocal to Session -->
+  <path class="arrow-create" d="M 400 180 L 400 195"/>
+  <text class="label-sm" x="420" y="190" fill="#00d4aa">crea</text>
+  
+  <!-- DeclarativeBase -->
+  <rect class="box-model" x="570" y="80" width="180" height="80"/>
+  <text class="label" x="660" y="105" text-anchor="middle" fill="#9d4edd">DeclarativeBase</text>
+  <text class="label-sm" x="660" y="125" text-anchor="middle">Clase base para modelos</text>
+  <text class="code" x="580" y="145">class Base(...):</text>
+  
+  <!-- Models -->
+  <rect class="box-model" x="570" y="180" width="180" height="110"/>
+  <text class="label" x="660" y="205" text-anchor="middle" fill="#9d4edd">Models</text>
+  <text class="code" x="580" y="225">class User(Base):</text>
+  <text class="code" x="590" y="240">__tablename__ = "users"</text>
+  <text class="code" x="590" y="255">id: Mapped[int]</text>
+  <text class="code" x="590" y="270">name: Mapped[str]</text>
+  
+  <!-- Arrow Base to Models -->
+  <path class="arrow-create" d="M 660 160 L 660 175"/>
+  <text class="label-sm" x="680" y="170" fill="#00d4aa">hereda</text>
+  
+  <!-- Arrow Session to Models -->
+  <path class="arrow" d="M 490 245 L 565 245"/>
+  <text class="label-sm" x="527" y="238">usa</text>
+  
+  <!-- Metadata -->
+  <rect class="box" x="570" y="310" width="180" height="60"/>
+  <text class="label" x="660" y="335" text-anchor="middle">Metadata</text>
+  <text class="code" x="580" y="355">Base.metadata.create_all()</text>
+  
+  <!-- Arrow Models to Metadata -->
+  <path class="arrow" d="M 660 290 L 660 305"/>
+  
+  <!-- Arrow Metadata to DB -->
+  <path class="arrow" d="M 570 340 L 230 320"/>
+  <text class="label-sm" x="390" y="318">crea tablas</text>
+  
+  <!-- Legend -->
+  <rect x="50" y="400" width="700" height="80" fill="#16213e" stroke="#8892b0" rx="8"/>
+  <text class="label" x="70" y="425">Flujo típico:</text>
+  <text class="label-sm" x="70" y="450">1. Engine conecta a la DB</text>
+  <text class="label-sm" x="70" y="465">2. sessionmaker crea factory</text>
+  <text class="label-sm" x="280" y="450">3. Session maneja transacciones</text>
+  <text class="label-sm" x="280" y="465">4. Models definen estructura</text>
+  <text class="label-sm" x="520" y="450">5. Metadata crea/sincroniza tablas</text>
+  <text class="label-sm" x="520" y="465">6. CRUD via Session + Models</text>
+</svg>

@@ -1,0 +1,105 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+  <defs>
+    <style>
+      .bg { fill: #1a1a2e; }
+      .title { fill: #00d4aa; font-family: system-ui, sans-serif; font-size: 24px; font-weight: bold; }
+      .subtitle { fill: #8892b0; font-family: system-ui, sans-serif; font-size: 14px; }
+      .box-create { fill: #16213e; stroke: #00d4aa; stroke-width: 2; rx: 8; }
+      .box-read { fill: #16213e; stroke: #3b82f6; stroke-width: 2; rx: 8; }
+      .box-update { fill: #16213e; stroke: #ffd700; stroke-width: 2; rx: 8; }
+      .box-delete { fill: #16213e; stroke: #e94560; stroke-width: 2; rx: 8; }
+      .label { fill: #ffffff; font-family: system-ui, sans-serif; font-size: 14px; font-weight: 600; }
+      .label-sm { fill: #8892b0; font-family: system-ui, sans-serif; font-size: 11px; }
+      .code { fill: #00d4aa; font-family: monospace; font-size: 10px; }
+      .code-blue { fill: #3b82f6; font-family: monospace; font-size: 10px; }
+      .code-yellow { fill: #ffd700; font-family: monospace; font-size: 10px; }
+      .code-red { fill: #e94560; font-family: monospace; font-size: 10px; }
+      .arrow { stroke: #8892b0; stroke-width: 2; fill: none; marker-end: url(#arrowhead); }
+      .circle { fill: none; stroke-width: 3; }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#8892b0"/>
+    </marker>
+  </defs>
+  
+  <rect class="bg" width="800" height="450"/>
+  
+  <!-- Title -->
+  <text class="title" x="400" y="35" text-anchor="middle">CRUD Operations Flow</text>
+  <text class="subtitle" x="400" y="55" text-anchor="middle">Create, Read, Update, Delete con SQLAlchemy 2.0</text>
+  
+  <!-- CREATE -->
+  <rect class="box-create" x="30" y="80" width="170" height="150"/>
+  <text class="label" x="115" y="105" text-anchor="middle" fill="#00d4aa">CREATE</text>
+  <text class="label-sm" x="115" y="120" text-anchor="middle">Crear registro</text>
+  <text class="code" x="40" y="145">user = User(name="John")</text>
+  <text class="code" x="40" y="160">session.add(user)</text>
+  <text class="code" x="40" y="175">session.commit()</text>
+  <text class="code" x="40" y="190">session.refresh(user)</text>
+  <text class="label-sm" x="40" y="215">→ INSERT INTO users...</text>
+  
+  <!-- READ -->
+  <rect class="box-read" x="220" y="80" width="170" height="150"/>
+  <text class="label" x="305" y="105" text-anchor="middle" fill="#3b82f6">READ</text>
+  <text class="label-sm" x="305" y="120" text-anchor="middle">Leer registros</text>
+  <text class="code-blue" x="230" y="145"># Por ID</text>
+  <text class="code-blue" x="230" y="160">session.get(User, 1)</text>
+  <text class="code-blue" x="230" y="180"># Con filtros</text>
+  <text class="code-blue" x="230" y="195">select(User).where(...)</text>
+  <text class="label-sm" x="230" y="215">→ SELECT * FROM users...</text>
+  
+  <!-- UPDATE -->
+  <rect class="box-update" x="410" y="80" width="170" height="150"/>
+  <text class="label" x="495" y="105" text-anchor="middle" fill="#ffd700">UPDATE</text>
+  <text class="label-sm" x="495" y="120" text-anchor="middle">Actualizar registro</text>
+  <text class="code-yellow" x="420" y="145">user = session.get(User, 1)</text>
+  <text class="code-yellow" x="420" y="160">user.name = "Jane"</text>
+  <text class="code-yellow" x="420" y="175">session.commit()</text>
+  <text class="label-sm" x="420" y="215">→ UPDATE users SET...</text>
+  
+  <!-- DELETE -->
+  <rect class="box-delete" x="600" y="80" width="170" height="150"/>
+  <text class="label" x="685" y="105" text-anchor="middle" fill="#e94560">DELETE</text>
+  <text class="label-sm" x="685" y="120" text-anchor="middle">Eliminar registro</text>
+  <text class="code-red" x="610" y="145">user = session.get(User, 1)</text>
+  <text class="code-red" x="610" y="160">session.delete(user)</text>
+  <text class="code-red" x="610" y="175">session.commit()</text>
+  <text class="label-sm" x="610" y="215">→ DELETE FROM users...</text>
+  
+  <!-- Session Flow -->
+  <rect x="30" y="260" width="740" height="80" fill="#16213e" stroke="#8892b0" rx="8"/>
+  <text class="label" x="400" y="285" text-anchor="middle">Session Lifecycle</text>
+  
+  <!-- Flow boxes -->
+  <rect x="60" y="300" width="100" height="30" fill="#1a1a2e" stroke="#00d4aa" rx="4"/>
+  <text class="label-sm" x="110" y="320" text-anchor="middle" fill="#00d4aa">SessionLocal()</text>
+  
+  <rect x="200" y="300" width="100" height="30" fill="#1a1a2e" stroke="#3b82f6" rx="4"/>
+  <text class="label-sm" x="250" y="320" text-anchor="middle" fill="#3b82f6">Operations</text>
+  
+  <rect x="340" y="300" width="100" height="30" fill="#1a1a2e" stroke="#ffd700" rx="4"/>
+  <text class="label-sm" x="390" y="320" text-anchor="middle" fill="#ffd700">commit()</text>
+  
+  <rect x="480" y="300" width="100" height="30" fill="#1a1a2e" stroke="#e94560" rx="4"/>
+  <text class="label-sm" x="530" y="320" text-anchor="middle" fill="#e94560">rollback()?</text>
+  
+  <rect x="620" y="300" width="100" height="30" fill="#1a1a2e" stroke="#8892b0" rx="4"/>
+  <text class="label-sm" x="670" y="320" text-anchor="middle">close()</text>
+  
+  <!-- Arrows in flow -->
+  <path class="arrow" d="M 160 315 L 195 315"/>
+  <path class="arrow" d="M 300 315 L 335 315"/>
+  <path class="arrow" d="M 440 315 L 475 315"/>
+  <path class="arrow" d="M 580 315 L 615 315"/>
+  
+  <!-- Tips section -->
+  <rect x="30" y="360" width="355" height="75" fill="#16213e" stroke="#00d4aa" rx="8"/>
+  <text class="label" x="50" y="385" fill="#00d4aa">✓ Best Practices</text>
+  <text class="label-sm" x="50" y="405">• Usar context manager: with SessionLocal() as db</text>
+  <text class="label-sm" x="50" y="420">• Siempre hacer commit() o rollback()</text>
+  
+  <rect x="415" y="360" width="355" height="75" fill="#16213e" stroke="#e94560" rx="8"/>
+  <text class="label" x="435" y="385" fill="#e94560">⚠ Common Mistakes</text>
+  <text class="label-sm" x="435" y="405">• Olvidar commit() después de cambios</text>
+  <text class="label-sm" x="435" y="420">• No cerrar la sesión (memory leak)</text>
+</svg>
