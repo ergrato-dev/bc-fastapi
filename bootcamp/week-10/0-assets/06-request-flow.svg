@@ -1,0 +1,137 @@
+<svg viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .title { font: bold 20px 'Inter', sans-serif; fill: #e0e0e0; }
+      .label { font: 600 12px 'Inter', sans-serif; fill: #e0e0e0; }
+      .small { font: 10px 'Inter', sans-serif; fill: #b0b0b0; }
+      .code { font: 10px 'Consolas', monospace; fill: #00bcd4; }
+      .box { stroke-width: 2; }
+      .domain { fill: #1a472a; stroke: #4caf50; }
+      .application { fill: #1a3a4a; stroke: #2196f3; }
+      .infra { fill: #2a2a3a; stroke: #9e9e9e; }
+      .arrow { fill: none; stroke: #888; stroke-width: 1.5; marker-end: url(#arr); }
+      .arrow-bold { fill: none; stroke: #00897b; stroke-width: 2; marker-end: url(#arr2); }
+    </style>
+    <marker id="arr" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#888"/>
+    </marker>
+    <marker id="arr2" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#00897b"/>
+    </marker>
+  </defs>
+  
+  <rect width="800" height="500" fill="#1e1e1e"/>
+  
+  <text x="400" y="25" class="title" text-anchor="middle">Request Flow - Arquitectura Hexagonal</text>
+  
+  <!-- Step 1: HTTP Request -->
+  <rect x="30" y="50" width="120" height="60" rx="6" class="box infra"/>
+  <text x="90" y="75" class="label" text-anchor="middle">HTTP Request</text>
+  <text x="90" y="95" class="small" text-anchor="middle">POST /tasks</text>
+  
+  <!-- Step 2: Router -->
+  <rect x="30" y="130" width="120" height="70" rx="6" class="box infra"/>
+  <text x="90" y="155" class="label" text-anchor="middle">Router</text>
+  <text x="90" y="173" class="code" text-anchor="middle">tasks.py</text>
+  <text x="90" y="190" class="small" text-anchor="middle">Validates input</text>
+  
+  <!-- Step 3: Schema -->
+  <rect x="180" y="130" width="120" height="70" rx="6" class="box infra"/>
+  <text x="240" y="155" class="label" text-anchor="middle">Schema</text>
+  <text x="240" y="173" class="code" text-anchor="middle">TaskCreateRequest</text>
+  <text x="240" y="190" class="small" text-anchor="middle">Pydantic model</text>
+  
+  <!-- Step 4: Dependencies -->
+  <rect x="330" y="130" width="120" height="70" rx="6" class="box infra"/>
+  <text x="390" y="155" class="label" text-anchor="middle">Dependencies</text>
+  <text x="390" y="173" class="code" text-anchor="middle">get_task_service</text>
+  <text x="390" y="190" class="small" text-anchor="middle">Factory</text>
+  
+  <!-- Step 5: Application Service -->
+  <rect x="330" y="230" width="120" height="80" rx="6" class="box application"/>
+  <text x="390" y="255" class="label" text-anchor="middle">TaskService</text>
+  <text x="390" y="275" class="code" text-anchor="middle">create_task()</text>
+  <text x="390" y="295" class="small" text-anchor="middle">Orchestrates</text>
+  
+  <!-- Step 6: Command -->
+  <rect x="180" y="230" width="120" height="80" rx="6" class="box application"/>
+  <text x="240" y="255" class="label" text-anchor="middle">Command</text>
+  <text x="240" y="275" class="code" text-anchor="middle">CreateTaskCommand</text>
+  <text x="240" y="295" class="small" text-anchor="middle">Immutable data</text>
+  
+  <!-- Step 7: Domain Entity -->
+  <rect x="330" y="340" width="120" height="80" rx="6" class="box domain"/>
+  <text x="390" y="365" class="label" text-anchor="middle">Entity</text>
+  <text x="390" y="385" class="code" text-anchor="middle">Task.create()</text>
+  <text x="390" y="405" class="small" text-anchor="middle">Business logic</text>
+  
+  <!-- Step 8: Repository (Port) -->
+  <rect x="500" y="340" width="120" height="80" rx="6" class="box domain"/>
+  <text x="560" y="365" class="label" text-anchor="middle">Port</text>
+  <text x="560" y="385" class="code" text-anchor="middle">TaskRepository</text>
+  <text x="560" y="405" class="small" text-anchor="middle">Protocol</text>
+  
+  <!-- Step 9: Repository Impl -->
+  <rect x="650" y="340" width="120" height="80" rx="6" class="box infra"/>
+  <text x="710" y="365" class="label" text-anchor="middle">Adapter</text>
+  <text x="710" y="385" class="code" text-anchor="middle">InMemoryRepo</text>
+  <text x="710" y="405" class="small" text-anchor="middle">save(task)</text>
+  
+  <!-- Step 10: DTO Response -->
+  <rect x="500" y="230" width="120" height="80" rx="6" class="box application"/>
+  <text x="560" y="255" class="label" text-anchor="middle">DTO</text>
+  <text x="560" y="275" class="code" text-anchor="middle">TaskDTO</text>
+  <text x="560" y="295" class="small" text-anchor="middle">Response data</text>
+  
+  <!-- Step 11: Response Schema -->
+  <rect x="650" y="130" width="120" height="70" rx="6" class="box infra"/>
+  <text x="710" y="155" class="label" text-anchor="middle">Schema</text>
+  <text x="710" y="173" class="code" text-anchor="middle">TaskResponse</text>
+  <text x="710" y="190" class="small" text-anchor="middle">JSON output</text>
+  
+  <!-- Arrows - Request flow -->
+  <path d="M 90 110 L 90 130" class="arrow"/>
+  <path d="M 150 165 L 180 165" class="arrow"/>
+  <path d="M 300 165 L 330 165" class="arrow"/>
+  <path d="M 390 200 L 390 230" class="arrow"/>
+  <path d="M 330 270 L 300 270" class="arrow"/>
+  <path d="M 390 310 L 390 340" class="arrow-bold"/>
+  <path d="M 450 380 L 500 380" class="arrow-bold"/>
+  <path d="M 620 380 L 650 380" class="arrow"/>
+  
+  <!-- Arrows - Response flow -->
+  <path d="M 710 340 L 710 200" class="arrow"/>
+  <path d="M 560 340 L 560 310" class="arrow"/>
+  <path d="M 500 270 L 450 270" class="arrow"/>
+  
+  <!-- Step numbers -->
+  <circle cx="90" cy="80" r="10" fill="#00897b"/>
+  <text x="90" y="84" class="small" text-anchor="middle" fill="white">1</text>
+  
+  <circle cx="90" cy="165" r="10" fill="#00897b"/>
+  <text x="90" y="169" class="small" text-anchor="middle" fill="white">2</text>
+  
+  <circle cx="240" cy="165" r="10" fill="#00897b"/>
+  <text x="240" y="169" class="small" text-anchor="middle" fill="white">3</text>
+  
+  <circle cx="390" cy="165" r="10" fill="#00897b"/>
+  <text x="390" y="169" class="small" text-anchor="middle" fill="white">4</text>
+  
+  <circle cx="390" cy="270" r="10" fill="#2196f3"/>
+  <text x="390" y="274" class="small" text-anchor="middle" fill="white">5</text>
+  
+  <circle cx="390" cy="380" r="10" fill="#4caf50"/>
+  <text x="390" y="384" class="small" text-anchor="middle" fill="white">6</text>
+  
+  <circle cx="560" cy="380" r="10" fill="#4caf50"/>
+  <text x="560" y="384" class="small" text-anchor="middle" fill="white">7</text>
+  
+  <circle cx="710" cy="380" r="10" fill="#9e9e9e"/>
+  <text x="710" y="384" class="small" text-anchor="middle" fill="white">8</text>
+  
+  <!-- Legend -->
+  <text x="50" y="470" class="small">⬜ Infrastructure</text>
+  <text x="180" y="470" class="small">🔵 Application</text>
+  <text x="300" y="470" class="small">🟢 Domain</text>
+  <text x="420" y="470" class="small">→ Flujo de request/response a través de las capas</text>
+</svg>

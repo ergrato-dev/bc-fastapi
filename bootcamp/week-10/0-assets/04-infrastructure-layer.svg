@@ -1,0 +1,81 @@
+<svg viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .title { font: bold 20px 'Inter', sans-serif; fill: #e0e0e0; }
+      .label { font: 600 13px 'Inter', sans-serif; fill: #e0e0e0; }
+      .small { font: 11px 'Inter', sans-serif; fill: #b0b0b0; }
+      .code { font: 11px 'Consolas', monospace; fill: #00bcd4; }
+      .driving { fill: #4a3a2a; stroke: #ff8f00; stroke-width: 2; }
+      .driven { fill: #3a2a4a; stroke: #ab47bc; stroke-width: 2; }
+      .config { fill: #2a3a3a; stroke: #26a69a; stroke-width: 2; }
+      .port { fill: #1a3a4a; stroke: #00897b; stroke-width: 2; stroke-dasharray: 5,3; }
+      .arrow { fill: none; stroke: #888; stroke-width: 2; marker-end: url(#arrowhead); }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#888"/>
+    </marker>
+  </defs>
+  
+  <rect width="800" height="450" fill="#1e1e1e"/>
+  
+  <text x="400" y="30" class="title" text-anchor="middle">Infrastructure Layer - Adaptadores</text>
+  
+  <!-- Driving Adapters -->
+  <rect x="50" y="60" width="320" height="170" rx="8" class="driving"/>
+  <text x="210" y="85" class="label" text-anchor="middle">DRIVING ADAPTERS (Primarios)</text>
+  <text x="70" y="108" class="small">Inician acciones hacia el dominio</text>
+  
+  <rect x="70" y="120" width="130" height="95" rx="5" fill="#3a3030" stroke="#ff8f00"/>
+  <text x="135" y="140" class="label" text-anchor="middle">API REST</text>
+  <text x="85" y="160" class="code">FastAPI Router</text>
+  <text x="85" y="178" class="small">Schemas (Pydantic)</text>
+  <text x="85" y="196" class="small">Error Handlers</text>
+  
+  <rect x="220" y="120" width="130" height="95" rx="5" fill="#3a3030" stroke="#ff8f00"/>
+  <text x="285" y="140" class="label" text-anchor="middle">CLI / Tests</text>
+  <text x="235" y="160" class="code">Click commands</text>
+  <text x="235" y="178" class="small">pytest fixtures</text>
+  <text x="235" y="196" class="small">httpx client</text>
+  
+  <!-- Driven Adapters -->
+  <rect x="430" y="60" width="320" height="170" rx="8" class="driven"/>
+  <text x="590" y="85" class="label" text-anchor="middle">DRIVEN ADAPTERS (Secundarios)</text>
+  <text x="450" y="108" class="small">El dominio los usa para recursos externos</text>
+  
+  <rect x="450" y="120" width="130" height="95" rx="5" fill="#302a3a" stroke="#ab47bc"/>
+  <text x="515" y="140" class="label" text-anchor="middle">Persistence</text>
+  <text x="465" y="160" class="code">InMemoryRepo</text>
+  <text x="465" y="178" class="code">SQLAlchemyRepo</text>
+  <text x="465" y="196" class="small">Implements Port</text>
+  
+  <rect x="600" y="120" width="130" height="95" rx="5" fill="#302a3a" stroke="#ab47bc"/>
+  <text x="665" y="140" class="label" text-anchor="middle">External</text>
+  <text x="615" y="160" class="code">EmailSender</text>
+  <text x="615" y="178" class="code">PaymentGateway</text>
+  <text x="615" y="196" class="small">HTTP clients</text>
+  
+  <!-- Configuration -->
+  <rect x="50" y="260" width="320" height="130" rx="8" class="config"/>
+  <text x="210" y="285" class="label" text-anchor="middle">CONFIGURATION</text>
+  <text x="70" y="310" class="code">class Settings(BaseSettings):</text>
+  <text x="85" y="330" class="small">app_name: str</text>
+  <text x="85" y="350" class="small">database_url: str</text>
+  <text x="85" y="370" class="small">persistence_type: str</text>
+  
+  <!-- Composition Root -->
+  <rect x="430" y="260" width="320" height="130" rx="8" class="config"/>
+  <text x="590" y="285" class="label" text-anchor="middle">COMPOSITION ROOT</text>
+  <text x="450" y="310" class="code">dependencies.py</text>
+  <text x="460" y="330" class="small">get_task_repository()</text>
+  <text x="460" y="350" class="small">get_task_service()</text>
+  <text x="450" y="375" class="code">main.py → create_app()</text>
+  
+  <!-- Arrows -->
+  <path d="M 210 230 L 210 260" class="arrow"/>
+  <path d="M 590 230 L 590 260" class="arrow"/>
+  
+  <!-- Legend -->
+  <text x="100" y="420" class="small">🟠 Driving: HTTP, CLI, WebSocket</text>
+  <text x="350" y="420" class="small">🟣 Driven: DB, External APIs, Files</text>
+  <text x="600" y="420" class="small">🔵 Config: Settings, DI</text>
+</svg>

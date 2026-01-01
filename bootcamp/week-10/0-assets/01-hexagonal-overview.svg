@@ -1,0 +1,76 @@
+<svg viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .title { font: bold 24px 'Inter', sans-serif; fill: #e0e0e0; }
+      .label { font: 600 14px 'Inter', sans-serif; fill: #e0e0e0; }
+      .small { font: 12px 'Inter', sans-serif; fill: #b0b0b0; }
+      .domain { fill: #1a472a; stroke: #2d7a4a; stroke-width: 2; }
+      .application { fill: #1a3a4a; stroke: #2d6a8a; stroke-width: 2; }
+      .infrastructure { fill: #2a2a3a; stroke: #4a4a6a; stroke-width: 2; }
+      .port { fill: #3a3a4a; stroke: #00897b; stroke-width: 2; }
+      .adapter-driving { fill: #4a3a2a; stroke: #ff8f00; stroke-width: 2; }
+      .adapter-driven { fill: #3a2a4a; stroke: #ab47bc; stroke-width: 2; }
+      .arrow { fill: none; stroke: #888; stroke-width: 2; marker-end: url(#arrowhead); }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#888"/>
+    </marker>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="800" height="500" fill="#1e1e1e"/>
+  
+  <!-- Title -->
+  <text x="400" y="35" class="title" text-anchor="middle">Arquitectura Hexagonal - Overview</text>
+  
+  <!-- Infrastructure Layer (outer) -->
+  <rect x="50" y="60" width="700" height="420" rx="20" class="infrastructure"/>
+  <text x="400" y="90" class="label" text-anchor="middle">INFRASTRUCTURE LAYER</text>
+  
+  <!-- Application Layer (middle) -->
+  <rect x="150" y="120" width="500" height="300" rx="15" class="application"/>
+  <text x="400" y="150" class="label" text-anchor="middle">APPLICATION LAYER</text>
+  
+  <!-- Domain Layer (center) -->
+  <rect x="250" y="180" width="300" height="180" rx="10" class="domain"/>
+  <text x="400" y="210" class="label" text-anchor="middle">DOMAIN LAYER</text>
+  
+  <!-- Domain content -->
+  <text x="400" y="245" class="small" text-anchor="middle">Entities</text>
+  <text x="400" y="265" class="small" text-anchor="middle">Value Objects</text>
+  <text x="400" y="285" class="small" text-anchor="middle">Domain Services</text>
+  <text x="400" y="305" class="small" text-anchor="middle">Ports (Interfaces)</text>
+  
+  <!-- Driving Adapters (left) -->
+  <rect x="70" y="200" width="120" height="140" rx="8" class="adapter-driving"/>
+  <text x="130" y="235" class="label" text-anchor="middle">DRIVING</text>
+  <text x="130" y="255" class="label" text-anchor="middle">ADAPTERS</text>
+  <text x="130" y="285" class="small" text-anchor="middle">API REST</text>
+  <text x="130" y="305" class="small" text-anchor="middle">CLI</text>
+  <text x="130" y="325" class="small" text-anchor="middle">WebSocket</text>
+  
+  <!-- Driven Adapters (right) -->
+  <rect x="610" y="200" width="120" height="140" rx="8" class="adapter-driven"/>
+  <text x="670" y="235" class="label" text-anchor="middle">DRIVEN</text>
+  <text x="670" y="255" class="label" text-anchor="middle">ADAPTERS</text>
+  <text x="670" y="285" class="small" text-anchor="middle">Database</text>
+  <text x="670" y="305" class="small" text-anchor="middle">External APIs</text>
+  <text x="670" y="325" class="small" text-anchor="middle">File System</text>
+  
+  <!-- Ports (left) -->
+  <rect x="200" y="230" width="40" height="80" rx="5" class="port"/>
+  <text x="220" y="275" class="small" text-anchor="middle" transform="rotate(-90 220 275)">PORTS</text>
+  
+  <!-- Ports (right) -->
+  <rect x="560" y="230" width="40" height="80" rx="5" class="port"/>
+  <text x="580" y="275" class="small" text-anchor="middle" transform="rotate(-90 580 275)">PORTS</text>
+  
+  <!-- Arrows -->
+  <path d="M 190 270 L 200 270" class="arrow"/>
+  <path d="M 600 270 L 560 270" class="arrow"/>
+  
+  <!-- Legend -->
+  <text x="100" y="460" class="small">🟠 Driving: Inician acciones</text>
+  <text x="300" y="460" class="small">🟢 Domain: Lógica de negocio</text>
+  <text x="520" y="460" class="small">🟣 Driven: Recursos externos</text>
+</svg>

@@ -44,7 +44,8 @@ week-10/
 │   ├── 02-domain-layer.svg
 │   ├── 03-application-layer.svg
 │   ├── 04-infrastructure-layer.svg
-│   └── 05-composition-root.svg
+│   ├── 05-composition-root.svg
+│   └── 06-request-flow.svg
 ├── 1-teoria/                    # Material teórico
 │   ├── 01-arquitectura-hexagonal-overview.md
 │   ├── 02-domain-layer.md
@@ -98,6 +99,14 @@ week-10/
 ---
 
 ## 🏗️ Arquitectura Hexagonal - Visión General
+
+![Arquitectura Hexagonal Overview](0-assets/01-hexagonal-overview.svg)
+
+### Flujo de un Request
+
+![Request Flow](0-assets/06-request-flow.svg)
+
+### Diagrama de Capas
 
 ```
 ┌─────────────────────────────────────────────────────────────────┐
