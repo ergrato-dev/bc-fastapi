@@ -1,0 +1,16 @@
+[project]
+name = "domain-modeling"
+version = "0.1.0"
+description = "Práctica 01: Domain Modeling"
+requires-python = ">=3.13"
+dependencies = []
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0.0",
+    "pytest-asyncio>=0.24.0",
+]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["src"]
