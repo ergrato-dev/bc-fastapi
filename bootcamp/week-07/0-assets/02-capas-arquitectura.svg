@@ -1,0 +1,58 @@
+<svg viewBox="0 0 800 550" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#009688"/>
+    </marker>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="800" height="550" fill="#1a1a2e"/>
+  
+  <!-- Title -->
+  <text x="400" y="40" text-anchor="middle" fill="#009688" font-family="Inter, sans-serif" font-size="24" font-weight="bold">Arquitectura en Capas</text>
+  <text x="400" y="65" text-anchor="middle" fill="#888" font-family="Inter, sans-serif" font-size="14">Router → Service → Repository → Database</text>
+  
+  <!-- Layer 1: Router -->
+  <rect x="100" y="100" width="600" height="80" rx="8" fill="#2d2d44" stroke="#e91e63" stroke-width="2"/>
+  <text x="400" y="135" text-anchor="middle" fill="#e91e63" font-family="Inter, sans-serif" font-size="16" font-weight="bold">🌐 Router Layer</text>
+  <text x="400" y="160" text-anchor="middle" fill="#e0e0e0" font-family="Inter, sans-serif" font-size="12">HTTP endpoints, validación de requests, respuestas</text>
+  
+  <!-- Arrow 1 -->
+  <line x1="400" y1="185" x2="400" y2="215" stroke="#009688" stroke-width="2" marker-end="url(#arrow)"/>
+  
+  <!-- Layer 2: Service -->
+  <rect x="100" y="220" width="600" height="80" rx="8" fill="#2d2d44" stroke="#9c27b0" stroke-width="2"/>
+  <text x="400" y="255" text-anchor="middle" fill="#9c27b0" font-family="Inter, sans-serif" font-size="16" font-weight="bold">⚙️ Service Layer</text>
+  <text x="400" y="280" text-anchor="middle" fill="#e0e0e0" font-family="Inter, sans-serif" font-size="12">Lógica de negocio, validaciones, orquestación</text>
+  
+  <!-- Arrow 2 -->
+  <line x1="400" y1="305" x2="400" y2="335" stroke="#009688" stroke-width="2" marker-end="url(#arrow)"/>
+  
+  <!-- Layer 3: Repository -->
+  <rect x="100" y="340" width="600" height="80" rx="8" fill="#2d2d44" stroke="#009688" stroke-width="2"/>
+  <text x="400" y="375" text-anchor="middle" fill="#009688" font-family="Inter, sans-serif" font-size="16" font-weight="bold">📦 Repository Layer</text>
+  <text x="400" y="400" text-anchor="middle" fill="#e0e0e0" font-family="Inter, sans-serif" font-size="12">Acceso a datos, queries, persistencia</text>
+  
+  <!-- Arrow 3 -->
+  <line x1="400" y1="425" x2="400" y2="455" stroke="#009688" stroke-width="2" marker-end="url(#arrow)"/>
+  
+  <!-- Layer 4: Database -->
+  <rect x="100" y="460" width="600" height="60" rx="8" fill="#2d2d44" stroke="#ff9800" stroke-width="2"/>
+  <text x="400" y="497" text-anchor="middle" fill="#ff9800" font-family="Inter, sans-serif" font-size="16" font-weight="bold">🗄️ Database</text>
+  
+  <!-- Side annotations -->
+  <text x="720" y="145" fill="#e91e63" font-family="Inter, sans-serif" font-size="11">FastAPI</text>
+  <text x="720" y="265" fill="#9c27b0" font-family="Inter, sans-serif" font-size="11">Python</text>
+  <text x="720" y="385" fill="#009688" font-family="Inter, sans-serif" font-size="11">SQLAlchemy</text>
+  <text x="720" y="495" fill="#ff9800" font-family="Inter, sans-serif" font-size="11">SQLite/PG</text>
+  
+  <!-- Responsibilities on left -->
+  <text x="85" y="135" text-anchor="end" fill="#888" font-family="Inter, sans-serif" font-size="10">Request/Response</text>
+  <text x="85" y="155" text-anchor="end" fill="#888" font-family="Inter, sans-serif" font-size="10">Serialization</text>
+  
+  <text x="85" y="255" text-anchor="end" fill="#888" font-family="Inter, sans-serif" font-size="10">Business Rules</text>
+  <text x="85" y="275" text-anchor="end" fill="#888" font-family="Inter, sans-serif" font-size="10">Validation</text>
+  
+  <text x="85" y="375" text-anchor="end" fill="#888" font-family="Inter, sans-serif" font-size="10">CRUD Operations</text>
+  <text x="85" y="395" text-anchor="end" fill="#888" font-family="Inter, sans-serif" font-size="10">Query Building</text>
+</svg>

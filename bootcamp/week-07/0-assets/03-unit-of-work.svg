@@ -1,0 +1,77 @@
+<svg viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="arrowUoW" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#009688"/>
+    </marker>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="800" height="500" fill="#1a1a2e"/>
+  
+  <!-- Title -->
+  <text x="400" y="40" text-anchor="middle" fill="#009688" font-family="Inter, sans-serif" font-size="24" font-weight="bold">Unit of Work Pattern</text>
+  <text x="400" y="65" text-anchor="middle" fill="#888" font-family="Inter, sans-serif" font-size="14">Coordina transacciones entre múltiples repositorios</text>
+  
+  <!-- Unit of Work Container -->
+  <rect x="150" y="100" width="500" height="250" rx="12" fill="#252538" stroke="#009688" stroke-width="3"/>
+  <text x="400" y="130" text-anchor="middle" fill="#009688" font-family="Inter, sans-serif" font-size="18" font-weight="bold">Unit of Work</text>
+  
+  <!-- Session indicator -->
+  <rect x="170" y="145" width="460" height="25" rx="4" fill="#1e1e2e" stroke="#444" stroke-width="1"/>
+  <text x="400" y="163" text-anchor="middle" fill="#4fc3f7" font-family="monospace" font-size="12">Session (conexión compartida)</text>
+  
+  <!-- Repository 1 -->
+  <rect x="180" y="190" width="140" height="80" rx="6" fill="#2d2d44" stroke="#81c784" stroke-width="2"/>
+  <text x="250" y="220" text-anchor="middle" fill="#81c784" font-family="Inter, sans-serif" font-size="13" font-weight="bold">UserRepository</text>
+  <text x="250" y="245" text-anchor="middle" fill="#888" font-family="Inter, sans-serif" font-size="11">uow.users</text>
+  <text x="250" y="260" text-anchor="middle" fill="#666" font-family="Inter, sans-serif" font-size="10">add, get, update</text>
+  
+  <!-- Repository 2 -->
+  <rect x="330" y="190" width="140" height="80" rx="6" fill="#2d2d44" stroke="#ff9800" stroke-width="2"/>
+  <text x="400" y="220" text-anchor="middle" fill="#ff9800" font-family="Inter, sans-serif" font-size="13" font-weight="bold">TaskRepository</text>
+  <text x="400" y="245" text-anchor="middle" fill="#888" font-family="Inter, sans-serif" font-size="11">uow.tasks</text>
+  <text x="400" y="260" text-anchor="middle" fill="#666" font-family="Inter, sans-serif" font-size="10">add, get, update</text>
+  
+  <!-- Repository 3 -->
+  <rect x="480" y="190" width="140" height="80" rx="6" fill="#2d2d44" stroke="#e91e63" stroke-width="2"/>
+  <text x="550" y="220" text-anchor="middle" fill="#e91e63" font-family="Inter, sans-serif" font-size="13" font-weight="bold">OrderRepository</text>
+  <text x="550" y="245" text-anchor="middle" fill="#888" font-family="Inter, sans-serif" font-size="11">uow.orders</text>
+  <text x="550" y="260" text-anchor="middle" fill="#666" font-family="Inter, sans-serif" font-size="10">add, get, update</text>
+  
+  <!-- Commit/Rollback buttons -->
+  <rect x="220" y="295" width="120" height="35" rx="4" fill="#4caf50"/>
+  <text x="280" y="318" text-anchor="middle" fill="#fff" font-family="Inter, sans-serif" font-size="13" font-weight="bold">commit()</text>
+  
+  <rect x="460" y="295" width="120" height="35" rx="4" fill="#f44336"/>
+  <text x="520" y="318" text-anchor="middle" fill="#fff" font-family="Inter, sans-serif" font-size="13" font-weight="bold">rollback()</text>
+  
+  <!-- Database -->
+  <ellipse cx="400" cy="420" rx="100" ry="45" fill="#2d2d44" stroke="#4fc3f7" stroke-width="2"/>
+  <text x="400" y="425" text-anchor="middle" fill="#4fc3f7" font-family="Inter, sans-serif" font-size="14" font-weight="bold">Database</text>
+  
+  <!-- Arrows to DB -->
+  <line x1="280" y1="335" x2="350" y2="380" stroke="#4caf50" stroke-width="2" marker-end="url(#arrowUoW)"/>
+  <line x1="520" y1="335" x2="450" y2="380" stroke="#f44336" stroke-width="2" stroke-dasharray="5,5"/>
+  
+  <!-- Labels -->
+  <text x="290" y="370" fill="#4caf50" font-family="Inter, sans-serif" font-size="10">Guarda todo</text>
+  <text x="470" y="370" fill="#f44336" font-family="Inter, sans-serif" font-size="10">Revierte todo</text>
+  
+  <!-- Code example -->
+  <rect x="50" y="400" width="200" height="80" rx="4" fill="#1e1e2e"/>
+  <text x="60" y="420" fill="#4fc3f7" font-family="monospace" font-size="10">with</text>
+  <text x="85" y="420" fill="#e0e0e0" font-family="monospace" font-size="10">UnitOfWork(db)</text>
+  <text x="180" y="420" fill="#4fc3f7" font-family="monospace" font-size="10">as</text>
+  <text x="197" y="420" fill="#ff9800" font-family="monospace" font-size="10">uow:</text>
+  <text x="70" y="440" fill="#e0e0e0" font-family="monospace" font-size="10">uow.users.add(user)</text>
+  <text x="70" y="455" fill="#e0e0e0" font-family="monospace" font-size="10">uow.tasks.add(task)</text>
+  <text x="70" y="470" fill="#e0e0e0" font-family="monospace" font-size="10">uow.</text>
+  <text x="98" y="470" fill="#4caf50" font-family="monospace" font-size="10">commit()</text>
+  
+  <!-- Key point -->
+  <rect x="550" y="400" width="220" height="80" rx="4" fill="#252538" stroke="#444" stroke-width="1"/>
+  <text x="565" y="420" fill="#009688" font-family="Inter, sans-serif" font-size="11" font-weight="bold">💡 Clave:</text>
+  <text x="565" y="440" fill="#e0e0e0" font-family="Inter, sans-serif" font-size="10">• Una sesión para todos</text>
+  <text x="565" y="455" fill="#e0e0e0" font-family="Inter, sans-serif" font-size="10">• Todo o nada (atómico)</text>
+  <text x="565" y="470" fill="#e0e0e0" font-family="Inter, sans-serif" font-size="10">• Context manager automático</text>
+</svg>
