@@ -1,0 +1,82 @@
+<svg viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="800" height="500" fill="#1a1a2e"/>
+  
+  <!-- Title -->
+  <text x="400" y="35" font-family="Inter, sans-serif" font-size="20" font-weight="600" fill="#009688" text-anchor="middle">
+    Docker Compose Stack
+  </text>
+  
+  <!-- Arrow marker -->
+  <defs>
+    <marker id="arrow4" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#9C27B0"/>
+    </marker>
+    <marker id="arrow5" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#80cbc4"/>
+    </marker>
+  </defs>
+  
+  <!-- External Access -->
+  <g transform="translate(350, 55)">
+    <rect x="0" y="0" width="100" height="35" rx="17" fill="#9C27B0" opacity="0.3"/>
+    <text x="50" y="23" font-family="Inter, sans-serif" font-size="12" fill="#ce93d8" text-anchor="middle">:8000</text>
+  </g>
+  
+  <!-- Arrow down to API -->
+  <path d="M 400 90 L 400 115" stroke="#9C27B0" stroke-width="2" marker-end="url(#arrow4)"/>
+  
+  <!-- Docker Compose boundary -->
+  <rect x="50" y="105" width="700" height="300" rx="12" fill="transparent" stroke="#4a4a6a" stroke-width="2" stroke-dasharray="10,5"/>
+  <text x="70" y="125" font-family="Inter, sans-serif" font-size="12" fill="#666">docker-compose.yml</text>
+  
+  <!-- API Service -->
+  <g transform="translate(300, 135)">
+    <rect x="0" y="0" width="200" height="90" rx="8" fill="#252540" stroke="#4CAF50" stroke-width="2"/>
+    <text x="100" y="25" font-family="Inter, sans-serif" font-size="14" font-weight="600" fill="#4CAF50" text-anchor="middle">api</text>
+    <text x="100" y="45" font-family="monospace" font-size="10" fill="#888" text-anchor="middle">FastAPI + Uvicorn</text>
+    <text x="100" y="62" font-family="monospace" font-size="10" fill="#666" text-anchor="middle">build: .</text>
+    <text x="100" y="78" font-family="monospace" font-size="10" fill="#666" text-anchor="middle">depends_on: db, redis</text>
+  </g>
+  
+  <!-- Arrows from API to DB and Redis -->
+  <path d="M 300 180 L 210 260" stroke="#80cbc4" stroke-width="2" marker-end="url(#arrow5)"/>
+  <path d="M 500 180 L 590 260" stroke="#80cbc4" stroke-width="2" marker-end="url(#arrow5)"/>
+  
+  <!-- DB Service -->
+  <g transform="translate(80, 260)">
+    <rect x="0" y="0" width="180" height="80" rx="8" fill="#252540" stroke="#2196F3" stroke-width="2"/>
+    <text x="90" y="25" font-family="Inter, sans-serif" font-size="14" font-weight="600" fill="#2196F3" text-anchor="middle">db</text>
+    <text x="90" y="48" font-family="monospace" font-size="10" fill="#888" text-anchor="middle">postgres:17-alpine</text>
+    <text x="90" y="66" font-family="monospace" font-size="10" fill="#666" text-anchor="middle">:5432</text>
+  </g>
+  
+  <!-- Redis Service -->
+  <g transform="translate(540, 260)">
+    <rect x="0" y="0" width="180" height="80" rx="8" fill="#252540" stroke="#f44336" stroke-width="2"/>
+    <text x="90" y="25" font-family="Inter, sans-serif" font-size="14" font-weight="600" fill="#f44336" text-anchor="middle">redis</text>
+    <text x="90" y="48" font-family="monospace" font-size="10" fill="#888" text-anchor="middle">redis:7-alpine</text>
+    <text x="90" y="66" font-family="monospace" font-size="10" fill="#666" text-anchor="middle">:6379</text>
+  </g>
+  
+  <!-- Network line connecting DB and Redis -->
+  <line x1="260" y1="300" x2="540" y2="300" stroke="#9C27B0" stroke-width="2" stroke-dasharray="5,3"/>
+  <text x="400" y="380" font-family="Inter, sans-serif" font-size="11" fill="#ce93d8" text-anchor="middle">app-network (bridge)</text>
+  
+  <!-- Volumes -->
+  <g transform="translate(80, 440)">
+    <rect x="0" y="0" width="140" height="45" rx="6" fill="#FF9800" opacity="0.2" stroke="#FF9800" stroke-width="1"/>
+    <text x="70" y="18" font-family="Inter, sans-serif" font-size="10" fill="#FF9800" text-anchor="middle">📁 postgres_data</text>
+    <text x="70" y="35" font-family="monospace" font-size="9" fill="#888" text-anchor="middle">/var/lib/postgresql</text>
+  </g>
+  
+  <g transform="translate(580, 440)">
+    <rect x="0" y="0" width="140" height="45" rx="6" fill="#FF9800" opacity="0.2" stroke="#FF9800" stroke-width="1"/>
+    <text x="70" y="18" font-family="Inter, sans-serif" font-size="10" fill="#FF9800" text-anchor="middle">📁 redis_data</text>
+    <text x="70" y="35" font-family="monospace" font-size="9" fill="#888" text-anchor="middle">/data</text>
+  </g>
+  
+  <!-- Volume arrows -->
+  <path d="M 150 340 L 150 440" stroke="#FF9800" stroke-width="1" stroke-dasharray="3,2"/>
+  <path d="M 650 340 L 650 440" stroke="#FF9800" stroke-width="1" stroke-dasharray="3,2"/>
+</svg>

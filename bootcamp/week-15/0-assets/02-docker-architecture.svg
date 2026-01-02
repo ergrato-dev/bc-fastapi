@@ -1,0 +1,111 @@
+<svg viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="800" height="500" fill="#1a1a2e"/>
+  
+  <!-- Title -->
+  <text x="400" y="40" font-family="Inter, sans-serif" font-size="20" font-weight="600" fill="#009688" text-anchor="middle">
+    Docker Architecture
+  </text>
+  
+  <!-- Docker Client -->
+  <g transform="translate(50, 80)">
+    <rect x="0" y="0" width="180" height="120" rx="8" fill="#2d2d44" stroke="#4a4a6a" stroke-width="2"/>
+    <text x="90" y="30" font-family="Inter, sans-serif" font-size="14" font-weight="600" fill="#80cbc4" text-anchor="middle">Docker Client</text>
+    <text x="90" y="55" font-family="monospace" font-size="11" fill="#888" text-anchor="middle">docker build</text>
+    <text x="90" y="75" font-family="monospace" font-size="11" fill="#888" text-anchor="middle">docker run</text>
+    <text x="90" y="95" font-family="monospace" font-size="11" fill="#888" text-anchor="middle">docker push</text>
+  </g>
+  
+  <!-- Arrow Client to Daemon -->
+  <path d="M 240 140 L 300 140" stroke="#009688" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#009688"/>
+    </marker>
+  </defs>
+  
+  <!-- Docker Host -->
+  <g transform="translate(310, 60)">
+    <rect x="0" y="0" width="440" height="380" rx="8" fill="#252540" stroke="#4a4a6a" stroke-width="2"/>
+    <text x="220" y="25" font-family="Inter, sans-serif" font-size="14" font-weight="600" fill="#80cbc4" text-anchor="middle">Docker Host (Daemon)</text>
+    
+    <!-- Images -->
+    <g transform="translate(20, 50)">
+      <rect x="0" y="0" width="180" height="140" rx="6" fill="#1a1a2e" stroke="#2196F3" stroke-width="1"/>
+      <text x="90" y="25" font-family="Inter, sans-serif" font-size="12" font-weight="600" fill="#2196F3" text-anchor="middle">Images</text>
+      
+      <g transform="translate(15, 40)">
+        <rect x="0" y="0" width="150" height="25" rx="4" fill="#2196F3" opacity="0.2"/>
+        <text x="10" y="17" font-family="monospace" font-size="10" fill="#90caf9">python:3.13-slim</text>
+      </g>
+      <g transform="translate(15, 70)">
+        <rect x="0" y="0" width="150" height="25" rx="4" fill="#2196F3" opacity="0.2"/>
+        <text x="10" y="17" font-family="monospace" font-size="10" fill="#90caf9">postgres:17-alpine</text>
+      </g>
+      <g transform="translate(15, 100)">
+        <rect x="0" y="0" width="150" height="25" rx="4" fill="#2196F3" opacity="0.2"/>
+        <text x="10" y="17" font-family="monospace" font-size="10" fill="#90caf9">redis:7-alpine</text>
+      </g>
+    </g>
+    
+    <!-- Containers -->
+    <g transform="translate(220, 50)">
+      <rect x="0" y="0" width="200" height="200" rx="6" fill="#1a1a2e" stroke="#4CAF50" stroke-width="1"/>
+      <text x="100" y="25" font-family="Inter, sans-serif" font-size="12" font-weight="600" fill="#4CAF50" text-anchor="middle">Containers</text>
+      
+      <!-- Container 1 -->
+      <g transform="translate(15, 40)">
+        <rect x="0" y="0" width="170" height="45" rx="4" fill="#4CAF50" opacity="0.2"/>
+        <circle cx="15" cy="22" r="6" fill="#4CAF50"/>
+        <text x="30" y="18" font-family="monospace" font-size="10" fill="#a5d6a7">api-container</text>
+        <text x="30" y="33" font-family="monospace" font-size="9" fill="#666">:8000 → 8000</text>
+      </g>
+      
+      <!-- Container 2 -->
+      <g transform="translate(15, 95)">
+        <rect x="0" y="0" width="170" height="45" rx="4" fill="#4CAF50" opacity="0.2"/>
+        <circle cx="15" cy="22" r="6" fill="#4CAF50"/>
+        <text x="30" y="18" font-family="monospace" font-size="10" fill="#a5d6a7">db-container</text>
+        <text x="30" y="33" font-family="monospace" font-size="9" fill="#666">:5432 → 5432</text>
+      </g>
+      
+      <!-- Container 3 -->
+      <g transform="translate(15, 150)">
+        <rect x="0" y="0" width="170" height="45" rx="4" fill="#4CAF50" opacity="0.2"/>
+        <circle cx="15" cy="22" r="6" fill="#4CAF50"/>
+        <text x="30" y="18" font-family="monospace" font-size="10" fill="#a5d6a7">redis-container</text>
+        <text x="30" y="33" font-family="monospace" font-size="9" fill="#666">:6379 → 6379</text>
+      </g>
+    </g>
+    
+    <!-- Volumes -->
+    <g transform="translate(20, 210)">
+      <rect x="0" y="0" width="180" height="80" rx="6" fill="#1a1a2e" stroke="#FF9800" stroke-width="1"/>
+      <text x="90" y="25" font-family="Inter, sans-serif" font-size="12" font-weight="600" fill="#FF9800" text-anchor="middle">Volumes</text>
+      <text x="20" y="50" font-family="monospace" font-size="10" fill="#ffcc80">postgres_data</text>
+      <text x="20" y="68" font-family="monospace" font-size="10" fill="#ffcc80">redis_data</text>
+    </g>
+    
+    <!-- Networks -->
+    <g transform="translate(20, 310)">
+      <rect x="0" y="0" width="400" height="50" rx="6" fill="#1a1a2e" stroke="#9C27B0" stroke-width="1"/>
+      <text x="200" y="20" font-family="Inter, sans-serif" font-size="12" font-weight="600" fill="#9C27B0" text-anchor="middle">Network: app-network (bridge)</text>
+      <text x="200" y="40" font-family="monospace" font-size="10" fill="#ce93d8" text-anchor="middle">api ←→ db ←→ redis</text>
+    </g>
+  </g>
+  
+  <!-- Legend -->
+  <g transform="translate(50, 460)">
+    <circle cx="10" cy="8" r="6" fill="#4CAF50"/>
+    <text x="25" y="12" font-family="Inter, sans-serif" font-size="11" fill="#888">Running</text>
+    
+    <rect x="100" y="2" width="12" height="12" rx="2" fill="#2196F3" opacity="0.3"/>
+    <text x="120" y="12" font-family="Inter, sans-serif" font-size="11" fill="#888">Image</text>
+    
+    <rect x="200" y="2" width="12" height="12" rx="2" fill="#FF9800" opacity="0.3"/>
+    <text x="220" y="12" font-family="Inter, sans-serif" font-size="11" fill="#888">Volume</text>
+    
+    <rect x="300" y="2" width="12" height="12" rx="2" fill="#9C27B0" opacity="0.3"/>
+    <text x="320" y="12" font-family="Inter, sans-serif" font-size="11" fill="#888">Network</text>
+  </g>
+</svg>

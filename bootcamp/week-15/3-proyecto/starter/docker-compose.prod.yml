@@ -1,0 +1,56 @@
+# ============================================
+# Docker Compose Production Override
+# Semana 15 - Proyecto Integrador
+# ============================================
+#
+# Uso: docker compose -f docker-compose.yml -f docker-compose.prod.yml up
+#
+# Este archivo sobreescribe configuraciones
+# para producción.
+# ============================================
+
+# ============================================
+# TODO: Configurar para producción
+# ============================================
+# Descomenta y ajusta según necesidades:
+
+# services:
+#   api:
+#     # No exponemos puerto directamente en prod
+#     # Un reverse proxy (nginx, traefik) lo maneja
+#     ports: []
+#     environment:
+#       - ENVIRONMENT=production
+#       - LOG_LEVEL=warning
+#     # Más replicas para alta disponibilidad
+#     deploy:
+#       replicas: 2
+#       resources:
+#         limits:
+#           cpus: '0.5'
+#           memory: 512M
+#         reservations:
+#           cpus: '0.25'
+#           memory: 256M
+#     # Logging para producción
+#     logging:
+#       driver: "json-file"
+#       options:
+#         max-size: "10m"
+#         max-file: "3"
+
+#   db:
+#     # En producción, usar un servicio gestionado
+#     # como AWS RDS, Cloud SQL, etc.
+#     deploy:
+#       resources:
+#         limits:
+#           cpus: '1'
+#           memory: 1G
+
+#   redis:
+#     deploy:
+#       resources:
+#         limits:
+#           cpus: '0.25'
+#           memory: 256M

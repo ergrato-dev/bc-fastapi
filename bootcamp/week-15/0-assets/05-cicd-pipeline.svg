@@ -1,0 +1,111 @@
+<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="800" height="400" fill="#1a1a2e"/>
+  
+  <!-- Title -->
+  <text x="400" y="35" font-family="Inter, sans-serif" font-size="20" font-weight="600" fill="#009688" text-anchor="middle">
+    CI/CD Pipeline Flow
+  </text>
+  
+  <!-- Trigger -->
+  <g transform="translate(30, 80)">
+    <rect x="0" y="0" width="100" height="70" rx="8" fill="#252540" stroke="#9C27B0" stroke-width="2"/>
+    <text x="50" y="30" font-family="Inter, sans-serif" font-size="24" text-anchor="middle">🔀</text>
+    <text x="50" y="55" font-family="Inter, sans-serif" font-size="11" fill="#ce93d8" text-anchor="middle">Push/PR</text>
+  </g>
+  
+  <!-- Arrow -->
+  <path d="M 140 115 L 170 115" stroke="#4a4a6a" stroke-width="2" marker-end="url(#arrow3)"/>
+  <defs>
+    <marker id="arrow3" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#4a4a6a"/>
+    </marker>
+  </defs>
+  
+  <!-- Lint Job -->
+  <g transform="translate(180, 70)">
+    <rect x="0" y="0" width="120" height="90" rx="8" fill="#252540" stroke="#FF9800" stroke-width="2"/>
+    <text x="60" y="25" font-family="Inter, sans-serif" font-size="12" font-weight="600" fill="#FF9800" text-anchor="middle">Lint</text>
+    <text x="60" y="45" font-family="monospace" font-size="9" fill="#888" text-anchor="middle">ruff check</text>
+    <text x="60" y="60" font-family="monospace" font-size="9" fill="#888" text-anchor="middle">ruff format</text>
+    <text x="60" y="75" font-family="monospace" font-size="9" fill="#888" text-anchor="middle">mypy</text>
+  </g>
+  
+  <!-- Arrow -->
+  <path d="M 310 115 L 340 115" stroke="#4a4a6a" stroke-width="2" marker-end="url(#arrow3)"/>
+  
+  <!-- Test Job -->
+  <g transform="translate(350, 70)">
+    <rect x="0" y="0" width="120" height="90" rx="8" fill="#252540" stroke="#4CAF50" stroke-width="2"/>
+    <text x="60" y="25" font-family="Inter, sans-serif" font-size="12" font-weight="600" fill="#4CAF50" text-anchor="middle">Test</text>
+    <text x="60" y="45" font-family="monospace" font-size="9" fill="#888" text-anchor="middle">pytest</text>
+    <text x="60" y="60" font-family="monospace" font-size="9" fill="#888" text-anchor="middle">coverage</text>
+    <text x="60" y="75" font-family="monospace" font-size="9" fill="#888" text-anchor="middle">+ postgres</text>
+  </g>
+  
+  <!-- Arrow -->
+  <path d="M 480 115 L 510 115" stroke="#4a4a6a" stroke-width="2" marker-end="url(#arrow3)"/>
+  
+  <!-- Build Job -->
+  <g transform="translate(520, 70)">
+    <rect x="0" y="0" width="120" height="90" rx="8" fill="#252540" stroke="#2196F3" stroke-width="2"/>
+    <text x="60" y="25" font-family="Inter, sans-serif" font-size="12" font-weight="600" fill="#2196F3" text-anchor="middle">Build</text>
+    <text x="60" y="45" font-family="monospace" font-size="9" fill="#888" text-anchor="middle">docker build</text>
+    <text x="60" y="60" font-family="monospace" font-size="9" fill="#888" text-anchor="middle">docker push</text>
+    <text x="60" y="75" font-family="monospace" font-size="9" fill="#888" text-anchor="middle">ghcr.io</text>
+  </g>
+  
+  <!-- Arrow -->
+  <path d="M 650 115 L 680 115" stroke="#4a4a6a" stroke-width="2" marker-end="url(#arrow3)"/>
+  
+  <!-- Deploy -->
+  <g transform="translate(690, 80)">
+    <rect x="0" y="0" width="80" height="70" rx="8" fill="#009688" opacity="0.3" stroke="#009688" stroke-width="2"/>
+    <text x="40" y="30" font-family="Inter, sans-serif" font-size="24" text-anchor="middle">🚀</text>
+    <text x="40" y="55" font-family="Inter, sans-serif" font-size="11" fill="#80cbc4" text-anchor="middle">Deploy</text>
+  </g>
+  
+  <!-- Workflow YAML representation -->
+  <g transform="translate(50, 200)">
+    <rect x="0" y="0" width="700" height="170" rx="8" fill="#252540" stroke="#4a4a6a" stroke-width="1"/>
+    <text x="20" y="25" font-family="monospace" font-size="11" fill="#9C27B0">name:</text>
+    <text x="60" y="25" font-family="monospace" font-size="11" fill="#888">CI/CD Pipeline</text>
+    
+    <text x="20" y="50" font-family="monospace" font-size="11" fill="#9C27B0">on:</text>
+    <text x="50" y="50" font-family="monospace" font-size="11" fill="#888">[push, pull_request]</text>
+    
+    <text x="20" y="80" font-family="monospace" font-size="11" fill="#9C27B0">jobs:</text>
+    
+    <!-- Lint -->
+    <g transform="translate(40, 90)">
+      <rect x="0" y="0" width="150" height="60" rx="4" fill="#FF9800" opacity="0.1"/>
+      <text x="10" y="18" font-family="monospace" font-size="10" fill="#FF9800">lint:</text>
+      <text x="20" y="35" font-family="monospace" font-size="9" fill="#666">runs-on: ubuntu-latest</text>
+      <text x="20" y="50" font-family="monospace" font-size="9" fill="#666">steps: [checkout, ruff]</text>
+    </g>
+    
+    <!-- Test -->
+    <g transform="translate(210, 90)">
+      <rect x="0" y="0" width="180" height="60" rx="4" fill="#4CAF50" opacity="0.1"/>
+      <text x="10" y="18" font-family="monospace" font-size="10" fill="#4CAF50">test:</text>
+      <text x="20" y="35" font-family="monospace" font-size="9" fill="#666">services: [postgres]</text>
+      <text x="20" y="50" font-family="monospace" font-size="9" fill="#666">steps: [checkout, pytest]</text>
+    </g>
+    
+    <!-- Build -->
+    <g transform="translate(410, 90)">
+      <rect x="0" y="0" width="180" height="60" rx="4" fill="#2196F3" opacity="0.1"/>
+      <text x="10" y="18" font-family="monospace" font-size="10" fill="#2196F3">build:</text>
+      <text x="20" y="35" font-family="monospace" font-size="9" fill="#666">needs: [lint, test]</text>
+      <text x="20" y="50" font-family="monospace" font-size="9" fill="#666">steps: [docker/build-push]</text>
+    </g>
+    
+    <!-- Deploy -->
+    <g transform="translate(610, 90)">
+      <rect x="0" y="0" width="70" height="60" rx="4" fill="#009688" opacity="0.1"/>
+      <text x="10" y="18" font-family="monospace" font-size="10" fill="#009688">deploy:</text>
+      <text x="10" y="35" font-family="monospace" font-size="9" fill="#666">needs:</text>
+      <text x="15" y="50" font-family="monospace" font-size="9" fill="#666">[build]</text>
+    </g>
+  </g>
+</svg>

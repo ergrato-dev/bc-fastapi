@@ -1,0 +1,94 @@
+# ============================================
+# Docker Compose - API Production Ready
+# Semana 15 - Proyecto Integrador
+# ============================================
+#
+# Completa los TODOs para crear un stack
+# con API, PostgreSQL y Redis.
+# ============================================
+
+# ============================================
+# TODO 1: Definir servicios
+# ============================================
+# Descomenta y completa la configuración:
+
+# services:
+#   # ============================================
+#   # TODO 2: Servicio API
+#   # ============================================
+#   api:
+#     build:
+#       context: .
+#       dockerfile: Dockerfile
+#     container_name: project-api
+#     ports:
+#       - "8000:8000"
+#     environment:
+#       - DATABASE_URL=postgresql://postgres:postgres@db:5432/tasks_db
+#       - REDIS_URL=redis://redis:6379/0
+#       - SECRET_KEY=${SECRET_KEY:-dev-secret-key}
+#       - ENVIRONMENT=${ENVIRONMENT:-development}
+#     depends_on:
+#       db:
+#         condition: service_healthy
+#       redis:
+#         condition: service_healthy
+#     healthcheck:
+#       test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/health')"]
+#       interval: 30s
+#       timeout: 10s
+#       retries: 3
+#       start_period: 10s
+#     networks:
+#       - app-network
+#     restart: unless-stopped
+
+#   # ============================================
+#   # TODO 3: Servicio PostgreSQL
+#   # ============================================
+#   db:
+#     image: postgres:17-alpine
+#     container_name: project-db
+#     environment:
+#       POSTGRES_USER: postgres
+#       POSTGRES_PASSWORD: postgres
+#       POSTGRES_DB: tasks_db
+#     volumes:
+#       - postgres_data:/var/lib/postgresql/data
+#     healthcheck:
+#       test: ["CMD-SHELL", "pg_isready -U postgres"]
+#       interval: 10s
+#       timeout: 5s
+#       retries: 5
+#     networks:
+#       - app-network
+#     restart: unless-stopped
+
+#   # ============================================
+#   # TODO 4: Servicio Redis (Opcional)
+#   # ============================================
+#   redis:
+#     image: redis:7-alpine
+#     container_name: project-redis
+#     command: redis-server --appendonly yes
+#     volumes:
+#       - redis_data:/data
+#     healthcheck:
+#       test: ["CMD", "redis-cli", "ping"]
+#       interval: 10s
+#       timeout: 5s
+#       retries: 5
+#     networks:
+#       - app-network
+#     restart: unless-stopped
+
+# ============================================
+# TODO 5: Networks y Volumes
+# ============================================
+# networks:
+#   app-network:
+#     driver: bridge
+
+# volumes:
+#   postgres_data:
+#   redis_data:

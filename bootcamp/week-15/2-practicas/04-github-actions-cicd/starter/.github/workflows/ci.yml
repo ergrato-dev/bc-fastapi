@@ -1,0 +1,157 @@
+# ============================================
+# GitHub Actions CI Workflow
+# Semana 15 - Práctica 04
+# ============================================
+# 
+# Este workflow ejecuta:
+# 1. Lint con ruff y mypy
+# 2. Tests con pytest y PostgreSQL
+# 3. Build de imagen Docker
+#
+# Descomenta cada sección paso a paso.
+# ============================================
+
+# ============================================
+# PASO 1: Nombre y triggers
+# ============================================
+# Descomenta las siguientes líneas:
+
+# name: CI
+# 
+# on:
+#   push:
+#     branches: [main, develop]
+#   pull_request:
+#     branches: [main]
+
+# ============================================
+# PASO 2: Job de Lint
+# ============================================
+# Descomenta las siguientes líneas:
+
+# jobs:
+#   lint:
+#     name: Lint & Format
+#     runs-on: ubuntu-latest
+#     
+#     steps:
+#       - name: Checkout code
+#         uses: actions/checkout@v4
+#       
+#       - name: Set up Python
+#         uses: actions/setup-python@v5
+#         with:
+#           python-version: '3.13'
+#       
+#       - name: Install linters
+#         run: pip install ruff mypy
+#       
+#       - name: Install dependencies
+#         run: pip install -r requirements.txt
+#       
+#       - name: Run ruff check
+#         run: ruff check src/
+#       
+#       - name: Run ruff format check
+#         run: ruff format --check src/
+#       
+#       - name: Run mypy
+#         run: mypy src/ --ignore-missing-imports
+
+# ============================================
+# PASO 3: Job de Tests
+# ============================================
+# Este job usa un servicio PostgreSQL
+# Descomenta las siguientes líneas:
+
+#   test:
+#     name: Tests
+#     runs-on: ubuntu-latest
+#     
+#     services:
+#       postgres:
+#         image: postgres:17-alpine
+#         env:
+#           POSTGRES_USER: test
+#           POSTGRES_PASSWORD: test
+#           POSTGRES_DB: test_db
+#         ports:
+#           - 5432:5432
+#         options: >-
+#           --health-cmd pg_isready
+#           --health-interval 10s
+#           --health-timeout 5s
+#           --health-retries 5
+#     
+#     steps:
+#       - name: Checkout code
+#         uses: actions/checkout@v4
+#       
+#       - name: Set up Python
+#         uses: actions/setup-python@v5
+#         with:
+#           python-version: '3.13'
+#           cache: 'pip'
+#       
+#       - name: Install dependencies
+#         run: pip install -r requirements.txt
+#       
+#       - name: Run tests with coverage
+#         env:
+#           DATABASE_URL: postgresql://test:test@localhost:5432/test_db
+#           SECRET_KEY: test-secret-key-for-ci
+#         run: pytest -v --cov=src --cov-report=xml
+#       
+#       - name: Upload coverage to Codecov
+#         uses: codecov/codecov-action@v4
+#         with:
+#           file: ./coverage.xml
+#           fail_ci_if_error: false
+
+# ============================================
+# PASO 4: Job de Build Docker
+# ============================================
+# Este job depende de lint y test
+# Descomenta las siguientes líneas:
+
+#   build:
+#     name: Build Docker
+#     runs-on: ubuntu-latest
+#     needs: [lint, test]
+#     
+#     steps:
+#       - name: Checkout code
+#         uses: actions/checkout@v4
+#       
+#       - name: Set up Docker Buildx
+#         uses: docker/setup-buildx-action@v3
+#       
+#       - name: Build Docker image
+#         uses: docker/build-push-action@v5
+#         with:
+#           context: .
+#           push: false
+#           tags: myapp:${{ github.sha }}
+#           cache-from: type=gha
+#           cache-to: type=gha,mode=max
+
+# ============================================
+# PASO 5 (EXTRA): Security Scan con Trivy
+# ============================================
+# Descomenta si quieres agregar escaneo de seguridad:
+
+#   security:
+#     name: Security Scan
+#     runs-on: ubuntu-latest
+#     needs: build
+#     
+#     steps:
+#       - name: Checkout code
+#         uses: actions/checkout@v4
+#       
+#       - name: Run Trivy vulnerability scanner
+#         uses: aquasecurity/trivy-action@master
+#         with:
+#           scan-type: 'fs'
+#           scan-ref: '.'
+#           severity: 'CRITICAL,HIGH'
