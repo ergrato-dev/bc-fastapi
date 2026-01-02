@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SSE Notifications</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            background: #0f0f23;
+            color: #eee;
+            min-height: 100vh;
+            padding: 2rem;
+        }
+        
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            color: #00d9ff;
+            margin-bottom: 0.5rem;
+        }
+        
+        .subtitle {
+            color: #888;
+            margin-bottom: 2rem;
+        }
+        
+        .status-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #1a1a2e;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+        }
+        
+        .status {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .status-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #666;
+        }
+        
+        .status-dot.connected {
+            background: #4ade80;
+            box-shadow: 0 0 10px #4ade80;
+        }
+        
+        .user-id {
+            color: #00d9ff;
+            font-family: monospace;
+        }
+        
+        .actions {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        button {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.2s;
+        }
+        
+        .btn-primary {
+            background: #00d9ff;
+            color: #000;
+        }
+        
+        .btn-primary:hover {
+            background: #00b8d9;
+        }
+        
+        .btn-secondary {
+            background: #444;
+            color: #eee;
+        }
+        
+        .btn-secondary:hover {
+            background: #555;
+        }
+        
+        .notification-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+        
+        .notification {
+            background: #1a1a2e;
+            border-radius: 8px;
+            padding: 1rem;
+            display: flex;
+            gap: 1rem;
+            animation: slideIn 0.3s ease-out;
+            border-left: 4px solid #666;
+        }
+        
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        .notification.info {
+            border-left-color: #00d9ff;
+        }
+        
+        .notification.success {
+            border-left-color: #4ade80;
+        }
+        
+        .notification.warning {
+            border-left-color: #fbbf24;
+        }
+        
+        .notification.error {
+            border-left-color: #f87171;
+        }
+        
+        .notification-icon {
+            font-size: 1.5rem;
+        }
+        
+        .notification-content {
+            flex: 1;
+        }
+        
+        .notification-message {
+            margin-bottom: 0.25rem;
+        }
+        
+        .notification-time {
+            font-size: 0.8rem;
+            color: #666;
+        }
+        
+        .notification-close {
+            background: none;
+            border: none;
+            color: #666;
+            cursor: pointer;
+            font-size: 1.2rem;
+            padding: 0;
+        }
+        
+        .notification-close:hover {
+            color: #f87171;
+        }
+        
+        .empty-state {
+            text-align: center;
+            padding: 3rem;
+            color: #666;
+        }
+        
+        .test-panel {
+            background: #1a1a2e;
+            border-radius: 8px;
+            padding: 1rem;
+            margin-top: 2rem;
+        }
+        
+        .test-panel h3 {
+            color: #00d9ff;
+            margin-bottom: 1rem;
+        }
+        
+        .test-row {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .test-row input {
+            flex: 1;
+            padding: 0.5rem;
+            border: 1px solid #444;
+            border-radius: 4px;
+            background: #16213e;
+            color: #eee;
+        }
+        
+        .test-row select {
+            padding: 0.5rem;
+            border: 1px solid #444;
+            border-radius: 4px;
+            background: #16213e;
+            color: #eee;
+        }
+        
+        .test-row button {
+            padding: 0.5rem 1rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔔 SSE Notifications</h1>
+        <p class="subtitle">Sistema de notificaciones en tiempo real</p>
+        
+        <div class="status-bar">
+            <div class="status">
+                <span class="status-dot" id="statusDot"></span>
+                <span id="statusText">Desconectado</span>
+            </div>
+            <div>
+                Usuario: <span class="user-id" id="userId">-</span>
+            </div>
+        </div>
+        
+        <div class="actions">
+            <button class="btn-primary" onclick="connect()">Conectar</button>
+            <button class="btn-secondary" onclick="disconnect()">Desconectar</button>
+            <button class="btn-secondary" onclick="clearNotifications()">Limpiar</button>
+        </div>
+        
+        <div id="notifications" class="notification-list">
+            <div class="empty-state">
+                <p>🔔 No hay notificaciones</p>
+                <p>Conecta para empezar a recibir</p>
+            </div>
+        </div>
+        
+        <div class="test-panel">
+            <h3>🧪 Panel de Pruebas</h3>
+            <div class="test-row">
+                <input type="text" id="testMessage" placeholder="Mensaje de prueba">
+                <select id="testType">
+                    <option value="info">Info</option>
+                    <option value="success">Success</option>
+                    <option value="warning">Warning</option>
+                    <option value="error">Error</option>
+                </select>
+                <button class="btn-secondary" onclick="sendTestNotification()">Enviar</button>
+            </div>
+            <div class="test-row">
+                <button class="btn-secondary" onclick="sendBroadcast()">Broadcast a todos</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let eventSource = null;
+        let userId = 'user-' + Math.random().toString(36).substr(2, 9);
+        
+        document.getElementById('userId').textContent = userId;
+        
+        function connect() {
+            if (eventSource) {
+                eventSource.close();
+            }
+            
+            eventSource = new EventSource(`/notifications/${userId}`);
+            
+            eventSource.onopen = () => {
+                updateStatus(true);
+                addNotification('system', 'Conectado al servidor de notificaciones', 'info');
+            };
+            
+            // Listener para todos los tipos de eventos
+            ['info', 'success', 'warning', 'error', 'notification'].forEach(type => {
+                eventSource.addEventListener(type, (event) => {
+                    const data = JSON.parse(event.data);
+                    addNotification(data.icon, data.message, data.type);
+                });
+            });
+            
+            eventSource.onerror = (error) => {
+                console.error('SSE Error:', error);
+                updateStatus(false);
+                
+                // EventSource reconectará automáticamente
+            };
+        }
+        
+        function disconnect() {
+            if (eventSource) {
+                eventSource.close();
+                eventSource = null;
+            }
+            updateStatus(false);
+            addNotification('system', 'Desconectado del servidor', 'warning');
+        }
+        
+        function updateStatus(connected) {
+            const dot = document.getElementById('statusDot');
+            const text = document.getElementById('statusText');
+            
+            if (connected) {
+                dot.classList.add('connected');
+                text.textContent = 'Conectado';
+            } else {
+                dot.classList.remove('connected');
+                text.textContent = 'Desconectado';
+            }
+        }
+        
+        function addNotification(icon, message, type) {
+            const container = document.getElementById('notifications');
+            
+            // Remove empty state if exists
+            const emptyState = container.querySelector('.empty-state');
+            if (emptyState) {
+                emptyState.remove();
+            }
+            
+            const div = document.createElement('div');
+            div.className = `notification ${type}`;
+            
+            const time = new Date().toLocaleTimeString();
+            
+            div.innerHTML = `
+                <span class="notification-icon">${icon}</span>
+                <div class="notification-content">
+                    <div class="notification-message">${escapeHtml(message)}</div>
+                    <div class="notification-time">${time}</div>
+                </div>
+                <button class="notification-close" onclick="this.parentElement.remove()">×</button>
+            `;
+            
+            container.insertBefore(div, container.firstChild);
+            
+            // Limit to 50 notifications
+            while (container.children.length > 50) {
+                container.removeChild(container.lastChild);
+            }
+        }
+        
+        function clearNotifications() {
+            const container = document.getElementById('notifications');
+            container.innerHTML = `
+                <div class="empty-state">
+                    <p>🔔 No hay notificaciones</p>
+                    <p>Conecta para empezar a recibir</p>
+                </div>
+            `;
+        }
+        
+        async function sendTestNotification() {
+            const message = document.getElementById('testMessage').value || 'Notificación de prueba';
+            const type = document.getElementById('testType').value;
+            
+            try {
+                const response = await fetch(
+                    `/notify/${userId}?message=${encodeURIComponent(message)}&type=${type}`,
+                    { method: 'POST' }
+                );
+                const data = await response.json();
+                console.log('Notification sent:', data);
+            } catch (error) {
+                console.error('Error sending notification:', error);
+            }
+        }
+        
+        async function sendBroadcast() {
+            const message = document.getElementById('testMessage').value || 'Mensaje broadcast';
+            const type = document.getElementById('testType').value;
+            
+            try {
+                const response = await fetch(
+                    `/broadcast?message=${encodeURIComponent(message)}&type=${type}`,
+                    { method: 'POST' }
+                );
+                const data = await response.json();
+                console.log('Broadcast sent:', data);
+            } catch (error) {
+                console.error('Error sending broadcast:', error);
+            }
+        }
+        
+        function escapeHtml(text) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+        
+        // Auto-connect on load
+        connect();
+    </script>
+</body>
+</html>

@@ -1,0 +1,117 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 550">
+  <defs>
+    <linearGradient id="bgGrad4" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a2e"/>
+      <stop offset="100%" style="stop-color:#16213e"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="900" height="550" fill="url(#bgGrad4)"/>
+  
+  <!-- Title -->
+  <text x="450" y="35" text-anchor="middle" fill="#00d9ff" font-family="system-ui, sans-serif" font-size="22" font-weight="bold">Arquitectura de Chat en Tiempo Real</text>
+  
+  <!-- Client Layer -->
+  <g transform="translate(50, 60)">
+    <rect x="0" y="0" width="800" height="100" rx="8" fill="none" stroke="#009688" stroke-width="2" stroke-dasharray="5"/>
+    <text x="20" y="25" fill="#009688" font-family="system-ui, sans-serif" font-size="14" font-weight="bold">CLIENTES (Browser)</text>
+    
+    <!-- Client boxes -->
+    <rect x="30" y="40" width="110" height="50" rx="6" fill="#009688"/>
+    <text x="85" y="60" text-anchor="middle" fill="#fff" font-family="system-ui, sans-serif" font-size="10">User: Alice</text>
+    <text x="85" y="75" text-anchor="middle" fill="#fff" font-family="system-ui, sans-serif" font-size="9">Room: general</text>
+    
+    <rect x="160" y="40" width="110" height="50" rx="6" fill="#009688"/>
+    <text x="215" y="60" text-anchor="middle" fill="#fff" font-family="system-ui, sans-serif" font-size="10">User: Bob</text>
+    <text x="215" y="75" text-anchor="middle" fill="#fff" font-family="system-ui, sans-serif" font-size="9">Room: general</text>
+    
+    <rect x="290" y="40" width="110" height="50" rx="6" fill="#009688"/>
+    <text x="345" y="60" text-anchor="middle" fill="#fff" font-family="system-ui, sans-serif" font-size="10">User: Carol</text>
+    <text x="345" y="75" text-anchor="middle" fill="#fff" font-family="system-ui, sans-serif" font-size="9">Room: tech</text>
+    
+    <!-- SSE client -->
+    <rect x="560" y="40" width="110" height="50" rx="6" fill="#e91e63"/>
+    <text x="615" y="60" text-anchor="middle" fill="#fff" font-family="system-ui, sans-serif" font-size="10">Notifications</text>
+    <text x="615" y="75" text-anchor="middle" fill="#fff" font-family="system-ui, sans-serif" font-size="9">SSE Stream</text>
+    
+    <rect x="690" y="40" width="90" height="50" rx="6" fill="#ffaa00"/>
+    <text x="735" y="65" text-anchor="middle" fill="#1a1a2e" font-family="system-ui, sans-serif" font-size="10" font-weight="bold">REST API</text>
+  </g>
+  
+  <!-- Connection arrows -->
+  <g transform="translate(0, 160)">
+    <line x1="135" y1="0" x2="135" y2="50" stroke="#00d9ff" stroke-width="2"/>
+    <line x1="265" y1="0" x2="265" y2="50" stroke="#00d9ff" stroke-width="2"/>
+    <line x1="395" y1="0" x2="395" y2="50" stroke="#00d9ff" stroke-width="2"/>
+    <line x1="665" y1="0" x2="665" y2="50" stroke="#e91e63" stroke-width="2"/>
+    <line x1="785" y1="0" x2="785" y2="50" stroke="#ffaa00" stroke-width="2"/>
+    
+    <text x="200" y="30" text-anchor="middle" fill="#00d9ff" font-family="system-ui, sans-serif" font-size="10">WebSocket</text>
+    <text x="665" y="30" text-anchor="middle" fill="#e91e63" font-family="system-ui, sans-serif" font-size="10">SSE</text>
+    <text x="785" y="30" text-anchor="middle" fill="#ffaa00" font-family="system-ui, sans-serif" font-size="10">HTTP</text>
+  </g>
+  
+  <!-- FastAPI Server -->
+  <g transform="translate(50, 210)">
+    <rect x="0" y="0" width="800" height="160" rx="8" fill="#0f3460" stroke="#00d9ff" stroke-width="2"/>
+    <text x="20" y="25" fill="#00d9ff" font-family="system-ui, sans-serif" font-size="14" font-weight="bold">FASTAPI SERVER</text>
+    
+    <!-- WebSocket Endpoint -->
+    <rect x="30" y="45" width="200" height="100" rx="6" fill="#1a1a2e" stroke="#00d9ff" stroke-width="1"/>
+    <text x="130" y="65" text-anchor="middle" fill="#00d9ff" font-family="system-ui, sans-serif" font-size="11" font-weight="bold">WebSocket Handler</text>
+    <text x="130" y="85" text-anchor="middle" fill="#a0a0a0" font-family="monospace" font-size="9">/ws/chat/{room_id}</text>
+    <text x="130" y="105" text-anchor="middle" fill="#a0a0a0" font-family="system-ui, sans-serif" font-size="9">• receive_text()</text>
+    <text x="130" y="120" text-anchor="middle" fill="#a0a0a0" font-family="system-ui, sans-serif" font-size="9">• send_json()</text>
+    <text x="130" y="135" text-anchor="middle" fill="#a0a0a0" font-family="system-ui, sans-serif" font-size="9">• broadcast()</text>
+    
+    <!-- Connection Manager -->
+    <rect x="250" y="45" width="180" height="100" rx="6" fill="#1a1a2e" stroke="#009688" stroke-width="1"/>
+    <text x="340" y="65" text-anchor="middle" fill="#009688" font-family="system-ui, sans-serif" font-size="11" font-weight="bold">ConnectionManager</text>
+    <text x="340" y="85" text-anchor="middle" fill="#a0a0a0" font-family="system-ui, sans-serif" font-size="9">• rooms: dict</text>
+    <text x="340" y="100" text-anchor="middle" fill="#a0a0a0" font-family="system-ui, sans-serif" font-size="9">• connections: dict</text>
+    <text x="340" y="120" text-anchor="middle" fill="#a0a0a0" font-family="system-ui, sans-serif" font-size="9">connect() / disconnect()</text>
+    <text x="340" y="135" text-anchor="middle" fill="#a0a0a0" font-family="system-ui, sans-serif" font-size="9">broadcast_to_room()</text>
+    
+    <!-- SSE Endpoint -->
+    <rect x="450" y="45" width="170" height="100" rx="6" fill="#1a1a2e" stroke="#e91e63" stroke-width="1"/>
+    <text x="535" y="65" text-anchor="middle" fill="#e91e63" font-family="system-ui, sans-serif" font-size="11" font-weight="bold">SSE Notifications</text>
+    <text x="535" y="85" text-anchor="middle" fill="#a0a0a0" font-family="monospace" font-size="9">/notifications</text>
+    <text x="535" y="105" text-anchor="middle" fill="#a0a0a0" font-family="system-ui, sans-serif" font-size="9">• EventSourceResponse</text>
+    <text x="535" y="120" text-anchor="middle" fill="#a0a0a0" font-family="system-ui, sans-serif" font-size="9">• async generator</text>
+    <text x="535" y="135" text-anchor="middle" fill="#a0a0a0" font-family="system-ui, sans-serif" font-size="9">• broadcast()</text>
+    
+    <!-- REST API -->
+    <rect x="640" y="45" width="140" height="100" rx="6" fill="#1a1a2e" stroke="#ffaa00" stroke-width="1"/>
+    <text x="710" y="65" text-anchor="middle" fill="#ffaa00" font-family="system-ui, sans-serif" font-size="11" font-weight="bold">REST Endpoints</text>
+    <text x="710" y="85" text-anchor="middle" fill="#a0a0a0" font-family="system-ui, sans-serif" font-size="9">• /auth/login</text>
+    <text x="710" y="100" text-anchor="middle" fill="#a0a0a0" font-family="system-ui, sans-serif" font-size="9">• /rooms</text>
+    <text x="710" y="115" text-anchor="middle" fill="#a0a0a0" font-family="system-ui, sans-serif" font-size="9">• /rooms/{id}/messages</text>
+    <text x="710" y="130" text-anchor="middle" fill="#a0a0a0" font-family="system-ui, sans-serif" font-size="9">• /auth/register</text>
+  </g>
+  
+  <!-- Database Layer -->
+  <g transform="translate(50, 390)">
+    <line x1="400" y1="0" x2="400" y2="30" stroke="#a0a0a0" stroke-width="2"/>
+    
+    <rect x="250" y="30" width="300" height="90" rx="8" fill="#0f3460" stroke="#a0a0a0" stroke-width="2"/>
+    <text x="400" y="52" text-anchor="middle" fill="#a0a0a0" font-family="system-ui, sans-serif" font-size="12" font-weight="bold">SQLite / PostgreSQL</text>
+    
+    <!-- Tables -->
+    <rect x="270" y="70" width="70" height="35" rx="4" fill="#1a1a2e"/>
+    <text x="305" y="92" text-anchor="middle" fill="#00d9ff" font-family="system-ui, sans-serif" font-size="10">users</text>
+    
+    <rect x="350" y="70" width="70" height="35" rx="4" fill="#1a1a2e"/>
+    <text x="385" y="92" text-anchor="middle" fill="#009688" font-family="system-ui, sans-serif" font-size="10">rooms</text>
+    
+    <rect x="430" y="70" width="70" height="35" rx="4" fill="#1a1a2e"/>
+    <text x="465" y="92" text-anchor="middle" fill="#e91e63" font-family="system-ui, sans-serif" font-size="10">messages</text>
+  </g>
+  
+  <!-- Data Flow Labels -->
+  <g transform="translate(50, 520)">
+    <text x="0" y="0" fill="#a0a0a0" font-family="system-ui, sans-serif" font-size="10">Flujo: Cliente → WebSocket → Manager → broadcast() → Todos en Room</text>
+    <text x="0" y="15" fill="#a0a0a0" font-family="system-ui, sans-serif" font-size="10">Persistencia: Message → DB → Historial disponible via REST</text>
+    <text x="0" y="30" fill="#a0a0a0" font-family="system-ui, sans-serif" font-size="10">Notificaciones: Evento → SSE → Todos los suscriptores</text>
+  </g>
+</svg>

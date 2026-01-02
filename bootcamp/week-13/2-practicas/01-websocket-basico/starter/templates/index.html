@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebSocket Echo Client</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            background: #1a1a2e;
+            color: #eee;
+            min-height: 100vh;
+            padding: 2rem;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            color: #00d9ff;
+            margin-bottom: 1rem;
+        }
+        
+        .status {
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+            font-weight: bold;
+        }
+        
+        .status.connected {
+            background: #0f5132;
+            color: #75b798;
+        }
+        
+        .status.disconnected {
+            background: #842029;
+            color: #f5c2c7;
+        }
+        
+        .controls {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        input[type="text"] {
+            flex: 1;
+            padding: 0.75rem;
+            border: 1px solid #444;
+            border-radius: 4px;
+            background: #16213e;
+            color: #eee;
+            font-size: 1rem;
+        }
+        
+        button {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background 0.2s;
+        }
+        
+        .btn-primary {
+            background: #00d9ff;
+            color: #000;
+        }
+        
+        .btn-primary:hover {
+            background: #00b8d9;
+        }
+        
+        .btn-secondary {
+            background: #444;
+            color: #eee;
+        }
+        
+        .btn-secondary:hover {
+            background: #555;
+        }
+        
+        .messages {
+            background: #16213e;
+            border: 1px solid #444;
+            border-radius: 4px;
+            height: 400px;
+            overflow-y: auto;
+            padding: 1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .message {
+            padding: 0.5rem;
+            margin-bottom: 0.5rem;
+            border-radius: 4px;
+        }
+        
+        .message.sent {
+            background: #1e3a5f;
+            border-left: 3px solid #00d9ff;
+        }
+        
+        .message.received {
+            background: #1e4620;
+            border-left: 3px solid #4ade80;
+        }
+        
+        .message.system {
+            background: #3d3d3d;
+            border-left: 3px solid #888;
+            font-style: italic;
+        }
+        
+        .message .time {
+            color: #888;
+            font-size: 0.8rem;
+        }
+        
+        .endpoint-selector {
+            margin-bottom: 1rem;
+        }
+        
+        .endpoint-selector label {
+            margin-right: 1rem;
+        }
+        
+        .endpoint-selector input[type="radio"] {
+            margin-right: 0.3rem;
+        }
+        
+        .quick-actions {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .quick-actions button {
+            padding: 0.5rem 1rem;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔌 WebSocket Echo Client</h1>
+        
+        <div class="endpoint-selector">
+            <label>
+                <input type="radio" name="endpoint" value="/ws" checked>
+                /ws (Texto)
+            </label>
+            <label>
+                <input type="radio" name="endpoint" value="/ws/json">
+                /ws/json (JSON)
+            </label>
+            <label>
+                <input type="radio" name="endpoint" value="/ws/echo">
+                /ws/echo (Echo simple)
+            </label>
+        </div>
+        
+        <div id="status" class="status disconnected">
+            ⚫ Desconectado
+        </div>
+        
+        <div class="controls">
+            <button onclick="connect()" class="btn-primary">Conectar</button>
+            <button onclick="disconnect()" class="btn-secondary">Desconectar</button>
+        </div>
+        
+        <div class="quick-actions">
+            <button onclick="sendPing()" class="btn-secondary">Ping</button>
+            <button onclick="sendCommand('time')" class="btn-secondary">Time</button>
+            <button onclick="sendCommand('help')" class="btn-secondary">Help</button>
+        </div>
+        
+        <div id="messages" class="messages"></div>
+        
+        <div class="controls">
+            <input type="text" id="messageInput" placeholder="Escribe un mensaje..." 
+                   onkeypress="handleKeyPress(event)">
+            <button onclick="sendMessage()" class="btn-primary">Enviar</button>
+        </div>
+    </div>
+
+    <script>
+        let ws = null;
+        let useJson = false;
+        
+        function getSelectedEndpoint() {
+            const selected = document.querySelector('input[name="endpoint"]:checked');
+            return selected ? selected.value : '/ws';
+        }
+        
+        function connect() {
+            const endpoint = getSelectedEndpoint();
+            useJson = endpoint === '/ws/json';
+            
+            const wsUrl = `ws://${location.host}${endpoint}`;
+            addMessage(`Conectando a ${wsUrl}...`, 'system');
+            
+            ws = new WebSocket(wsUrl);
+            
+            ws.onopen = () => {
+                updateStatus(true);
+                addMessage('Conexión establecida', 'system');
+            };
+            
+            ws.onmessage = (event) => {
+                let displayText = event.data;
+                
+                // Si es JSON, formatearlo
+                try {
+                    const json = JSON.parse(event.data);
+                    displayText = JSON.stringify(json, null, 2);
+                } catch (e) {
+                    // No es JSON, usar como está
+                }
+                
+                addMessage(displayText, 'received');
+            };
+            
+            ws.onclose = (event) => {
+                updateStatus(false);
+                addMessage(`Conexión cerrada (código: ${event.code})`, 'system');
+            };
+            
+            ws.onerror = (error) => {
+                addMessage('Error en la conexión', 'system');
+                console.error('WebSocket error:', error);
+            };
+        }
+        
+        function disconnect() {
+            if (ws) {
+                ws.close();
+                ws = null;
+            }
+        }
+        
+        function sendMessage() {
+            const input = document.getElementById('messageInput');
+            const message = input.value.trim();
+            
+            if (!message || !ws || ws.readyState !== WebSocket.OPEN) return;
+            
+            if (useJson) {
+                const jsonMsg = {
+                    type: 'message',
+                    content: message
+                };
+                ws.send(JSON.stringify(jsonMsg));
+                addMessage(JSON.stringify(jsonMsg, null, 2), 'sent');
+            } else {
+                ws.send(message);
+                addMessage(message, 'sent');
+            }
+            
+            input.value = '';
+        }
+        
+        function sendPing() {
+            if (!ws || ws.readyState !== WebSocket.OPEN) return;
+            
+            if (useJson) {
+                const msg = { type: 'ping' };
+                ws.send(JSON.stringify(msg));
+                addMessage(JSON.stringify(msg), 'sent');
+            } else {
+                ws.send('ping');
+                addMessage('ping', 'sent');
+            }
+        }
+        
+        function sendCommand(cmd) {
+            if (!ws || ws.readyState !== WebSocket.OPEN) return;
+            
+            if (useJson) {
+                const msg = { type: 'command', command: cmd };
+                ws.send(JSON.stringify(msg));
+                addMessage(JSON.stringify(msg), 'sent');
+            } else {
+                ws.send(cmd);
+                addMessage(cmd, 'sent');
+            }
+        }
+        
+        function handleKeyPress(event) {
+            if (event.key === 'Enter') {
+                sendMessage();
+            }
+        }
+        
+        function addMessage(text, type) {
+            const messages = document.getElementById('messages');
+            const div = document.createElement('div');
+            div.className = `message ${type}`;
+            
+            const time = new Date().toLocaleTimeString();
+            const prefix = type === 'sent' ? '→' : type === 'received' ? '←' : 'ℹ';
+            
+            div.innerHTML = `
+                <span class="time">[${time}]</span> ${prefix}
+                <pre style="margin: 0.5rem 0 0 0; white-space: pre-wrap;">${escapeHtml(text)}</pre>
+            `;
+            
+            messages.appendChild(div);
+            messages.scrollTop = messages.scrollHeight;
+        }
+        
+        function escapeHtml(text) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+        
+        function updateStatus(connected) {
+            const status = document.getElementById('status');
+            if (connected) {
+                status.className = 'status connected';
+                status.textContent = '🟢 Conectado';
+            } else {
+                status.className = 'status disconnected';
+                status.textContent = '⚫ Desconectado';
+            }
+        }
+        
+        // Actualizar useJson cuando cambie el endpoint
+        document.querySelectorAll('input[name="endpoint"]').forEach(radio => {
+            radio.addEventListener('change', () => {
+                if (ws && ws.readyState === WebSocket.OPEN) {
+                    addMessage('Desconecta y reconecta para cambiar de endpoint', 'system');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

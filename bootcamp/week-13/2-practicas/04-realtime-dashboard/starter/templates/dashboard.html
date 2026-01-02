@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Realtime Dashboard</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            background: #0a0a1a;
+            color: #eee;
+            min-height: 100vh;
+        }
+        
+        .dashboard {
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            grid-template-rows: auto 1fr;
+            min-height: 100vh;
+        }
+        
+        /* Header */
+        header {
+            grid-column: 1 / -1;
+            background: #1a1a2e;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #333;
+        }
+        
+        header h1 {
+            color: #00d9ff;
+            font-size: 1.5rem;
+        }
+        
+        .header-stats {
+            display: flex;
+            gap: 2rem;
+        }
+        
+        .stat {
+            text-align: center;
+        }
+        
+        .stat-value {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #00d9ff;
+        }
+        
+        .stat-label {
+            font-size: 0.8rem;
+            color: #888;
+        }
+        
+        /* Main content */
+        main {
+            padding: 1.5rem;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+            gap: 1.5rem;
+            overflow: auto;
+        }
+        
+        .card {
+            background: #1a1a2e;
+            border-radius: 8px;
+            padding: 1.5rem;
+        }
+        
+        .card h2 {
+            color: #00d9ff;
+            font-size: 1rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        /* Gauge meters */
+        .gauge-container {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            height: calc(100% - 2rem);
+        }
+        
+        .gauge {
+            text-align: center;
+        }
+        
+        .gauge-circle {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: conic-gradient(
+                #00d9ff 0deg,
+                #00d9ff calc(var(--value) * 3.6deg),
+                #333 calc(var(--value) * 3.6deg)
+            );
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        
+        .gauge-circle::before {
+            content: '';
+            width: 70px;
+            height: 70px;
+            background: #1a1a2e;
+            border-radius: 50%;
+            position: absolute;
+        }
+        
+        .gauge-value {
+            position: relative;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+        
+        .gauge-label {
+            margin-top: 0.5rem;
+            color: #888;
+            font-size: 0.9rem;
+        }
+        
+        /* Chart */
+        .chart-container {
+            height: calc(100% - 2rem);
+            position: relative;
+        }
+        
+        .chart {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: flex-end;
+            gap: 2px;
+        }
+        
+        .chart-bar {
+            flex: 1;
+            background: linear-gradient(to top, #00d9ff, #0066cc);
+            border-radius: 2px 2px 0 0;
+            min-height: 2px;
+            transition: height 0.3s;
+        }
+        
+        /* Activity sidebar */
+        aside {
+            background: #12122a;
+            border-left: 1px solid #333;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .sidebar-header {
+            padding: 1rem;
+            border-bottom: 1px solid #333;
+        }
+        
+        .sidebar-header h2 {
+            color: #00d9ff;
+            font-size: 1rem;
+        }
+        
+        .activity-list {
+            flex: 1;
+            overflow-y: auto;
+            padding: 0.5rem;
+        }
+        
+        .activity-item {
+            padding: 0.75rem;
+            border-radius: 4px;
+            margin-bottom: 0.5rem;
+            background: #1a1a2e;
+            border-left: 3px solid #00d9ff;
+            font-size: 0.85rem;
+        }
+        
+        .activity-item.login {
+            border-left-color: #4ade80;
+        }
+        
+        .activity-item.error {
+            border-left-color: #f87171;
+        }
+        
+        .activity-item.connection {
+            border-left-color: #00d9ff;
+        }
+        
+        .activity-item.disconnection {
+            border-left-color: #888;
+        }
+        
+        .activity-time {
+            font-size: 0.75rem;
+            color: #666;
+        }
+        
+        .activity-user {
+            color: #00d9ff;
+            font-weight: bold;
+        }
+        
+        /* Simulation buttons */
+        .simulation-panel {
+            padding: 1rem;
+            border-top: 1px solid #333;
+        }
+        
+        .simulation-panel h3 {
+            font-size: 0.9rem;
+            color: #888;
+            margin-bottom: 0.5rem;
+        }
+        
+        .sim-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        
+        .sim-buttons button {
+            padding: 0.5rem;
+            font-size: 0.75rem;
+            border: none;
+            border-radius: 4px;
+            background: #333;
+            color: #eee;
+            cursor: pointer;
+        }
+        
+        .sim-buttons button:hover {
+            background: #444;
+        }
+        
+        /* Connection status */
+        .connection-status {
+            padding: 0.5rem 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.8rem;
+        }
+        
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #666;
+        }
+        
+        .status-dot.connected {
+            background: #4ade80;
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard">
+        <header>
+            <h1>📊 Realtime Dashboard</h1>
+            <div class="header-stats">
+                <div class="stat">
+                    <div class="stat-value" id="usersOnline">0</div>
+                    <div class="stat-label">Users Online</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value" id="totalRequests">0</div>
+                    <div class="stat-label">Requests</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value" id="errorCount">0</div>
+                    <div class="stat-label">Errors</div>
+                </div>
+            </div>
+        </header>
+        
+        <main>
+            <div class="card">
+                <h2>💻 System Resources</h2>
+                <div class="gauge-container">
+                    <div class="gauge">
+                        <div class="gauge-circle" id="cpuGauge" style="--value: 0">
+                            <span class="gauge-value" id="cpuValue">0%</span>
+                        </div>
+                        <div class="gauge-label">CPU</div>
+                    </div>
+                    <div class="gauge">
+                        <div class="gauge-circle" id="memGauge" style="--value: 0">
+                            <span class="gauge-value" id="memValue">0%</span>
+                        </div>
+                        <div class="gauge-label">Memory</div>
+                    </div>
+                    <div class="gauge">
+                        <div class="gauge-circle" id="diskGauge" style="--value: 0">
+                            <span class="gauge-value" id="diskValue">0%</span>
+                        </div>
+                        <div class="gauge-label">Disk</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2>📈 CPU History</h2>
+                <div class="chart-container">
+                    <div class="chart" id="cpuChart"></div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2>💾 Memory History</h2>
+                <div class="chart-container">
+                    <div class="chart" id="memChart"></div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2>🌐 Network</h2>
+                <div style="padding: 1rem;">
+                    <p>Bytes Sent: <span id="bytesSent">0</span></p>
+                    <p>Bytes Received: <span id="bytesRecv">0</span></p>
+                    <p>Packets Sent: <span id="packetsSent">0</span></p>
+                    <p>Packets Received: <span id="packetsRecv">0</span></p>
+                </div>
+            </div>
+        </main>
+        
+        <aside>
+            <div class="sidebar-header">
+                <h2>⚡ Activity Feed</h2>
+            </div>
+            
+            <div class="connection-status">
+                <span class="status-dot" id="wsStatus"></span>
+                <span id="wsStatusText">Connecting...</span>
+            </div>
+            
+            <div class="activity-list" id="activityList"></div>
+            
+            <div class="simulation-panel">
+                <h3>🧪 Simulate</h3>
+                <div class="sim-buttons">
+                    <button onclick="simulateLogin()">👤 Login</button>
+                    <button onclick="simulateError()">❌ Error</button>
+                    <button onclick="simulateRequests()">📊 Requests</button>
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    <script>
+        // Data for charts
+        const cpuHistory = [];
+        const memHistory = [];
+        const maxDataPoints = 30;
+        
+        // Initialize charts
+        function initCharts() {
+            ['cpuChart', 'memChart'].forEach(chartId => {
+                const chart = document.getElementById(chartId);
+                for (let i = 0; i < maxDataPoints; i++) {
+                    const bar = document.createElement('div');
+                    bar.className = 'chart-bar';
+                    bar.style.height = '2px';
+                    chart.appendChild(bar);
+                }
+            });
+        }
+        
+        function updateChart(chartId, history, value) {
+            history.push(value);
+            if (history.length > maxDataPoints) history.shift();
+            
+            const chart = document.getElementById(chartId);
+            const bars = chart.children;
+            
+            for (let i = 0; i < bars.length; i++) {
+                const val = history[i] || 0;
+                bars[i].style.height = `${val}%`;
+            }
+        }
+        
+        // SSE for metrics
+        function connectMetrics() {
+            const eventSource = new EventSource('/metrics/stream');
+            
+            eventSource.addEventListener('metrics', (event) => {
+                const data = JSON.parse(event.data);
+                updateMetrics(data);
+            });
+            
+            eventSource.onerror = () => {
+                console.error('SSE error, reconnecting...');
+            };
+        }
+        
+        function updateMetrics(metrics) {
+            // Update gauges
+            const cpuPercent = Math.round(metrics.cpu.percent);
+            document.getElementById('cpuGauge').style.setProperty('--value', cpuPercent);
+            document.getElementById('cpuValue').textContent = cpuPercent + '%';
+            
+            const memPercent = Math.round(metrics.memory.percent);
+            document.getElementById('memGauge').style.setProperty('--value', memPercent);
+            document.getElementById('memValue').textContent = memPercent + '%';
+            
+            const diskPercent = Math.round(metrics.disk.percent);
+            document.getElementById('diskGauge').style.setProperty('--value', diskPercent);
+            document.getElementById('diskValue').textContent = diskPercent + '%';
+            
+            // Update charts
+            updateChart('cpuChart', cpuHistory, cpuPercent);
+            updateChart('memChart', memHistory, memPercent);
+            
+            // Update network stats
+            document.getElementById('bytesSent').textContent = formatBytes(metrics.network.bytes_sent);
+            document.getElementById('bytesRecv').textContent = formatBytes(metrics.network.bytes_recv);
+            document.getElementById('packetsSent').textContent = metrics.network.packets_sent.toLocaleString();
+            document.getElementById('packetsRecv').textContent = metrics.network.packets_recv.toLocaleString();
+            
+            // Update header stats
+            document.getElementById('usersOnline').textContent = metrics.app.connected_users;
+            document.getElementById('totalRequests').textContent = metrics.app.total_requests.toLocaleString();
+            document.getElementById('errorCount').textContent = metrics.app.errors;
+        }
+        
+        function formatBytes(bytes) {
+            const units = ['B', 'KB', 'MB', 'GB'];
+            let i = 0;
+            while (bytes >= 1024 && i < units.length - 1) {
+                bytes /= 1024;
+                i++;
+            }
+            return bytes.toFixed(1) + ' ' + units[i];
+        }
+        
+        // WebSocket for activity
+        let ws = null;
+        
+        function connectActivity() {
+            ws = new WebSocket(`ws://${location.host}/ws/activity`);
+            
+            ws.onopen = () => {
+                document.getElementById('wsStatus').classList.add('connected');
+                document.getElementById('wsStatusText').textContent = 'Connected';
+            };
+            
+            ws.onmessage = (event) => {
+                const data = JSON.parse(event.data);
+                
+                if (data.type === 'history') {
+                    data.activities.forEach(addActivity);
+                } else if (data.type === 'activity') {
+                    addActivity(data.activity);
+                }
+            };
+            
+            ws.onclose = () => {
+                document.getElementById('wsStatus').classList.remove('connected');
+                document.getElementById('wsStatusText').textContent = 'Disconnected';
+                setTimeout(connectActivity, 3000);
+            };
+        }
+        
+        function addActivity(activity) {
+            const list = document.getElementById('activityList');
+            const div = document.createElement('div');
+            div.className = `activity-item ${activity.type}`;
+            
+            const time = new Date(activity.timestamp).toLocaleTimeString();
+            
+            div.innerHTML = `
+                <div class="activity-time">${time}</div>
+                <div><span class="activity-user">${activity.user}</span></div>
+                <div>${activity.details}</div>
+            `;
+            
+            list.insertBefore(div, list.firstChild);
+            
+            // Limit items
+            while (list.children.length > 50) {
+                list.removeChild(list.lastChild);
+            }
+        }
+        
+        // Simulation functions
+        async function simulateLogin() {
+            const name = 'User' + Math.floor(Math.random() * 1000);
+            await fetch(`/simulate/user-login?username=${name}`, { method: 'POST' });
+        }
+        
+        async function simulateError() {
+            await fetch('/simulate/error', { method: 'POST' });
+        }
+        
+        async function simulateRequests() {
+            await fetch('/simulate/request', { method: 'POST' });
+        }
+        
+        // Initialize
+        initCharts();
+        connectMetrics();
+        connectActivity();
+    </script>
+</body>
+</html>

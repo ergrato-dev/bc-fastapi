@@ -1,0 +1,100 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+  <defs>
+    <linearGradient id="bgGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a2e"/>
+      <stop offset="100%" style="stop-color:#16213e"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="800" height="450" fill="url(#bgGrad2)"/>
+  
+  <!-- Title -->
+  <text x="400" y="35" text-anchor="middle" fill="#00d9ff" font-family="system-ui, sans-serif" font-size="22" font-weight="bold">WebSocket Lifecycle</text>
+  
+  <!-- Timeline -->
+  <line x1="100" y1="80" x2="100" y2="400" stroke="#2a2a4a" stroke-width="3"/>
+  <line x1="700" y1="80" x2="700" y2="400" stroke="#2a2a4a" stroke-width="3"/>
+  
+  <!-- Labels -->
+  <text x="100" y="70" text-anchor="middle" fill="#009688" font-family="system-ui, sans-serif" font-size="14" font-weight="bold">Cliente</text>
+  <text x="700" y="70" text-anchor="middle" fill="#e91e63" font-family="system-ui, sans-serif" font-size="14" font-weight="bold">Servidor</text>
+  
+  <!-- Phase 1: HTTP Upgrade Request -->
+  <g transform="translate(0, 90)">
+    <rect x="120" y="0" width="180" height="35" rx="4" fill="#0f3460" stroke="#ffaa00" stroke-width="2"/>
+    <text x="210" y="22" text-anchor="middle" fill="#ffaa00" font-family="system-ui, sans-serif" font-size="11" font-weight="bold">HTTP Upgrade Request</text>
+    <line x1="300" y1="17" x2="680" y2="17" stroke="#ffaa00" stroke-width="2" marker-end="url(#arrow)"/>
+    
+    <!-- Code snippet -->
+    <text x="400" y="8" text-anchor="middle" fill="#a0a0a0" font-family="monospace" font-size="9">GET /ws HTTP/1.1</text>
+    <text x="400" y="32" text-anchor="middle" fill="#a0a0a0" font-family="monospace" font-size="9">Upgrade: websocket</text>
+  </g>
+  
+  <!-- Phase 2: 101 Switching Protocols -->
+  <g transform="translate(0, 145)">
+    <rect x="500" y="0" width="180" height="35" rx="4" fill="#0f3460" stroke="#00ff88" stroke-width="2"/>
+    <text x="590" y="22" text-anchor="middle" fill="#00ff88" font-family="system-ui, sans-serif" font-size="11" font-weight="bold">101 Switching Protocols</text>
+    <line x1="500" y1="17" x2="120" y2="17" stroke="#00ff88" stroke-width="2" marker-end="url(#arrow)"/>
+    
+    <text x="310" y="8" text-anchor="middle" fill="#a0a0a0" font-family="monospace" font-size="9">HTTP/1.1 101 Switching Protocols</text>
+  </g>
+  
+  <!-- Phase 3: Connection Established -->
+  <g transform="translate(0, 195)">
+    <rect x="300" y="0" width="200" height="30" rx="15" fill="#009688"/>
+    <text x="400" y="20" text-anchor="middle" fill="#fff" font-family="system-ui, sans-serif" font-size="12" font-weight="bold">✓ WebSocket Conectado</text>
+  </g>
+  
+  <!-- Phase 4: Bidirectional Messages -->
+  <g transform="translate(0, 240)">
+    <rect x="250" y="0" width="300" height="100" rx="8" fill="none" stroke="#00d9ff" stroke-width="2" stroke-dasharray="5"/>
+    <text x="400" y="-8" text-anchor="middle" fill="#00d9ff" font-family="system-ui, sans-serif" font-size="11">Comunicación Bidireccional</text>
+    
+    <!-- Message Client -> Server -->
+    <line x1="120" y1="20" x2="680" y2="20" stroke="#009688" stroke-width="2"/>
+    <circle cx="400" cy="20" r="8" fill="#009688"/>
+    <text x="400" y="24" text-anchor="middle" fill="#fff" font-family="system-ui, sans-serif" font-size="8">msg</text>
+    
+    <!-- Message Server -> Client -->
+    <line x1="680" y1="50" x2="120" y2="50" stroke="#e91e63" stroke-width="2"/>
+    <circle cx="400" cy="50" r="8" fill="#e91e63"/>
+    <text x="400" y="54" text-anchor="middle" fill="#fff" font-family="system-ui, sans-serif" font-size="8">msg</text>
+    
+    <!-- Another message Client -> Server -->
+    <line x1="120" y1="80" x2="680" y2="80" stroke="#009688" stroke-width="2"/>
+    <circle cx="400" cy="80" r="8" fill="#009688"/>
+    <text x="400" y="84" text-anchor="middle" fill="#fff" font-family="system-ui, sans-serif" font-size="8">msg</text>
+  </g>
+  
+  <!-- Phase 5: Close -->
+  <g transform="translate(0, 360)">
+    <rect x="120" y="0" width="140" height="30" rx="4" fill="#0f3460" stroke="#ff4757" stroke-width="2"/>
+    <text x="190" y="20" text-anchor="middle" fill="#ff4757" font-family="system-ui, sans-serif" font-size="11" font-weight="bold">Close Frame</text>
+    <line x1="260" y1="15" x2="540" y2="15" stroke="#ff4757" stroke-width="2"/>
+    
+    <rect x="540" y="0" width="140" height="30" rx="4" fill="#0f3460" stroke="#ff4757" stroke-width="2"/>
+    <text x="610" y="20" text-anchor="middle" fill="#ff4757" font-family="system-ui, sans-serif" font-size="11" font-weight="bold">Close ACK</text>
+    <line x1="540" y1="35" x2="260" y2="35" stroke="#ff4757" stroke-width="2" stroke-dasharray="4"/>
+  </g>
+  
+  <!-- Phase Labels on right -->
+  <g transform="translate(720, 90)">
+    <text x="0" y="17" fill="#ffaa00" font-family="system-ui, sans-serif" font-size="10">1. Handshake</text>
+    <text x="0" y="72" fill="#00ff88" font-family="system-ui, sans-serif" font-size="10">2. Accept</text>
+    <text x="0" y="125" fill="#009688" font-family="system-ui, sans-serif" font-size="10">3. Open</text>
+    <text x="0" y="200" fill="#00d9ff" font-family="system-ui, sans-serif" font-size="10">4. Messages</text>
+    <text x="0" y="290" fill="#ff4757" font-family="system-ui, sans-serif" font-size="10">5. Close</text>
+  </g>
+  
+  <!-- FastAPI Code Reference -->
+  <g transform="translate(30, 410)">
+    <text x="0" y="0" fill="#a0a0a0" font-family="monospace" font-size="10">await websocket.accept()</text>
+    <text x="200" y="0" fill="#a0a0a0" font-family="monospace" font-size="10">→</text>
+    <text x="220" y="0" fill="#a0a0a0" font-family="monospace" font-size="10">await websocket.receive_text()</text>
+    <text x="430" y="0" fill="#a0a0a0" font-family="monospace" font-size="10">→</text>
+    <text x="450" y="0" fill="#a0a0a0" font-family="monospace" font-size="10">await websocket.send_text()</text>
+    <text x="640" y="0" fill="#a0a0a0" font-family="monospace" font-size="10">→</text>
+    <text x="660" y="0" fill="#a0a0a0" font-family="monospace" font-size="10">close()</text>
+  </g>
+</svg>

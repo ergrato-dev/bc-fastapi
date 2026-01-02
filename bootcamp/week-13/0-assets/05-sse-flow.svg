@@ -1,0 +1,135 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <defs>
+    <linearGradient id="bgGrad5" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a2e"/>
+      <stop offset="100%" style="stop-color:#16213e"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="800" height="500" fill="url(#bgGrad5)"/>
+  
+  <!-- Title -->
+  <text x="400" y="35" text-anchor="middle" fill="#00d9ff" font-family="system-ui, sans-serif" font-size="22" font-weight="bold">Server-Sent Events (SSE) Flow</text>
+  
+  <!-- Client -->
+  <g transform="translate(50, 70)">
+    <rect x="0" y="0" width="200" height="350" rx="8" fill="#0f3460" stroke="#009688" stroke-width="2"/>
+    <text x="100" y="30" text-anchor="middle" fill="#009688" font-family="system-ui, sans-serif" font-size="16" font-weight="bold">Cliente (Browser)</text>
+    
+    <!-- EventSource -->
+    <rect x="20" y="50" width="160" height="60" rx="6" fill="#1a1a2e" stroke="#00d9ff" stroke-width="1"/>
+    <text x="100" y="75" text-anchor="middle" fill="#00d9ff" font-family="system-ui, sans-serif" font-size="11" font-weight="bold">EventSource</text>
+    <text x="100" y="95" text-anchor="middle" fill="#a0a0a0" font-family="monospace" font-size="9">new EventSource(url)</text>
+    
+    <!-- Event handlers -->
+    <rect x="20" y="130" width="160" height="90" rx="6" fill="#1a1a2e"/>
+    <text x="100" y="150" text-anchor="middle" fill="#ffaa00" font-family="system-ui, sans-serif" font-size="10" font-weight="bold">Event Handlers</text>
+    <text x="30" y="170" fill="#00ff88" font-family="monospace" font-size="9">onopen</text>
+    <text x="30" y="185" fill="#e91e63" font-family="monospace" font-size="9">onmessage</text>
+    <text x="30" y="200" fill="#ff4757" font-family="monospace" font-size="9">onerror</text>
+    
+    <!-- Received events -->
+    <rect x="20" y="240" width="160" height="90" rx="6" fill="#1a1a2e"/>
+    <text x="100" y="260" text-anchor="middle" fill="#e91e63" font-family="system-ui, sans-serif" font-size="10" font-weight="bold">Eventos Recibidos</text>
+    <text x="30" y="280" fill="#a0a0a0" font-family="monospace" font-size="8">data: {"type": "msg"}</text>
+    <text x="30" y="295" fill="#a0a0a0" font-family="monospace" font-size="8">data: {"type": "join"}</text>
+    <text x="30" y="310" fill="#a0a0a0" font-family="monospace" font-size="8">data: {"type": "leave"}</text>
+  </g>
+  
+  <!-- Connection -->
+  <g transform="translate(250, 70)">
+    <!-- HTTP Connection -->
+    <rect x="0" y="60" width="300" height="40" rx="4" fill="#009688"/>
+    <text x="150" y="85" text-anchor="middle" fill="#fff" font-family="system-ui, sans-serif" font-size="12" font-weight="bold">HTTP GET /notifications</text>
+    
+    <!-- Persistent connection line -->
+    <rect x="140" y="110" width="20" height="200" rx="2" fill="#00d9ff" opacity="0.3"/>
+    <line x1="150" y1="110" x2="150" y2="310" stroke="#00d9ff" stroke-width="3"/>
+    <text x="180" y="200" fill="#00d9ff" font-family="system-ui, sans-serif" font-size="10" font-weight="bold" transform="rotate(90, 180, 200)">Conexión Persistente</text>
+    
+    <!-- Event arrows -->
+    <g transform="translate(0, 130)">
+      <line x1="230" y1="0" x2="70" y2="0" stroke="#e91e63" stroke-width="2"/>
+      <polygon points="70,-5 60,0 70,5" fill="#e91e63"/>
+      <text x="150" y="-5" text-anchor="middle" fill="#e91e63" font-family="monospace" font-size="9">event: message</text>
+    </g>
+    
+    <g transform="translate(0, 170)">
+      <line x1="230" y1="0" x2="70" y2="0" stroke="#e91e63" stroke-width="2"/>
+      <polygon points="70,-5 60,0 70,5" fill="#e91e63"/>
+      <text x="150" y="-5" text-anchor="middle" fill="#e91e63" font-family="monospace" font-size="9">event: notification</text>
+    </g>
+    
+    <g transform="translate(0, 210)">
+      <line x1="230" y1="0" x2="70" y2="0" stroke="#a0a0a0" stroke-width="2" stroke-dasharray="4"/>
+      <polygon points="70,-5 60,0 70,5" fill="#a0a0a0"/>
+      <text x="150" y="-5" text-anchor="middle" fill="#a0a0a0" font-family="monospace" font-size="9">: keepalive</text>
+    </g>
+    
+    <g transform="translate(0, 250)">
+      <line x1="230" y1="0" x2="70" y2="0" stroke="#e91e63" stroke-width="2"/>
+      <polygon points="70,-5 60,0 70,5" fill="#e91e63"/>
+      <text x="150" y="-5" text-anchor="middle" fill="#e91e63" font-family="monospace" font-size="9">event: update</text>
+    </g>
+    
+    <!-- Auto-reconnect -->
+    <g transform="translate(0, 300)">
+      <line x1="70" y1="0" x2="230" y2="0" stroke="#ff4757" stroke-width="2" stroke-dasharray="4"/>
+      <text x="150" y="-5" text-anchor="middle" fill="#ff4757" font-family="system-ui, sans-serif" font-size="9">Auto-reconexión si desconecta</text>
+    </g>
+  </g>
+  
+  <!-- Server -->
+  <g transform="translate(550, 70)">
+    <rect x="0" y="0" width="200" height="350" rx="8" fill="#0f3460" stroke="#e91e63" stroke-width="2"/>
+    <text x="100" y="30" text-anchor="middle" fill="#e91e63" font-family="system-ui, sans-serif" font-size="16" font-weight="bold">Servidor FastAPI</text>
+    
+    <!-- SSE Endpoint -->
+    <rect x="20" y="50" width="160" height="70" rx="6" fill="#1a1a2e" stroke="#e91e63" stroke-width="1"/>
+    <text x="100" y="70" text-anchor="middle" fill="#e91e63" font-family="system-ui, sans-serif" font-size="11" font-weight="bold">SSE Endpoint</text>
+    <text x="100" y="90" text-anchor="middle" fill="#a0a0a0" font-family="monospace" font-size="9">@app.get("/notif")</text>
+    <text x="100" y="105" text-anchor="middle" fill="#a0a0a0" font-family="monospace" font-size="9">EventSourceResponse</text>
+    
+    <!-- Async Generator -->
+    <rect x="20" y="140" width="160" height="80" rx="6" fill="#1a1a2e"/>
+    <text x="100" y="160" text-anchor="middle" fill="#00ff88" font-family="system-ui, sans-serif" font-size="10" font-weight="bold">Async Generator</text>
+    <text x="30" y="180" fill="#a0a0a0" font-family="monospace" font-size="8">async def stream():</text>
+    <text x="30" y="195" fill="#a0a0a0" font-family="monospace" font-size="8">  while True:</text>
+    <text x="30" y="210" fill="#a0a0a0" font-family="monospace" font-size="8">    yield event</text>
+    
+    <!-- Event Queue -->
+    <rect x="20" y="240" width="160" height="90" rx="6" fill="#1a1a2e"/>
+    <text x="100" y="260" text-anchor="middle" fill="#ffaa00" font-family="system-ui, sans-serif" font-size="10" font-weight="bold">Event Queue</text>
+    
+    <!-- Queue items -->
+    <rect x="30" y="275" width="140" height="20" rx="3" fill="#009688"/>
+    <text x="100" y="289" text-anchor="middle" fill="#fff" font-family="system-ui, sans-serif" font-size="9">Event 1</text>
+    
+    <rect x="30" y="300" width="140" height="20" rx="3" fill="#009688" opacity="0.6"/>
+    <text x="100" y="314" text-anchor="middle" fill="#fff" font-family="system-ui, sans-serif" font-size="9">Event 2</text>
+  </g>
+  
+  <!-- Response format -->
+  <g transform="translate(250, 380)">
+    <text x="0" y="0" fill="#a0a0a0" font-family="system-ui, sans-serif" font-size="12" font-weight="bold">Formato SSE:</text>
+    <text x="0" y="20" fill="#e91e63" font-family="monospace" font-size="10">event: message</text>
+    <text x="0" y="35" fill="#00ff88" font-family="monospace" font-size="10">data: {"type": "notification", "content": "..."}</text>
+    <text x="0" y="55" fill="#a0a0a0" font-family="monospace" font-size="10">\n</text>
+  </g>
+  
+  <!-- Characteristics -->
+  <g transform="translate(50, 470)">
+    <circle cx="10" cy="5" r="5" fill="#00ff88"/>
+    <text x="20" y="9" fill="#a0a0a0" font-family="system-ui, sans-serif" font-size="10">Unidireccional (Server→Client)</text>
+    
+    <circle cx="220" cy="5" r="5" fill="#00d9ff"/>
+    <text x="230" y="9" fill="#a0a0a0" font-family="system-ui, sans-serif" font-size="10">Auto-reconexión</text>
+    
+    <circle cx="380" cy="5" r="5" fill="#ffaa00"/>
+    <text x="390" y="9" fill="#a0a0a0" font-family="system-ui, sans-serif" font-size="10">HTTP estándar</text>
+    
+    <circle cx="520" cy="5" r="5" fill="#e91e63"/>
+    <text x="530" y="9" fill="#a0a0a0" font-family="system-ui, sans-serif" font-size="10">Content-Type: text/event-stream</text>
+  </g>
+</svg>
