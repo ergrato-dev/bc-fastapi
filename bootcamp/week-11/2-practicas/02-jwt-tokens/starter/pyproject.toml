@@ -1,0 +1,19 @@
+[project]
+name = "jwt-tokens-practice"
+version = "0.1.0"
+description = "Práctica de JWT tokens"
+requires-python = ">=3.13"
+dependencies = [
+    "python-jose[cryptography]>=3.3.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.3.4",
+    "pytest-asyncio>=0.24.0",
+    "freezegun>=1.4.0",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"

@@ -1,0 +1,124 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+  <defs>
+    <style>
+      .bg { fill: #1a1a2e; }
+      .title { font-family: system-ui, sans-serif; font-size: 24px; font-weight: bold; fill: #ffffff; }
+      .subtitle { font-family: system-ui, sans-serif; font-size: 14px; fill: #888888; }
+      .part-box { rx: 6; ry: 6; }
+      .header-box { fill: #e74c3c; }
+      .payload-box { fill: #9b59b6; }
+      .signature-box { fill: #3498db; }
+      .label { font-family: system-ui, sans-serif; font-size: 14px; font-weight: bold; fill: #ffffff; }
+      .content { font-family: monospace; font-size: 11px; fill: #cccccc; }
+      .dot { font-family: system-ui, sans-serif; font-size: 32px; font-weight: bold; fill: #ffd700; }
+      .token-text { font-family: monospace; font-size: 10px; }
+      .token-header { fill: #e74c3c; }
+      .token-payload { fill: #9b59b6; }
+      .token-signature { fill: #3498db; }
+      .arrow { fill: none; stroke: #666666; stroke-width: 1.5; stroke-dasharray: 4,4; }
+      .arrow-head { fill: #666666; }
+      .section-title { font-family: system-ui, sans-serif; font-size: 12px; fill: #888888; }
+      .code-bg { fill: #0d1117; rx: 4; ry: 4; }
+      .brace { font-family: monospace; font-size: 12px; fill: #ffd700; }
+      .key { font-family: monospace; font-size: 11px; fill: #79c0ff; }
+      .value { font-family: monospace; font-size: 11px; fill: #a5d6ff; }
+      .string { font-family: monospace; font-size: 11px; fill: #7ee787; }
+    </style>
+  </defs>
+  
+  <!-- Background -->
+  <rect class="bg" width="800" height="450"/>
+  
+  <!-- Title -->
+  <text x="400" y="35" class="title" text-anchor="middle">Estructura de un JWT</text>
+  <text x="400" y="55" class="subtitle" text-anchor="middle">Header.Payload.Signature (Base64URL encoded)</text>
+  
+  <!-- Token String -->
+  <rect x="50" y="75" width="700" height="35" class="code-bg"/>
+  <text x="60" y="97" class="token-text token-header">eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9</text>
+  <text x="295" y="97" class="dot">.</text>
+  <text x="305" y="97" class="token-text token-payload">eyJzdWIiOiJ1c2VyQGV4YW1wbGUuY29tIiwiZXhwIjoxNzA0MDY3MjAwfQ</text>
+  <text x="590" y="97" class="dot">.</text>
+  <text x="600" y="97" class="token-text token-signature">SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c</text>
+  
+  <!-- Three Parts -->
+  <!-- Header -->
+  <g transform="translate(50, 130)">
+    <rect x="0" y="0" width="220" height="140" class="part-box header-box"/>
+    <text x="110" y="25" class="label" text-anchor="middle">HEADER</text>
+    <text x="110" y="45" class="section-title" text-anchor="middle">Algoritmo y tipo</text>
+    
+    <rect x="15" y="55" width="190" height="70" class="code-bg"/>
+    <text x="25" y="75" class="brace">{"</text>
+    <text x="25" y="95" class="key">  "alg"</text>
+    <text x="70" y="95" class="content">:</text>
+    <text x="80" y="95" class="string">"HS256"</text>
+    <text x="130" y="95" class="content">,</text>
+    <text x="25" y="115" class="key">  "typ"</text>
+    <text x="70" y="115" class="content">:</text>
+    <text x="80" y="115" class="string">"JWT"</text>
+    <text x="180" y="115" class="brace">}</text>
+  </g>
+  
+  <!-- Dot 1 -->
+  <text x="285" y="200" class="dot">.</text>
+  
+  <!-- Payload -->
+  <g transform="translate(300, 130)">
+    <rect x="0" y="0" width="220" height="140" class="part-box payload-box"/>
+    <text x="110" y="25" class="label" text-anchor="middle">PAYLOAD</text>
+    <text x="110" y="45" class="section-title" text-anchor="middle">Claims (datos)</text>
+    
+    <rect x="15" y="55" width="190" height="70" class="code-bg"/>
+    <text x="25" y="75" class="brace">{"</text>
+    <text x="25" y="95" class="key">  "sub"</text>
+    <text x="65" y="95" class="content">:</text>
+    <text x="75" y="95" class="string">"user@..."</text>
+    <text x="140" y="95" class="content">,</text>
+    <text x="25" y="115" class="key">  "exp"</text>
+    <text x="65" y="115" class="content">:</text>
+    <text x="75" y="115" class="value">1704067200</text>
+    <text x="175" y="115" class="brace">}</text>
+  </g>
+  
+  <!-- Dot 2 -->
+  <text x="535" y="200" class="dot">.</text>
+  
+  <!-- Signature -->
+  <g transform="translate(550, 130)">
+    <rect x="0" y="0" width="200" height="140" class="part-box signature-box"/>
+    <text x="100" y="25" class="label" text-anchor="middle">SIGNATURE</text>
+    <text x="100" y="45" class="section-title" text-anchor="middle">Verificación</text>
+    
+    <rect x="15" y="55" width="170" height="70" class="code-bg"/>
+    <text x="25" y="80" class="content">HMACSHA256(</text>
+    <text x="35" y="95" class="token-header">header</text>
+    <text x="75" y="95" class="content">+ "." +</text>
+    <text x="35" y="110" class="token-payload">payload</text>
+    <text x="85" y="110" class="content">,</text>
+    <text x="95" y="110" class="string">secret</text>
+    <text x="140" y="110" class="content">)</text>
+  </g>
+  
+  <!-- Claims Explanation -->
+  <rect x="50" y="290" width="700" height="140" class="code-bg"/>
+  <text x="400" y="315" class="label" text-anchor="middle">Claims Comunes en el Payload</text>
+  
+  <text x="80" y="345" class="key">sub</text>
+  <text x="130" y="345" class="content">→ Subject (identificador del usuario)</text>
+  
+  <text x="80" y="370" class="key">exp</text>
+  <text x="130" y="370" class="content">→ Expiration time (timestamp Unix)</text>
+  
+  <text x="80" y="395" class="key">iat</text>
+  <text x="130" y="395" class="content">→ Issued at (cuándo se creó)</text>
+  
+  <text x="420" y="345" class="key">type</text>
+  <text x="480" y="345" class="content">→ "access" o "refresh"</text>
+  
+  <text x="420" y="370" class="key">role</text>
+  <text x="480" y="370" class="content">→ Rol del usuario</text>
+  
+  <text x="420" y="395" class="key">aud</text>
+  <text x="480" y="395" class="content">→ Audience (destinatario)</text>
+</svg>

@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <defs>
+    <style>
+      .bg { fill: #1a1a2e; }
+      .title { font-family: system-ui, sans-serif; font-size: 24px; font-weight: bold; fill: #ffffff; }
+      .subtitle { font-family: system-ui, sans-serif; font-size: 14px; fill: #888888; }
+      .layer { rx: 8; ry: 8; fill: none; stroke-width: 3; }
+      .layer-1 { stroke: #e74c3c; }
+      .layer-2 { stroke: #f39c12; }
+      .layer-3 { stroke: #3498db; }
+      .layer-4 { stroke: #9b59b6; }
+      .layer-5 { stroke: #009688; }
+      .label { font-family: system-ui, sans-serif; font-size: 14px; font-weight: bold; fill: #ffffff; }
+      .text { font-family: system-ui, sans-serif; font-size: 11px; fill: #cccccc; }
+      .code { font-family: monospace; font-size: 10px; fill: #7ee787; }
+      .layer-num { font-family: system-ui, sans-serif; font-size: 18px; font-weight: bold; }
+      .num-1 { fill: #e74c3c; }
+      .num-2 { fill: #f39c12; }
+      .num-3 { fill: #3498db; }
+      .num-4 { fill: #9b59b6; }
+      .num-5 { fill: #009688; }
+      .icon { fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+      .section { font-family: system-ui, sans-serif; font-size: 12px; font-weight: bold; fill: #888888; }
+      .component-box { fill: #16213e; rx: 4; ry: 4; }
+    </style>
+  </defs>
+  
+  <!-- Background -->
+  <rect class="bg" width="800" height="500"/>
+  
+  <!-- Title -->
+  <text x="400" y="35" class="title" text-anchor="middle">Capas de Seguridad en Autenticación</text>
+  <text x="400" y="55" class="subtitle" text-anchor="middle">Defense in Depth - Múltiples capas de protección</text>
+  
+  <!-- Layer 1: Input Validation (outermost) -->
+  <rect x="50" y="80" width="700" height="380" class="layer layer-1"/>
+  <text x="70" y="105" class="layer-num num-1">1</text>
+  <text x="95" y="105" class="label">Input Validation</text>
+  <text x="250" y="105" class="text">Pydantic schemas, EmailStr, Field constraints</text>
+  
+  <!-- Layer 2: Rate Limiting -->
+  <rect x="80" y="120" width="640" height="320" class="layer layer-2"/>
+  <text x="100" y="145" class="layer-num num-2">2</text>
+  <text x="125" y="145" class="label">Rate Limiting</text>
+  <text x="250" y="145" class="text">Límite de intentos de login, slowapi</text>
+  
+  <!-- Layer 3: Authentication -->
+  <rect x="110" y="160" width="580" height="260" class="layer layer-3"/>
+  <text x="130" y="185" class="layer-num num-3">3</text>
+  <text x="155" y="185" class="label">Authentication</text>
+  <text x="280" y="185" class="text">JWT validation, OAuth2PasswordBearer</text>
+  
+  <!-- Layer 4: Authorization -->
+  <rect x="140" y="200" width="520" height="200" class="layer layer-4"/>
+  <text x="160" y="225" class="layer-num num-4">4</text>
+  <text x="185" y="225" class="label">Authorization</text>
+  <text x="300" y="225" class="text">RBAC, require_role(), permissions</text>
+  
+  <!-- Layer 5: Data Protection (innermost) -->
+  <rect x="170" y="240" width="460" height="140" class="layer layer-5"/>
+  <text x="190" y="265" class="layer-num num-5">5</text>
+  <text x="215" y="265" class="label">Data Protection</text>
+  <text x="350" y="265" class="text">bcrypt, secure storage, encryption</text>
+  
+  <!-- Protected Resource -->
+  <rect x="280" y="290" width="240" height="70" class="component-box"/>
+  <text x="400" y="320" class="label" text-anchor="middle">🔒 Protected Resource</text>
+  <text x="400" y="340" class="text" text-anchor="middle">User data, sensitive operations</text>
+  
+  <!-- Right side: Components per layer -->
+  <text x="650" y="105" class="code">Pydantic</text>
+  <text x="650" y="145" class="code">slowapi</text>
+  <text x="650" y="185" class="code">python-jose</text>
+  <text x="650" y="225" class="code">Depends()</text>
+  <text x="650" y="265" class="code">passlib</text>
+  
+  <!-- Bottom Legend -->
+  <text x="400" y="480" class="section" text-anchor="middle">Cada capa añade una barrera adicional contra ataques</text>
+</svg>

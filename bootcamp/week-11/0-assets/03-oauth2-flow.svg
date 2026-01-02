@@ -1,0 +1,103 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <defs>
+    <style>
+      .bg { fill: #1a1a2e; }
+      .title { font-family: system-ui, sans-serif; font-size: 24px; font-weight: bold; fill: #ffffff; }
+      .subtitle { font-family: system-ui, sans-serif; font-size: 14px; fill: #888888; }
+      .box { rx: 8; ry: 8; fill: #16213e; stroke-width: 2; }
+      .box-client { stroke: #3498db; }
+      .box-api { stroke: #009688; }
+      .box-db { stroke: #9b59b6; }
+      .label { font-family: system-ui, sans-serif; font-size: 14px; font-weight: bold; fill: #ffffff; }
+      .text { font-family: system-ui, sans-serif; font-size: 12px; fill: #cccccc; }
+      .step { font-family: system-ui, sans-serif; font-size: 12px; font-weight: bold; fill: #1a1a2e; }
+      .step-circle { fill: #ffd700; }
+      .arrow { fill: none; stroke-width: 2; stroke-linecap: round; }
+      .arrow-request { stroke: #3498db; }
+      .arrow-response { stroke: #009688; stroke-dasharray: 6,3; }
+      .code { font-family: monospace; font-size: 10px; fill: #7ee787; }
+      .method { font-family: monospace; font-size: 11px; font-weight: bold; }
+      .method-post { fill: #ffd700; }
+      .method-get { fill: #3498db; }
+      .icon { fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+    </style>
+  </defs>
+  
+  <!-- Background -->
+  <rect class="bg" width="800" height="500"/>
+  
+  <!-- Title -->
+  <text x="400" y="35" class="title" text-anchor="middle">OAuth2 Password Flow</text>
+  <text x="400" y="55" class="subtitle" text-anchor="middle">Resource Owner Password Credentials Grant</text>
+  
+  <!-- Client Box -->
+  <rect x="50" y="80" width="150" height="80" class="box box-client"/>
+  <g transform="translate(100, 105)">
+    <rect x="-15" y="-10" width="30" height="22" rx="2" class="icon" stroke="#3498db"/>
+    <rect x="-12" y="-7" width="24" height="16" class="icon" stroke="#3498db"/>
+  </g>
+  <text x="125" y="145" class="label" text-anchor="middle">Client</text>
+  <text x="125" y="160" class="text" text-anchor="middle">(Frontend/App)</text>
+  
+  <!-- API Box -->
+  <rect x="325" y="80" width="150" height="80" class="box box-api"/>
+  <g transform="translate(380, 105)">
+    <rect x="-18" y="-12" width="36" height="26" rx="3" class="icon" stroke="#009688"/>
+    <path d="M-10 -2 L10 -2 M-10 6 L5 6" class="icon" stroke="#009688"/>
+  </g>
+  <text x="400" y="145" class="label" text-anchor="middle">FastAPI</text>
+  <text x="400" y="160" class="text" text-anchor="middle">(Backend)</text>
+  
+  <!-- Database Box -->
+  <rect x="600" y="80" width="150" height="80" class="box box-db"/>
+  <g transform="translate(655, 100)">
+    <ellipse cx="0" cy="0" rx="18" ry="8" class="icon" stroke="#9b59b6"/>
+    <path d="M-18 0 L-18 18 M18 0 L18 18" class="icon" stroke="#9b59b6"/>
+    <ellipse cx="0" cy="18" rx="18" ry="8" class="icon" stroke="#9b59b6"/>
+  </g>
+  <text x="675" y="145" class="label" text-anchor="middle">Database</text>
+  <text x="675" y="160" class="text" text-anchor="middle">(Users)</text>
+  
+  <!-- Step 1: Login Request -->
+  <circle cx="125" cy="210" r="12" class="step-circle"/>
+  <text x="125" y="214" class="step" text-anchor="middle">1</text>
+  <path d="M200 210 L325 210" class="arrow arrow-request" marker-end="url(#arrowhead)"/>
+  <text x="262" y="200" class="method method-post" text-anchor="middle">POST /auth/token</text>
+  <text x="262" y="230" class="code" text-anchor="middle">username=user@mail.com</text>
+  <text x="262" y="245" class="code" text-anchor="middle">password=secret123</text>
+  
+  <!-- Step 2: Verify Credentials -->
+  <circle cx="400" cy="290" r="12" class="step-circle"/>
+  <text x="400" y="294" class="step" text-anchor="middle">2</text>
+  <path d="M475 290 L600 290" class="arrow arrow-request"/>
+  <text x="537" y="280" class="text" text-anchor="middle">Buscar usuario</text>
+  <text x="537" y="310" class="text" text-anchor="middle">Verificar password</text>
+  
+  <!-- Step 3: Return User -->
+  <circle cx="675" cy="350" r="12" class="step-circle"/>
+  <text x="675" y="354" class="step" text-anchor="middle">3</text>
+  <path d="M600 350 L475 350" class="arrow arrow-response"/>
+  <text x="537" y="340" class="text" text-anchor="middle">User data</text>
+  <text x="537" y="370" class="code" text-anchor="middle">hashed_password, role</text>
+  
+  <!-- Step 4: Generate JWT -->
+  <circle cx="400" cy="400" r="12" class="step-circle"/>
+  <text x="400" y="404" class="step" text-anchor="middle">4</text>
+  <text x="400" y="430" class="text" text-anchor="middle">Generar JWT</text>
+  <text x="400" y="445" class="code" text-anchor="middle">create_access_token()</text>
+  
+  <!-- Step 5: Return Token -->
+  <circle cx="125" cy="400" r="12" class="step-circle"/>
+  <text x="125" y="404" class="step" text-anchor="middle">5</text>
+  <path d="M325 400 L200 400" class="arrow arrow-response"/>
+  <text x="262" y="390" class="text" text-anchor="middle">Token Response</text>
+  <text x="262" y="420" class="code" text-anchor="middle">{"access_token": "eyJ...",</text>
+  <text x="262" y="435" class="code" text-anchor="middle"> "token_type": "bearer"}</text>
+  
+  <!-- Arrow marker -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#3498db"/>
+    </marker>
+  </defs>
+</svg>
