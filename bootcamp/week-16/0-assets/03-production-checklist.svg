@@ -1,0 +1,266 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 650">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0d1117"/>
+      <stop offset="100%" style="stop-color:#161b22"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="900" height="650" fill="url(#bgGrad)"/>
+  
+  <!-- Title -->
+  <text x="450" y="35" font-family="system-ui, sans-serif" font-size="22" fill="#ffffff" text-anchor="middle" font-weight="700">
+    🚀 Checklist de Producción
+  </text>
+  <text x="450" y="55" font-family="system-ui, sans-serif" font-size="12" fill="#8b949e" text-anchor="middle">
+    Verificaciones antes de desplegar tu API
+  </text>
+  
+  <!-- Security Section -->
+  <g transform="translate(30, 80)">
+    <rect x="0" y="0" width="270" height="260" rx="8" fill="#f85149" opacity="0.1" stroke="#f85149" stroke-width="2"/>
+    <text x="135" y="25" font-family="system-ui, sans-serif" font-size="14" fill="#f85149" text-anchor="middle" font-weight="600">
+      🔒 SEGURIDAD
+    </text>
+    
+    <!-- Checklist items -->
+    <g transform="translate(15, 45)">
+      <rect x="0" y="0" width="18" height="18" rx="3" fill="#21262d" stroke="#f85149"/>
+      <text x="25" y="14" font-family="system-ui, sans-serif" font-size="11" fill="#c9d1d9">Variables de entorno (.env)</text>
+    </g>
+    <g transform="translate(15, 70)">
+      <rect x="0" y="0" width="18" height="18" rx="3" fill="#21262d" stroke="#f85149"/>
+      <text x="25" y="14" font-family="system-ui, sans-serif" font-size="11" fill="#c9d1d9">Secrets NO en código</text>
+    </g>
+    <g transform="translate(15, 95)">
+      <rect x="0" y="0" width="18" height="18" rx="3" fill="#21262d" stroke="#f85149"/>
+      <text x="25" y="14" font-family="system-ui, sans-serif" font-size="11" fill="#c9d1d9">Passwords hasheados (bcrypt)</text>
+    </g>
+    <g transform="translate(15, 120)">
+      <rect x="0" y="0" width="18" height="18" rx="3" fill="#21262d" stroke="#f85149"/>
+      <text x="25" y="14" font-family="system-ui, sans-serif" font-size="11" fill="#c9d1d9">JWT con SECRET_KEY seguro</text>
+    </g>
+    <g transform="translate(15, 145)">
+      <rect x="0" y="0" width="18" height="18" rx="3" fill="#21262d" stroke="#f85149"/>
+      <text x="25" y="14" font-family="system-ui, sans-serif" font-size="11" fill="#c9d1d9">CORS configurado</text>
+    </g>
+    <g transform="translate(15, 170)">
+      <rect x="0" y="0" width="18" height="18" rx="3" fill="#21262d" stroke="#f85149"/>
+      <text x="25" y="14" font-family="system-ui, sans-serif" font-size="11" fill="#c9d1d9">HTTPS obligatorio</text>
+    </g>
+    <g transform="translate(15, 195)">
+      <rect x="0" y="0" width="18" height="18" rx="3" fill="#21262d" stroke="#f85149"/>
+      <text x="25" y="14" font-family="system-ui, sans-serif" font-size="11" fill="#c9d1d9">Validación de inputs</text>
+    </g>
+    <g transform="translate(15, 220)">
+      <rect x="0" y="0" width="18" height="18" rx="3" fill="#21262d" stroke="#f85149"/>
+      <text x="25" y="14" font-family="system-ui, sans-serif" font-size="11" fill="#c9d1d9">Rate limiting (bonus)</text>
+    </g>
+  </g>
+  
+  <!-- Performance Section -->
+  <g transform="translate(315, 80)">
+    <rect x="0" y="0" width="270" height="260" rx="8" fill="#58a6ff" opacity="0.1" stroke="#58a6ff" stroke-width="2"/>
+    <text x="135" y="25" font-family="system-ui, sans-serif" font-size="14" fill="#58a6ff" text-anchor="middle" font-weight="600">
+      ⚡ RENDIMIENTO
+    </text>
+    
+    <g transform="translate(15, 45)">
+      <rect x="0" y="0" width="18" height="18" rx="3" fill="#21262d" stroke="#58a6ff"/>
+      <text x="25" y="14" font-family="system-ui, sans-serif" font-size="11" fill="#c9d1d9">Async/await correctos</text>
+    </g>
+    <g transform="translate(15, 70)">
+      <rect x="0" y="0" width="18" height="18" rx="3" fill="#21262d" stroke="#58a6ff"/>
+      <text x="25" y="14" font-family="system-ui, sans-serif" font-size="11" fill="#c9d1d9">Sin N+1 queries</text>
+    </g>
+    <g transform="translate(15, 95)">
+      <rect x="0" y="0" width="18" height="18" rx="3" fill="#21262d" stroke="#58a6ff"/>
+      <text x="25" y="14" font-family="system-ui, sans-serif" font-size="11" fill="#c9d1d9">Índices en DB creados</text>
+    </g>
+    <g transform="translate(15, 120)">
+      <rect x="0" y="0" width="18" height="18" rx="3" fill="#21262d" stroke="#58a6ff"/>
+      <text x="25" y="14" font-family="system-ui, sans-serif" font-size="11" fill="#c9d1d9">Paginación implementada</text>
+    </g>
+    <g transform="translate(15, 145)">
+      <rect x="0" y="0" width="18" height="18" rx="3" fill="#21262d" stroke="#58a6ff"/>
+      <text x="25" y="14" font-family="system-ui, sans-serif" font-size="11" fill="#c9d1d9">Connection pooling</text>
+    </g>
+    <g transform="translate(15, 170)">
+      <rect x="0" y="0" width="18" height="18" rx="3" fill="#21262d" stroke="#58a6ff"/>
+      <text x="25" y="14" font-family="system-ui, sans-serif" font-size="11" fill="#c9d1d9">Lazy loading relaciones</text>
+    </g>
+    <g transform="translate(15, 195)">
+      <rect x="0" y="0" width="18" height="18" rx="3" fill="#21262d" stroke="#58a6ff"/>
+      <text x="25" y="14" font-family="system-ui, sans-serif" font-size="11" fill="#c9d1d9">Workers configurados</text>
+    </g>
+    <g transform="translate(15, 220)">
+      <rect x="0" y="0" width="18" height="18" rx="3" fill="#21262d" stroke="#58a6ff"/>
+      <text x="25" y="14" font-family="system-ui, sans-serif" font-size="11" fill="#c9d1d9">Caching (bonus)</text>
+    </g>
+  </g>
+  
+  <!-- Testing Section -->
+  <g transform="translate(600, 80)">
+    <rect x="0" y="0" width="270" height="260" rx="8" fill="#238636" opacity="0.1" stroke="#238636" stroke-width="2"/>
+    <text x="135" y="25" font-family="system-ui, sans-serif" font-size="14" fill="#238636" text-anchor="middle" font-weight="600">
+      🧪 TESTING
+    </text>
+    
+    <g transform="translate(15, 45)">
+      <rect x="0" y="0" width="18" height="18" rx="3" fill="#21262d" stroke="#238636"/>
+      <text x="25" y="14" font-family="system-ui, sans-serif" font-size="11" fill="#c9d1d9">Coverage ≥50%</text>
+    </g>
+    <g transform="translate(15, 70)">
+      <rect x="0" y="0" width="18" height="18" rx="3" fill="#21262d" stroke="#238636"/>
+      <text x="25" y="14" font-family="system-ui, sans-serif" font-size="11" fill="#c9d1d9">Tests unitarios</text>
+    </g>
+    <g transform="translate(15, 95)">
+      <rect x="0" y="0" width="18" height="18" rx="3" fill="#21262d" stroke="#238636"/>
+      <text x="25" y="14" font-family="system-ui, sans-serif" font-size="11" fill="#c9d1d9">Tests de integración</text>
+    </g>
+    <g transform="translate(15, 120)">
+      <rect x="0" y="0" width="18" height="18" rx="3" fill="#21262d" stroke="#238636"/>
+      <text x="25" y="14" font-family="system-ui, sans-serif" font-size="11" fill="#c9d1d9">Tests de endpoints</text>
+    </g>
+    <g transform="translate(15, 145)">
+      <rect x="0" y="0" width="18" height="18" rx="3" fill="#21262d" stroke="#238636"/>
+      <text x="25" y="14" font-family="system-ui, sans-serif" font-size="11" fill="#c9d1d9">DB test aislada</text>
+    </g>
+    <g transform="translate(15, 170)">
+      <rect x="0" y="0" width="18" height="18" rx="3" fill="#21262d" stroke="#238636"/>
+      <text x="25" y="14" font-family="system-ui, sans-serif" font-size="11" fill="#c9d1d9">Fixtures configurados</text>
+    </g>
+    <g transform="translate(15, 195)">
+      <rect x="0" y="0" width="18" height="18" rx="3" fill="#21262d" stroke="#238636"/>
+      <text x="25" y="14" font-family="system-ui, sans-serif" font-size="11" fill="#c9d1d9">All tests passing ✓</text>
+    </g>
+    <g transform="translate(15, 220)">
+      <rect x="0" y="0" width="18" height="18" rx="3" fill="#21262d" stroke="#238636"/>
+      <text x="25" y="14" font-family="system-ui, sans-serif" font-size="11" fill="#c9d1d9">CI ejecuta tests</text>
+    </g>
+  </g>
+  
+  <!-- Docker Section -->
+  <g transform="translate(30, 355)">
+    <rect x="0" y="0" width="270" height="260" rx="8" fill="#009688" opacity="0.1" stroke="#009688" stroke-width="2"/>
+    <text x="135" y="25" font-family="system-ui, sans-serif" font-size="14" fill="#009688" text-anchor="middle" font-weight="600">
+      🐳 DOCKER
+    </text>
+    
+    <g transform="translate(15, 45)">
+      <rect x="0" y="0" width="18" height="18" rx="3" fill="#21262d" stroke="#009688"/>
+      <text x="25" y="14" font-family="system-ui, sans-serif" font-size="11" fill="#c9d1d9">Dockerfile optimizado</text>
+    </g>
+    <g transform="translate(15, 70)">
+      <rect x="0" y="0" width="18" height="18" rx="3" fill="#21262d" stroke="#009688"/>
+      <text x="25" y="14" font-family="system-ui, sans-serif" font-size="11" fill="#c9d1d9">Multi-stage build</text>
+    </g>
+    <g transform="translate(15, 95)">
+      <rect x="0" y="0" width="18" height="18" rx="3" fill="#21262d" stroke="#009688"/>
+      <text x="25" y="14" font-family="system-ui, sans-serif" font-size="11" fill="#c9d1d9">docker-compose.yml</text>
+    </g>
+    <g transform="translate(15, 120)">
+      <rect x="0" y="0" width="18" height="18" rx="3" fill="#21262d" stroke="#009688"/>
+      <text x="25" y="14" font-family="system-ui, sans-serif" font-size="11" fill="#c9d1d9">.dockerignore creado</text>
+    </g>
+    <g transform="translate(15, 145)">
+      <rect x="0" y="0" width="18" height="18" rx="3" fill="#21262d" stroke="#009688"/>
+      <text x="25" y="14" font-family="system-ui, sans-serif" font-size="11" fill="#c9d1d9">Health check endpoint</text>
+    </g>
+    <g transform="translate(15, 170)">
+      <rect x="0" y="0" width="18" height="18" rx="3" fill="#21262d" stroke="#009688"/>
+      <text x="25" y="14" font-family="system-ui, sans-serif" font-size="11" fill="#c9d1d9">Non-root user</text>
+    </g>
+    <g transform="translate(15, 195)">
+      <rect x="0" y="0" width="18" height="18" rx="3" fill="#21262d" stroke="#009688"/>
+      <text x="25" y="14" font-family="system-ui, sans-serif" font-size="11" fill="#c9d1d9">Build local exitoso</text>
+    </g>
+    <g transform="translate(15, 220)">
+      <rect x="0" y="0" width="18" height="18" rx="3" fill="#21262d" stroke="#009688"/>
+      <text x="25" y="14" font-family="system-ui, sans-serif" font-size="11" fill="#c9d1d9">Compose up funciona</text>
+    </g>
+  </g>
+  
+  <!-- Documentation Section -->
+  <g transform="translate(315, 355)">
+    <rect x="0" y="0" width="270" height="260" rx="8" fill="#a371f7" opacity="0.1" stroke="#a371f7" stroke-width="2"/>
+    <text x="135" y="25" font-family="system-ui, sans-serif" font-size="14" fill="#a371f7" text-anchor="middle" font-weight="600">
+      📚 DOCUMENTACIÓN
+    </text>
+    
+    <g transform="translate(15, 45)">
+      <rect x="0" y="0" width="18" height="18" rx="3" fill="#21262d" stroke="#a371f7"/>
+      <text x="25" y="14" font-family="system-ui, sans-serif" font-size="11" fill="#c9d1d9">README.md completo</text>
+    </g>
+    <g transform="translate(15, 70)">
+      <rect x="0" y="0" width="18" height="18" rx="3" fill="#21262d" stroke="#a371f7"/>
+      <text x="25" y="14" font-family="system-ui, sans-serif" font-size="11" fill="#c9d1d9">Instrucciones de setup</text>
+    </g>
+    <g transform="translate(15, 95)">
+      <rect x="0" y="0" width="18" height="18" rx="3" fill="#21262d" stroke="#a371f7"/>
+      <text x="25" y="14" font-family="system-ui, sans-serif" font-size="11" fill="#c9d1d9">Variables de entorno</text>
+    </g>
+    <g transform="translate(15, 120)">
+      <rect x="0" y="0" width="18" height="18" rx="3" fill="#21262d" stroke="#a371f7"/>
+      <text x="25" y="14" font-family="system-ui, sans-serif" font-size="11" fill="#c9d1d9">OpenAPI docstrings</text>
+    </g>
+    <g transform="translate(15, 145)">
+      <rect x="0" y="0" width="18" height="18" rx="3" fill="#21262d" stroke="#a371f7"/>
+      <text x="25" y="14" font-family="system-ui, sans-serif" font-size="11" fill="#c9d1d9">/docs accesible</text>
+    </g>
+    <g transform="translate(15, 170)">
+      <rect x="0" y="0" width="18" height="18" rx="3" fill="#21262d" stroke="#a371f7"/>
+      <text x="25" y="14" font-family="system-ui, sans-serif" font-size="11" fill="#c9d1d9">Ejemplos de requests</text>
+    </g>
+    <g transform="translate(15, 195)">
+      <rect x="0" y="0" width="18" height="18" rx="3" fill="#21262d" stroke="#a371f7"/>
+      <text x="25" y="14" font-family="system-ui, sans-serif" font-size="11" fill="#c9d1d9">API versionada</text>
+    </g>
+    <g transform="translate(15, 220)">
+      <rect x="0" y="0" width="18" height="18" rx="3" fill="#21262d" stroke="#a371f7"/>
+      <text x="25" y="14" font-family="system-ui, sans-serif" font-size="11" fill="#c9d1d9">CHANGELOG (bonus)</text>
+    </g>
+  </g>
+  
+  <!-- CI/CD Section -->
+  <g transform="translate(600, 355)">
+    <rect x="0" y="0" width="270" height="260" rx="8" fill="#ffd700" opacity="0.1" stroke="#ffd700" stroke-width="2"/>
+    <text x="135" y="25" font-family="system-ui, sans-serif" font-size="14" fill="#ffd700" text-anchor="middle" font-weight="600">
+      ⚙️ CI/CD + DEPLOY
+    </text>
+    
+    <g transform="translate(15, 45)">
+      <rect x="0" y="0" width="18" height="18" rx="3" fill="#21262d" stroke="#ffd700"/>
+      <text x="25" y="14" font-family="system-ui, sans-serif" font-size="11" fill="#c9d1d9">GitHub Actions workflow</text>
+    </g>
+    <g transform="translate(15, 70)">
+      <rect x="0" y="0" width="18" height="18" rx="3" fill="#21262d" stroke="#ffd700"/>
+      <text x="25" y="14" font-family="system-ui, sans-serif" font-size="11" fill="#c9d1d9">Tests en CI</text>
+    </g>
+    <g transform="translate(15, 95)">
+      <rect x="0" y="0" width="18" height="18" rx="3" fill="#21262d" stroke="#ffd700"/>
+      <text x="25" y="14" font-family="system-ui, sans-serif" font-size="11" fill="#c9d1d9">Linting (ruff/black)</text>
+    </g>
+    <g transform="translate(15, 120)">
+      <rect x="0" y="0" width="18" height="18" rx="3" fill="#21262d" stroke="#ffd700"/>
+      <text x="25" y="14" font-family="system-ui, sans-serif" font-size="11" fill="#c9d1d9">Deploy automático</text>
+    </g>
+    <g transform="translate(15, 145)">
+      <rect x="0" y="0" width="18" height="18" rx="3" fill="#21262d" stroke="#ffd700"/>
+      <text x="25" y="14" font-family="system-ui, sans-serif" font-size="11" fill="#c9d1d9">Secrets en GitHub</text>
+    </g>
+    <g transform="translate(15, 170)">
+      <rect x="0" y="0" width="18" height="18" rx="3" fill="#21262d" stroke="#ffd700"/>
+      <text x="25" y="14" font-family="system-ui, sans-serif" font-size="11" fill="#c9d1d9">URL de producción</text>
+    </g>
+    <g transform="translate(15, 195)">
+      <rect x="0" y="0" width="18" height="18" rx="3" fill="#21262d" stroke="#ffd700"/>
+      <text x="25" y="14" font-family="system-ui, sans-serif" font-size="11" fill="#c9d1d9">API responde OK</text>
+    </g>
+    <g transform="translate(15, 220)">
+      <rect x="0" y="0" width="18" height="18" rx="3" fill="#21262d" stroke="#ffd700"/>
+      <text x="25" y="14" font-family="system-ui, sans-serif" font-size="11" fill="#c9d1d9">Monitoring (bonus)</text>
+    </g>
+  </g>
+</svg>

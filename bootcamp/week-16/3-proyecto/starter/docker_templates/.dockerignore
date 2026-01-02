@@ -1,0 +1,62 @@
+# ============================================
+# PROYECTO FINAL - .dockerignore Template
+# ============================================
+#
+# Archivos a excluir al construir la imagen Docker.
+# Reduce el tamaño del contexto de build.
+# ============================================
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+.venv/
+venv/
+ENV/
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+coverage.xml
+*.cover
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Git
+.git/
+.gitignore
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Logs
+*.log
+logs/
+
+# Docker (no copiar archivos Docker dentro del contexto)
+Dockerfile*
+docker-compose*.yml
+.docker/
+
+# Documentation
+docs/
+*.md
+!README.md
+
+# Tests (si no quieres incluirlos en producción)
+tests/
+
+# Misc
+.DS_Store
+Thumbs.db
+*.bak

@@ -1,0 +1,226 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0d1117"/>
+      <stop offset="100%" style="stop-color:#161b22"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="900" height="600" fill="url(#bgGrad)"/>
+  
+  <!-- Title -->
+  <text x="450" y="40" font-family="system-ui, sans-serif" font-size="24" fill="#ffffff" text-anchor="middle" font-weight="700">
+    🏗️ Arquitectura del Proyecto Final
+  </text>
+  
+  <!-- Client Layer -->
+  <g transform="translate(50, 70)">
+    <rect x="0" y="0" width="800" height="70" rx="8" fill="#58a6ff" opacity="0.15" stroke="#58a6ff" stroke-width="2"/>
+    <text x="400" y="25" font-family="system-ui, sans-serif" font-size="14" fill="#58a6ff" text-anchor="middle" font-weight="600">
+      CAPA DE CLIENTE
+    </text>
+    
+    <!-- Browser -->
+    <g transform="translate(80, 35)">
+      <rect x="0" y="0" width="100" height="30" rx="4" fill="#21262d"/>
+      <text x="50" y="20" font-family="system-ui, sans-serif" font-size="11" fill="#8b949e" text-anchor="middle">🌐 Browser</text>
+    </g>
+    
+    <!-- Mobile -->
+    <g transform="translate(220, 35)">
+      <rect x="0" y="0" width="100" height="30" rx="4" fill="#21262d"/>
+      <text x="50" y="20" font-family="system-ui, sans-serif" font-size="11" fill="#8b949e" text-anchor="middle">📱 Mobile App</text>
+    </g>
+    
+    <!-- Swagger -->
+    <g transform="translate(360, 35)">
+      <rect x="0" y="0" width="100" height="30" rx="4" fill="#21262d"/>
+      <text x="50" y="20" font-family="system-ui, sans-serif" font-size="11" fill="#8b949e" text-anchor="middle">📄 Swagger UI</text>
+    </g>
+    
+    <!-- External API -->
+    <g transform="translate(500, 35)">
+      <rect x="0" y="0" width="100" height="30" rx="4" fill="#21262d"/>
+      <text x="50" y="20" font-family="system-ui, sans-serif" font-size="11" fill="#8b949e" text-anchor="middle">🔗 External API</text>
+    </g>
+    
+    <!-- Tests -->
+    <g transform="translate(640, 35)">
+      <rect x="0" y="0" width="100" height="30" rx="4" fill="#21262d"/>
+      <text x="50" y="20" font-family="system-ui, sans-serif" font-size="11" fill="#8b949e" text-anchor="middle">🧪 pytest</text>
+    </g>
+  </g>
+  
+  <!-- Arrow down -->
+  <path d="M450 145 L450 165" stroke="#58a6ff" stroke-width="2" marker-end="url(#arrowBlue)"/>
+  <text x="480" y="160" font-family="system-ui, sans-serif" font-size="10" fill="#58a6ff">HTTP/HTTPS</text>
+  
+  <!-- API Layer (FastAPI) -->
+  <g transform="translate(50, 170)">
+    <rect x="0" y="0" width="800" height="120" rx="8" fill="#009688" opacity="0.15" stroke="#009688" stroke-width="2"/>
+    <text x="400" y="20" font-family="system-ui, sans-serif" font-size="14" fill="#009688" text-anchor="middle" font-weight="600">
+      CAPA DE API (FastAPI)
+    </text>
+    
+    <!-- Middleware -->
+    <g transform="translate(20, 35)">
+      <rect x="0" y="0" width="150" height="70" rx="4" fill="#21262d" stroke="#009688" stroke-width="1"/>
+      <text x="75" y="20" font-family="system-ui, sans-serif" font-size="11" fill="#009688" text-anchor="middle" font-weight="500">Middleware</text>
+      <text x="75" y="38" font-family="system-ui, sans-serif" font-size="9" fill="#8b949e" text-anchor="middle">• CORS</text>
+      <text x="75" y="50" font-family="system-ui, sans-serif" font-size="9" fill="#8b949e" text-anchor="middle">• Auth Validation</text>
+      <text x="75" y="62" font-family="system-ui, sans-serif" font-size="9" fill="#8b949e" text-anchor="middle">• Logging</text>
+    </g>
+    
+    <!-- Routers -->
+    <g transform="translate(190, 35)">
+      <rect x="0" y="0" width="150" height="70" rx="4" fill="#21262d" stroke="#009688" stroke-width="1"/>
+      <text x="75" y="20" font-family="system-ui, sans-serif" font-size="11" fill="#009688" text-anchor="middle" font-weight="500">Routers</text>
+      <text x="75" y="38" font-family="system-ui, sans-serif" font-size="9" fill="#8b949e" text-anchor="middle">• /auth</text>
+      <text x="75" y="50" font-family="system-ui, sans-serif" font-size="9" fill="#8b949e" text-anchor="middle">• /users</text>
+      <text x="75" y="62" font-family="system-ui, sans-serif" font-size="9" fill="#8b949e" text-anchor="middle">• /resources</text>
+    </g>
+    
+    <!-- Dependencies -->
+    <g transform="translate(360, 35)">
+      <rect x="0" y="0" width="150" height="70" rx="4" fill="#21262d" stroke="#009688" stroke-width="1"/>
+      <text x="75" y="20" font-family="system-ui, sans-serif" font-size="11" fill="#009688" text-anchor="middle" font-weight="500">Dependencies</text>
+      <text x="75" y="38" font-family="system-ui, sans-serif" font-size="9" fill="#8b949e" text-anchor="middle">• get_db()</text>
+      <text x="75" y="50" font-family="system-ui, sans-serif" font-size="9" fill="#8b949e" text-anchor="middle">• get_current_user()</text>
+      <text x="75" y="62" font-family="system-ui, sans-serif" font-size="9" fill="#8b949e" text-anchor="middle">• Pagination</text>
+    </g>
+    
+    <!-- Schemas -->
+    <g transform="translate(530, 35)">
+      <rect x="0" y="0" width="120" height="70" rx="4" fill="#21262d" stroke="#009688" stroke-width="1"/>
+      <text x="60" y="20" font-family="system-ui, sans-serif" font-size="11" fill="#009688" text-anchor="middle" font-weight="500">Schemas</text>
+      <text x="60" y="40" font-family="system-ui, sans-serif" font-size="9" fill="#8b949e" text-anchor="middle">Pydantic v2</text>
+      <text x="60" y="55" font-family="system-ui, sans-serif" font-size="9" fill="#8b949e" text-anchor="middle">Validation</text>
+    </g>
+    
+    <!-- Exception Handlers -->
+    <g transform="translate(670, 35)">
+      <rect x="0" y="0" width="120" height="70" rx="4" fill="#21262d" stroke="#009688" stroke-width="1"/>
+      <text x="60" y="20" font-family="system-ui, sans-serif" font-size="11" fill="#009688" text-anchor="middle" font-weight="500">Exceptions</text>
+      <text x="60" y="40" font-family="system-ui, sans-serif" font-size="9" fill="#8b949e" text-anchor="middle">HTTPException</text>
+      <text x="60" y="55" font-family="system-ui, sans-serif" font-size="9" fill="#8b949e" text-anchor="middle">Custom Errors</text>
+    </g>
+  </g>
+  
+  <!-- Arrow down -->
+  <path d="M450 295 L450 315" stroke="#009688" stroke-width="2"/>
+  
+  <!-- Service Layer -->
+  <g transform="translate(50, 320)">
+    <rect x="0" y="0" width="800" height="80" rx="8" fill="#a371f7" opacity="0.15" stroke="#a371f7" stroke-width="2"/>
+    <text x="400" y="20" font-family="system-ui, sans-serif" font-size="14" fill="#a371f7" text-anchor="middle" font-weight="600">
+      CAPA DE SERVICIOS (Business Logic)
+    </text>
+    
+    <!-- Auth Service -->
+    <g transform="translate(60, 35)">
+      <rect x="0" y="0" width="130" height="35" rx="4" fill="#21262d" stroke="#a371f7" stroke-width="1"/>
+      <text x="65" y="22" font-family="system-ui, sans-serif" font-size="10" fill="#a371f7" text-anchor="middle">AuthService</text>
+    </g>
+    
+    <!-- User Service -->
+    <g transform="translate(210, 35)">
+      <rect x="0" y="0" width="130" height="35" rx="4" fill="#21262d" stroke="#a371f7" stroke-width="1"/>
+      <text x="65" y="22" font-family="system-ui, sans-serif" font-size="10" fill="#a371f7" text-anchor="middle">UserService</text>
+    </g>
+    
+    <!-- Resource Service -->
+    <g transform="translate(360, 35)">
+      <rect x="0" y="0" width="130" height="35" rx="4" fill="#21262d" stroke="#a371f7" stroke-width="1"/>
+      <text x="65" y="22" font-family="system-ui, sans-serif" font-size="10" fill="#a371f7" text-anchor="middle">ResourceService</text>
+    </g>
+    
+    <!-- Email Service -->
+    <g transform="translate(510, 35)">
+      <rect x="0" y="0" width="130" height="35" rx="4" fill="#21262d" stroke="#a371f7" stroke-width="1"/>
+      <text x="65" y="22" font-family="system-ui, sans-serif" font-size="10" fill="#a371f7" text-anchor="middle">EmailService</text>
+    </g>
+    
+    <!-- Cache Service -->
+    <g transform="translate(660, 35)">
+      <rect x="0" y="0" width="130" height="35" rx="4" fill="#21262d" stroke="#a371f7" stroke-width="1"/>
+      <text x="65" y="22" font-family="system-ui, sans-serif" font-size="10" fill="#a371f7" text-anchor="middle">CacheService</text>
+    </g>
+  </g>
+  
+  <!-- Arrow down -->
+  <path d="M450 405 L450 425" stroke="#a371f7" stroke-width="2"/>
+  
+  <!-- Repository Layer -->
+  <g transform="translate(50, 430)">
+    <rect x="0" y="0" width="800" height="70" rx="8" fill="#f78166" opacity="0.15" stroke="#f78166" stroke-width="2"/>
+    <text x="400" y="20" font-family="system-ui, sans-serif" font-size="14" fill="#f78166" text-anchor="middle" font-weight="600">
+      CAPA DE REPOSITORIOS (Data Access)
+    </text>
+    
+    <!-- User Repo -->
+    <g transform="translate(100, 32)">
+      <rect x="0" y="0" width="140" height="30" rx="4" fill="#21262d" stroke="#f78166" stroke-width="1"/>
+      <text x="70" y="20" font-family="system-ui, sans-serif" font-size="10" fill="#f78166" text-anchor="middle">UserRepository</text>
+    </g>
+    
+    <!-- Resource Repo -->
+    <g transform="translate(280, 32)">
+      <rect x="0" y="0" width="140" height="30" rx="4" fill="#21262d" stroke="#f78166" stroke-width="1"/>
+      <text x="70" y="20" font-family="system-ui, sans-serif" font-size="10" fill="#f78166" text-anchor="middle">ResourceRepository</text>
+    </g>
+    
+    <!-- Base Repo -->
+    <g transform="translate(460, 32)">
+      <rect x="0" y="0" width="140" height="30" rx="4" fill="#21262d" stroke="#f78166" stroke-width="1"/>
+      <text x="70" y="20" font-family="system-ui, sans-serif" font-size="10" fill="#f78166" text-anchor="middle">BaseRepository</text>
+    </g>
+    
+    <!-- Token Repo -->
+    <g transform="translate(640, 32)">
+      <rect x="0" y="0" width="140" height="30" rx="4" fill="#21262d" stroke="#f78166" stroke-width="1"/>
+      <text x="70" y="20" font-family="system-ui, sans-serif" font-size="10" fill="#f78166" text-anchor="middle">TokenRepository</text>
+    </g>
+  </g>
+  
+  <!-- Arrow down -->
+  <path d="M450 505 L450 525" stroke="#f78166" stroke-width="2"/>
+  
+  <!-- Infrastructure Layer -->
+  <g transform="translate(50, 530)">
+    <rect x="0" y="0" width="800" height="55" rx="8" fill="#ffd700" opacity="0.15" stroke="#ffd700" stroke-width="2"/>
+    <text x="400" y="18" font-family="system-ui, sans-serif" font-size="14" fill="#ffd700" text-anchor="middle" font-weight="600">
+      INFRAESTRUCTURA
+    </text>
+    
+    <!-- PostgreSQL -->
+    <g transform="translate(80, 28)">
+      <rect x="0" y="0" width="120" height="22" rx="4" fill="#21262d"/>
+      <text x="60" y="15" font-family="system-ui, sans-serif" font-size="10" fill="#8b949e" text-anchor="middle">🐘 PostgreSQL</text>
+    </g>
+    
+    <!-- Redis -->
+    <g transform="translate(230, 28)">
+      <rect x="0" y="0" width="120" height="22" rx="4" fill="#21262d"/>
+      <text x="60" y="15" font-family="system-ui, sans-serif" font-size="10" fill="#8b949e" text-anchor="middle">⚡ Redis (Bonus)</text>
+    </g>
+    
+    <!-- Docker -->
+    <g transform="translate(380, 28)">
+      <rect x="0" y="0" width="120" height="22" rx="4" fill="#21262d"/>
+      <text x="60" y="15" font-family="system-ui, sans-serif" font-size="10" fill="#8b949e" text-anchor="middle">🐳 Docker</text>
+    </g>
+    
+    <!-- GitHub Actions -->
+    <g transform="translate(530, 28)">
+      <rect x="0" y="0" width="120" height="22" rx="4" fill="#21262d"/>
+      <text x="60" y="15" font-family="system-ui, sans-serif" font-size="10" fill="#8b949e" text-anchor="middle">⚙️ GitHub Actions</text>
+    </g>
+    
+    <!-- Cloud -->
+    <g transform="translate(680, 28)">
+      <rect x="0" y="0" width="120" height="22" rx="4" fill="#21262d"/>
+      <text x="60" y="15" font-family="system-ui, sans-serif" font-size="10" fill="#8b949e" text-anchor="middle">☁️ Railway/Render</text>
+    </g>
+  </g>
+</svg>

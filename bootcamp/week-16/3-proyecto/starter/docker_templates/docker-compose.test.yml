@@ -1,0 +1,58 @@
+# ============================================
+# PROYECTO FINAL - Docker Compose para Tests
+# ============================================
+#
+# Configuración específica para ejecutar tests.
+# Usa base de datos aislada para no afectar datos de desarrollo.
+#
+# Uso:
+#   docker compose -f docker-compose.test.yml up --build --abort-on-container-exit
+# ============================================
+
+services:
+  # ============================================
+  # TEST RUNNER
+  # ============================================
+  test:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: task-api-test
+    environment:
+      # Usar SQLite en memoria para tests rápidos
+      - DATABASE_URL=sqlite+aiosqlite:///:memory:
+      # O PostgreSQL de test:
+      # - DATABASE_URL=postgresql+asyncpg://postgres:postgres@db-test:5432/taskdb_test
+      - SECRET_KEY=test-secret-key-for-testing-only-32chars
+      - ENVIRONMENT=testing
+      - DEBUG=false
+    command: >
+      sh -c "
+        pytest tests/ -v --tb=short --cov=src --cov-report=term-missing --cov-report=xml
+      "
+    volumes:
+      - ./src:/app/src:ro
+      - ./tests:/app/tests:ro
+      - ./pyproject.toml:/app/pyproject.toml:ro
+      - ./coverage.xml:/app/coverage.xml
+    # depends_on:
+    #   db-test:
+    #     condition: service_healthy
+
+  # ============================================
+  # TEST DATABASE (opcional, si no usas SQLite)
+  # ============================================
+  # db-test:
+  #   image: postgres:17-alpine
+  #   container_name: task-db-test
+  #   environment:
+  #     - POSTGRES_USER=postgres
+  #     - POSTGRES_PASSWORD=postgres
+  #     - POSTGRES_DB=taskdb_test
+  #   tmpfs:
+  #     - /var/lib/postgresql/data  # En memoria, más rápido
+  #   healthcheck:
+  #     test: ["CMD-SHELL", "pg_isready -U postgres -d taskdb_test"]
+  #     interval: 5s
+  #     timeout: 3s
+  #     retries: 5

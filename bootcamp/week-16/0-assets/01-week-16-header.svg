@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 200">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0d1117"/>
+      <stop offset="100%" style="stop-color:#161b22"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="800" height="200" fill="url(#bgGrad)"/>
+  
+  <!-- Decorative elements -->
+  <circle cx="700" cy="100" r="120" fill="#009688" opacity="0.08"/>
+  <circle cx="100" cy="100" r="80" fill="#ffd700" opacity="0.06"/>
+  
+  <!-- Trophy icon -->
+  <g transform="translate(60, 55)">
+    <!-- Trophy cup -->
+    <path d="M25 0 L65 0 L65 10 C75 10 85 20 85 35 C85 50 75 55 65 55 L65 60 C65 65 60 70 55 70 L35 70 C30 70 25 65 25 60 L25 55 C15 55 5 50 5 35 C5 20 15 10 25 10 Z" fill="#ffd700"/>
+    <!-- Trophy handles -->
+    <path d="M5 20 C-5 20 -10 35 5 45" stroke="#ffd700" stroke-width="6" fill="none"/>
+    <path d="M85 20 C95 20 100 35 85 45" stroke="#ffd700" stroke-width="6" fill="none"/>
+    <!-- Trophy base -->
+    <rect x="30" y="70" width="30" height="8" fill="#ffd700"/>
+    <rect x="20" y="78" width="50" height="10" rx="2" fill="#b8860b"/>
+    <!-- Star on trophy -->
+    <polygon points="45,18 48,28 58,28 50,35 53,45 45,39 37,45 40,35 32,28 42,28" fill="#0d1117"/>
+  </g>
+  
+  <!-- Main title -->
+  <text x="180" y="85" font-family="system-ui, -apple-system, sans-serif" font-size="36" font-weight="700" fill="#ffffff">
+    Semana 16
+  </text>
+  
+  <!-- Subtitle -->
+  <text x="180" y="120" font-family="system-ui, -apple-system, sans-serif" font-size="22" fill="#009688" font-weight="600">
+    Proyecto Final y Cierre del Bootcamp
+  </text>
+  
+  <!-- Description -->
+  <text x="180" y="155" font-family="system-ui, -apple-system, sans-serif" font-size="14" fill="#8b949e">
+    Deploy • Documentación Profesional • Presentación
+  </text>
+  
+  <!-- Week badge -->
+  <g transform="translate(620, 30)">
+    <rect x="0" y="0" width="140" height="40" rx="20" fill="#ffd700" opacity="0.15"/>
+    <text x="70" y="26" font-family="system-ui, sans-serif" font-size="14" fill="#ffd700" text-anchor="middle" font-weight="600">
+      🎓 FINAL WEEK
+    </text>
+  </g>
+  
+  <!-- Completion badge -->
+  <g transform="translate(620, 80)">
+    <rect x="0" y="0" width="140" height="35" rx="17" fill="#009688" opacity="0.2"/>
+    <text x="70" y="23" font-family="system-ui, sans-serif" font-size="12" fill="#009688" text-anchor="middle" font-weight="500">
+      100 pts + 10 bonus
+    </text>
+  </g>
+  
+  <!-- Time indicator -->
+  <g transform="translate(620, 125)">
+    <rect x="0" y="0" width="140" height="35" rx="17" fill="#58a6ff" opacity="0.15"/>
+    <text x="70" y="23" font-family="system-ui, sans-serif" font-size="12" fill="#58a6ff" text-anchor="middle">
+      ⏱️ 6 horas
+    </text>
+  </g>
+  
+  <!-- Bottom decorative line -->
+  <rect x="0" y="195" width="800" height="5" fill="#ffd700"/>
+  
+  <!-- Checkmark badges for completed items -->
+  <g transform="translate(180, 165)">
+    <circle cx="8" cy="8" r="8" fill="#238636"/>
+    <path d="M4 8 L7 11 L12 5" stroke="#ffffff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="22" y="12" font-family="system-ui, sans-serif" font-size="10" fill="#238636">16 semanas completadas</text>
+  </g>
+</svg>

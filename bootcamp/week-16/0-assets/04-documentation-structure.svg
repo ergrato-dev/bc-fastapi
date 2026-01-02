@@ -1,0 +1,135 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0d1117"/>
+      <stop offset="100%" style="stop-color:#161b22"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="900" height="500" fill="url(#bgGrad)"/>
+  
+  <!-- Title -->
+  <text x="450" y="35" font-family="system-ui, sans-serif" font-size="22" fill="#ffffff" text-anchor="middle" font-weight="700">
+    📚 Estructura de Documentación Profesional
+  </text>
+  
+  <!-- Main Documentation Box -->
+  <g transform="translate(50, 60)">
+    <!-- README.md -->
+    <rect x="0" y="0" width="380" height="420" rx="8" fill="#21262d" stroke="#009688" stroke-width="2"/>
+    <rect x="0" y="0" width="380" height="40" rx="8" fill="#009688" opacity="0.3"/>
+    <text x="190" y="27" font-family="system-ui, sans-serif" font-size="16" fill="#009688" text-anchor="middle" font-weight="600">
+      📄 README.md
+    </text>
+    
+    <!-- Sections -->
+    <g transform="translate(15, 55)">
+      <!-- Project Title -->
+      <rect x="0" y="0" width="350" height="35" rx="4" fill="#161b22"/>
+      <text x="10" y="14" font-family="monospace" font-size="11" fill="#58a6ff"># 🚀 Nombre del Proyecto</text>
+      <text x="10" y="28" font-family="system-ui, sans-serif" font-size="9" fill="#8b949e">Badge de estado, versión, licencia</text>
+    </g>
+    
+    <g transform="translate(15, 100)">
+      <rect x="0" y="0" width="350" height="45" rx="4" fill="#161b22"/>
+      <text x="10" y="14" font-family="monospace" font-size="11" fill="#58a6ff">## 📋 Descripción</text>
+      <text x="10" y="28" font-family="system-ui, sans-serif" font-size="9" fill="#8b949e">Qué hace la API, problema que resuelve</text>
+      <text x="10" y="40" font-family="system-ui, sans-serif" font-size="9" fill="#8b949e">Stack tecnológico utilizado</text>
+    </g>
+    
+    <g transform="translate(15, 155)">
+      <rect x="0" y="0" width="350" height="55" rx="4" fill="#161b22"/>
+      <text x="10" y="14" font-family="monospace" font-size="11" fill="#58a6ff">## ⚡ Quick Start</text>
+      <text x="10" y="28" font-family="system-ui, sans-serif" font-size="9" fill="#8b949e">git clone → docker compose up</text>
+      <text x="10" y="40" font-family="system-ui, sans-serif" font-size="9" fill="#8b949e">3-5 comandos máximo para ejecutar</text>
+      <text x="10" y="52" font-family="system-ui, sans-serif" font-size="9" fill="#8b949e">URL de acceso: localhost:8000/docs</text>
+    </g>
+    
+    <g transform="translate(15, 220)">
+      <rect x="0" y="0" width="350" height="45" rx="4" fill="#161b22"/>
+      <text x="10" y="14" font-family="monospace" font-size="11" fill="#58a6ff">## 🔧 Variables de Entorno</text>
+      <text x="10" y="28" font-family="system-ui, sans-serif" font-size="9" fill="#8b949e">Tabla con: VARIABLE | Descripción | Ejemplo</text>
+      <text x="10" y="40" font-family="system-ui, sans-serif" font-size="9" fill="#8b949e">Referencia a .env.example</text>
+    </g>
+    
+    <g transform="translate(15, 275)">
+      <rect x="0" y="0" width="350" height="45" rx="4" fill="#161b22"/>
+      <text x="10" y="14" font-family="monospace" font-size="11" fill="#58a6ff">## 📚 Endpoints</text>
+      <text x="10" y="28" font-family="system-ui, sans-serif" font-size="9" fill="#8b949e">Tabla resumen: Método | Ruta | Descripción</text>
+      <text x="10" y="40" font-family="system-ui, sans-serif" font-size="9" fill="#8b949e">Link a /docs para detalles</text>
+    </g>
+    
+    <g transform="translate(15, 330)">
+      <rect x="0" y="0" width="350" height="35" rx="4" fill="#161b22"/>
+      <text x="10" y="14" font-family="monospace" font-size="11" fill="#58a6ff">## 🧪 Testing</text>
+      <text x="10" y="28" font-family="system-ui, sans-serif" font-size="9" fill="#8b949e">Cómo ejecutar tests, ver coverage</text>
+    </g>
+    
+    <g transform="translate(15, 375)">
+      <rect x="0" y="0" width="350" height="35" rx="4" fill="#161b22"/>
+      <text x="10" y="14" font-family="monospace" font-size="11" fill="#58a6ff">## 🚀 Deploy</text>
+      <text x="10" y="28" font-family="system-ui, sans-serif" font-size="9" fill="#8b949e">URL de producción, instrucciones deploy</text>
+    </g>
+  </g>
+  
+  <!-- OpenAPI / Swagger -->
+  <g transform="translate(470, 60)">
+    <rect x="0" y="0" width="380" height="200" rx="8" fill="#21262d" stroke="#58a6ff" stroke-width="2"/>
+    <rect x="0" y="0" width="380" height="40" rx="8" fill="#58a6ff" opacity="0.3"/>
+    <text x="190" y="27" font-family="system-ui, sans-serif" font-size="16" fill="#58a6ff" text-anchor="middle" font-weight="600">
+      📖 OpenAPI (Swagger)
+    </text>
+    
+    <g transform="translate(15, 55)">
+      <text x="0" y="0" font-family="system-ui, sans-serif" font-size="11" fill="#c9d1d9">✓ Docstrings en endpoints</text>
+      <text x="0" y="22" font-family="system-ui, sans-serif" font-size="11" fill="#c9d1d9">✓ response_model definido</text>
+      <text x="0" y="44" font-family="system-ui, sans-serif" font-size="11" fill="#c9d1d9">✓ Ejemplos en schemas</text>
+      <text x="0" y="66" font-family="system-ui, sans-serif" font-size="11" fill="#c9d1d9">✓ Tags para agrupar endpoints</text>
+      <text x="0" y="88" font-family="system-ui, sans-serif" font-size="11" fill="#c9d1d9">✓ Códigos de error documentados</text>
+      <text x="0" y="110" font-family="system-ui, sans-serif" font-size="11" fill="#c9d1d9">✓ Autenticación configurada</text>
+      <text x="0" y="132" font-family="system-ui, sans-serif" font-size="11" fill="#c9d1d9">✓ Accesible en /docs</text>
+    </g>
+  </g>
+  
+  <!-- Code Comments -->
+  <g transform="translate(470, 280)">
+    <rect x="0" y="0" width="180" height="200" rx="8" fill="#21262d" stroke="#a371f7" stroke-width="2"/>
+    <rect x="0" y="0" width="180" height="35" rx="8" fill="#a371f7" opacity="0.3"/>
+    <text x="90" y="23" font-family="system-ui, sans-serif" font-size="12" fill="#a371f7" text-anchor="middle" font-weight="600">
+      💬 Código
+    </text>
+    
+    <g transform="translate(10, 50)">
+      <text x="0" y="0" font-family="system-ui, sans-serif" font-size="10" fill="#c9d1d9">• Type hints</text>
+      <text x="0" y="20" font-family="system-ui, sans-serif" font-size="10" fill="#c9d1d9">• Docstrings</text>
+      <text x="0" y="40" font-family="system-ui, sans-serif" font-size="10" fill="#c9d1d9">• Nombres claros</text>
+      <text x="0" y="60" font-family="system-ui, sans-serif" font-size="10" fill="#c9d1d9">• Funciones cortas</text>
+      <text x="0" y="80" font-family="system-ui, sans-serif" font-size="10" fill="#c9d1d9">• Constantes con</text>
+      <text x="0" y="95" font-family="system-ui, sans-serif" font-size="10" fill="#c9d1d9">  MAYÚSCULAS</text>
+      <text x="0" y="115" font-family="system-ui, sans-serif" font-size="10" fill="#c9d1d9">• Imports ordenados</text>
+      <text x="0" y="135" font-family="system-ui, sans-serif" font-size="10" fill="#c9d1d9">• Sin comentarios</text>
+      <text x="0" y="150" font-family="system-ui, sans-serif" font-size="10" fill="#c9d1d9">  obvios</text>
+    </g>
+  </g>
+  
+  <!-- Environment Files -->
+  <g transform="translate(670, 280)">
+    <rect x="0" y="0" width="180" height="200" rx="8" fill="#21262d" stroke="#238636" stroke-width="2"/>
+    <rect x="0" y="0" width="180" height="35" rx="8" fill="#238636" opacity="0.3"/>
+    <text x="90" y="23" font-family="system-ui, sans-serif" font-size="12" fill="#238636" text-anchor="middle" font-weight="600">
+      📁 Archivos
+    </text>
+    
+    <g transform="translate(10, 50)">
+      <text x="0" y="0" font-family="monospace" font-size="10" fill="#c9d1d9">.env.example</text>
+      <text x="0" y="20" font-family="monospace" font-size="10" fill="#c9d1d9">.gitignore</text>
+      <text x="0" y="40" font-family="monospace" font-size="10" fill="#c9d1d9">CHANGELOG.md</text>
+      <text x="0" y="60" font-family="monospace" font-size="10" fill="#c9d1d9">LICENSE</text>
+      <text x="0" y="80" font-family="monospace" font-size="10" fill="#c9d1d9">CONTRIBUTING.md</text>
+      <text x="0" y="100" font-family="monospace" font-size="10" fill="#c9d1d9">pyproject.toml</text>
+      <text x="0" y="120" font-family="monospace" font-size="10" fill="#c9d1d9">docker-compose.yml</text>
+      <text x="0" y="140" font-family="monospace" font-size="10" fill="#c9d1d9">Dockerfile</text>
+    </g>
+  </g>
+</svg>

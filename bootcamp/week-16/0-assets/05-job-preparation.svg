@@ -1,0 +1,150 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 550">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0d1117"/>
+      <stop offset="100%" style="stop-color:#161b22"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="900" height="550" fill="url(#bgGrad)"/>
+  
+  <!-- Title -->
+  <text x="450" y="35" font-family="system-ui, sans-serif" font-size="22" fill="#ffffff" text-anchor="middle" font-weight="700">
+    💼 Preparación para el Mercado Laboral
+  </text>
+  
+  <!-- Portfolio Section -->
+  <g transform="translate(30, 60)">
+    <rect x="0" y="0" width="260" height="230" rx="8" fill="#009688" opacity="0.1" stroke="#009688" stroke-width="2"/>
+    <text x="130" y="25" font-family="system-ui, sans-serif" font-size="14" fill="#009688" text-anchor="middle" font-weight="600">
+      🗂️ PORTFOLIO
+    </text>
+    
+    <g transform="translate(15, 45)">
+      <rect x="0" y="0" width="230" height="30" rx="4" fill="#21262d"/>
+      <text x="10" y="20" font-family="system-ui, sans-serif" font-size="11" fill="#c9d1d9">📁 GitHub con proyectos del bootcamp</text>
+    </g>
+    <g transform="translate(15, 85)">
+      <rect x="0" y="0" width="230" height="30" rx="4" fill="#21262d"/>
+      <text x="10" y="20" font-family="system-ui, sans-serif" font-size="11" fill="#c9d1d9">🚀 API desplegada en producción</text>
+    </g>
+    <g transform="translate(15, 125)">
+      <rect x="0" y="0" width="230" height="30" rx="4" fill="#21262d"/>
+      <text x="10" y="20" font-family="system-ui, sans-serif" font-size="11" fill="#c9d1d9">📝 README profesional</text>
+    </g>
+    <g transform="translate(15, 165)">
+      <rect x="0" y="0" width="230" height="30" rx="4" fill="#21262d"/>
+      <text x="10" y="20" font-family="system-ui, sans-serif" font-size="11" fill="#c9d1d9">🧪 Tests automatizados</text>
+    </g>
+    <g transform="translate(15, 205)">
+      <text x="0" y="0" font-family="system-ui, sans-serif" font-size="9" fill="#8b949e">Tip: Haz commits regularmente</text>
+    </g>
+  </g>
+  
+  <!-- LinkedIn Section -->
+  <g transform="translate(320, 60)">
+    <rect x="0" y="0" width="260" height="230" rx="8" fill="#58a6ff" opacity="0.1" stroke="#58a6ff" stroke-width="2"/>
+    <text x="130" y="25" font-family="system-ui, sans-serif" font-size="14" fill="#58a6ff" text-anchor="middle" font-weight="600">
+      💼 LINKEDIN
+    </text>
+    
+    <g transform="translate(15, 45)">
+      <rect x="0" y="0" width="230" height="30" rx="4" fill="#21262d"/>
+      <text x="10" y="20" font-family="system-ui, sans-serif" font-size="11" fill="#c9d1d9">📸 Foto profesional</text>
+    </g>
+    <g transform="translate(15, 85)">
+      <rect x="0" y="0" width="230" height="30" rx="4" fill="#21262d"/>
+      <text x="10" y="20" font-family="system-ui, sans-serif" font-size="11" fill="#c9d1d9">🎯 Headline: "Backend Developer"</text>
+    </g>
+    <g transform="translate(15, 125)">
+      <rect x="0" y="0" width="230" height="30" rx="4" fill="#21262d"/>
+      <text x="10" y="20" font-family="system-ui, sans-serif" font-size="11" fill="#c9d1d9">📋 Skills: FastAPI, Python, SQL...</text>
+    </g>
+    <g transform="translate(15, 165)">
+      <rect x="0" y="0" width="230" height="30" rx="4" fill="#21262d"/>
+      <text x="10" y="20" font-family="system-ui, sans-serif" font-size="11" fill="#c9d1d9">🔗 Link a GitHub y proyectos</text>
+    </g>
+    <g transform="translate(15, 205)">
+      <text x="0" y="0" font-family="system-ui, sans-serif" font-size="9" fill="#8b949e">Tip: Publica contenido técnico</text>
+    </g>
+  </g>
+  
+  <!-- CV Section -->
+  <g transform="translate(610, 60)">
+    <rect x="0" y="0" width="260" height="230" rx="8" fill="#a371f7" opacity="0.1" stroke="#a371f7" stroke-width="2"/>
+    <text x="130" y="25" font-family="system-ui, sans-serif" font-size="14" fill="#a371f7" text-anchor="middle" font-weight="600">
+      📄 CV / RESUME
+    </text>
+    
+    <g transform="translate(15, 45)">
+      <rect x="0" y="0" width="230" height="30" rx="4" fill="#21262d"/>
+      <text x="10" y="20" font-family="system-ui, sans-serif" font-size="11" fill="#c9d1d9">1️⃣ 1 página máximo</text>
+    </g>
+    <g transform="translate(15, 85)">
+      <rect x="0" y="0" width="230" height="30" rx="4" fill="#21262d"/>
+      <text x="10" y="20" font-family="system-ui, sans-serif" font-size="11" fill="#c9d1d9">🛠️ Skills técnicos arriba</text>
+    </g>
+    <g transform="translate(15, 125)">
+      <rect x="0" y="0" width="230" height="30" rx="4" fill="#21262d"/>
+      <text x="10" y="20" font-family="system-ui, sans-serif" font-size="11" fill="#c9d1d9">📊 Proyectos con métricas</text>
+    </g>
+    <g transform="translate(15, 165)">
+      <rect x="0" y="0" width="230" height="30" rx="4" fill="#21262d"/>
+      <text x="10" y="20" font-family="system-ui, sans-serif" font-size="11" fill="#c9d1d9">🔗 Links a demos/repos</text>
+    </g>
+    <g transform="translate(15, 205)">
+      <text x="0" y="0" font-family="system-ui, sans-serif" font-size="9" fill="#8b949e">Tip: Usa verbos de acción</text>
+    </g>
+  </g>
+  
+  <!-- Interview Preparation -->
+  <g transform="translate(30, 310)">
+    <rect x="0" y="0" width="840" height="220" rx="8" fill="#ffd700" opacity="0.08" stroke="#ffd700" stroke-width="2"/>
+    <text x="420" y="25" font-family="system-ui, sans-serif" font-size="14" fill="#ffd700" text-anchor="middle" font-weight="600">
+      🎤 PREPARACIÓN PARA ENTREVISTAS
+    </text>
+    
+    <!-- Technical Interview -->
+    <g transform="translate(20, 45)">
+      <rect x="0" y="0" width="260" height="160" rx="6" fill="#21262d" stroke="#f85149" stroke-width="1"/>
+      <text x="130" y="20" font-family="system-ui, sans-serif" font-size="12" fill="#f85149" text-anchor="middle" font-weight="500">
+        🖥️ Técnica
+      </text>
+      <text x="15" y="45" font-family="system-ui, sans-serif" font-size="10" fill="#c9d1d9">• Explicar tu proyecto final</text>
+      <text x="15" y="65" font-family="system-ui, sans-serif" font-size="10" fill="#c9d1d9">• Decisiones de arquitectura</text>
+      <text x="15" y="85" font-family="system-ui, sans-serif" font-size="10" fill="#c9d1d9">• Async vs sync - cuándo usar</text>
+      <text x="15" y="105" font-family="system-ui, sans-serif" font-size="10" fill="#c9d1d9">• Autenticación JWT</text>
+      <text x="15" y="125" font-family="system-ui, sans-serif" font-size="10" fill="#c9d1d9">• SQL y relaciones</text>
+      <text x="15" y="145" font-family="system-ui, sans-serif" font-size="10" fill="#c9d1d9">• Testing strategies</text>
+    </g>
+    
+    <!-- Coding Challenge -->
+    <g transform="translate(300, 45)">
+      <rect x="0" y="0" width="260" height="160" rx="6" fill="#21262d" stroke="#58a6ff" stroke-width="1"/>
+      <text x="130" y="20" font-family="system-ui, sans-serif" font-size="12" fill="#58a6ff" text-anchor="middle" font-weight="500">
+        ⌨️ Live Coding
+      </text>
+      <text x="15" y="45" font-family="system-ui, sans-serif" font-size="10" fill="#c9d1d9">• Practica en LeetCode/HackerRank</text>
+      <text x="15" y="65" font-family="system-ui, sans-serif" font-size="10" fill="#c9d1d9">• Piensa en voz alta</text>
+      <text x="15" y="85" font-family="system-ui, sans-serif" font-size="10" fill="#c9d1d9">• Pregunta si algo no está claro</text>
+      <text x="15" y="105" font-family="system-ui, sans-serif" font-size="10" fill="#c9d1d9">• Empieza con brute force</text>
+      <text x="15" y="125" font-family="system-ui, sans-serif" font-size="10" fill="#c9d1d9">• Optimiza después</text>
+      <text x="15" y="145" font-family="system-ui, sans-serif" font-size="10" fill="#c9d1d9">• Escribe tests si hay tiempo</text>
+    </g>
+    
+    <!-- Behavioral -->
+    <g transform="translate(580, 45)">
+      <rect x="0" y="0" width="260" height="160" rx="6" fill="#21262d" stroke="#238636" stroke-width="1"/>
+      <text x="130" y="20" font-family="system-ui, sans-serif" font-size="12" fill="#238636" text-anchor="middle" font-weight="500">
+        🗣️ Behavioral
+      </text>
+      <text x="15" y="45" font-family="system-ui, sans-serif" font-size="10" fill="#c9d1d9">• Usa método STAR</text>
+      <text x="15" y="65" font-family="system-ui, sans-serif" font-size="10" fill="#c9d1d9">• "Cuéntame sobre un bug difícil"</text>
+      <text x="15" y="85" font-family="system-ui, sans-serif" font-size="10" fill="#c9d1d9">• "Conflicto en el equipo"</text>
+      <text x="15" y="105" font-family="system-ui, sans-serif" font-size="10" fill="#c9d1d9">• "Por qué backend?"</text>
+      <text x="15" y="125" font-family="system-ui, sans-serif" font-size="10" fill="#c9d1d9">• Prepara preguntas para ellos</text>
+      <text x="15" y="145" font-family="system-ui, sans-serif" font-size="10" fill="#c9d1d9">• Investiga la empresa</text>
+    </g>
+  </g>
+</svg>

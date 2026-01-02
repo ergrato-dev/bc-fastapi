@@ -1,0 +1,103 @@
+# ============================================
+# PROYECTO FINAL - Docker Compose Template
+# ============================================
+#
+# Orquesta la API + Base de datos PostgreSQL.
+#
+# Uso:
+#   docker compose up -d        # Levantar servicios
+#   docker compose logs -f api  # Ver logs
+#   docker compose down         # Detener
+#   docker compose down -v      # Detener y eliminar volúmenes
+# ============================================
+
+services:
+  # ============================================
+  # API - FastAPI Application
+  # ============================================
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: task-api
+    ports:
+      - "8000:8000"
+    environment:
+      # Database
+      - DATABASE_URL=postgresql+asyncpg://postgres:postgres@db:5432/taskdb
+      # Security (usar secretos en producción)
+      - SECRET_KEY=${SECRET_KEY:-development-secret-key-change-in-production}
+      - ACCESS_TOKEN_EXPIRE_MINUTES=15
+      - REFRESH_TOKEN_EXPIRE_DAYS=7
+      # App
+      - ENVIRONMENT=development
+      - DEBUG=true
+      - LOG_LEVEL=INFO
+    depends_on:
+      db:
+        condition: service_healthy
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "python", "-c", "import httpx; httpx.get('http://localhost:8000/health')"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+    volumes:
+      # Para desarrollo con hot-reload, descomentar:
+      # - ./src:/app/src:ro
+      - ./logs:/app/logs
+    networks:
+      - task-network
+
+  # ============================================
+  # DATABASE - PostgreSQL
+  # ============================================
+  db:
+    image: postgres:17-alpine
+    container_name: task-db
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=taskdb
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      # Script de inicialización (opcional)
+      # - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d taskdb"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+    networks:
+      - task-network
+
+  # ============================================
+  # ADMINER - DB Admin UI (opcional, para desarrollo)
+  # ============================================
+  # adminer:
+  #   image: adminer:latest
+  #   container_name: task-adminer
+  #   ports:
+  #     - "8080:8080"
+  #   depends_on:
+  #     - db
+  #   networks:
+  #     - task-network
+
+# ============================================
+# NETWORKS
+# ============================================
+networks:
+  task-network:
+    driver: bridge
+
+# ============================================
+# VOLUMES
+# ============================================
+volumes:
+  postgres_data:
+    driver: local
