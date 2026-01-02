@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a2e"/>
+      <stop offset="100%" style="stop-color:#16213e"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="800" height="500" fill="url(#bgGrad)"/>
+  
+  <!-- Title -->
+  <text x="400" y="45" text-anchor="middle" fill="#ffffff" font-family="system-ui, sans-serif" font-size="24" font-weight="bold">Pirámide de Testing</text>
+  
+  <!-- Pyramid Base - Unit Tests -->
+  <polygon points="400,420 150,420 250,320 550,320 650,420" fill="#009688" stroke="#00bfa5" stroke-width="2"/>
+  <text x="400" y="380" text-anchor="middle" fill="#ffffff" font-family="system-ui, sans-serif" font-size="18" font-weight="bold">UNIT TESTS</text>
+  <text x="400" y="405" text-anchor="middle" fill="#b2dfdb" font-family="system-ui, sans-serif" font-size="14">70% - Rápidos, Aislados, Muchos</text>
+  
+  <!-- Pyramid Middle - Integration Tests -->
+  <polygon points="400,320 250,320 320,220 480,220 550,320" fill="#00796b" stroke="#009688" stroke-width="2"/>
+  <text x="400" y="275" text-anchor="middle" fill="#ffffff" font-family="system-ui, sans-serif" font-size="16" font-weight="bold">INTEGRATION</text>
+  <text x="400" y="300" text-anchor="middle" fill="#b2dfdb" font-family="system-ui, sans-serif" font-size="12">20% - Componentes juntos</text>
+  
+  <!-- Pyramid Top - E2E Tests -->
+  <polygon points="400,220 320,220 370,140 430,140 480,220" fill="#004d40" stroke="#00796b" stroke-width="2"/>
+  <text x="400" y="175" text-anchor="middle" fill="#ffffff" font-family="system-ui, sans-serif" font-size="14" font-weight="bold">E2E</text>
+  <text x="400" y="195" text-anchor="middle" fill="#b2dfdb" font-family="system-ui, sans-serif" font-size="11">10%</text>
+  
+  <!-- Pyramid Peak -->
+  <polygon points="400,140 370,140 400,90 430,140" fill="#00251a" stroke="#004d40" stroke-width="2"/>
+  <text x="400" y="125" text-anchor="middle" fill="#ffffff" font-family="system-ui, sans-serif" font-size="10">UI</text>
+  
+  <!-- Left side labels -->
+  <g transform="translate(80, 250)">
+    <text x="0" y="0" fill="#4db6ac" font-family="system-ui, sans-serif" font-size="12" font-weight="bold">VELOCIDAD</text>
+    <line x1="60" y1="10" x2="60" y2="150" stroke="#4db6ac" stroke-width="2"/>
+    <polygon points="60,10 55,25 65,25" fill="#4db6ac"/>
+    <text x="70" y="30" fill="#80cbc4" font-family="system-ui, sans-serif" font-size="10">Más rápido</text>
+    <text x="70" y="145" fill="#80cbc4" font-family="system-ui, sans-serif" font-size="10">Más lento</text>
+  </g>
+  
+  <!-- Right side labels -->
+  <g transform="translate(650, 250)">
+    <text x="0" y="0" fill="#4db6ac" font-family="system-ui, sans-serif" font-size="12" font-weight="bold">COSTO</text>
+    <line x1="30" y1="10" x2="30" y2="150" stroke="#4db6ac" stroke-width="2"/>
+    <polygon points="30,150 25,135 35,135" fill="#4db6ac"/>
+    <text x="40" y="30" fill="#80cbc4" font-family="system-ui, sans-serif" font-size="10">Menor</text>
+    <text x="40" y="145" fill="#80cbc4" font-family="system-ui, sans-serif" font-size="10">Mayor</text>
+  </g>
+  
+  <!-- Bottom examples -->
+  <g transform="translate(100, 450)">
+    <rect x="0" y="0" width="180" height="35" rx="5" fill="#1e3a5f"/>
+    <text x="90" y="15" text-anchor="middle" fill="#4db6ac" font-family="system-ui, sans-serif" font-size="11" font-weight="bold">Unit Tests</text>
+    <text x="90" y="28" text-anchor="middle" fill="#80cbc4" font-family="system-ui, sans-serif" font-size="9">test_suma(), test_validar()</text>
+  </g>
+  
+  <g transform="translate(310, 450)">
+    <rect x="0" y="0" width="180" height="35" rx="5" fill="#1e3a5f"/>
+    <text x="90" y="15" text-anchor="middle" fill="#4db6ac" font-family="system-ui, sans-serif" font-size="11" font-weight="bold">Integration</text>
+    <text x="90" y="28" text-anchor="middle" fill="#80cbc4" font-family="system-ui, sans-serif" font-size="9">API + Database</text>
+  </g>
+  
+  <g transform="translate(520, 450)">
+    <rect x="0" y="0" width="180" height="35" rx="5" fill="#1e3a5f"/>
+    <text x="90" y="15" text-anchor="middle" fill="#4db6ac" font-family="system-ui, sans-serif" font-size="11" font-weight="bold">E2E / UI</text>
+    <text x="90" y="28" text-anchor="middle" fill="#80cbc4" font-family="system-ui, sans-serif" font-size="9">Selenium, Playwright</text>
+  </g>
+</svg>

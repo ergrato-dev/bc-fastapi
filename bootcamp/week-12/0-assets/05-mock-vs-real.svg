@@ -1,0 +1,103 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a2e"/>
+      <stop offset="100%" style="stop-color:#16213e"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="800" height="520" fill="url(#bgGrad)"/>
+  
+  <!-- Title -->
+  <text x="400" y="35" text-anchor="middle" fill="#ffffff" font-family="system-ui, sans-serif" font-size="24" font-weight="bold">Mock vs Dependencia Real</text>
+  <text x="400" y="58" text-anchor="middle" fill="#80cbc4" font-family="system-ui, sans-serif" font-size="14">Aislamiento en testing</text>
+  
+  <!-- LEFT SIDE: Without Mock (Problem) -->
+  <g transform="translate(50, 90)">
+    <text x="150" y="0" text-anchor="middle" fill="#ff5252" font-family="system-ui, sans-serif" font-size="16" font-weight="bold">❌ Sin Mock - Problema</text>
+    
+    <!-- Test box -->
+    <rect x="75" y="20" width="150" height="50" rx="8" fill="#1e3a5f" stroke="#4db6ac" stroke-width="2"/>
+    <text x="150" y="45" text-anchor="middle" fill="#4db6ac" font-family="system-ui, sans-serif" font-size="12" font-weight="bold">test_send_email()</text>
+    <text x="150" y="60" text-anchor="middle" fill="#80cbc4" font-family="system-ui, sans-serif" font-size="10">🧪 Test</text>
+    
+    <!-- Arrow down -->
+    <line x1="150" y1="70" x2="150" y2="100" stroke="#ff5252" stroke-width="2"/>
+    <polygon points="150,100 145,90 155,90" fill="#ff5252"/>
+    
+    <!-- Service box -->
+    <rect x="75" y="105" width="150" height="50" rx="8" fill="#1e3a5f" stroke="#9c27b0" stroke-width="2"/>
+    <text x="150" y="130" text-anchor="middle" fill="#ce93d8" font-family="system-ui, sans-serif" font-size="12" font-weight="bold">EmailService</text>
+    <text x="150" y="145" text-anchor="middle" fill="#80cbc4" font-family="system-ui, sans-serif" font-size="10">📧 Real</text>
+    
+    <!-- Arrow to external -->
+    <line x1="150" y1="155" x2="150" y2="185" stroke="#ff5252" stroke-width="2"/>
+    <polygon points="150,185 145,175 155,175" fill="#ff5252"/>
+    
+    <!-- External SMTP -->
+    <rect x="50" y="190" width="200" height="60" rx="8" fill="#b71c1c" fill-opacity="0.3" stroke="#ff5252" stroke-width="2"/>
+    <text x="150" y="215" text-anchor="middle" fill="#ff8a80" font-family="system-ui, sans-serif" font-size="12" font-weight="bold">📡 SMTP Server Real</text>
+    <text x="150" y="235" text-anchor="middle" fill="#ffcdd2" font-family="system-ui, sans-serif" font-size="10">Internet, Lento, Costoso</text>
+    
+    <!-- Problems list -->
+    <g transform="translate(0, 270)">
+      <rect x="25" y="0" width="250" height="100" rx="8" fill="#1e3a5f"/>
+      <text x="150" y="22" text-anchor="middle" fill="#ff5252" font-family="system-ui, sans-serif" font-size="11" font-weight="bold">Problemas:</text>
+      <text x="40" y="42" fill="#ffcdd2" font-family="system-ui, sans-serif" font-size="10">• Envía emails reales 📧</text>
+      <text x="40" y="58" fill="#ffcdd2" font-family="system-ui, sans-serif" font-size="10">• Requiere internet 🌐</text>
+      <text x="40" y="74" fill="#ffcdd2" font-family="system-ui, sans-serif" font-size="10">• Lento (~500ms+) 🐌</text>
+      <text x="40" y="90" fill="#ffcdd2" font-family="system-ui, sans-serif" font-size="10">• Puede fallar 💥</text>
+    </g>
+  </g>
+  
+  <!-- Divider -->
+  <line x1="400" y1="90" x2="400" y2="380" stroke="#2d4a6f" stroke-width="2" stroke-dasharray="10,5"/>
+  <text x="400" y="400" text-anchor="middle" fill="#4db6ac" font-family="system-ui, sans-serif" font-size="14">VS</text>
+  
+  <!-- RIGHT SIDE: With Mock (Solution) -->
+  <g transform="translate(450, 90)">
+    <text x="150" y="0" text-anchor="middle" fill="#00e676" font-family="system-ui, sans-serif" font-size="16" font-weight="bold">✅ Con Mock - Solución</text>
+    
+    <!-- Test box -->
+    <rect x="75" y="20" width="150" height="50" rx="8" fill="#1e3a5f" stroke="#4db6ac" stroke-width="2"/>
+    <text x="150" y="45" text-anchor="middle" fill="#4db6ac" font-family="system-ui, sans-serif" font-size="12" font-weight="bold">test_send_email()</text>
+    <text x="150" y="60" text-anchor="middle" fill="#80cbc4" font-family="system-ui, sans-serif" font-size="10">🧪 Test</text>
+    
+    <!-- Arrow down -->
+    <line x1="150" y1="70" x2="150" y2="100" stroke="#00e676" stroke-width="2"/>
+    <polygon points="150,100 145,90 155,90" fill="#00e676"/>
+    
+    <!-- Mock Service box -->
+    <rect x="50" y="105" width="200" height="60" rx="8" fill="#00695c" fill-opacity="0.3" stroke="#00e676" stroke-width="2"/>
+    <text x="150" y="130" text-anchor="middle" fill="#69f0ae" font-family="system-ui, sans-serif" font-size="12" font-weight="bold">Mock(EmailService)</text>
+    <text x="150" y="150" text-anchor="middle" fill="#b9f6ca" font-family="system-ui, sans-serif" font-size="10">🎭 Simulado - return True</text>
+    
+    <!-- X to external -->
+    <line x1="150" y1="165" x2="150" y2="185" stroke="#4db6ac" stroke-width="2" stroke-dasharray="5,3"/>
+    <text x="150" y="200" text-anchor="middle" fill="#4db6ac" font-family="system-ui, sans-serif" font-size="20">✗</text>
+    <text x="150" y="220" text-anchor="middle" fill="#80cbc4" font-family="system-ui, sans-serif" font-size="10">No llama SMTP real</text>
+    
+    <!-- Benefits list -->
+    <g transform="translate(0, 250)">
+      <rect x="25" y="0" width="250" height="120" rx="8" fill="#1e3a5f"/>
+      <text x="150" y="22" text-anchor="middle" fill="#00e676" font-family="system-ui, sans-serif" font-size="11" font-weight="bold">Beneficios:</text>
+      <text x="40" y="42" fill="#b9f6ca" font-family="system-ui, sans-serif" font-size="10">• No envía emails reales 🚫</text>
+      <text x="40" y="60" fill="#b9f6ca" font-family="system-ui, sans-serif" font-size="10">• Sin internet necesario 📴</text>
+      <text x="40" y="78" fill="#b9f6ca" font-family="system-ui, sans-serif" font-size="10">• Ultra rápido (~1ms) ⚡</text>
+      <text x="40" y="96" fill="#b9f6ca" font-family="system-ui, sans-serif" font-size="10">• 100% confiable ✓</text>
+      <text x="40" y="114" fill="#b9f6ca" font-family="system-ui, sans-serif" font-size="10">• Verifica llamadas 🔍</text>
+    </g>
+  </g>
+  
+  <!-- Bottom code examples -->
+  <g transform="translate(50, 470)">
+    <rect x="0" y="0" width="300" height="35" rx="5" fill="#0d1b2a" stroke="#ff5252" stroke-width="1"/>
+    <text x="150" y="22" text-anchor="middle" fill="#ff8a80" font-family="monospace" font-size="10">service.send_email()  # Envía real! 💸</text>
+  </g>
+  
+  <g transform="translate(450, 470)">
+    <rect x="0" y="0" width="300" height="35" rx="5" fill="#0d1b2a" stroke="#00e676" stroke-width="1"/>
+    <text x="150" y="22" text-anchor="middle" fill="#b9f6ca" font-family="monospace" font-size="10">mock.send_email.assert_called_once() ✓</text>
+  </g>
+</svg>

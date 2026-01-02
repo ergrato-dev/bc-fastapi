@@ -1,0 +1,109 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a2e"/>
+      <stop offset="100%" style="stop-color:#16213e"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="800" height="450" fill="url(#bgGrad)"/>
+  
+  <!-- Title -->
+  <text x="400" y="40" text-anchor="middle" fill="#ffffff" font-family="system-ui, sans-serif" font-size="24" font-weight="bold">Fixture Scopes en pytest</text>
+  <text x="400" y="65" text-anchor="middle" fill="#80cbc4" font-family="system-ui, sans-serif" font-size="14">Ciclo de vida de las fixtures</text>
+  
+  <!-- Timeline arrow -->
+  <line x1="80" y1="120" x2="720" y2="120" stroke="#4db6ac" stroke-width="2"/>
+  <polygon points="720,120 705,115 705,125" fill="#4db6ac"/>
+  <text x="730" y="125" fill="#4db6ac" font-family="system-ui, sans-serif" font-size="12">Tiempo</text>
+  
+  <!-- Function scope -->
+  <g transform="translate(100, 150)">
+    <rect x="0" y="0" width="140" height="80" rx="8" fill="#e91e63" fill-opacity="0.2" stroke="#e91e63" stroke-width="2"/>
+    <text x="70" y="25" text-anchor="middle" fill="#f48fb1" font-family="system-ui, sans-serif" font-size="14" font-weight="bold">function</text>
+    <text x="70" y="45" text-anchor="middle" fill="#f8bbd9" font-family="system-ui, sans-serif" font-size="10">Cada test</text>
+    <text x="70" y="60" text-anchor="middle" fill="#f8bbd9" font-family="system-ui, sans-serif" font-size="10">↻ setup/teardown</text>
+    <text x="70" y="75" text-anchor="middle" fill="#ffffff" font-family="monospace" font-size="9">scope="function"</text>
+  </g>
+  
+  <!-- Class scope -->
+  <g transform="translate(260, 150)">
+    <rect x="0" y="0" width="140" height="80" rx="8" fill="#9c27b0" fill-opacity="0.2" stroke="#9c27b0" stroke-width="2"/>
+    <text x="70" y="25" text-anchor="middle" fill="#ce93d8" font-family="system-ui, sans-serif" font-size="14" font-weight="bold">class</text>
+    <text x="70" y="45" text-anchor="middle" fill="#e1bee7" font-family="system-ui, sans-serif" font-size="10">Por clase de test</text>
+    <text x="70" y="60" text-anchor="middle" fill="#e1bee7" font-family="system-ui, sans-serif" font-size="10">Compartida en clase</text>
+    <text x="70" y="75" text-anchor="middle" fill="#ffffff" font-family="monospace" font-size="9">scope="class"</text>
+  </g>
+  
+  <!-- Module scope -->
+  <g transform="translate(420, 150)">
+    <rect x="0" y="0" width="140" height="80" rx="8" fill="#3f51b5" fill-opacity="0.2" stroke="#3f51b5" stroke-width="2"/>
+    <text x="70" y="25" text-anchor="middle" fill="#9fa8da" font-family="system-ui, sans-serif" font-size="14" font-weight="bold">module</text>
+    <text x="70" y="45" text-anchor="middle" fill="#c5cae9" font-family="system-ui, sans-serif" font-size="10">Por archivo .py</text>
+    <text x="70" y="60" text-anchor="middle" fill="#c5cae9" font-family="system-ui, sans-serif" font-size="10">test_*.py completo</text>
+    <text x="70" y="75" text-anchor="middle" fill="#ffffff" font-family="monospace" font-size="9">scope="module"</text>
+  </g>
+  
+  <!-- Session scope -->
+  <g transform="translate(580, 150)">
+    <rect x="0" y="0" width="140" height="80" rx="8" fill="#009688" fill-opacity="0.2" stroke="#009688" stroke-width="2"/>
+    <text x="70" y="25" text-anchor="middle" fill="#80cbc4" font-family="system-ui, sans-serif" font-size="14" font-weight="bold">session</text>
+    <text x="70" y="45" text-anchor="middle" fill="#b2dfdb" font-family="system-ui, sans-serif" font-size="10">Toda la ejecución</text>
+    <text x="70" y="60" text-anchor="middle" fill="#b2dfdb" font-family="system-ui, sans-serif" font-size="10">pytest run completo</text>
+    <text x="70" y="75" text-anchor="middle" fill="#ffffff" font-family="monospace" font-size="9">scope="session"</text>
+  </g>
+  
+  <!-- Duration bars -->
+  <g transform="translate(100, 260)">
+    <rect x="20" y="0" width="60" height="15" rx="3" fill="#e91e63"/>
+    <rect x="90" y="0" width="60" height="15" rx="3" fill="#e91e63"/>
+    <rect x="160" y="0" width="60" height="15" rx="3" fill="#e91e63"/>
+    <text x="70" y="35" text-anchor="middle" fill="#f48fb1" font-family="system-ui, sans-serif" font-size="10">test1 test2 test3</text>
+  </g>
+  
+  <g transform="translate(260, 260)">
+    <rect x="0" y="0" width="140" height="15" rx="3" fill="#9c27b0"/>
+    <text x="70" y="35" text-anchor="middle" fill="#ce93d8" font-family="system-ui, sans-serif" font-size="10">TestClass completa</text>
+  </g>
+  
+  <g transform="translate(420, 260)">
+    <rect x="0" y="0" width="140" height="15" rx="3" fill="#3f51b5"/>
+    <text x="70" y="35" text-anchor="middle" fill="#9fa8da" font-family="system-ui, sans-serif" font-size="10">test_users.py</text>
+  </g>
+  
+  <g transform="translate(580, 260)">
+    <rect x="0" y="0" width="140" height="15" rx="3" fill="#009688"/>
+    <text x="70" y="35" text-anchor="middle" fill="#80cbc4" font-family="system-ui, sans-serif" font-size="10">pytest run entero</text>
+  </g>
+  
+  <!-- Use cases -->
+  <g transform="translate(100, 320)">
+    <text x="0" y="0" fill="#ffffff" font-family="system-ui, sans-serif" font-size="12" font-weight="bold">Casos de Uso:</text>
+    
+    <rect x="0" y="15" width="160" height="50" rx="5" fill="#1e3a5f"/>
+    <text x="80" y="35" text-anchor="middle" fill="#f48fb1" font-family="system-ui, sans-serif" font-size="10" font-weight="bold">function (default)</text>
+    <text x="80" y="50" text-anchor="middle" fill="#80cbc4" font-family="system-ui, sans-serif" font-size="9">DB session, test data</text>
+    <text x="80" y="62" text-anchor="middle" fill="#80cbc4" font-family="system-ui, sans-serif" font-size="9">Aislamiento total</text>
+    
+    <rect x="180" y="15" width="160" height="50" rx="5" fill="#1e3a5f"/>
+    <text x="260" y="35" text-anchor="middle" fill="#ce93d8" font-family="system-ui, sans-serif" font-size="10" font-weight="bold">class</text>
+    <text x="260" y="50" text-anchor="middle" fill="#80cbc4" font-family="system-ui, sans-serif" font-size="9">Setup compartido</text>
+    <text x="260" y="62" text-anchor="middle" fill="#80cbc4" font-family="system-ui, sans-serif" font-size="9">Tests relacionados</text>
+    
+    <rect x="360" y="15" width="160" height="50" rx="5" fill="#1e3a5f"/>
+    <text x="440" y="35" text-anchor="middle" fill="#9fa8da" font-family="system-ui, sans-serif" font-size="10" font-weight="bold">module</text>
+    <text x="440" y="50" text-anchor="middle" fill="#80cbc4" font-family="system-ui, sans-serif" font-size="9">Conexión costosa</text>
+    <text x="440" y="62" text-anchor="middle" fill="#80cbc4" font-family="system-ui, sans-serif" font-size="9">Datos del módulo</text>
+    
+    <rect x="540" y="15" width="160" height="50" rx="5" fill="#1e3a5f"/>
+    <text x="620" y="35" text-anchor="middle" fill="#80cbc4" font-family="system-ui, sans-serif" font-size="10" font-weight="bold">session</text>
+    <text x="620" y="50" text-anchor="middle" fill="#80cbc4" font-family="system-ui, sans-serif" font-size="9">DB engine, Docker</text>
+    <text x="620" y="62" text-anchor="middle" fill="#80cbc4" font-family="system-ui, sans-serif" font-size="9">Recursos globales</text>
+  </g>
+  
+  <!-- Legend -->
+  <g transform="translate(100, 410)">
+    <text x="0" y="0" fill="#4db6ac" font-family="system-ui, sans-serif" font-size="11">💡 Menor scope = más aislamiento, más lento | Mayor scope = menos setup, más rápido</text>
+  </g>
+</svg>
