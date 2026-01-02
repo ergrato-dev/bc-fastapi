@@ -1,0 +1,35 @@
+[project]
+name = "secure-observable-api"
+version = "1.0.0"
+description = "API Segura con Observabilidad - Proyecto Semana 14"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "fastapi>=0.115.0",
+    "uvicorn[standard]>=0.32.0",
+    "sqlalchemy>=2.0.36",
+    "pydantic>=2.10.0",
+    "pydantic-settings>=2.6.0",
+    "python-jose[cryptography]>=3.3.0",
+    "passlib[bcrypt]>=1.7.4",
+    "slowapi>=0.1.9",
+    "redis>=5.2.0",
+    "structlog>=24.4.0",
+    "prometheus-fastapi-instrumentator>=7.0.0",
+    "prometheus-client>=0.21.0",
+    "httpx>=0.28.0",
+    "pytest>=8.3.4",
+    "pytest-asyncio>=0.25.0",
+]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "function"
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 88
+target-version = "py313"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP"]

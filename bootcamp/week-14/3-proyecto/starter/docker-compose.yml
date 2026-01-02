@@ -1,0 +1,52 @@
+services:
+  api:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      - ENVIRONMENT=development
+      - DEBUG=true
+      - DATABASE_URL=sqlite:///./tasks.db
+      - REDIS_URL=redis://redis:6379/0
+      - SECRET_KEY=dev-secret-key-not-for-production
+      - ALLOWED_ORIGINS=http://localhost:3000,http://localhost:8080
+      - RATE_LIMIT_ENABLED=true
+      - LOG_LEVEL=INFO
+      - LOG_FORMAT=json
+      - METRICS_ENABLED=true
+    volumes:
+      - ./src:/app/src
+      - ./tests:/app/tests
+    depends_on:
+      - redis
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health/live"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+
+  # Prometheus (opcional - para visualizar métricas)
+  prometheus:
+    image: prom/prometheus:latest
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml:ro
+    profiles:
+      - monitoring
+
+volumes:
+  redis_data:

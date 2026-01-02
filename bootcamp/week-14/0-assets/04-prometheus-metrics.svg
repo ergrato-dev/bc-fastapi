@@ -1,0 +1,169 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <defs>
+    <linearGradient id="headerGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#009688"/>
+      <stop offset="100%" style="stop-color:#00796B"/>
+    </linearGradient>
+    <linearGradient id="promGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#E6522C"/>
+      <stop offset="100%" style="stop-color:#DA4E2A"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="800" height="500" fill="#1a1a2e"/>
+  
+  <!-- Header -->
+  <rect x="0" y="0" width="800" height="60" fill="url(#headerGrad)"/>
+  <text x="400" y="38" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="white" text-anchor="middle">Prometheus Metrics Architecture</text>
+  
+  <!-- FastAPI App -->
+  <g transform="translate(50, 80)">
+    <rect x="0" y="0" width="220" height="200" rx="8" fill="#16213e" stroke="#009688" stroke-width="2"/>
+    <text x="110" y="25" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#009688" text-anchor="middle">FastAPI Application</text>
+    
+    <!-- Metrics endpoint -->
+    <g transform="translate(20, 45)">
+      <rect x="0" y="0" width="180" height="35" rx="4" fill="#0f3460"/>
+      <text x="90" y="15" font-family="Arial, sans-serif" font-size="10" fill="#4CAF50" text-anchor="middle">/metrics endpoint</text>
+      <text x="90" y="28" font-family="monospace" font-size="8" fill="#aaa" text-anchor="middle">PrometheusInstrumentator</text>
+    </g>
+    
+    <!-- Metrics types -->
+    <g transform="translate(20, 95)">
+      <rect x="0" y="0" width="85" height="45" rx="4" fill="#0f3460"/>
+      <text x="42" y="15" font-family="Arial, sans-serif" font-size="9" font-weight="bold" fill="#2196F3" text-anchor="middle">Counter</text>
+      <text x="42" y="28" font-family="monospace" font-size="7" fill="#aaa" text-anchor="middle">requests</text>
+      <text x="42" y="38" font-family="monospace" font-size="7" fill="#aaa" text-anchor="middle">total: 1523</text>
+    </g>
+    
+    <g transform="translate(115, 95)">
+      <rect x="0" y="0" width="85" height="45" rx="4" fill="#0f3460"/>
+      <text x="42" y="15" font-family="Arial, sans-serif" font-size="9" font-weight="bold" fill="#FF9800" text-anchor="middle">Gauge</text>
+      <text x="42" y="28" font-family="monospace" font-size="7" fill="#aaa" text-anchor="middle">active</text>
+      <text x="42" y="38" font-family="monospace" font-size="7" fill="#aaa" text-anchor="middle">conns: 47</text>
+    </g>
+    
+    <g transform="translate(20, 150)">
+      <rect x="0" y="0" width="180" height="35" rx="4" fill="#0f3460"/>
+      <text x="90" y="15" font-family="Arial, sans-serif" font-size="9" font-weight="bold" fill="#E91E63" text-anchor="middle">Histogram</text>
+      <text x="90" y="28" font-family="monospace" font-size="7" fill="#aaa" text-anchor="middle">http_request_duration_seconds</text>
+    </g>
+  </g>
+  
+  <!-- Scrape Arrow -->
+  <g transform="translate(280, 160)">
+    <path d="M 0 20 L 80 20" stroke="#E6522C" stroke-width="3"/>
+    <polygon points="80,20 70,14 70,26" fill="#E6522C"/>
+    <text x="40" y="10" font-family="Arial, sans-serif" font-size="9" fill="#E6522C" text-anchor="middle">scrape</text>
+    <text x="40" y="45" font-family="Arial, sans-serif" font-size="8" fill="#aaa" text-anchor="middle">every 15s</text>
+  </g>
+  
+  <!-- Prometheus -->
+  <g transform="translate(370, 80)">
+    <rect x="0" y="0" width="180" height="200" rx="8" fill="#16213e" stroke="#E6522C" stroke-width="2"/>
+    <text x="90" y="25" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#E6522C" text-anchor="middle">Prometheus</text>
+    
+    <!-- TSDB -->
+    <g transform="translate(20, 45)">
+      <rect x="0" y="0" width="140" height="50" rx="4" fill="#0f3460"/>
+      <text x="70" y="20" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#4CAF50" text-anchor="middle">Time Series DB</text>
+      <text x="70" y="38" font-family="Arial, sans-serif" font-size="8" fill="#aaa" text-anchor="middle">15 days retention</text>
+    </g>
+    
+    <!-- PromQL -->
+    <g transform="translate(20, 105)">
+      <rect x="0" y="0" width="140" height="35" rx="4" fill="#0f3460"/>
+      <text x="70" y="15" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#FF9800" text-anchor="middle">PromQL Engine</text>
+      <text x="70" y="28" font-family="monospace" font-size="7" fill="#aaa" text-anchor="middle">rate(http_req[5m])</text>
+    </g>
+    
+    <!-- Alerting -->
+    <g transform="translate(20, 150)">
+      <rect x="0" y="0" width="140" height="35" rx="4" fill="#0f3460"/>
+      <text x="70" y="15" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#f44336" text-anchor="middle">Alert Manager</text>
+      <text x="70" y="28" font-family="Arial, sans-serif" font-size="8" fill="#aaa" text-anchor="middle">Rules evaluation</text>
+    </g>
+  </g>
+  
+  <!-- Query Arrow -->
+  <g transform="translate(560, 160)">
+    <path d="M 0 20 L 80 20" stroke="#F46800" stroke-width="3"/>
+    <polygon points="80,20 70,14 70,26" fill="#F46800"/>
+    <text x="40" y="10" font-family="Arial, sans-serif" font-size="9" fill="#F46800" text-anchor="middle">query</text>
+  </g>
+  
+  <!-- Grafana -->
+  <g transform="translate(650, 80)">
+    <rect x="0" y="0" width="130" height="200" rx="8" fill="#16213e" stroke="#F46800" stroke-width="2"/>
+    <text x="65" y="25" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#F46800" text-anchor="middle">Grafana</text>
+    
+    <!-- Dashboard preview -->
+    <g transform="translate(15, 45)">
+      <rect x="0" y="0" width="100" height="60" rx="4" fill="#0f3460"/>
+      <!-- Mini chart -->
+      <polyline points="10,45 25,35 40,40 55,25 70,30 85,20" stroke="#4CAF50" stroke-width="2" fill="none"/>
+      <text x="50" y="55" font-family="Arial, sans-serif" font-size="8" fill="#aaa" text-anchor="middle">Request Rate</text>
+    </g>
+    
+    <g transform="translate(15, 115)">
+      <rect x="0" y="0" width="100" height="60" rx="4" fill="#0f3460"/>
+      <!-- Mini bars -->
+      <rect x="15" y="30" width="15" height="20" fill="#2196F3"/>
+      <rect x="35" y="20" width="15" height="30" fill="#2196F3"/>
+      <rect x="55" y="25" width="15" height="25" fill="#2196F3"/>
+      <rect x="75" y="35" width="15" height="15" fill="#2196F3"/>
+      <text x="50" y="55" font-family="Arial, sans-serif" font-size="8" fill="#aaa" text-anchor="middle">Latency p99</text>
+    </g>
+  </g>
+  
+  <!-- Metric Types Legend -->
+  <g transform="translate(50, 310)">
+    <rect x="0" y="0" width="700" height="170" rx="8" fill="#16213e" stroke="#9C27B0" stroke-width="2"/>
+    <text x="350" y="25" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#9C27B0" text-anchor="middle">Prometheus Metric Types</text>
+    
+    <!-- Counter -->
+    <g transform="translate(20, 45)">
+      <rect x="0" y="0" width="160" height="110" rx="4" fill="#0f3460"/>
+      <text x="80" y="20" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#2196F3" text-anchor="middle">Counter</text>
+      <text x="80" y="38" font-family="Arial, sans-serif" font-size="9" fill="#aaa" text-anchor="middle">Only increases</text>
+      <text x="80" y="52" font-family="Arial, sans-serif" font-size="9" fill="#aaa" text-anchor="middle">(or resets to 0)</text>
+      <text x="15" y="75" font-family="monospace" font-size="8" fill="#4CAF50">requests_total</text>
+      <text x="15" y="90" font-family="monospace" font-size="8" fill="#4CAF50">errors_total</text>
+      <text x="15" y="105" font-family="monospace" font-size="8" fill="#4CAF50">tasks_created</text>
+    </g>
+    
+    <!-- Gauge -->
+    <g transform="translate(195, 45)">
+      <rect x="0" y="0" width="160" height="110" rx="4" fill="#0f3460"/>
+      <text x="80" y="20" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#FF9800" text-anchor="middle">Gauge</text>
+      <text x="80" y="38" font-family="Arial, sans-serif" font-size="9" fill="#aaa" text-anchor="middle">Can go up and down</text>
+      <text x="80" y="52" font-family="Arial, sans-serif" font-size="9" fill="#aaa" text-anchor="middle">(current value)</text>
+      <text x="15" y="75" font-family="monospace" font-size="8" fill="#4CAF50">active_connections</text>
+      <text x="15" y="90" font-family="monospace" font-size="8" fill="#4CAF50">queue_size</text>
+      <text x="15" y="105" font-family="monospace" font-size="8" fill="#4CAF50">memory_usage</text>
+    </g>
+    
+    <!-- Histogram -->
+    <g transform="translate(370, 45)">
+      <rect x="0" y="0" width="160" height="110" rx="4" fill="#0f3460"/>
+      <text x="80" y="20" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#E91E63" text-anchor="middle">Histogram</text>
+      <text x="80" y="38" font-family="Arial, sans-serif" font-size="9" fill="#aaa" text-anchor="middle">Distribution of values</text>
+      <text x="80" y="52" font-family="Arial, sans-serif" font-size="9" fill="#aaa" text-anchor="middle">(buckets + sum)</text>
+      <text x="15" y="75" font-family="monospace" font-size="8" fill="#4CAF50">request_duration</text>
+      <text x="15" y="90" font-family="monospace" font-size="8" fill="#4CAF50">response_size</text>
+      <text x="15" y="105" font-family="monospace" font-size="8" fill="#4CAF50">db_query_time</text>
+    </g>
+    
+    <!-- Summary -->
+    <g transform="translate(545, 45)">
+      <rect x="0" y="0" width="140" height="110" rx="4" fill="#0f3460"/>
+      <text x="70" y="20" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#00BCD4" text-anchor="middle">Summary</text>
+      <text x="70" y="38" font-family="Arial, sans-serif" font-size="9" fill="#aaa" text-anchor="middle">Pre-calculated</text>
+      <text x="70" y="52" font-family="Arial, sans-serif" font-size="9" fill="#aaa" text-anchor="middle">quantiles</text>
+      <text x="15" y="75" font-family="monospace" font-size="8" fill="#4CAF50">p50, p90, p99</text>
+      <text x="15" y="90" font-family="monospace" font-size="8" fill="#4CAF50">count, sum</text>
+      <text x="15" y="105" font-family="monospace" font-size="8" fill="#aaa">(less common)</text>
+    </g>
+  </g>
+</svg>

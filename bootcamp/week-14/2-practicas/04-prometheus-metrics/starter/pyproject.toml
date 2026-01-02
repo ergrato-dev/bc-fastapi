@@ -1,0 +1,19 @@
+[project]
+name = "prometheus-metrics-practice"
+version = "0.1.0"
+description = "Práctica 04: Prometheus Metrics y Health Checks"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "fastapi>=0.115.0",
+    "uvicorn[standard]>=0.32.0",
+    "prometheus-fastapi-instrumentator>=7.0.0",
+    "prometheus-client>=0.21.0",
+    "httpx>=0.28.0",
+    "pytest>=8.3.4",
+    "pytest-asyncio>=0.25.0",
+]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "function"

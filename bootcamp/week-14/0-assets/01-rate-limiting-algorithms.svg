@@ -1,0 +1,114 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <defs>
+    <linearGradient id="headerGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#009688"/>
+      <stop offset="100%" style="stop-color:#00796B"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="800" height="500" fill="#1a1a2e"/>
+  
+  <!-- Header -->
+  <rect x="0" y="0" width="800" height="60" fill="url(#headerGrad)"/>
+  <text x="400" y="38" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="white" text-anchor="middle">Rate Limiting Algorithms</text>
+  
+  <!-- Fixed Window -->
+  <g transform="translate(50, 90)">
+    <rect x="0" y="0" width="320" height="180" rx="8" fill="#16213e" stroke="#009688" stroke-width="2"/>
+    <text x="160" y="30" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#009688" text-anchor="middle">Fixed Window</text>
+    
+    <!-- Windows -->
+    <rect x="20" y="50" width="80" height="60" fill="#0f3460" stroke="#4CAF50" stroke-width="2"/>
+    <text x="60" y="85" font-family="Arial, sans-serif" font-size="12" fill="white" text-anchor="middle">00:00</text>
+    <text x="60" y="100" font-family="Arial, sans-serif" font-size="10" fill="#4CAF50" text-anchor="middle">5/10</text>
+    
+    <rect x="120" y="50" width="80" height="60" fill="#0f3460" stroke="#FF9800" stroke-width="2"/>
+    <text x="160" y="85" font-family="Arial, sans-serif" font-size="12" fill="white" text-anchor="middle">01:00</text>
+    <text x="160" y="100" font-family="Arial, sans-serif" font-size="10" fill="#FF9800" text-anchor="middle">9/10</text>
+    
+    <rect x="220" y="50" width="80" height="60" fill="#0f3460" stroke="#f44336" stroke-width="2"/>
+    <text x="260" y="85" font-family="Arial, sans-serif" font-size="12" fill="white" text-anchor="middle">02:00</text>
+    <text x="260" y="100" font-family="Arial, sans-serif" font-size="10" fill="#f44336" text-anchor="middle">10/10</text>
+    
+    <!-- Description -->
+    <text x="160" y="140" font-family="Arial, sans-serif" font-size="11" fill="#aaa" text-anchor="middle">Ventanas fijas de tiempo</text>
+    <text x="160" y="155" font-family="Arial, sans-serif" font-size="11" fill="#aaa" text-anchor="middle">Reset al inicio de cada ventana</text>
+  </g>
+  
+  <!-- Sliding Window -->
+  <g transform="translate(430, 90)">
+    <rect x="0" y="0" width="320" height="180" rx="8" fill="#16213e" stroke="#009688" stroke-width="2"/>
+    <text x="160" y="30" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#009688" text-anchor="middle">Sliding Window</text>
+    
+    <!-- Sliding representation -->
+    <rect x="20" y="55" width="280" height="50" fill="#0f3460" rx="4"/>
+    <rect x="40" y="55" width="200" height="50" fill="#1a5276" stroke="#2196F3" stroke-width="2" stroke-dasharray="5,3" rx="4"/>
+    
+    <!-- Arrow -->
+    <path d="M 240 105 L 260 105 L 250 115 Z" fill="#2196F3"/>
+    <line x1="40" y1="105" x2="240" y2="105" stroke="#2196F3" stroke-width="2"/>
+    
+    <!-- Labels -->
+    <text x="140" y="85" font-family="Arial, sans-serif" font-size="12" fill="white" text-anchor="middle">Ventana actual</text>
+    
+    <!-- Description -->
+    <text x="160" y="140" font-family="Arial, sans-serif" font-size="11" fill="#aaa" text-anchor="middle">Ventana se desliza continuamente</text>
+    <text x="160" y="155" font-family="Arial, sans-serif" font-size="11" fill="#aaa" text-anchor="middle">Distribución más uniforme</text>
+  </g>
+  
+  <!-- Token Bucket -->
+  <g transform="translate(50, 290)">
+    <rect x="0" y="0" width="320" height="180" rx="8" fill="#16213e" stroke="#009688" stroke-width="2"/>
+    <text x="160" y="30" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#009688" text-anchor="middle">Token Bucket</text>
+    
+    <!-- Bucket -->
+    <path d="M 100 60 L 80 140 L 180 140 L 160 60 Z" fill="#0f3460" stroke="#9C27B0" stroke-width="2"/>
+    
+    <!-- Tokens -->
+    <circle cx="110" cy="120" r="8" fill="#9C27B0"/>
+    <circle cx="130" cy="120" r="8" fill="#9C27B0"/>
+    <circle cx="150" cy="120" r="8" fill="#9C27B0"/>
+    <circle cx="120" cy="100" r="8" fill="#9C27B0"/>
+    <circle cx="140" cy="100" r="8" fill="#9C27B0"/>
+    
+    <!-- Refill arrow -->
+    <path d="M 130 45 L 130 55" stroke="#4CAF50" stroke-width="2" marker-end="url(#arrowhead)"/>
+    <text x="130" y="40" font-family="Arial, sans-serif" font-size="10" fill="#4CAF50" text-anchor="middle">+1/seg</text>
+    
+    <!-- Request arrow -->
+    <path d="M 200 100 L 170 100" stroke="#FF9800" stroke-width="2"/>
+    <text x="240" y="105" font-family="Arial, sans-serif" font-size="10" fill="#FF9800" text-anchor="middle">Request</text>
+    <text x="240" y="118" font-family="Arial, sans-serif" font-size="10" fill="#FF9800" text-anchor="middle">(-1 token)</text>
+    
+    <!-- Description -->
+    <text x="160" y="160" font-family="Arial, sans-serif" font-size="11" fill="#aaa" text-anchor="middle">Tokens añadidos a tasa fija</text>
+  </g>
+  
+  <!-- Leaky Bucket -->
+  <g transform="translate(430, 290)">
+    <rect x="0" y="0" width="320" height="180" rx="8" fill="#16213e" stroke="#009688" stroke-width="2"/>
+    <text x="160" y="30" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#009688" text-anchor="middle">Leaky Bucket</text>
+    
+    <!-- Bucket -->
+    <path d="M 100 50 L 80 120 L 180 120 L 160 50 Z" fill="#0f3460" stroke="#E91E63" stroke-width="2"/>
+    
+    <!-- Water level -->
+    <path d="M 85 80 L 85 115 L 175 115 L 175 80 Z" fill="#E91E63" opacity="0.5"/>
+    
+    <!-- Leak -->
+    <line x1="130" y1="120" x2="130" y2="145" stroke="#E91E63" stroke-width="3"/>
+    <circle cx="130" cy="150" r="4" fill="#E91E63"/>
+    
+    <!-- Input arrow -->
+    <path d="M 130 35 L 130 45" stroke="#4CAF50" stroke-width="2"/>
+    <text x="130" y="30" font-family="Arial, sans-serif" font-size="10" fill="#4CAF50" text-anchor="middle">Requests</text>
+    
+    <!-- Output label -->
+    <text x="180" y="140" font-family="Arial, sans-serif" font-size="10" fill="#E91E63" text-anchor="start">Tasa fija</text>
+    <text x="180" y="152" font-family="Arial, sans-serif" font-size="10" fill="#E91E63" text-anchor="start">de salida</text>
+    
+    <!-- Description -->
+    <text x="160" y="170" font-family="Arial, sans-serif" font-size="11" fill="#aaa" text-anchor="middle">Procesa requests a tasa constante</text>
+  </g>
+</svg>

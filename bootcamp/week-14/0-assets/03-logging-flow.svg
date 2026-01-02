@@ -1,0 +1,130 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+  <defs>
+    <linearGradient id="headerGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#009688"/>
+      <stop offset="100%" style="stop-color:#00796B"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="800" height="450" fill="#1a1a2e"/>
+  
+  <!-- Header -->
+  <rect x="0" y="0" width="800" height="60" fill="url(#headerGrad)"/>
+  <text x="400" y="38" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="white" text-anchor="middle">Structured Logging Flow</text>
+  
+  <!-- Request Flow -->
+  <g transform="translate(50, 80)">
+    <!-- Client -->
+    <rect x="0" y="40" width="100" height="60" rx="8" fill="#16213e" stroke="#2196F3" stroke-width="2"/>
+    <text x="50" y="75" font-family="Arial, sans-serif" font-size="12" fill="white" text-anchor="middle">Client</text>
+    
+    <!-- Arrow -->
+    <path d="M 110 70 L 160 70" stroke="#4CAF50" stroke-width="2"/>
+    <polygon points="160,70 150,65 150,75" fill="#4CAF50"/>
+  </g>
+  
+  <!-- Middleware Box -->
+  <g transform="translate(220, 80)">
+    <rect x="0" y="0" width="350" height="140" rx="8" fill="#16213e" stroke="#9C27B0" stroke-width="2"/>
+    <text x="175" y="25" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#9C27B0" text-anchor="middle">RequestLoggingMiddleware</text>
+    
+    <!-- Steps -->
+    <g transform="translate(20, 40)">
+      <rect x="0" y="0" width="90" height="35" rx="4" fill="#0f3460"/>
+      <text x="45" y="15" font-family="Arial, sans-serif" font-size="9" fill="#4CAF50" text-anchor="middle">1. Generate</text>
+      <text x="45" y="27" font-family="Arial, sans-serif" font-size="9" fill="white" text-anchor="middle">request_id</text>
+    </g>
+    
+    <g transform="translate(130, 40)">
+      <rect x="0" y="0" width="90" height="35" rx="4" fill="#0f3460"/>
+      <text x="45" y="15" font-family="Arial, sans-serif" font-size="9" fill="#FF9800" text-anchor="middle">2. Bind</text>
+      <text x="45" y="27" font-family="Arial, sans-serif" font-size="9" fill="white" text-anchor="middle">Context</text>
+    </g>
+    
+    <g transform="translate(240, 40)">
+      <rect x="0" y="0" width="90" height="35" rx="4" fill="#0f3460"/>
+      <text x="45" y="15" font-family="Arial, sans-serif" font-size="9" fill="#2196F3" text-anchor="middle">3. Start</text>
+      <text x="45" y="27" font-family="Arial, sans-serif" font-size="9" fill="white" text-anchor="middle">Timer</text>
+    </g>
+    
+    <!-- Arrows between steps -->
+    <path d="M 115 57 L 125 57" stroke="#aaa" stroke-width="1"/>
+    <path d="M 225 57 L 235 57" stroke="#aaa" stroke-width="1"/>
+    
+    <!-- Log output -->
+    <g transform="translate(20, 90)">
+      <rect x="0" y="0" width="310" height="35" rx="4" fill="#0a0a15" stroke="#4CAF50" stroke-width="1"/>
+      <text x="10" y="14" font-family="monospace" font-size="8" fill="#4CAF50">{"event": "request_started",</text>
+      <text x="10" y="26" font-family="monospace" font-size="8" fill="#4CAF50"> "request_id": "abc-123", "method": "GET"}</text>
+    </g>
+  </g>
+  
+  <!-- Arrow to Handler -->
+  <path d="M 580 150 L 620 150" stroke="#4CAF50" stroke-width="2"/>
+  <polygon points="620,150 610,145 610,155" fill="#4CAF50"/>
+  
+  <!-- Handler -->
+  <g transform="translate(630, 110)">
+    <rect x="0" y="0" width="130" height="80" rx="8" fill="#16213e" stroke="#009688" stroke-width="2"/>
+    <text x="65" y="25" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#009688" text-anchor="middle">Endpoint</text>
+    <text x="65" y="45" font-family="Arial, sans-serif" font-size="10" fill="white" text-anchor="middle">Business Logic</text>
+    <text x="65" y="65" font-family="Arial, sans-serif" font-size="10" fill="#aaa" text-anchor="middle">+ logger.info()</text>
+  </g>
+  
+  <!-- structlog Processors -->
+  <g transform="translate(50, 250)">
+    <rect x="0" y="0" width="700" height="170" rx="8" fill="#16213e" stroke="#E91E63" stroke-width="2"/>
+    <text x="350" y="25" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#E91E63" text-anchor="middle">structlog Processors Pipeline</text>
+    
+    <!-- Processor boxes -->
+    <g transform="translate(20, 45)">
+      <rect x="0" y="0" width="120" height="50" rx="4" fill="#0f3460"/>
+      <text x="60" y="20" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#4CAF50" text-anchor="middle">add_log_level</text>
+      <text x="60" y="38" font-family="Arial, sans-serif" font-size="9" fill="#aaa" text-anchor="middle">INFO, ERROR...</text>
+    </g>
+    
+    <path d="M 145 70 L 160 70" stroke="#aaa" stroke-width="1"/>
+    <polygon points="160,70 155,67 155,73" fill="#aaa"/>
+    
+    <g transform="translate(165, 45)">
+      <rect x="0" y="0" width="120" height="50" rx="4" fill="#0f3460"/>
+      <text x="60" y="20" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#FF9800" text-anchor="middle">TimeStamper</text>
+      <text x="60" y="38" font-family="Arial, sans-serif" font-size="9" fill="#aaa" text-anchor="middle">ISO format</text>
+    </g>
+    
+    <path d="M 290 70 L 305 70" stroke="#aaa" stroke-width="1"/>
+    <polygon points="305,70 300,67 300,73" fill="#aaa"/>
+    
+    <g transform="translate(310, 45)">
+      <rect x="0" y="0" width="120" height="50" rx="4" fill="#0f3460"/>
+      <text x="60" y="20" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#2196F3" text-anchor="middle">add_context</text>
+      <text x="60" y="38" font-family="Arial, sans-serif" font-size="9" fill="#aaa" text-anchor="middle">service, env</text>
+    </g>
+    
+    <path d="M 435 70 L 450 70" stroke="#aaa" stroke-width="1"/>
+    <polygon points="450,70 445,67 445,73" fill="#aaa"/>
+    
+    <g transform="translate(455, 45)">
+      <rect x="0" y="0" width="120" height="50" rx="4" fill="#0f3460"/>
+      <text x="60" y="20" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#f44336" text-anchor="middle">mask_sensitive</text>
+      <text x="60" y="38" font-family="Arial, sans-serif" font-size="9" fill="#aaa" text-anchor="middle">password → ***</text>
+    </g>
+    
+    <path d="M 580 70 L 595 70" stroke="#aaa" stroke-width="1"/>
+    <polygon points="595,70 590,67 590,73" fill="#aaa"/>
+    
+    <g transform="translate(600, 45)">
+      <rect x="0" y="0" width="80" height="50" rx="4" fill="#0f3460"/>
+      <text x="40" y="20" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#9C27B0" text-anchor="middle">JSON</text>
+      <text x="40" y="38" font-family="Arial, sans-serif" font-size="9" fill="#aaa" text-anchor="middle">Renderer</text>
+    </g>
+    
+    <!-- Final Output -->
+    <g transform="translate(20, 110)">
+      <rect x="0" y="0" width="660" height="45" rx="4" fill="#0a0a15" stroke="#4CAF50" stroke-width="1"/>
+      <text x="10" y="16" font-family="monospace" font-size="9" fill="#4CAF50">{"timestamp": "2024-01-15T10:30:00Z", "level": "info", "event": "request_completed",</text>
+      <text x="10" y="32" font-family="monospace" font-size="9" fill="#4CAF50"> "request_id": "abc-123", "service": "api", "status_code": 200, "duration_ms": 45.2}</text>
+    </g>
+  </g>
+</svg>

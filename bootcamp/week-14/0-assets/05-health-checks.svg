@@ -1,0 +1,123 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+  <defs>
+    <linearGradient id="headerGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#009688"/>
+      <stop offset="100%" style="stop-color:#00796B"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="800" height="450" fill="#1a1a2e"/>
+  
+  <!-- Header -->
+  <rect x="0" y="0" width="800" height="60" fill="url(#headerGrad)"/>
+  <text x="400" y="38" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="white" text-anchor="middle">Kubernetes Health Checks</text>
+  
+  <!-- Three Types -->
+  <!-- Liveness -->
+  <g transform="translate(40, 80)">
+    <rect x="0" y="0" width="230" height="340" rx="8" fill="#16213e" stroke="#f44336" stroke-width="2"/>
+    <text x="115" y="30" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#f44336" text-anchor="middle">Liveness Probe</text>
+    
+    <!-- Icon -->
+    <g transform="translate(85, 50)">
+      <circle cx="30" cy="30" r="25" fill="none" stroke="#f44336" stroke-width="3"/>
+      <path d="M 18 30 L 28 40 L 45 20" stroke="#4CAF50" stroke-width="3" fill="none"/>
+    </g>
+    
+    <!-- Question -->
+    <text x="115" y="130" font-family="Arial, sans-serif" font-size="12" fill="white" text-anchor="middle">"Is the app alive?"</text>
+    
+    <!-- Description -->
+    <g transform="translate(15, 150)">
+      <rect x="0" y="0" width="200" height="80" rx="4" fill="#0f3460"/>
+      <text x="100" y="20" font-family="Arial, sans-serif" font-size="10" fill="#4CAF50" text-anchor="middle">✓ Process running</text>
+      <text x="100" y="38" font-family="Arial, sans-serif" font-size="10" fill="#4CAF50" text-anchor="middle">✓ Not deadlocked</text>
+      <text x="100" y="56" font-family="Arial, sans-serif" font-size="10" fill="#4CAF50" text-anchor="middle">✓ Event loop OK</text>
+      <text x="100" y="74" font-family="Arial, sans-serif" font-size="10" fill="#aaa" text-anchor="middle">Does NOT check deps</text>
+    </g>
+    
+    <!-- Failure action -->
+    <g transform="translate(15, 245)">
+      <rect x="0" y="0" width="200" height="40" rx="4" fill="#f44336" fill-opacity="0.2"/>
+      <text x="100" y="16" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#f44336" text-anchor="middle">On Failure:</text>
+      <text x="100" y="32" font-family="Arial, sans-serif" font-size="10" fill="white" text-anchor="middle">RESTART Container</text>
+    </g>
+    
+    <!-- Endpoint -->
+    <text x="115" y="310" font-family="monospace" font-size="11" fill="#2196F3" text-anchor="middle">/health/live</text>
+    <text x="115" y="328" font-family="Arial, sans-serif" font-size="9" fill="#aaa" text-anchor="middle">{"status": "alive"}</text>
+  </g>
+  
+  <!-- Readiness -->
+  <g transform="translate(285, 80)">
+    <rect x="0" y="0" width="230" height="340" rx="8" fill="#16213e" stroke="#FF9800" stroke-width="2"/>
+    <text x="115" y="30" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#FF9800" text-anchor="middle">Readiness Probe</text>
+    
+    <!-- Icon -->
+    <g transform="translate(85, 50)">
+      <rect x="5" y="10" width="50" height="40" rx="4" fill="none" stroke="#FF9800" stroke-width="3"/>
+      <path d="M 30 25 L 30 40" stroke="#FF9800" stroke-width="2"/>
+      <circle cx="30" cy="20" r="3" fill="#FF9800"/>
+    </g>
+    
+    <!-- Question -->
+    <text x="115" y="130" font-family="Arial, sans-serif" font-size="12" fill="white" text-anchor="middle">"Can it handle traffic?"</text>
+    
+    <!-- Description -->
+    <g transform="translate(15, 150)">
+      <rect x="0" y="0" width="200" height="80" rx="4" fill="#0f3460"/>
+      <text x="100" y="20" font-family="Arial, sans-serif" font-size="10" fill="#4CAF50" text-anchor="middle">✓ DB connected</text>
+      <text x="100" y="38" font-family="Arial, sans-serif" font-size="10" fill="#4CAF50" text-anchor="middle">✓ Redis available</text>
+      <text x="100" y="56" font-family="Arial, sans-serif" font-size="10" fill="#4CAF50" text-anchor="middle">✓ Cache warm</text>
+      <text x="100" y="74" font-family="Arial, sans-serif" font-size="10" fill="#4CAF50" text-anchor="middle">✓ All deps healthy</text>
+    </g>
+    
+    <!-- Failure action -->
+    <g transform="translate(15, 245)">
+      <rect x="0" y="0" width="200" height="40" rx="4" fill="#FF9800" fill-opacity="0.2"/>
+      <text x="100" y="16" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#FF9800" text-anchor="middle">On Failure:</text>
+      <text x="100" y="32" font-family="Arial, sans-serif" font-size="10" fill="white" text-anchor="middle">STOP sending traffic</text>
+    </g>
+    
+    <!-- Endpoint -->
+    <text x="115" y="310" font-family="monospace" font-size="11" fill="#2196F3" text-anchor="middle">/health/ready</text>
+    <text x="115" y="328" font-family="Arial, sans-serif" font-size="9" fill="#aaa" text-anchor="middle">{"status": "ready", ...}</text>
+  </g>
+  
+  <!-- Startup -->
+  <g transform="translate(530, 80)">
+    <rect x="0" y="0" width="230" height="340" rx="8" fill="#16213e" stroke="#2196F3" stroke-width="2"/>
+    <text x="115" y="30" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#2196F3" text-anchor="middle">Startup Probe</text>
+    
+    <!-- Icon -->
+    <g transform="translate(85, 50)">
+      <polygon points="30,5 55,55 5,55" fill="none" stroke="#2196F3" stroke-width="3"/>
+      <path d="M 30 25 L 30 40" stroke="#2196F3" stroke-width="2"/>
+      <circle cx="30" cy="47" r="3" fill="#2196F3"/>
+    </g>
+    
+    <!-- Question -->
+    <text x="115" y="130" font-family="Arial, sans-serif" font-size="12" fill="white" text-anchor="middle">"Has it finished starting?"</text>
+    
+    <!-- Description -->
+    <g transform="translate(15, 150)">
+      <rect x="0" y="0" width="200" height="80" rx="4" fill="#0f3460"/>
+      <text x="100" y="20" font-family="Arial, sans-serif" font-size="10" fill="#4CAF50" text-anchor="middle">✓ Initial setup done</text>
+      <text x="100" y="38" font-family="Arial, sans-serif" font-size="10" fill="#4CAF50" text-anchor="middle">✓ DB migrations</text>
+      <text x="100" y="56" font-family="Arial, sans-serif" font-size="10" fill="#4CAF50" text-anchor="middle">✓ Cache preloaded</text>
+      <text x="100" y="74" font-family="Arial, sans-serif" font-size="10" fill="#aaa" text-anchor="middle">For slow-starting apps</text>
+    </g>
+    
+    <!-- Failure action -->
+    <g transform="translate(15, 245)">
+      <rect x="0" y="0" width="200" height="40" rx="4" fill="#2196F3" fill-opacity="0.2"/>
+      <text x="100" y="16" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#2196F3" text-anchor="middle">On Failure:</text>
+      <text x="100" y="32" font-family="Arial, sans-serif" font-size="10" fill="white" text-anchor="middle">KILL Container</text>
+    </g>
+    
+    <!-- Endpoint -->
+    <text x="115" y="310" font-family="monospace" font-size="11" fill="#2196F3" text-anchor="middle">/health/startup</text>
+    <text x="115" y="328" font-family="Arial, sans-serif" font-size="9" fill="#aaa" text-anchor="middle">{"status": "started"}</text>
+  </g>
+</svg>
