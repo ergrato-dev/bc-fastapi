@@ -110,7 +110,7 @@ bootcamp/week-XX/
 
 ### Prerrequisitos
 
-- **Docker** y **Docker Compose** instalados
+- **Docker** y **Docker Compose** instalados ([Bootcamp Docker](https://github.com/ergrato-dev/bc-docker))
 - **Git** para control de versiones
 - **VS Code** (recomendado) con extensiones incluidas
 - Navegador moderno (Chrome, Firefox, Edge)

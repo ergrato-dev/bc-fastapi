@@ -206,7 +206,7 @@ Antes de continuar, asegúrate de:
 - [ ] Conocer la diferencia entre imagen y contenedor
 - [ ] Saber qué hace cada línea del Dockerfile
 - [ ] Conocer los comandos básicos de docker compose
-- [ ] Tener Docker instalado y funcionando
+- [ ] Tener Docker instalado y funcionando ([Bootcamp Docker](https://github.com/ergrato-dev/bc-docker))
 
 ---
 

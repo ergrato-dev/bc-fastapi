@@ -15,7 +15,7 @@
 
 ### Requisitos
 
-- Docker y Docker Compose instalados
+- Docker y Docker Compose instalados ([Bootcamp Docker](https://github.com/ergrato-dev/bc-docker))
 - Editor de código (VS Code recomendado)
 
 ### Cómo trabajar cada ejercicio

@@ -18,7 +18,7 @@ Al finalizar esta semana, serás capaz de:
 Antes de comenzar esta semana, deberías:
 
 - ✅ Haber completado las semanas 1-14 del bootcamp
-- ✅ Tener Docker Desktop instalado (o Docker Engine en Linux)
+- ✅ Tener Docker Desktop instalado ([Bootcamp Docker](https://github.com/ergrato-dev/bc-docker))
 - ✅ Tener una cuenta de GitHub
 - ✅ Conocer los fundamentos de Git
 - ✅ Haber trabajado con FastAPI, SQLAlchemy y testing

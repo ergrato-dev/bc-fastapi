@@ -16,7 +16,7 @@ Al finalizar esta semana, serás capaz de:
 
 ## 📚 Requisitos Previos
 
-- **Docker** y **Docker Compose** instalados
+- **Docker** y **Docker Compose** instalados ([Bootcamp Docker](https://github.com/ergrato-dev/bc-docker))
 - **VS Code** con extensiones recomendadas
 - **Git** configurado
 - Conocimientos básicos de Python (variables, funciones, estructuras de datos)
