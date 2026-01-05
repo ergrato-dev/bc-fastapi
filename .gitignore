@@ -209,6 +209,9 @@ bootcamp/**/3-proyecto/**/solution/
 # Logs de scripts de automatización
 _scripts/logs/
 
+# Material de instructor (si lo hubiera)
+**/_instructor-only/
+
 # Notebooks checkpoints
 .ipynb_checkpoints/
 *.ipynb_checkpoints
