@@ -212,6 +212,9 @@ _scripts/logs/
 # Material de instructor (si lo hubiera)
 **/_instructor-only/
 
+# Material de aprendices SENA (dominios asignados)
+**/_apprentices-only/
+
 # Notebooks checkpoints
 .ipynb_checkpoints/
 *.ipynb_checkpoints
