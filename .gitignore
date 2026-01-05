@@ -206,6 +206,9 @@ notas-personales/
 bootcamp/**/3-proyecto/**/solution/
 **/3-proyecto/solution/
 
+# Logs de scripts de automatización
+_scripts/logs/
+
 # Notebooks checkpoints
 .ipynb_checkpoints/
 *.ipynb_checkpoints
