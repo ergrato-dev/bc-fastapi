@@ -32,7 +32,7 @@ git clone https://github.com/ergrato-dev/bc-fastapi.git
 cd bc-fastapi
 
 # Ir a una semana específica
-cd bootcamp/week-01
+cd bootcamp/week-01-python_moderno_y_fastapi
 
 # Levantar entorno
 docker compose up --build

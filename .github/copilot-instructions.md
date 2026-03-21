@@ -58,14 +58,14 @@ Al finalizar el bootcamp, los estudiantes serán capaces de:
 
 ##### 🏗️ Progresión Arquitectónica (Semanas 5-10)
 
-| Semana | Arquitectura | Componentes Nuevos |
-|--------|--------------|-------------------|
-| 05 | Monolítico simple | SQLAlchemy básico, todo en endpoints |
-| 06 | + Service Layer | Services para lógica de negocio |
-| 07 | + Repository Pattern | Repositories para acceso a datos |
-| 08 | MVC/Capas completo | Routers → Services → Repositories |
-| 09 | + Ports & Adapters | Interfaces, inversión de dependencias |
-| 10 | Hexagonal completo | Domain, Application, Infrastructure |
+| Semana | Arquitectura         | Componentes Nuevos                    |
+| ------ | -------------------- | ------------------------------------- |
+| 05     | Monolítico simple    | SQLAlchemy básico, todo en endpoints  |
+| 06     | + Service Layer      | Services para lógica de negocio       |
+| 07     | + Repository Pattern | Repositories para acceso a datos      |
+| 08     | MVC/Capas completo   | Routers → Services → Repositories     |
+| 09     | + Ports & Adapters   | Interfaces, inversión de dependencias |
+| 10     | Hexagonal completo   | Domain, Application, Infrastructure   |
 
 #### **Avanzado (Semanas 11-14)** - 24 horas
 
@@ -91,7 +91,7 @@ Al finalizar el bootcamp, los estudiantes serán capaces de:
 Cada semana sigue esta estructura estándar:
 
 ```
-bootcamp/week-XX/
+bootcamp/week-XX-tema_principal/
 ├── README.md                 # Descripción y objetivos de la semana
 ├── rubrica-evaluacion.md     # Criterios de evaluación detallados
 ├── 0-assets/                 # Imágenes, diagramas y recursos visuales
@@ -143,10 +143,12 @@ Los ejercicios son **tutoriales guiados**, NO tareas con TODOs. El estudiante ap
 Explicación del concepto con ejemplo:
 
 \`\`\`python
+
 # Ejemplo explicativo
+
 @app.get("/items/{item_id}")
 async def read_item(item_id: int):
-    return {"item_id": item_id}
+return {"item_id": item_id}
 \`\`\`
 
 **Abre `starter/main.py`** y descomenta la sección correspondiente.
@@ -219,10 +221,10 @@ class UserCreate(BaseModel):
 async def create_user(user: UserCreate) -> dict:
     """
     Crea un nuevo usuario
-    
+
     Args:
         user: Datos del usuario a crear
-        
+
     Returns:
         dict: Usuario creado con su ID
     """
@@ -241,13 +243,14 @@ El estudiante debe:
 3. Usar lo aprendido en las prácticas guiadas
 
 > 📁 **Estructura del proyecto:**
+>
 > ```
 > 3-proyecto/
 > ├── README.md          # Instrucciones del proyecto
 > ├── starter/           # Código inicial para el estudiante
 > └── solution/          # ⚠️ OCULTA - Solo para instructores
 > ```
-> 
+>
 > La carpeta `solution/` está en `.gitignore` y NO se sube al repositorio público.
 
 ### 4. **Recursos** (4-recursos/)
@@ -283,7 +286,7 @@ async def fetch_data(url: str) -> dict:
 class UserCreate(BaseModel):
     email: EmailStr
     password: str = Field(..., min_length=8)
-    
+
     model_config = ConfigDict(str_strip_whitespace=True)
 
 # ✅ BIEN - dependencias de FastAPI
@@ -443,6 +446,7 @@ Los assets SVG en `0-assets/` de cada semana tienen un propósito educativo espe
 
 ```markdown
 <!-- Ejemplo de vinculación correcta en teoría -->
+
 ## Flujo Request/Response
 
 ![Diagrama del flujo HTTP request/response](../0-assets/http-flow.svg)
@@ -579,7 +583,6 @@ Cuando trabajes en este proyecto:
 ### Límites de Respuesta
 
 1. **Divide respuestas largas**
-
    - ❌ **NUNCA generar respuestas que superen los límites de tokens**
    - ✅ **SIEMPRE dividir contenido extenso en múltiples entregas**
    - ✅ Crear contenido por secciones, esperar confirmación del usuario
@@ -595,7 +598,6 @@ Cuando trabajes en este proyecto:
 ### Generación de Código
 
 1. **Usa siempre sintaxis Python moderna (3.14+)**
-
    - Type hints obligatorios
    - Match statements cuando aplique
    - f-strings para formateo
@@ -605,7 +607,6 @@ Cuando trabajes en este proyecto:
    - Soporte completo para PEP 695 (type alias syntax)
 
 2. **Entorno de Desarrollo con Docker**
-
    - ✅ **USAR Docker** para evitar problemas con múltiples versiones de Python
    - ✅ **docker compose** para orquestar servicios (API, DB, etc.)
    - ✅ Crear archivos `.env` para configuración de entorno
@@ -626,25 +627,24 @@ Cuando trabajes en este proyecto:
      ```bash
      # Construir y levantar servicios
      docker compose up --build
-     
+
      # Levantar en background
      docker compose up -d
-     
+
      # Ver logs
      docker compose logs -f api
-     
+
      # Ejecutar comandos dentro del contenedor
      docker compose exec api bash
-     
+
      # Detener servicios
      docker compose down
-     
+
      # Limpiar todo (incluye volúmenes)
      docker compose down -v
      ```
 
 3. **Gestión de Paquetes (dentro de Docker)**
-
    - ❌ **NUNCA usar `pip`** directamente
    - ✅ **SOLO usar `uv`** como gestor de paquetes (rápido y moderno)
    - Razón: Mejor resolución de dependencias, compatibilidad con Docker
@@ -652,17 +652,17 @@ Cuando trabajes en este proyecto:
 
      ```dockerfile
      FROM python:3.14-slim
-     
+
      ENV PYTHONDONTWRITEBYTECODE=1 \
          PYTHONUNBUFFERED=1 \
          UV_SYSTEM_PYTHON=1
-     
+
      RUN pip install --no-cache-dir uv
-     
+
      WORKDIR /app
      COPY pyproject.toml uv.lock* ./
      RUN uv sync --frozen --no-dev
-     
+
      COPY . .
      EXPOSE 8000
      CMD ["uv", "run", "fastapi", "run", "src/main.py", "--host", "0.0.0.0", "--port", "8000"]
@@ -673,25 +673,24 @@ Cuando trabajes en este proyecto:
      ```bash
      # Crear proyecto
      uv init
-     
+
      # Instalar dependencias
      uv sync
-     
+
      # Agregar paquete
      uv add fastapi
-     
+
      # Agregar paquete de desarrollo
      uv add --dev pytest
      ```
 
 4. **Base de Datos**
-
    - ✅ **SQLite** para desarrollo y **testing**
    - ✅ **PostgreSQL 16+** para producción
    - Razón: SQLite es perfecto para aprendizaje y tests (rápido, sin configuración)
    - **ORM**: SQLAlchemy 2.x (sync y async)
    - **Migraciones**: Alembic
-   
+
    ```python
    # Configuración típica por entorno
    # .env.example
@@ -701,29 +700,27 @@ Cuando trabajes en este proyecto:
    ```
 
 5. **Documentación de API**
-
    - ✅ **OpenAPI/Swagger** (integrado en FastAPI)
    - Acceso automático en `/docs` (Swagger UI) y `/redoc` (ReDoc)
    - Documentar endpoints con docstrings y `response_model`
-   
+
    ```python
    @app.get("/users/{user_id}", response_model=UserResponse)
    async def get_user(user_id: int) -> UserResponse:
        """
        Obtiene un usuario por su ID.
-       
+
        - **user_id**: ID único del usuario
        """
        ...
    ```
 
 6. **Comenta el código de manera educativa**
-
    - Explica conceptos para principiantes
    - Incluye referencias a documentación cuando sea útil
    - Usa comentarios que enseñen, no solo describan
 
-6. **Proporciona ejemplos completos y funcionales**
+7. **Proporciona ejemplos completos y funcionales**
    - Código que se pueda copiar y ejecutar
    - Incluye casos de uso realistas
    - Muestra tanto lo que se debe hacer como lo que se debe evitar
@@ -731,13 +728,11 @@ Cuando trabajes en este proyecto:
 ### Creación de Contenido
 
 1. **Estructura clara y progresiva**
-
    - De lo simple a lo complejo
    - Conceptos construidos sobre conocimientos previos
    - Repetición espaciada de conceptos clave
 
 2. **Ejemplos del mundo real**
-
    - Casos de uso prácticos y relevantes
    - Proyectos que los estudiantes puedan mostrar en portfolios
    - Problemas que encontrarán en el desarrollo real
@@ -750,13 +745,11 @@ Cuando trabajes en este proyecto:
 ### Respuestas y Ayuda
 
 1. **Explicaciones claras**
-
    - Lenguaje simple y directo
    - Evitar jerga innecesaria
    - Proporcionar analogías cuando sea útil
 
 2. **Código comentado**
-
    - Explicar cada paso importante
    - Destacar conceptos clave
    - Señalar posibles errores comunes
@@ -783,7 +776,7 @@ Cuando trabajes en este proyecto:
 
 - **Repositorio**: https://github.com/epti-dev/bc-fastapi
 - **Documentación general**: [\_docs/README.md](_docs/README.md)
-- **Primera semana**: [bootcamp/week-01/README.md](bootcamp/week-01/README.md)
+- **Primera semana**: [bootcamp/week-01-python_moderno_y_fastapi/README.md](bootcamp/week-01-python_moderno_y_fastapi/README.md)
 
 ---
 

@@ -61,7 +61,7 @@ FastAPI es el framework web de Python más rápido y moderno. Este bootcamp se e
 Cada semana incluye:
 
 ```
-bootcamp/week-XX/
+bootcamp/week-XX-tema_principal/
 ├── README.md                 # Descripción y objetivos
 ├── rubrica-evaluacion.md     # Criterios de evaluación
 ├── 0-assets/                 # Imágenes y diagramas
@@ -135,7 +135,7 @@ code .
 ### 3. Navegar a la Semana Actual
 
 ```bash
-cd bootcamp/week-01
+cd bootcamp/week-01-python_moderno_y_fastapi
 ```
 
 ### 4. Seguir las Instrucciones
@@ -236,7 +236,7 @@ Este proyecto está bajo la Licencia MIT - ver el archivo [LICENSE](LICENSE) par
 </p>
 
 <p align="center">
-  <a href="bootcamp/week-01">Comenzar Semana 1</a> •
+  <a href="bootcamp/week-01-python_moderno_y_fastapi">Comenzar Semana 1</a> •
   <a href="_docs">Ver Documentación</a> •
   <a href="https://github.com/epti-dev/bc-fastapi/issues">Reportar Issue</a> •
   <a href="CONTRIBUTING.md">Contribuir</a>
