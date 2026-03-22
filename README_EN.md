@@ -204,6 +204,19 @@ Contributions are welcome! This is an open-source educational project.
 
 ---
 
+## ⚠️ Disclaimer
+
+This repository is an **educational** resource created for learning purposes. By using it, you agree to the following terms:
+
+- **Educational purposes only**: The content, code examples, and projects are designed exclusively for teaching and learning. They do not constitute professional, legal, or security advice.
+- **No warranties**: The material is provided **"as is"**, without warranties of any kind, express or implied, including fitness for a particular purpose or freedom from errors.
+- **Production code**: Code examples are illustrative. Before using them in production environments, you must perform security, performance, and context-specific reviews.
+- **Software versions**: Library and tool versions mentioned may become outdated. Always consult the latest official documentation.
+- **Limitation of liability**: The authors and contributors are not responsible for data loss, direct or indirect damages, service interruptions, or any other harm arising from the use of this material.
+- **Student responsibility**: Each student is responsible for their own implementations, development environments, and technical decisions.
+
+---
+
 ## 📄 License
 
 This project is under the MIT License - see the [LICENSE](LICENSE) file for details.
