@@ -3,11 +3,10 @@
 </p>
 
 <p align="center">
-  <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="License MIT"></a>
+  <a href="LICENSE"><img src="https://img.shields.io/badge/license-CC%20BY--NC--SA%204.0-lightgrey.svg" alt="License CC BY-NC-SA 4.0"></a>
   <a href="#"><img src="https://img.shields.io/badge/semanas-16-yellow.svg" alt="16 Semanas"></a>
   <a href="#"><img src="https://img.shields.io/badge/horas-96-orange.svg" alt="96 Horas"></a>
   <a href="#"><img src="https://img.shields.io/badge/FastAPI-009688?logo=fastapi&logoColor=white" alt="FastAPI"></a>
-  <a href="CONTRIBUTING.md"><img src="https://img.shields.io/badge/PRs-Welcome-brightgreen?style=flat-square" alt="PRs Welcome"></a>
 </p>
 
 <p align="center">
@@ -172,29 +171,6 @@ Cada semana incluye tres tipos de evidencias:
 
 ---
 
-## 🤝 Contribuir
-
-¡Las contribuciones son bienvenidas! Este es un proyecto educativo de código abierto.
-
-### Cómo Contribuir
-
-1. Lee la [Guía de Contribución](CONTRIBUTING.md)
-2. Revisa el [Código de Conducta](CODE_OF_CONDUCT.md)
-3. Fork del repositorio
-4. Crea tu rama (`git checkout -b feature/nueva-funcionalidad`)
-5. Commit con [Conventional Commits](https://www.conventionalcommits.org/) (`git commit -m 'feat: add new exercise'`)
-6. Push a la rama (`git push origin feature/nueva-funcionalidad`)
-7. Abre un Pull Request
-
-### 📋 Áreas de Contribución
-
-- ✨ Ejercicios adicionales
-- 📚 Mejoras en documentación
-- 🐛 Corrección de errores
-- 🎨 Recursos visuales (diagramas SVG)
-- 🌐 Traducciones
-- 📹 Videos tutoriales
-
 ---
 
 ## 📞 Soporte
@@ -219,7 +195,13 @@ Este repositorio es un recurso **educativo** creado con fines de aprendizaje. Al
 
 ## 📄 Licencia
 
-Este proyecto está bajo la Licencia MIT - ver el archivo [LICENSE](LICENSE) para más detalles.
+Este proyecto está bajo la licencia **[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/)** (Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International).
+
+**Puedes:** compartir y adaptar el material, incluso crear forks educativos.<br>
+**No puedes:** usar este material con fines comerciales.<br>
+**Debes:** dar crédito apropiado y distribuir las adaptaciones bajo la misma licencia.
+
+Ver el archivo [LICENSE](LICENSE) para el texto completo.
 
 ---
 
@@ -237,7 +219,6 @@ Este proyecto está bajo la Licencia MIT - ver el archivo [LICENSE](LICENSE) par
 ## 📚 Documentación Adicional
 
 - [🤖 Instrucciones de Copilot](.github/copilot-instructions.md)
-- [🤝 Guía de Contribución](CONTRIBUTING.md)
 - [📜 Código de Conducta](CODE_OF_CONDUCT.md)
 - [🔒 Política de Seguridad](SECURITY.md)
 
@@ -251,8 +232,7 @@ Este proyecto está bajo la Licencia MIT - ver el archivo [LICENSE](LICENSE) par
 <p align="center">
   <a href="bootcamp/week-01-python_moderno_y_fastapi">Comenzar Semana 1</a> •
   <a href="_docs">Ver Documentación</a> •
-  <a href="https://github.com/epti-dev/bc-fastapi/issues">Reportar Issue</a> •
-  <a href="CONTRIBUTING.md">Contribuir</a>
+  <a href="https://github.com/epti-dev/bc-fastapi/issues">Reportar Issue</a>
 </p>
 
 <p align="center">

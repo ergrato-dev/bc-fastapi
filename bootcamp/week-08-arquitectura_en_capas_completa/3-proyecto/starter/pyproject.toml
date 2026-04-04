@@ -5,15 +5,15 @@ description = "E-Commerce API - Proyecto Semana 08"
 readme = "README.md"
 requires-python = ">=3.14"
 dependencies = [
-    "fastapi>=0.128.0",
-    "uvicorn>=0.40.0",
-    "sqlalchemy>=2.0.46",
-    "pydantic>=2.12.0",
-    "pydantic-settings>=2.6.0",
+    "fastapi==0.128.0",
+    "uvicorn==0.40.0",
+    "sqlalchemy==2.0.46",
+    "pydantic==2.12.0",
+    "pydantic-settings==2.6.0",
 ]
 
 [tool.uv]
 dev-dependencies = [
-    "pytest>=8.4.0",
-    "httpx>=0.29.0",
+    "pytest==8.4.0",
+    "httpx==0.29.0",
 ]

@@ -4,18 +4,18 @@ version = "1.0.0"
 description = "GitHub Actions CI/CD Practice"
 requires-python = ">=3.14"
 dependencies = [
-    "fastapi>=0.128.0",
-    "uvicorn[standard]>=0.40.0",
-    "pydantic[email]>=2.10.0",
+    "fastapi==0.128.0",
+    "uvicorn[standard]==0.40.0",
+    "pydantic[email]==2.10.0",
 ]
 
 [project.optional-dependencies]
 dev = [
-    "pytest>=8.4.0",
-    "pytest-cov>=6.0.0",
-    "httpx>=0.29.0",
-    "ruff>=0.8.0",
-    "mypy>=1.13.0",
+    "pytest==8.4.0",
+    "pytest-cov==6.0.0",
+    "httpx==0.29.0",
+    "ruff==0.8.0",
+    "mypy==1.13.0",
 ]
 
 [tool.ruff]

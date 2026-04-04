@@ -3,11 +3,10 @@
 </p>
 
 <p align="center">
-  <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="License MIT"></a>
+  <a href="LICENSE"><img src="https://img.shields.io/badge/license-CC%20BY--NC--SA%204.0-lightgrey.svg" alt="License CC BY-NC-SA 4.0"></a>
   <a href="#"><img src="https://img.shields.io/badge/weeks-16-yellow.svg" alt="16 Weeks"></a>
   <a href="#"><img src="https://img.shields.io/badge/hours-96-orange.svg" alt="96 Hours"></a>
   <a href="#"><img src="https://img.shields.io/badge/FastAPI-009688?logo=fastapi&logoColor=white" alt="FastAPI"></a>
-  <a href="CONTRIBUTING.md"><img src="https://img.shields.io/badge/PRs-Welcome-brightgreen?style=flat-square" alt="PRs Welcome"></a>
 </p>
 
 <p align="center">
@@ -172,29 +171,6 @@ Each week includes three types of evidence:
 
 ---
 
-## 🤝 Contributing
-
-Contributions are welcome! This is an open-source educational project.
-
-### How to Contribute
-
-1. Read the [Contributing Guide](CONTRIBUTING.md)
-2. Review the [Code of Conduct](CODE_OF_CONDUCT.md)
-3. Fork the repository
-4. Create your branch (`git checkout -b feature/new-feature`)
-5. Commit with [Conventional Commits](https://www.conventionalcommits.org/) (`git commit -m 'feat: add new exercise'`)
-6. Push to the branch (`git push origin feature/new-feature`)
-7. Open a Pull Request
-
-### 📋 Contribution Areas
-
-- ✨ Additional exercises
-- 📚 Documentation improvements
-- 🐛 Bug fixes
-- 🎨 Visual resources (SVG diagrams)
-- 🌐 Translations
-- 📹 Tutorial videos
-
 ---
 
 ## 📞 Support
@@ -219,7 +195,13 @@ This repository is an **educational** resource created for learning purposes. By
 
 ## 📄 License
 
-This project is under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under **[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/)** (Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International).
+
+**You may:** share and adapt the material, including creating educational forks.<br>
+**You may not:** use this material for commercial purposes.<br>
+**You must:** give appropriate credit and distribute adaptations under the same license.
+
+See the [LICENSE](LICENSE) file for the full text.
 
 ---
 
@@ -237,7 +219,6 @@ This project is under the MIT License - see the [LICENSE](LICENSE) file for deta
 ## 📚 Additional Documentation
 
 - [🤖 Copilot Instructions](.github/copilot-instructions.md)
-- [🤝 Contributing Guide](CONTRIBUTING.md)
 - [📜 Code of Conduct](CODE_OF_CONDUCT.md)
 - [🔒 Security Policy](SECURITY.md)
 
@@ -251,8 +232,7 @@ This project is under the MIT License - see the [LICENSE](LICENSE) file for deta
 <p align="center">
   <a href="bootcamp/week-01-python_moderno_y_fastapi">Start Week 1</a> •
   <a href="_docs">View Docs</a> •
-  <a href="https://github.com/epti-dev/bc-fastapi/issues">Report Issue</a> •
-  <a href="CONTRIBUTING.md">Contribute</a>
+  <a href="https://github.com/epti-dev/bc-fastapi/issues">Report Issue</a>
 </p>
 
 <p align="center">

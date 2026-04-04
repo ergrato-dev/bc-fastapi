@@ -4,7 +4,7 @@ version = "0.1.0"
 description = "Ejercicio: Field y Restricciones"
 requires-python = ">=3.14"
 dependencies = [
-    "pydantic[email]>=2.10",
+    "pydantic[email]==2.10.0",
 ]
 
 [tool.uv]

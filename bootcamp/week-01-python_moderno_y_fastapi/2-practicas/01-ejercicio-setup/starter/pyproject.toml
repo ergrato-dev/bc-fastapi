@@ -25,7 +25,7 @@
 # Descomenta el siguiente bloque:
 
 # dependencies = [
-#     "fastapi[standard]>=0.128.0",
+#     "fastapi[standard]==0.128.0",
 # ]
 
 
