@@ -10,7 +10,7 @@ Configurar el entorno de desarrollo con Docker y crear tu primer proyecto FastAP
 
 ## 📋 Requisitos Previos
 
-- Docker Desktop instalado ([Guía de instalación](../../../_docs/docker-setup.md))
+- Docker Desktop instalado ([Guía de instalación](../../../docs/docker-setup.md))
 - VS Code con extensión Docker
 - Terminal disponible
 

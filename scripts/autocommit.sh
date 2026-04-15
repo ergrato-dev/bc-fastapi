@@ -9,7 +9,7 @@ set -euo pipefail
 
 # Configuration
 REPO_DIR="/home/epti/Documents/epti-dev/bc-channel/bc-fastapi"
-LOG_FILE="${REPO_DIR}/_scripts/logs/autocommit.log"
+LOG_FILE="${REPO_DIR}/scripts/logs/autocommit.log"
 MAX_LOG_SIZE=1048576  # 1MB
 
 # Colors for output
@@ -54,11 +54,11 @@ detect_change_type() {
         type="docs"
     elif echo "$files" | grep -qE "^bootcamp/week-[0-9]+/5-glosario/"; then
         type="docs"
-    elif echo "$files" | grep -qE "^_docs/"; then
+    elif echo "$files" | grep -qE "^docs/"; then
         type="docs"
-    elif echo "$files" | grep -qE "^_scripts/"; then
+    elif echo "$files" | grep -qE "^scripts/"; then
         type="chore"
-    elif echo "$files" | grep -qE "^_assets/"; then
+    elif echo "$files" | grep -qE "^assets/"; then
         type="feat"
     elif echo "$files" | grep -qE "\.(md|txt)$"; then
         type="docs"
@@ -87,11 +87,11 @@ extract_scope() {
     # Extract week number if present
     if echo "$files" | grep -qoE "week-[0-9]+"; then
         scope=$(echo "$files" | grep -oE "week-[0-9]+" | head -1)
-    elif echo "$files" | grep -qE "^_docs/"; then
+    elif echo "$files" | grep -qE "^docs/"; then
         scope="docs"
-    elif echo "$files" | grep -qE "^_scripts/"; then
+    elif echo "$files" | grep -qE "^scripts/"; then
         scope="scripts"
-    elif echo "$files" | grep -qE "^_assets/"; then
+    elif echo "$files" | grep -qE "^assets/"; then
         scope="assets"
     elif echo "$files" | grep -qE "^\.github/"; then
         scope="github"

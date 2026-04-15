@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="_assets/bootcamp-header.svg" alt="FastAPI Bootcamp Zero to Hero" width="800">
+  <img src="assets/bootcamp-header.svg" alt="FastAPI Bootcamp Zero to Hero" width="800">
 </p>
 
 <p align="center">
@@ -231,7 +231,7 @@ See the [LICENSE](LICENSE) file for the full text.
 
 <p align="center">
   <a href="bootcamp/week-01-python_moderno_y_fastapi">Start Week 1</a> •
-  <a href="_docs">View Docs</a> •
+  <a href="docs">View Docs</a> •
   <a href="https://github.com/epti-dev/bc-fastapi/issues">Report Issue</a>
 </p>
 

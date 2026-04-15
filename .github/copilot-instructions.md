@@ -108,9 +108,9 @@ bootcamp/week-XX-tema_principal/
 
 ### 📁 Carpetas Raíz
 
-- **`_assets/`**: Recursos visuales globales (logos, headers, etc.)
-- **`_docs/`**: Documentación general que aplica a todo el bootcamp
-- **`_scripts/`**: Scripts de automatización y utilidades
+- **`assets/`**: Recursos visuales globales (logos, headers, etc.)
+- **`docs/`**: Documentación general que aplica a todo el bootcamp
+- **`scripts/`**: Scripts de automatización y utilidades
 - **`bootcamp/`**: Contenido semanal del bootcamp
 
 ---
@@ -775,7 +775,7 @@ Cuando trabajes en este proyecto:
 ## 🔗 Enlaces Importantes
 
 - **Repositorio**: https://github.com/epti-dev/bc-fastapi
-- **Documentación general**: [\_docs/README.md](_docs/README.md)
+- **Documentación general**: [docs/README.md](docs/README.md)
 - **Primera semana**: [bootcamp/week-01-python_moderno_y_fastapi/README.md](bootcamp/week-01-python_moderno_y_fastapi/README.md)
 
 ---

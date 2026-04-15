@@ -214,7 +214,7 @@ Antes de continuar, asegúrate de:
 
 - [Docker Documentation](https://docs.docker.com/)
 - [Docker Compose Overview](https://docs.docker.com/compose/)
-- [Guía de instalación del bootcamp](../../../_docs/docker-setup.md)
+- [Guía de instalación del bootcamp](../../../docs/docker-setup.md)
 
 ---
 

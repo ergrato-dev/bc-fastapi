@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="_assets/bootcamp-header.svg" alt="Bootcamp FastAPI Zero to Hero" width="800">
+  <img src="assets/bootcamp-header.svg" alt="Bootcamp FastAPI Zero to Hero" width="800">
 </p>
 
 <p align="center">
@@ -231,7 +231,7 @@ Ver el archivo [LICENSE](LICENSE) para el texto completo.
 
 <p align="center">
   <a href="bootcamp/week-01-python_moderno_y_fastapi">Comenzar Semana 1</a> •
-  <a href="_docs">Ver Documentación</a> •
+  <a href="docs">Ver Documentación</a> •
   <a href="https://github.com/epti-dev/bc-fastapi/issues">Reportar Issue</a>
 </p>
 

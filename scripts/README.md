@@ -14,27 +14,27 @@ Scripts para automatizar commits en el repositorio del bootcamp.
 
 ```bash
 # Dar permisos de ejecución
-chmod +x _scripts/*.sh
+chmod +x scripts/*.sh
 
 # Instalar con intervalo por defecto (30 minutos)
-./_scripts/install-autocommit.sh install
+./scripts/install-autocommit.sh install
 
 # Instalar con intervalo personalizado
-./_scripts/install-autocommit.sh install 1h    # Cada hora
-./_scripts/install-autocommit.sh install 15min # Cada 15 minutos
+./scripts/install-autocommit.sh install 1h    # Cada hora
+./scripts/install-autocommit.sh install 15min # Cada 15 minutos
 ```
 
 ## 📊 Comandos Útiles
 
 ```bash
 # Ver estado del timer
-./_scripts/install-autocommit.sh status
+./scripts/install-autocommit.sh status
 
 # Ejecutar manualmente
-./_scripts/install-autocommit.sh run
+./scripts/install-autocommit.sh run
 
 # Desinstalar
-./_scripts/install-autocommit.sh uninstall
+./scripts/install-autocommit.sh uninstall
 ```
 
 ## 🏷️ Formato de Commits
@@ -58,7 +58,7 @@ Auto-committed by bc-fastapi autocommit script
 | `feat` | Archivos en `2-practicas/`, `3-proyecto/`, `*.py` |
 | `docs` | Archivos en `1-teoria/`, `4-recursos/`, `5-glosario/`, `*.md` |
 | `fix` | Archivos con "fix", "bug", "error" en el nombre |
-| `chore` | Archivos de configuración, `_scripts/` |
+| `chore` | Archivos de configuración, `scripts/` |
 | `ci` | Archivos en `.github/` |
 | `test` | Archivos de test |
 | `refactor` | Archivos con "refactor" en el nombre |
@@ -66,9 +66,9 @@ Auto-committed by bc-fastapi autocommit script
 ### Scope Detectado
 
 - `week-XX` - Cambios en una semana específica
-- `docs` - Cambios en `_docs/`
-- `scripts` - Cambios en `_scripts/`
-- `assets` - Cambios en `_assets/`
+- `docs` - Cambios en `docs/`
+- `scripts` - Cambios en `scripts/`
+- `assets` - Cambios en `assets/`
 - `github` - Cambios en `.github/`
 
 ## 📝 Ejemplo de Commit Generado
@@ -104,11 +104,11 @@ systemctl --user start bc-fastapi-autocommit.timer
 
 ## 📁 Logs
 
-Los logs se guardan en `_scripts/logs/autocommit.log` y se rotan automáticamente al alcanzar 1MB.
+Los logs se guardan en `scripts/logs/autocommit.log` y se rotan automáticamente al alcanzar 1MB.
 
 ```bash
 # Ver logs
-tail -f _scripts/logs/autocommit.log
+tail -f scripts/logs/autocommit.log
 ```
 
 ## ⚠️ Notas

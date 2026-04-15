@@ -52,7 +52,7 @@ week-XX-tema_en_snake_case
 2. **Archivos actualizados** (enlaces relativos corregidos):
    - `README.md` (raíz)
    - `README_EN.md` (raíz)
-   - `_docs/README.md`
+   - `docs/README.md`
    - `.github/copilot-instructions.md`
    - Todos los `bootcamp/week-XX-*/README.md` (navegación entre semanas)
    - `bootcamp/week-02-*/5-glosario/README.md`
@@ -62,7 +62,7 @@ week-XX-tema_en_snake_case
    - `bootcamp/week-XX-*/5-glosario/README.md` (enlaces de retorno)
 3. **No modificados** (intencionalmente):
    - `CONTRIBUTING.md`: ejemplos de mensajes de commit (`feat(week-03):`) — son convenciones de texto, no rutas de archivos.
-   - `_scripts/README.md`: ejemplo de commit en documentación de scripts.
+   - `scripts/README.md`: ejemplo de commit en documentación de scripts.
    - `.github/ISSUE_TEMPLATE/*.md`: ejemplos de texto `[ej. week-03]`.
    - `bootcamp/week-09-*/rubrica-evaluacion.md`: `week-09-nombre-apellido/` es una convención de nombre de entrega del estudiante, no una ruta del repositorio.
 
