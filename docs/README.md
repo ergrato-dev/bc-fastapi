@@ -6,7 +6,8 @@ Esta carpeta contiene documentación general que aplica a todo el bootcamp.
 
 | Documento | Descripción |
 |-----------|-------------|
-| [docker-setup.md](docker-setup.md) | Configuración de Docker y docker compose |
+| [setup/](setup/README.md) | ⚙️ Configuración del entorno (con y sin Docker) |
+| [docker-setup.md](docker-setup.md) | Configuración detallada de Docker y docker compose |
 | [stack-versions.md](stack-versions.md) | Versiones oficiales de todas las tecnologías |
 | [dependency-security-policy.md](dependency-security-policy.md) | 🔒 Política de seguridad, regla de oro (`==`), auditoría CVE |
 
