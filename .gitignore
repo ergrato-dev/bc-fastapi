@@ -213,6 +213,9 @@ scripts/logs/
 # Material de instructor (si lo hubiera)
 **/_instructor-only/
 
+# Carpeta de material de instructor por semana (demostraciones en clase)
+**/6-instructor/
+
 # Material de aprendices SENA (dominios asignados)
 **/_apprentices-only/
 
