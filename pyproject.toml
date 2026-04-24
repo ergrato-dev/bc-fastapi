@@ -1,0 +1,90 @@
+# ============================================================
+# ENTORNO INSTRUCTOR — Bootcamp FastAPI Zero to Hero
+# ============================================================
+# Entorno uv unificado para ejecutar demos y scripts de todas
+# las semanas del bootcamp, especialmente las carpetas 6-instructor.
+#
+# Uso:
+#   uv sync                           # instalar todo
+#   uv run python demo-01-fastapi.py  # ejecutar un demo
+#   uv run pytest                     # correr tests
+#
+# Este entorno NO reemplaza los pyproject.toml individuales
+# de cada ejercicio/proyecto del estudiante.
+# ============================================================
+
+[project]
+name = "bc-fastapi-instructor"
+version = "0.1.0"
+description = "Entorno instructor — Bootcamp FastAPI Zero to Hero (16 semanas)"
+requires-python = ">=3.14"
+
+dependencies = [
+    # ── Core ──────────────────────────────────────────────
+    # fastapi[standard] incluye: uvicorn[standard], email-validator,
+    # python-multipart, httpx, jinja2 y otros extras estándar
+    "fastapi[standard]==0.128.0",
+
+    # ── Base de datos ─────────────────────────────────────
+    "sqlalchemy==2.0.46",
+
+    # ── Validación y configuración ────────────────────────
+    "pydantic[email]==2.12.0",
+    "pydantic-settings==2.6.0",
+
+    # ── Autenticación (semanas 11+) ───────────────────────
+    "python-jose[cryptography]==3.5.0",
+    "passlib[bcrypt]==1.7.4",
+
+    # ── Tiempo real (semana 13) ───────────────────────────
+    "sse-starlette==3.3.4",
+
+    # ── Rate limiting y seguridad (semana 14) ─────────────
+    "slowapi==0.1.9",
+
+    # ── Observabilidad (semana 14) ────────────────────────
+    "prometheus-fastapi-instrumentator==7.0.0",
+    "prometheus-client==0.21.0",
+    "structlog==25.5.0",
+    "psutil==6.0.0",
+
+    # ── Cache / broker (semana 14+) ───────────────────────
+    "redis==5.2.0",
+
+    # ── Testing en runtime ────────────────────────────────
+    "httpx==0.28.1",
+    "freezegun==1.5.5",
+]
+
+[dependency-groups]
+dev = [
+    # ── Testing ───────────────────────────────────────────
+    "pytest==8.4.0",
+    "pytest-asyncio==0.25.0",
+    "pytest-cov==6.0.0",
+    "pytest-mock==3.14.0",
+    "respx==0.23.1",
+
+    # ── Linting y tipado ──────────────────────────────────
+    "ruff==0.8.0",
+    "mypy==1.13.0",
+]
+
+# ── Configuración de herramientas ──────────────────────────
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "function"
+addopts = "-v --tb=short"
+
+[tool.ruff]
+target-version = "py314"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "W", "F", "I", "B", "C4", "UP", "SIM"]
+ignore = ["E501", "B008"]
+
+[tool.mypy]
+python_version = "3.14"
+ignore_missing_imports = true

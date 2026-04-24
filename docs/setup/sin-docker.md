@@ -67,6 +67,35 @@ echo 'eval "$(pyenv init -)"' >> ~/.zshrc
 source ~/.zshrc
 ```
 
+**Windows (Git Bash):**
+
+En Windows se usa `pyenv-win`, el port oficial de pyenv para Windows.
+
+```bash
+# En Git Bash
+curl -L https://github.com/pyenv-win/pyenv-win/archive/master.zip -o pyenv-win.zip
+unzip pyenv-win.zip -d "$USERPROFILE/.pyenv"
+mv "$USERPROFILE/.pyenv/pyenv-win-master" "$USERPROFILE/.pyenv/pyenv-win"
+```
+
+Luego agrega estas líneas al final de tu `~/.bashrc` (Git Bash):
+
+```bash
+echo 'export PYENV_ROOT="$USERPROFILE/.pyenv/pyenv-win"' >> ~/.bashrc
+echo 'export PATH="$PYENV_ROOT/bin:$PYENV_ROOT/shims:$PATH"' >> ~/.bashrc
+
+source ~/.bashrc
+```
+
+Verifica la instalación:
+
+```bash
+pyenv --version
+# pyenv 3.x.x
+```
+
+> ℹ️ Todos los comandos de pyenv (`pyenv install`, `pyenv global`, etc.) funcionan igual en Git Bash que en Linux/macOS.
+
 Una vez instalado `pyenv`, instala Python 3.14:
 
 ```bash
