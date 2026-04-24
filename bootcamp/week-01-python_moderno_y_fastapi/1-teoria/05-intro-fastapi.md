@@ -18,7 +18,7 @@ Al finalizar este tema, serás capaz de:
 
 **FastAPI** es un framework web moderno y de alto rendimiento para construir APIs con Python 3.8+, basado en estándares abiertos.
 
-![Arquitectura de FastAPI](../0-assets/03-fastapi-architecture.svg)
+<img src="../0-assets/03-fastapi-architecture.svg" alt="Arquitectura de FastAPI">
 
 #### Características Principales
 

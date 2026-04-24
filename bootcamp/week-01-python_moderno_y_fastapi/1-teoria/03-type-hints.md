@@ -36,7 +36,7 @@ FastAPI usa type hints para:
 | **Documentación** | Genera Swagger/OpenAPI automáticamente |
 | **Autocompletado** | Tu IDE sugiere métodos correctos |
 
-![Type hints en FastAPI](../0-assets/type-hints-fastapi.svg)
+<img src="../0-assets/type-hints-fastapi.svg" alt="Type hints en FastAPI">
 
 ---
 

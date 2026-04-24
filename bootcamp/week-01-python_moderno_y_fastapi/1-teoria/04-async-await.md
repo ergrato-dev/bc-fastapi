@@ -18,7 +18,7 @@ Al finalizar este tema, serás capaz de:
 
 La programación asíncrona permite que tu programa **continúe ejecutando otras tareas** mientras espera operaciones lentas (I/O), en lugar de quedarse bloqueado.
 
-![Diagrama comparativo sync vs async](../0-assets/01-sync-vs-async.svg)
+<img src="../0-assets/01-sync-vs-async.svg" alt="Diagrama comparativo sync vs async">
 
 #### Analogía del Restaurante 🍽️
 
@@ -150,7 +150,7 @@ El **Event Loop** es el corazón de la programación asíncrona. Es un bucle inf
 4. **Ejecuta otras tareas** mientras espera
 5. **Retoma** cuando la operación termina
 
-![Diagrama del Event Loop](../0-assets/02-event-loop.svg)
+<img src="../0-assets/02-event-loop.svg" alt="Diagrama del Event Loop">
 
 #### Visualización del Event Loop
 

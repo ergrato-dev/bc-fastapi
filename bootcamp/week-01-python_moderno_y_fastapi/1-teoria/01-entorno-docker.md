@@ -18,7 +18,7 @@ En desarrollo de software, uno de los problemas más comunes es:
 
 Docker resuelve este problema creando **contenedores**: entornos aislados y reproducibles.
 
-![Diagrama de Docker vs instalación tradicional](../0-assets/docker-vs-traditional.svg)
+<img src="../0-assets/docker-vs-traditional.svg" alt="Diagrama de Docker vs instalación tradicional">
 
 #### Beneficios para el Bootcamp
 
