@@ -101,11 +101,16 @@ uv --version
 # uv 0.6.x
 ```
 
-**Windows:**
-```powershell
-# En PowerShell
-irm https://astral.sh/uv/install.ps1 | iex
+**Windows (Git Bash):**
+```bash
+# En Git Bash (incluido con Git para Windows)
+curl -LsSf https://astral.sh/uv/install.sh | sh
+
+# Recargar variables de entorno
+source $HOME/.local/bin/env
 ```
+
+> ℹ️ Abre **Git Bash** (no PowerShell ni CMD) para ejecutar estos comandos. Git Bash viene instalado junto con Git para Windows.
 
 ---
 
