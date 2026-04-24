@@ -1,0 +1,115 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 380">
+  <defs>
+    <style>
+      .bg      { fill: #1a1a2e; }
+      .title   { fill: #ffffff; font-family: 'Segoe UI', sans-serif; font-size: 18px; font-weight: 700; }
+      .heading { fill: #ffffff; font-family: 'Segoe UI', sans-serif; font-size: 13px; font-weight: 600; }
+      .label   { fill: #e0e0e0; font-family: 'Segoe UI', sans-serif; font-size: 12px; }
+      .code    { fill: #80cbc4; font-family: 'Courier New', monospace; font-size: 12px; }
+      .kw      { fill: #c792ea; font-family: 'Courier New', monospace; font-size: 12px; }
+      .hint    { fill: #ffcb6b; font-family: 'Courier New', monospace; font-size: 12px; }
+      .str     { fill: #c3e88d; font-family: 'Courier New', monospace; font-size: 12px; }
+      .arrow   { stroke: #009688; stroke-width: 2; fill: none; marker-end: url(#arr); }
+      .benefit { fill: #16213e; }
+      .b-icon  { fill: #009688; }
+    </style>
+    <marker id="arr" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#009688"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect class="bg" width="800" height="380"/>
+
+  <!-- Title -->
+  <text class="title" x="400" y="36" text-anchor="middle">Type Hints en FastAPI</text>
+
+  <!-- ── Code block (left) ── -->
+  <rect x="30" y="55" width="330" height="190" rx="8" fill="#0d1117"/>
+  <rect x="30" y="55" width="330" height="24" rx="8" fill="#161b22"/>
+  <rect x="30" y="67" width="330" height="12" fill="#161b22"/>
+  <text font-family="'Segoe UI', sans-serif" font-size="11px" fill="#8b949e" x="44" y="71">main.py</text>
+
+  <text class="kw" x="44" y="100">from</text>
+  <text class="code" x="85" y="100">fastapi</text>
+  <text class="kw" x="147" y="100">import</text>
+  <text class="code" x="197" y="100">FastAPI</text>
+
+  <text class="code" x="44" y="122">app = FastAPI()</text>
+
+  <text x="44" y="148">
+    <tspan class="code">@app.get(</tspan>
+    <tspan class="str">"/users/{id}"</tspan>
+    <tspan class="code">)</tspan>
+  </text>
+  <text class="kw" x="44" y="168">async def</text>
+  <text class="code" x="104" y="168"> get_user(</text>
+  <text x="44" y="188">
+    <tspan class="code">    id: </tspan>
+    <tspan class="hint">int</tspan>
+    <tspan class="code">,</tspan>
+  </text>
+  <text x="44" y="208">
+    <tspan class="code">    name: </tspan>
+    <tspan class="hint">str</tspan>
+  </text>
+  <text x="44" y="228">
+    <tspan class="code">) -&gt; </tspan>
+    <tspan class="hint">dict</tspan>
+    <tspan class="code">:</tspan>
+  </text>
+
+  <!-- Annotation arrows pointing to hint keywords -->
+  <!-- id: int -->
+  <line x1="80" y1="192" x2="80" y2="268" stroke="#ffcb6b" stroke-width="1" stroke-dasharray="4,3"/>
+  <!-- name: str -->
+  <line x1="98" y1="212" x2="200" y2="268" stroke="#ffcb6b" stroke-width="1" stroke-dasharray="4,3"/>
+  <!-- -> dict -->
+  <line x1="105" y1="232" x2="320" y2="268" stroke="#ffcb6b" stroke-width="1" stroke-dasharray="4,3"/>
+
+  <!-- Badge row under code -->
+  <rect x="44" y="270" width="60" height="22" rx="11" fill="#3e2723"/>
+  <text font-family="'Segoe UI', sans-serif" font-size="11px" fill="#ffcb6b" x="74" y="285" text-anchor="middle">input</text>
+
+  <rect x="174" y="270" width="60" height="22" rx="11" fill="#3e2723"/>
+  <text font-family="'Segoe UI', sans-serif" font-size="11px" fill="#ffcb6b" x="204" y="285" text-anchor="middle">input</text>
+
+  <rect x="298" y="270" width="60" height="22" rx="11" fill="#1b5e20"/>
+  <text font-family="'Segoe UI', sans-serif" font-size="11px" fill="#c3e88d" x="328" y="285" text-anchor="middle">output</text>
+
+  <!-- ── Center arrow ── -->
+  <line x1="375" y1="150" x2="415" y2="150" class="arrow"/>
+
+  <!-- ── Benefits (right) ── -->
+  <!-- Validation -->
+  <rect x="425" y="60" width="340" height="72" rx="8" class="benefit"/>
+  <rect x="425" y="60" width="5" height="72" rx="3" fill="#009688"/>
+  <text class="heading" x="445" y="82" fill="#4db6ac">Validación Automática</text>
+  <text class="label" x="445" y="100">FastAPI rechaza</text>
+  <text class="code" x="445" y="117">id="abc"</text>
+  <text class="label" x="510" y="117"> → 422 Unprocessable Entity</text>
+
+  <!-- Conversion -->
+  <rect x="425" y="142" width="340" height="72" rx="8" class="benefit"/>
+  <rect x="425" y="142" width="5" height="72" rx="3" fill="#5c6bc0"/>
+  <text class="heading" x="445" y="164" fill="#9fa8da">Conversión de Tipos</text>
+  <text class="label" x="445" y="182">URL recibe string</text>
+  <text class="code" x="445" y="199">"42"</text>
+  <text class="label" x="475" y="199"> → convierte a </text>
+  <text class="hint" x="567" y="199">int</text>
+  <text class="label" x="583" y="199"> automáticamente</text>
+
+  <!-- Docs -->
+  <rect x="425" y="224" width="340" height="72" rx="8" class="benefit"/>
+  <rect x="425" y="224" width="5" height="72" rx="3" fill="#e91e63"/>
+  <text class="heading" x="445" y="246" fill="#f48fb1">Documentación OpenAPI</text>
+  <text class="label" x="445" y="264">Genera Swagger UI en</text>
+  <text class="code" x="445" y="281">/docs</text>
+  <text class="label" x="488" y="281"> sin ninguna configuración</text>
+
+  <!-- IDE -->
+  <rect x="425" y="306" width="340" height="52" rx="8" class="benefit"/>
+  <rect x="425" y="306" width="5" height="52" rx="3" fill="#f57f17"/>
+  <text class="heading" x="445" y="326" fill="#ffcc02">Autocompletado en el IDE</text>
+  <text class="label" x="445" y="344">Tu editor conoce los tipos exactos</text>
+</svg>
